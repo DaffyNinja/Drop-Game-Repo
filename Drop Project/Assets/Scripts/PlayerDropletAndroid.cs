@@ -17,6 +17,11 @@ public class PlayerDropletAndroid : MonoBehaviour
     //public Button leftButton;
     //public Button rightButton;
 
+    [Header("Touch")]
+    public float screenPosX;
+
+    Vector2 touchPos;
+
     [Space(5)]
     public GameMaster gMaster;
 
@@ -57,6 +62,37 @@ public class PlayerDropletAndroid : MonoBehaviour
         rig2D.velocity = new Vector2(rig2D.velocity.x, fallQauntity.y);
 
 
+        //Touch Controls
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+        {
+            touchPos = Input.GetTouch(0).position;
+        }
+        else
+        {
+            touchPos = new Vector2(0, 0);
+
+            moveRight = false;
+            moveLeft = false;
+        }
+
+        if (touchPos.x > screenPosX)
+        {
+            print("Right");
+
+            moveRight = true;
+            moveLeft = false;
+
+        }
+        else if (touchPos.x < screenPosX && touchPos.x > 0)
+        {
+            print("Left");
+
+            moveLeft = true;
+            moveRight = false;
+        }
+
+        // End
+
     }
 
 
@@ -71,7 +107,7 @@ public class PlayerDropletAndroid : MonoBehaviour
         }
 
     }
-   
+
 
 
 
