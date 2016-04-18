@@ -10,12 +10,12 @@ public class PlayerDropletAndroid : MonoBehaviour
     public float quickSpeed;
     public float slowSpeed;
 
-    bool moveLeft;
-    bool moveRight;
+    public bool moveLeft;
+    public bool moveRight;
 
-    [Space(5)]
-    public Button leftButton;
-    public Button rightButton;
+    //[Space(5)]
+    //public Button leftButton;
+    //public Button rightButton;
 
     [Space(5)]
     public GameMaster gMaster;
@@ -59,39 +59,6 @@ public class PlayerDropletAndroid : MonoBehaviour
 
     }
 
-    // Button Input
-    public void RightButtonVoid()
-    {
-        //print("Right");
-
-        moveRight = true;
-        moveLeft = false;
-
-        //Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
-        //  rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
-    }
-
-    public void LeftButtonVoid()
-    {
-        // print("Left");
-
-        moveLeft = true;
-        moveRight = false;
-
-
-        // Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
-        // rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
-    }
-
-    public void ButtonUpVoid()
-    {
-        moveLeft = false;
-        moveRight = false;
-
-    }
-    // Button input end
 
     void OnTriggerEnter2D(Collider2D col)
     {
