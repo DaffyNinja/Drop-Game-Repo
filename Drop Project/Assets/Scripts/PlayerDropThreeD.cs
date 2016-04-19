@@ -12,6 +12,8 @@ public class PlayerDropThreeD : MonoBehaviour
     public bool moveLeft;
     public bool moveRight;
 
+    float startingFallSpeed;
+
 
     [Header("Touch")]
     public float screenPosX;
@@ -29,6 +31,18 @@ public class PlayerDropThreeD : MonoBehaviour
     public bool isLarge;
 
 
+    [Header("Droplet Pickup")]
+    public float fallSpeedIncrease;
+    public float sizeIncrease;
+
+    public float timeTillDecrease;
+    public bool obtainedDrop;
+
+    float dropTimer;
+    Vector3 startingSize;
+    
+
+
 
 
     Rigidbody rig;
@@ -39,11 +53,16 @@ public class PlayerDropThreeD : MonoBehaviour
     {
         rig = GetComponent<Rigidbody>();
 
+        startingSize = transform.localScale;
+
+        startingFallSpeed = fallSpeed;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
 
 
         // Touch
@@ -112,6 +131,24 @@ public class PlayerDropThreeD : MonoBehaviour
             }
         }
 
+        if (obtainedDrop)
+        {
+            dropTimer += Time.deltaTime;
+
+            if (dropTimer >= timeTillDecrease)
+            {
+                transform.localScale = startingSize;
+
+                fallSpeed = startingFallSpeed;
+
+                obtainedDrop = false;
+
+            }
+        }
+        else if (!obtainedDrop)
+        {
+            dropTimer = 0;
+        }
 
         if (isLarge == true)
         {
@@ -142,7 +179,7 @@ public class PlayerDropThreeD : MonoBehaviour
         if (col.gameObject.tag == "Dry" && isLarge == true)
         {
             Destroy(col.gameObject);
-            
+
         }
 
     }
@@ -152,6 +189,19 @@ public class PlayerDropThreeD : MonoBehaviour
         if (col.gameObject.tag == "Large Drop")
         {
             isLarge = true;
+
+            Destroy(col.gameObject);
+        }
+
+
+        if (col.gameObject.tag == "Drop Pick")
+        {
+
+            obtainedDrop = true;
+
+            transform.localScale = new Vector3(transform.localScale.x + sizeIncrease, transform.localScale.y + sizeIncrease, transform.localScale.z + sizeIncrease);
+
+            fallSpeed += fallSpeedIncrease;
 
             Destroy(col.gameObject);
         }
