@@ -12,9 +12,6 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public float cameraOrthSize;
 
-    
-
-
     Camera cam;
 
     // Use this for initialization

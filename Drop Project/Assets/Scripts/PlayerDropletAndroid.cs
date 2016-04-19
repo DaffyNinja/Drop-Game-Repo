@@ -77,7 +77,7 @@ public class PlayerDropletAndroid : MonoBehaviour
 
         if (touchPos.x > screenPosX)
         {
-            print("Right");
+           // print("Right");
 
             moveRight = true;
             moveLeft = false;
@@ -85,7 +85,7 @@ public class PlayerDropletAndroid : MonoBehaviour
         }
         else if (touchPos.x < screenPosX && touchPos.x > 0)
         {
-            print("Left");
+           // print("Left");
 
             moveLeft = true;
             moveRight = false;
