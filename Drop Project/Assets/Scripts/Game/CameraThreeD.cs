@@ -9,6 +9,8 @@ public class CameraThreeD : MonoBehaviour {
     [Space(5)]
     public Transform playerTrans;
 
+    PlayerDropThreeD playerDrop;
+
     Rigidbody rig;
 
 
@@ -23,6 +25,8 @@ public class CameraThreeD : MonoBehaviour {
         rig = GetComponent<Rigidbody>();
 
         transform.position = new Vector3(transform.position.x, playerTrans.position.y + 4, transform.position.z);
+
+        playerDrop = playerTrans.GetComponent<PlayerDropThreeD>();
 
     }
 	
@@ -43,6 +47,11 @@ public class CameraThreeD : MonoBehaviour {
         else if (viewPos.y < camDownDis)
         {
             print("Down");
+        }
+
+        if (playerDrop.isLarge == true)
+        {
+            transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + 5, playerTrans.position.z - 7); 
         }
 
 

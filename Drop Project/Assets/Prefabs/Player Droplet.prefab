@@ -164,6 +164,12 @@ MonoBehaviour:
   moveLeft: 0
   moveRight: 0
   screenPosX: 150
+  pcControls: 1
+  touchControls: 0
+  largeFallSpeed: 4.5
+  largeLeftRightSpeed: 0
+  dropScale: {x: 2.5, y: 2.5, z: 2.5}
+  isLarge: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
