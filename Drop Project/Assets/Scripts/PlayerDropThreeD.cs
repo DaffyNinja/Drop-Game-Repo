@@ -12,11 +12,15 @@ public class PlayerDropThreeD : MonoBehaviour
     public bool moveLeft;
     public bool moveRight;
 
+    public bool moveUp;
+    public bool moveDown;
+
     float startingFallSpeed;
 
 
     [Header("Touch")]
     public float screenPosX;
+    public float screenPosY;
 
     [Space(5)]
     public bool pcControls;
@@ -68,20 +72,7 @@ public class PlayerDropThreeD : MonoBehaviour
         // Touch
         if (touchControls)
         {
-            if (moveRight)
-            {
-                Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-                // moveRight = false;
-            }
-            else if (moveLeft)
-            {
-
-                Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-                //moveLeft = false;
-
-            }
+           
 
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
@@ -110,6 +101,45 @@ public class PlayerDropThreeD : MonoBehaviour
                 moveLeft = true;
                 moveRight = false;
             }
+
+            if (touchPos.y >= screenPosY)
+            {
+                print("Up");
+            }
+            else if (touchPos.y < screenPosY && touchPos.y > 0)
+            {
+                print("Down");
+            }
+            else if (touchPos.y == screenPosY)
+            {
+                print("Middle");
+            }
+
+
+            if (moveRight)
+            {
+                Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
+                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                // moveRight = false;
+            }
+            else if (moveLeft)
+            {
+
+                Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
+                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                //moveLeft = false;
+
+            }
+
+            if (moveUp)
+            {
+
+            }
+            else if (moveDown)
+            {
+
+            }
+            
         }
 
         // End
