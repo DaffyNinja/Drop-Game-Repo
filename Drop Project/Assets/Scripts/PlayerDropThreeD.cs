@@ -8,6 +8,8 @@ public class PlayerDropThreeD : MonoBehaviour
 
     public float fallSpeed;
     public float leftRightspeed;
+    public float slowSpeed;
+    public float quickSpeed;
 
     public bool moveLeft;
     public bool moveRight;
@@ -20,7 +22,12 @@ public class PlayerDropThreeD : MonoBehaviour
 
     [Header("Touch")]
     public float screenPosX;
-    public float screenPosY;
+    //public float screenPosY;
+    public float upScreenPos;
+    public float downScreenPos;
+
+
+    public float midScreenPos;
 
     [Space(5)]
     public bool pcControls;
@@ -44,7 +51,7 @@ public class PlayerDropThreeD : MonoBehaviour
 
     float dropTimer;
     Vector3 startingSize;
-    
+
 
 
 
@@ -72,7 +79,7 @@ public class PlayerDropThreeD : MonoBehaviour
         // Touch
         if (touchControls)
         {
-           
+
 
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
@@ -102,18 +109,30 @@ public class PlayerDropThreeD : MonoBehaviour
                 moveRight = false;
             }
 
-            if (touchPos.y >= screenPosY)
+            if (touchPos.y > upScreenPos)
             {
-                print("Up");
+                //print("Up");
+               
+                 moveUp = true;
+                 moveDown = false;
+
             }
-            else if (touchPos.y < screenPosY && touchPos.y > 0)
+            else if (touchPos.y < downScreenPos && touchPos.y > 0)
             {
-                print("Down");
+                //print("Down");
+
+                 moveDown = true;
+                 moveUp = false;
             }
-            else if (touchPos.y == screenPosY)
+            else if (touchPos.y < upScreenPos && touchPos.y > downScreenPos && touchPos.y > 0)
             {
-                print("Middle");
+               // print("Middle");
+
+                moveDown = false;
+                moveUp = false;
             }
+
+
 
 
             if (moveRight)
@@ -133,13 +152,23 @@ public class PlayerDropThreeD : MonoBehaviour
 
             if (moveUp)
             {
+                Vector2 moveQauntity = new Vector2(0, -slowSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
 
             }
             else if (moveDown)
             {
 
+                Vector2 moveQauntity = new Vector2(0, -quickSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
             }
-            
+            else
+            {
+
+                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+            }
+
         }
 
         // End
@@ -187,9 +216,7 @@ public class PlayerDropThreeD : MonoBehaviour
         }
 
 
-        Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-        rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
+        
 
 
 
