@@ -1639,18 +1639,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1727825113}
-    - target: {fileID: 11414904, guid: f06decb48b769ff40bfa554405970835, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 166392, guid: f06decb48b769ff40bfa554405970835, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 137842, guid: f06decb48b769ff40bfa554405970835, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}
   m_IsPrefabParent: 0

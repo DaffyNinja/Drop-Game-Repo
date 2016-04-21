@@ -5,25 +5,19 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
-    public void PlayButton()
-    {
-       // SceneManager.LoadScene(1);
-    }
-
     public void Level1Button()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void Leve2Button()
+    public void Level2Button()
     {
         SceneManager.LoadScene(2);
     }
 
-    public void QuitButton()
+    public void Level3Buttton()
     {
-        Application.Quit();
+        SceneManager.LoadScene(3);
     }
-
 
 }

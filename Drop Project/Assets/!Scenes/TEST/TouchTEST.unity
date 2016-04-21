@@ -191,17 +191,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11407996, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
-      propertyPath: slowSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407996, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
-      propertyPath: quickSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11407996, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
-      propertyPath: fallSpeed
-      value: 1.5
+    - target: {fileID: 188680, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
@@ -376,12 +368,12 @@ GameObject:
   - 222: {fileID: 1397814836}
   - 114: {fileID: 1397814835}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Test Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1397814834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -505,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1545024076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -563,8 +555,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2023157609}
-        m_MethodName: ButtonTest
+      - m_Target: {fileID: 1753614205}
+        m_MethodName: QuitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -702,6 +694,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1753614204
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.7213688
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -9.944959
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443650, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463462, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463462, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+      propertyPath: testText
+      value: 
+      objectReference: {fileID: 1397814835}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9e31d451dd3533f488bbbcfd87fda6c0, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1753614205 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11463462, guid: 9e31d451dd3533f488bbbcfd87fda6c0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1753614204}
+  m_Script: {fileID: 11500000, guid: 37191def61b96d042825ef048b581621, type: 3}
 --- !u!1 &2023157607
 GameObject:
   m_ObjectHideFlags: 0

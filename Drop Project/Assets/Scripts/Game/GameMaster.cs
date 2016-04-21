@@ -10,6 +10,8 @@ public class GameMaster : MonoBehaviour
 
     public Text goldText;
 
+    public Text testText;
+
     public bool debug;  
 
     // Use this for initialization
@@ -24,16 +26,40 @@ public class GameMaster : MonoBehaviour
         if (!debug)
         {
             goldText.text = goldNum.ToString();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
 
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+
+            }
         }
+
+        //if (Input.GetKey(KeyCode.Escape))
+        //{
+        //    print("Back");
+
+        //    testText.text = "Back";
+
+        //}
+        //else if (Input.GetKey(KeyCode.Menu))
+        //{
+        //    //print("Menu");
+
+        //    Debug.Log("Menu");
+
+        //    testText.text = "Menu";
+
+        //    // Application.Quit();
+        //}
+
+
+
+
 
 
     }
