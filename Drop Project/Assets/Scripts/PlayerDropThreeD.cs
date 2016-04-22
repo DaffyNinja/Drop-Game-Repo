@@ -157,8 +157,6 @@ public class PlayerDropThreeD : MonoBehaviour
 
                 GetComponentInChildren<Renderer>().material.color = Color.red;
 
-                
-
             }
             else if (moveDown)
             {
@@ -197,6 +195,33 @@ public class PlayerDropThreeD : MonoBehaviour
                 Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
             }
+
+            //if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            //{
+            //    Vector2 moveQauntity = new Vector2(0, -quickSpeed);
+            //    rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+            //    GetComponentInChildren<Renderer>().material.color = Color.green;
+
+            //}
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                Vector2 moveQauntity = new Vector2(0, -slowSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.red;
+
+            }
+            else
+            {
+                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.yellow;
+            }
+
+          
+
         }
 
         if (obtainedDrop)
