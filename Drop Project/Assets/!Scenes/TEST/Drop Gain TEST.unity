@@ -1019,7 +1019,7 @@ Transform:
   - {fileID: 482948199}
   - {fileID: 1468215742}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 15
 --- !u!1001 &898057067
 Prefab:
   m_ObjectHideFlags: 0
@@ -1126,7 +1126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
 --- !u!1001 &1006410289
 Prefab:
   m_ObjectHideFlags: 0
@@ -1211,6 +1211,14 @@ Prefab:
     - target: {fileID: 473656, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407996, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
+      propertyPath: touchControls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407996, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}
+      propertyPath: pcControls
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11a05acfc150e65488ecb2f1673a42e5, type: 2}

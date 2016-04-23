@@ -9,7 +9,7 @@ public class CameraThreeD : MonoBehaviour {
     [Space(5)]
     public Transform playerTrans;
 
-    PlayerDropThreeD playerDrop;
+    PlayerDroplet playerDrop;
 
     Rigidbody rig;
 
@@ -26,7 +26,7 @@ public class CameraThreeD : MonoBehaviour {
 
         transform.position = new Vector3(transform.position.x, playerTrans.position.y + 4, transform.position.z);
 
-        playerDrop = playerTrans.GetComponent<PlayerDropThreeD>();
+        playerDrop = playerTrans.GetComponent<PlayerDroplet>();
 
     }
 	

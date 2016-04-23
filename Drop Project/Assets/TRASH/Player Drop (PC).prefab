@@ -75,10 +75,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 1.5
   leftRightspeed: 2
-  quickSpeed: 3
   slowSpeed: 0.5
+  screenPosX: 0
+  upScreenPos: 0
+  midScreenPos: 0
+  moveRight: 0
+  moveLeft: 0
+  moveUp: 0
+  pcControls: 0
+  touchControls: 0
   splitPosX: 0
   canSplit: 0
+  largeFallSpeed: 0
+  largeLeftRightSpeed: 0
+  dropScale: {x: 0, y: 0, z: 0}
+  isLarge: 0
+  fallSpeedIncrease: 0
+  sizeIncrease: 0
+  timeTillDecrease: 0
+  obtainedDrop: 0
   gMaster: {fileID: 0}
 --- !u!212 &21239542
 SpriteRenderer:

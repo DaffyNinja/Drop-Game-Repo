@@ -53,9 +53,6 @@ public class PlayerDropThreeD : MonoBehaviour
     Vector3 startingSize;
 
 
-
-
-
     Rigidbody rig;
 
 
