@@ -222,11 +222,15 @@ public class PlayerDroplet : MonoBehaviour
             {
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.red;
             }
             else
             {
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
         }
 

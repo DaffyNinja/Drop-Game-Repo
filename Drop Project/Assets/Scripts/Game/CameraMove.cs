@@ -11,7 +11,7 @@ public class CameraMove : MonoBehaviour
     public float disY;
     public float disZ;
     [Space(5)]
-    public float cameraPerSize;
+    public float cameraFOVSize;
     [Space(5)]
     public Transform playerTrans;
     Vector3 playerPos;
@@ -30,16 +30,19 @@ public class CameraMove : MonoBehaviour
         cam = GetComponent<Camera>();
         rig = GetComponent<Rigidbody>();
 
+        cam.fieldOfView = cameraFOVSize;
+
         playerPos = playerTrans.position;
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
 
-        transform.position = new Vector3(transform.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
+        transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+      
 
         rig.AddForce(0, -speed, 0);
 
