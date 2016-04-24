@@ -7,7 +7,8 @@ public class CameraMove : MonoBehaviour
     public float rigSpeed;
     [Space(5)]
     public bool transMove;
-    public float transSpeed; 
+    public float transSpeed;
+    public float smoothness;
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
