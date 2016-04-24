@@ -46,7 +46,7 @@ public class CameraMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
 
@@ -56,10 +56,8 @@ public class CameraMove : MonoBehaviour
         }
         else if (transMove)
         {
-            // transform.Translate(0, -transSpeed * Time.deltaTime, 0);
-
-           this.transform.Translate(Vector3.up * -transSpeed * Time.deltaTime,0);
-        }                                  
+            this.transform.Translate(Vector3.down * transSpeed * Time.deltaTime,0);
+        }
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 
