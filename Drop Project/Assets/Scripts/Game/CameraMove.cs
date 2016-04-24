@@ -3,7 +3,12 @@ using System.Collections;
 
 public class CameraMove : MonoBehaviour
 {
-    public float speed;
+    public bool rigMove;
+    public float rigSpeed;
+    [Space(5)]
+    public bool transMove;
+    public float transSpeed; 
+    [Space(5)]
     public float camUpDis;
     public float camDownDis;
     [Space(5)]
@@ -42,9 +47,18 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
 
-        rig.AddForce(0, -speed, 0);
+
+        if (rigMove)
+        {
+            rig.AddForce(0, -rigSpeed, 0);
+        }
+        else if (transMove)
+        {
+            // transform.Translate(0, -transSpeed * Time.deltaTime, 0);
+
+           this.transform.Translate(Vector3.up * -transSpeed * Time.deltaTime,0);
+        }                                  
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 

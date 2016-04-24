@@ -20,6 +20,11 @@ public class PlayerDroplet : MonoBehaviour
     public bool moveLeft;
     public bool moveUp;
 
+    [Space(5)]
+    public float quickSpeed;
+    public bool canMoveDown;
+    public bool moveDown;
+
     Vector2 touchPos;
 
     [Space(5)]
@@ -190,6 +195,13 @@ public class PlayerDroplet : MonoBehaviour
                 GetComponentInChildren<Renderer>().material.color = Color.red;
 
             }
+            else if (canMoveDown && moveDown)
+            {
+                Vector2 moveQauntity = new Vector2(0, -quickSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.green;
+            }
             else
             {
 
@@ -224,6 +236,13 @@ public class PlayerDroplet : MonoBehaviour
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
 
                 GetComponentInChildren<Renderer>().material.color = Color.red;
+            }
+            else if (canMoveDown && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                Vector2 moveQauntity = new Vector2(0, -quickSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+                GetComponentInChildren<Renderer>().material.color = Color.green;
             }
             else
             {
