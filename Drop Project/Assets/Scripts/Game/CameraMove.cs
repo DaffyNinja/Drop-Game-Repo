@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public bool transMove;
     public float transSpeed;
-    public float smoothness;
+ //   public float smoothness;
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
@@ -20,7 +20,7 @@ public class CameraMove : MonoBehaviour
     public float cameraFOVSize;
     [Space(5)]
     public Transform playerTrans;
-    Vector3 playerPos;
+   // Vector3 playerPos;
 
 
     PlayerDroplet playerDrop;
@@ -38,7 +38,7 @@ public class CameraMove : MonoBehaviour
 
         cam.fieldOfView = cameraFOVSize;
 
-        playerPos = playerTrans.position;
+      //  playerPos = playerTrans.position;
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
 
         transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
@@ -64,6 +64,8 @@ public class CameraMove : MonoBehaviour
         if (viewPos.y > camUpDis)
         {
             print("Up");
+
+            
         }
         else if (viewPos.y < camDownDis)
         {

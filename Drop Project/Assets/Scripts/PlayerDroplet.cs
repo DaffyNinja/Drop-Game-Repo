@@ -5,11 +5,12 @@ public class PlayerDroplet : MonoBehaviour
 {
 
     public float fallSpeed;
-    public float leftRightspeed;
+    public float leftRightSpeed;
     public float slowSpeed;
+    public float slowLRSpeed;
 
-    float startSpeed;
     float startingFallSpeed;
+    float startingLRSpeed;
 
     [Header("Touch")]
     public float screenPosX;
@@ -20,10 +21,7 @@ public class PlayerDroplet : MonoBehaviour
     public bool moveLeft;
     public bool moveUp;
 
-    [Space(5)]
-    public float quickSpeed;
-    public bool canMoveDown;
-    public bool moveDown;
+
 
     Vector2 touchPos;
 
@@ -71,6 +69,8 @@ public class PlayerDroplet : MonoBehaviour
         startingSize = transform.localScale;
 
         startingFallSpeed = fallSpeed;
+
+        startingLRSpeed = leftRightSpeed;
 
     }
 
@@ -174,14 +174,14 @@ public class PlayerDroplet : MonoBehaviour
 
             if (moveRight)
             {
-                Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
+                Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
                 // moveRight = false;
             }
             else if (moveLeft)
             {
 
-                Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
+                Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
                 //moveLeft = false;
 
@@ -192,15 +192,10 @@ public class PlayerDroplet : MonoBehaviour
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
 
+               
+
                 GetComponentInChildren<Renderer>().material.color = Color.red;
 
-            }
-            else if (canMoveDown && moveDown)
-            {
-                Vector2 moveQauntity = new Vector2(0, -quickSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
-
-                GetComponentInChildren<Renderer>().material.color = Color.green;
             }
             else
             {
@@ -219,35 +214,32 @@ public class PlayerDroplet : MonoBehaviour
             // PC || Left Right                                                       
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
+                Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
 
-                Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
+                Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
             }
 
-            // Down Up and Fall
+            // Up and Fall
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
 
-                GetComponentInChildren<Renderer>().material.color = Color.red;
-            }
-            else if (canMoveDown && Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            {
-                Vector2 moveQauntity = new Vector2(0, -quickSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+                leftRightSpeed = slowLRSpeed;
 
-                GetComponentInChildren<Renderer>().material.color = Color.green;
+                GetComponentInChildren<Renderer>().material.color = Color.red;
             }
             else
             {
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                leftRightSpeed = startingLRSpeed;
 
                 GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
