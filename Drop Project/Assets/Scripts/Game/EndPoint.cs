@@ -5,17 +5,15 @@ using System.Collections;
 public class EndPoint : MonoBehaviour
 {
 
-
     void OnTriggerEnter(Collider col)
     {
 
         if (col.gameObject.tag == "Player")
         {
 
-            print("End");
+            //print("End");
 
-           // SceneManager.LoadScene(0);
-
+            SceneManager.LoadScene(0);
 
         }
 

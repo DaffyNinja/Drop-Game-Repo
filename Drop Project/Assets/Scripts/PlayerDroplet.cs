@@ -129,7 +129,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (touchControls)
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
                 touchPos = Input.GetTouch(0).position;
             }

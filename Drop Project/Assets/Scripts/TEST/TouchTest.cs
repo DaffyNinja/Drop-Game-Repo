@@ -24,7 +24,7 @@ public class TouchTest : MonoBehaviour
     void Update()
     {
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
 
             touchPos = Input.GetTouch(0).position;
@@ -33,29 +33,29 @@ public class TouchTest : MonoBehaviour
         {
             touchPos = new Vector2(0, 0);
 
-            playerAnd.moveRight = false;
-            playerAnd.moveLeft = false;
+            //  playerAnd.moveRight = false;
+            // playerAnd.moveLeft = false;
         }
 
         if (touchPos.x > screenPosX)
         {
             print("Right");
 
-            playerAnd.moveRight = true;
-            playerAnd.moveLeft = false;
+            // playerAnd.moveRight = true;
+            // playerAnd.moveLeft = false;
 
         }
-        else if(touchPos.x < screenPosX && touchPos.x > 0)
+        else if (touchPos.x < screenPosX && touchPos.x > 0)
         {
             print("Left");
 
-            playerAnd.moveLeft = true;
-            playerAnd.moveRight = false;
+            // playerAnd.moveLeft = true;
+            // playerAnd.moveRight = false;
         }
 
 
 
-       // print(touchPos.ToString());
+        // print(touchPos.ToString());
 
     }
 
