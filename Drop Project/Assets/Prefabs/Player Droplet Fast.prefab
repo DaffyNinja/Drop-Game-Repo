@@ -160,25 +160,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 5
-  leftRightspeed: 5.5
-  slowSpeed: 0.5
-  screenPosX: 150
+  leftRightSpeed: 5.75
+  slowSpeed: 2.5
+  slowLRSpeed: 8
+  screenPosX: 185
   upScreenPos: 450
   midScreenPos: 135
   moveRight: 0
   moveLeft: 0
   moveUp: 0
-  quickSpeed: 0
-  canMoveDown: 0
-  moveDown: 0
   pcControls: 1
   touchControls: 1
   splitPosX: 0
   canSplit: 0
-  largeFallSpeed: 4.5
-  largeLeftRightSpeed: 2.5
+  largeFallSpeed: 8
+  largeLeftRightSpeed: 3.5
   dropScale: {x: 2.5, y: 2.5, z: 2.5}
   isLarge: 0
+  largeDropTime: 3
   fallSpeedIncrease: 2.5
   sizeIncrease: 0.25
   timeTillDecrease: 1.2

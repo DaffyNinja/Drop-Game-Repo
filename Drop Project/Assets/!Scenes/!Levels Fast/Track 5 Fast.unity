@@ -1615,37 +1615,9 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: leftRightspeed
-      value: 5.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: slowSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: leftRightSpeed
-      value: 5.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: slowLRSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
       propertyPath: gMaster
       value: 
       objectReference: {fileID: 1478606414}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: largeFallSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: largeLeftRightSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493404, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
-      propertyPath: largeDropTime
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffdfa042b57ed9042878a14e0addd767, type: 2}
   m_IsPrefabParent: 0
