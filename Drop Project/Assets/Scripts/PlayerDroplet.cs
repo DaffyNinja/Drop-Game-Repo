@@ -121,6 +121,15 @@ public class PlayerDroplet : MonoBehaviour
             LargeDropVoid();
 
         }
+        else
+        {
+
+            fallSpeed = startingFallSpeed;
+            leftRightSpeed = startingLRSpeed;
+            transform.localScale = startingSize;
+
+
+        }
 
 
        // print(canSplit.ToString());
@@ -277,6 +286,8 @@ public class PlayerDroplet : MonoBehaviour
         transform.localScale = dropScale;
 
         fallSpeed = largeFallSpeed;
+
+        GetComponentInChildren<Renderer>().material.color = Color.white;
 
         largeTimer += Time.deltaTime;
 

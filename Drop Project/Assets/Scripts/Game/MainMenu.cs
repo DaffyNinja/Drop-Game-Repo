@@ -25,4 +25,9 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(4);
     }
 
+    public void Level5Buttton()
+    {
+        SceneManager.LoadScene(5);
+    }
+
 }
