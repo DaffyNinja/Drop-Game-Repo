@@ -41,6 +41,9 @@ public class PlayerDroplet : MonoBehaviour
     public float largeLeftRightSpeed;
     public Vector3 dropScale;
     public bool isLarge;
+    [Space(5)]
+    public float largeDropTime;
+    float largeTimer;
 
 
     [Header("Droplet Pickup")]
@@ -274,6 +277,15 @@ public class PlayerDroplet : MonoBehaviour
         transform.localScale = dropScale;
 
         fallSpeed = largeFallSpeed;
+
+        largeTimer += Time.deltaTime;
+
+        if (largeTimer >= largeDropTime)
+        {
+
+            largeTimer = 0;
+            isLarge = false;
+        }
 
         //isLarge = false;
     }
