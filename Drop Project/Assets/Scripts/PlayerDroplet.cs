@@ -48,7 +48,8 @@ public class PlayerDroplet : MonoBehaviour
 
     [Header("Droplet Pickup")]
     public float fallSpeedIncrease;
-    public float sizeIncrease;
+    public Vector3 speedSize;
+   // public float sizeIncrease;
 
     public float timeTillDecrease;
     public bool obtainedDrop;
@@ -97,19 +98,12 @@ public class PlayerDroplet : MonoBehaviour
             canSplit = false;
         }
 
-        if (obtainedDrop)
+        if (obtainedDrop == true)
         {
-            dropTimer += Time.deltaTime;
+            print("Obtained Drop");
 
-            if (dropTimer >= timeTillDecrease)
-            {
-                transform.localScale = startingSize;
-
-                fallSpeed = startingFallSpeed;
-
-                obtainedDrop = false;
-
-            }
+            SpeedDroplet();
+           
         }
         else if (!obtainedDrop)
         {
@@ -119,16 +113,12 @@ public class PlayerDroplet : MonoBehaviour
         if (isLarge == true)
         {
             LargeDropVoid();
-
         }
-        else
+        else if (isLarge == false && obtainedDrop == false)
         {
-
             fallSpeed = startingFallSpeed;
             leftRightSpeed = startingLRSpeed;
             transform.localScale = startingSize;
-
-
         }
 
 
@@ -281,6 +271,26 @@ public class PlayerDroplet : MonoBehaviour
 
     }
 
+    void SpeedDroplet()
+    {
+        transform.localScale = speedSize;
+
+        fallSpeed = fallSpeedIncrease;
+
+        dropTimer += Time.deltaTime;
+
+
+        if (dropTimer >= timeTillDecrease)
+        {
+            transform.localScale = startingSize;
+
+            fallSpeed = startingFallSpeed;
+
+            obtainedDrop = false;
+
+        }
+    }
+
     void LargeDropVoid()
     {
         transform.localScale = dropScale;
@@ -323,12 +333,9 @@ public class PlayerDroplet : MonoBehaviour
 
         if (col.gameObject.tag == "Drop Pick")
         {
+            print("Drop");
 
             obtainedDrop = true;
-
-            transform.localScale = new Vector3(transform.localScale.x + sizeIncrease, transform.localScale.y + sizeIncrease, transform.localScale.z + sizeIncrease);
-
-            fallSpeed += fallSpeedIncrease;
 
             Destroy(col.gameObject);
         }
