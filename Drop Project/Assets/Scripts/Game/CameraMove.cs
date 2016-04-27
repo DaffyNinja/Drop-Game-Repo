@@ -20,7 +20,9 @@ public class CameraMove : MonoBehaviour
     public float cameraFOVSize;
     [Space(5)]
     public Transform playerTrans;
-   // Vector3 playerPos;
+    // Vector3 playerPos;
+
+    Vector3 startingPos;
 
 
     PlayerDroplet playerDrop;
@@ -43,12 +45,15 @@ public class CameraMove : MonoBehaviour
 
         transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
 
+       
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
+        startingPos = transform.position;
 
         if (rigMove)
         {
@@ -72,10 +77,14 @@ public class CameraMove : MonoBehaviour
             print("Down");
         }
 
-        if (playerDrop.isLarge == true)
-        {
-            transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + 5, playerTrans.position.z - 7);
-        }
+        //if (playerDrop.isLarge == true)
+        //{
+        //    transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + 5, playerTrans.position.z - 7);
+        //}
+        //else
+        //{
+        //    transform.position = startingPos;
+        //}
 
     }
 
