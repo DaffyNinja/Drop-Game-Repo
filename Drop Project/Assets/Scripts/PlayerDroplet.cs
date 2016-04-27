@@ -100,7 +100,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (obtainedDrop == true)
         {
-            print("Obtained Drop");
+            //print("Obtained Drop");
 
             SpeedDroplet();
            
@@ -333,7 +333,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (col.gameObject.tag == "Drop Pick")
         {
-            print("Drop");
+           // print("Drop");
 
             obtainedDrop = true;
 
