@@ -50,4 +50,9 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(9);
     }
 
+    public void Level10Buttton()
+    {
+        SceneManager.LoadScene(10);
+    }
+
 }
