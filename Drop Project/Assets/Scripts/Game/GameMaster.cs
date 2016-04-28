@@ -64,6 +64,12 @@ public class GameMaster : MonoBehaviour
 
     }
 
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+
     public void QuitButton()
     {
         SceneManager.LoadScene(0);
