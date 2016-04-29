@@ -196,7 +196,7 @@ public class PlayerDroplet : MonoBehaviour
 
                
 
-                GetComponentInChildren<Renderer>().material.color = Color.red;
+               // GetComponentInChildren<Renderer>().material.color = Color.red;
 
             }
             else
@@ -205,7 +205,7 @@ public class PlayerDroplet : MonoBehaviour
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
-                GetComponentInChildren<Renderer>().material.color = Color.yellow;
+              //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
 
         }
@@ -234,7 +234,7 @@ public class PlayerDroplet : MonoBehaviour
 
                 leftRightSpeed = slowLRSpeed;
 
-                GetComponentInChildren<Renderer>().material.color = Color.red;
+               // GetComponentInChildren<Renderer>().material.color = Color.red;
             }
             else
             {
@@ -243,7 +243,8 @@ public class PlayerDroplet : MonoBehaviour
 
                 leftRightSpeed = startingLRSpeed;
 
-                GetComponentInChildren<Renderer>().material.color = Color.yellow;
+                
+                //GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
         }
 
@@ -297,7 +298,7 @@ public class PlayerDroplet : MonoBehaviour
 
         fallSpeed = largeFallSpeed;
 
-        GetComponentInChildren<Renderer>().material.color = Color.white;
+        //GetComponentInChildren<Renderer>().material.color = Color.white;
 
         largeTimer += Time.deltaTime;
 
