@@ -6,6 +6,8 @@ public class PlayerDroplet : MonoBehaviour
 
     public float fallSpeed;
     public float leftRightSpeed;
+
+    public bool canSlowDown;
     public float slowSpeed;
     public float slowLRSpeed;
 
@@ -165,7 +167,7 @@ public class PlayerDroplet : MonoBehaviour
 
                 moveUp = true;
             }
-            else if (touchPos.y < upScreenPos && touchPos.y > 0)
+            else if (touchPos.y < upScreenPos && touchPos.y > 0 && canSlowDown == true)
             {
                 // print("Middle");
                 moveUp = false;
@@ -227,7 +229,7 @@ public class PlayerDroplet : MonoBehaviour
             }
 
             // Up and Fall
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) && canSlowDown == true)
             {
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
