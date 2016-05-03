@@ -43,7 +43,7 @@ public class CameraMove : MonoBehaviour
       //  playerPos = playerTrans.position;
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
 
-        transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
+      //  transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
 
        
 
