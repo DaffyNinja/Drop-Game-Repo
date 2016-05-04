@@ -25,10 +25,12 @@ public class PlayerDroplet : MonoBehaviour
 
 
 
+
     Vector2 touchPos;
 
     [Space(5)]
     public bool pcControls;
+    public bool isChangedAngle;
     public bool touchControls;
 
 
@@ -215,39 +217,76 @@ public class PlayerDroplet : MonoBehaviour
 
         if (pcControls)
         {
-            // PC || Left Right                                                       
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (!isChangedAngle)
             {
-                Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-            }
-            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
+                // PC || Left Right                                                       
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                    Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
+                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                }
+                else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
 
-                Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-            }
+                    Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
+                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                }
 
-            // Up and Fall
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) && canSlowDown == true)
-            {
-                Vector2 moveQauntity = new Vector2(0, -slowSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
-
-                leftRightSpeed = slowLRSpeed;
-
-               // GetComponentInChildren<Renderer>().material.color = Color.red;
-            }
-            else
-            {
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 leftRightSpeed = startingLRSpeed;
 
-                
-                //GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
+            else
+            {
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                {
+                   // Vector3 moveQauntity = new Vector3(0, 0,leftRightSpeed);
+                   // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y,moveQauntity.z);
+
+                    transform.Translate(0, 0, 0.05f);
+                  
+                }
+                else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                {
+
+                    //Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
+                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+
+                    transform.Translate(0, 0, -0.05f);
+                }
+
+                // Up and Fall
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                {
+                    //Vector2 moveQauntity = new Vector2(0, -slowSpeed);
+                    //rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+
+                    //leftRightSpeed = slowLRSpeed;
+
+                    transform.Translate(-0.05f, 0, 0);
+
+                    // GetComponentInChildren<Renderer>().material.color = Color.red;
+                }
+                else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+                {
+                    transform.Translate(0.05f, 0, 0);
+                }
+                else
+                {
+                    Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                    rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                    leftRightSpeed = startingLRSpeed;
+
+
+                    //GetComponentInChildren<Renderer>().material.color = Color.yellow;
+                }
+
+            }
+
+         
         }
 
         /* // Xbox Controller
