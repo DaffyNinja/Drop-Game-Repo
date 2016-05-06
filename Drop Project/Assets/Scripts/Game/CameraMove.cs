@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public bool transMove;
     public float transSpeed;
- //   public float smoothness;
+    //   public float smoothness;
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
@@ -24,6 +24,8 @@ public class CameraMove : MonoBehaviour
 
     Vector3 startingPos;
 
+    bool canChange;
+
 
     PlayerDroplet playerDrop;
 
@@ -35,17 +37,19 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
 
+        canChange = true;
+
         cam = GetComponent<Camera>();
         rig = GetComponent<Rigidbody>();
 
         cam.fieldOfView = cameraFOVSize;
 
-      //  playerPos = playerTrans.position;
+        //  playerPos = playerTrans.position;
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
 
-      //  transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
+        //  transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
 
-       
+
 
     }
 
@@ -61,35 +65,36 @@ public class CameraMove : MonoBehaviour
         }
         else if (transMove)
         {
-            this.transform.Translate(Vector3.down * transSpeed * Time.deltaTime,0);
+            this.transform.Translate(Vector3.down * transSpeed * Time.deltaTime, 0);
         }
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 
         if (viewPos.y > camUpDis)
         {
-           // print("Up");
+            // print("Up");
 
-            
+
         }
         else if (viewPos.y < camDownDis)
         {
-           // print("Down");
-        }  
-
-        if (playerDrop.isChangedAngle == false)
-        {
-            print("Change");
+            // print("Down");
         }
 
-        //if (playerDrop.isLarge == true)
-        //{
-        //    transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + 5, playerTrans.position.z - 7);
-        //}
-        //else
-        //{
-        //    transform.position = startingPos;
-        //}
+        if (canChange)
+        {
+            if (playerDrop.isChangedAngle == false)
+            {
+
+                print("Change");
+
+                transform.eulerAngles = new Vector3(25, 276, 0);
+
+                transform.position = new Vector3(playerDrop.transform.position.x + 5, playerDrop.transform.position.y, playerDrop.transform.position.z);
+
+                canChange = false;
+            }
+        }
 
     }
 
