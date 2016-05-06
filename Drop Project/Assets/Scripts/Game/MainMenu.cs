@@ -3,7 +3,8 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenu : MonoBehaviour
+{
 
     public void Level1Button()
     {
@@ -54,5 +55,11 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(10);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
 
 }

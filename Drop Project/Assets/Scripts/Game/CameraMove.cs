@@ -68,13 +68,18 @@ public class CameraMove : MonoBehaviour
 
         if (viewPos.y > camUpDis)
         {
-            print("Up");
+           // print("Up");
 
             
         }
         else if (viewPos.y < camDownDis)
         {
-            print("Down");
+           // print("Down");
+        }  
+
+        if (playerDrop.isChangedAngle == false)
+        {
+            print("Change");
         }
 
         //if (playerDrop.isLarge == true)

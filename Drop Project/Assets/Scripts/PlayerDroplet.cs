@@ -35,7 +35,7 @@ public class PlayerDroplet : MonoBehaviour
 
 
     [Header("Split")]
-    public float splitPosX; 
+    public float splitPosX;
     public bool canSplit;
 
     GameObject splitDropObj;
@@ -53,7 +53,7 @@ public class PlayerDroplet : MonoBehaviour
     [Header("Droplet Pickup")]
     public float fallSpeedIncrease;
     public Vector3 speedSize;
-   // public float sizeIncrease;
+    // public float sizeIncrease;
 
     public float timeTillDecrease;
     public bool obtainedDrop;
@@ -107,7 +107,7 @@ public class PlayerDroplet : MonoBehaviour
             //print("Obtained Drop");
 
             SpeedDroplet();
-           
+
         }
         else if (!obtainedDrop)
         {
@@ -126,7 +126,7 @@ public class PlayerDroplet : MonoBehaviour
         }
 
 
-       // print(canSplit.ToString());
+        // print(canSplit.ToString());
 
     }
 
@@ -198,9 +198,9 @@ public class PlayerDroplet : MonoBehaviour
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
 
-               
 
-               // GetComponentInChildren<Renderer>().material.color = Color.red;
+
+                // GetComponentInChildren<Renderer>().material.color = Color.red;
 
             }
             else
@@ -209,7 +209,7 @@ public class PlayerDroplet : MonoBehaviour
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
-              //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
+                //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
             }
 
         }
@@ -222,14 +222,18 @@ public class PlayerDroplet : MonoBehaviour
                 // PC || Left Right                                                       
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
-                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    //Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
+                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+
+                    transform.Translate(0, 0, 0.1f);
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
 
-                    Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    //Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
+                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+
+                    transform.Translate(0, 0, -0.1f);
                 }
 
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
@@ -242,36 +246,39 @@ public class PlayerDroplet : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                   // Vector3 moveQauntity = new Vector3(0, 0,leftRightSpeed);
-                   // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y,moveQauntity.z);
+                    // Vector3 moveQauntity = new Vector3(0, 0, leftRightSpeed);
 
-                    transform.Translate(0, 0, 0.05f);
-                  
+                    // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, 8);
+
+                    transform.Translate(0, 0, 0.1f);
+
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
 
-                    //Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    // Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
+                    // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y,-leftRightSpeed);
 
-                    transform.Translate(0, 0, -0.05f);
+                    transform.Translate(0, 0, -0.1f);
                 }
 
                 // Up and Fall
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    //Vector2 moveQauntity = new Vector2(0, -slowSpeed);
-                    //rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
+                    // Vector2 moveQauntity = new Vector2(0, -slowSpeed);
+                    rig.velocity = new Vector3(-leftRightSpeed, rig.velocity.y, rig.velocity.z);
 
                     //leftRightSpeed = slowLRSpeed;
 
-                    transform.Translate(-0.05f, 0, 0);
+                    // transform.Translate(-0.05f, 0, 0);
 
                     // GetComponentInChildren<Renderer>().material.color = Color.red;
                 }
                 else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    transform.Translate(0.05f, 0, 0);
+                    rig.velocity = new Vector3(leftRightSpeed, rig.velocity.y, rig.velocity.z);
+
+                    // transform.Translate(0.05f, 0, 0);
                 }
                 else
                 {
@@ -286,31 +293,8 @@ public class PlayerDroplet : MonoBehaviour
 
             }
 
-         
-        }
-
-        /* // Xbox Controller
-        if (Input.GetAxis("Horizontal") >= 1)
-        {
-            // print("Right");
-
-            Vector2 moveQauntity = new Vector2(leftRightspeed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
-
 
         }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            // print("Left");
-
-
-            Vector2 moveQauntity = new Vector2(-leftRightspeed, 0);
-            rig2D.velocity = new Vector2(moveQauntity.x, rig2D.velocity.y);
-
-
-        } */
-
     }
 
     void SpeedDroplet()
@@ -366,6 +350,11 @@ public class PlayerDroplet : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
 
+        if (col.gameObject.tag == "Window Trig")
+        {
+            isChangedAngle = false;
+        }
+
         if (col.gameObject.tag == "Large Drop")
         {
             isLarge = true;
@@ -375,7 +364,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (col.gameObject.tag == "Drop Pick")
         {
-           // print("Drop");
+            // print("Drop");
 
             obtainedDrop = true;
 
@@ -397,6 +386,6 @@ public class PlayerDroplet : MonoBehaviour
         {
             canSplit = true;
         }
-   
+
     }
 }

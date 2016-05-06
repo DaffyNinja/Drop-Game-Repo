@@ -156,6 +156,10 @@ Prefab:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
+      propertyPath: fallSpeed
+      value: 7.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50194b370ed5923479c125d5fe604413, type: 2}
   m_IsPrefabParent: 0
@@ -894,6 +898,10 @@ Prefab:
     - target: {fileID: 11486374, guid: e3a5bf504a0fd764cb776ab28469f774, type: 2}
       propertyPath: cameraFOVSize
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486374, guid: e3a5bf504a0fd764cb776ab28469f774, type: 2}
+      propertyPath: transSpeed
+      value: 5.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3a5bf504a0fd764cb776ab28469f774, type: 2}
