@@ -246,49 +246,29 @@ public class PlayerDroplet : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    // Vector3 moveQauntity = new Vector3(0, 0, leftRightSpeed);
-
-                    // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, 8);
-
-                    transform.Translate(0, 0, 0.1f);
+                    Vector3 moveQauntity = new Vector3(0, 0, leftRightSpeed);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, moveQauntity.z);
 
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-
-                    // Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                    // rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y,-leftRightSpeed);
-
-                    transform.Translate(0, 0, -0.1f);
+                    Vector3 moveQauntity = new Vector3(0, 0, -leftRightSpeed);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, moveQauntity.z);
                 }
 
                 // Up and Fall
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    // Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                     rig.velocity = new Vector3(-leftRightSpeed, rig.velocity.y, rig.velocity.z);
-
-                    //leftRightSpeed = slowLRSpeed;
-
-                    // transform.Translate(-0.05f, 0, 0);
-
-                    // GetComponentInChildren<Renderer>().material.color = Color.red;
                 }
                 else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
                     rig.velocity = new Vector3(leftRightSpeed, rig.velocity.y, rig.velocity.z);
-
-                    // transform.Translate(0.05f, 0, 0);
                 }
                 else
                 {
-                    Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-                    rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
-                    leftRightSpeed = startingLRSpeed;
-
-
-                    //GetComponentInChildren<Renderer>().material.color = Color.yellow;
+                    Vector3 fallQauntity = new Vector3(0, -fallSpeed, 0);
+                    rig.velocity = new Vector3(rig.velocity.x, fallQauntity.y, rig.velocity.z);
                 }
 
             }
