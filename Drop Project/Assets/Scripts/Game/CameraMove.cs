@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CameraMove : MonoBehaviour
 {
-    public bool rigMove;
-    public float rigSpeed;
+    public float freeFallSpeed;
+    public float windowSpeed;
     [Space(5)]
     public bool transMove;
     public float transSpeed;
@@ -48,9 +48,6 @@ public class CameraMove : MonoBehaviour
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
 
         //  transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
-
-
-
     }
 
     // Update is called once per frame
@@ -58,15 +55,6 @@ public class CameraMove : MonoBehaviour
     {
 
         startingPos = transform.position;
-
-        if (rigMove)
-        {
-            rig.AddForce(0, -rigSpeed, 0);
-        }
-        else if (transMove)
-        {
-            this.transform.Translate(Vector3.down * transSpeed * Time.deltaTime, 0);
-        }
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 
@@ -83,17 +71,27 @@ public class CameraMove : MonoBehaviour
 
         if (canChange)
         {
-            if (playerDrop.isChangedAngle == false)
+            if (playerDrop.isFreefall == false)
             {
-
-                print("Change");
 
                 transform.eulerAngles = new Vector3(25, 276, 0);
 
-                transform.position = new Vector3(playerDrop.transform.position.x + 5, playerDrop.transform.position.y, playerDrop.transform.position.z);
+                transform.position = new Vector3(playerDrop.transform.position.x + 5, playerDrop.transform.position.y + 2, playerDrop.transform.position.z);
 
                 canChange = false;
             }
+            else
+            {
+                rig.AddForce(0, -freeFallSpeed, 0);
+            }
+
+        }
+        else
+        {
+          //  print("Window");
+
+            rig.AddForce(0, -windowSpeed, 0);
+
         }
 
     }

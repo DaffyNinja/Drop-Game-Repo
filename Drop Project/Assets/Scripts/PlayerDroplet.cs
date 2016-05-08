@@ -14,6 +14,10 @@ public class PlayerDroplet : MonoBehaviour
     float startingFallSpeed;
     float startingLRSpeed;
 
+    [Header("FreeFall")]
+    public bool isFreefall;
+
+
     [Header("Touch")]
     public float screenPosX;
     public float upScreenPos;
@@ -24,13 +28,10 @@ public class PlayerDroplet : MonoBehaviour
     public bool moveUp;
 
 
-
-
     Vector2 touchPos;
 
     [Space(5)]
     public bool pcControls;
-    public bool isChangedAngle;
     public bool touchControls;
 
 
@@ -217,7 +218,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (pcControls)
         {
-            if (!isChangedAngle)
+            if (!isFreefall)
             {
                 // PC || Left Right                                                       
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -332,7 +333,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (col.gameObject.tag == "Window Trig")
         {
-            isChangedAngle = false;
+            isFreefall = false;
         }
 
         if (col.gameObject.tag == "Large Drop")
