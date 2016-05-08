@@ -221,23 +221,24 @@ public class PlayerDroplet : MonoBehaviour
         {
             if (!isFreefall)
             {
-                rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                rig.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
 
                 // PC || Left Right                                                       
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    //Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
-                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    //Vector3 moveQauntity = new Vector3(leftRightSpeed, 0,0);
+                    //rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y,rig.velocity.z);
 
                     transform.Translate(0, 0, 0.1f);
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
 
-                    //Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                    //rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    //Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
+                    //rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
-                    transform.Translate(0, 0, -0.1f);
+
+                     transform.Translate(0, 0, -0.1f);
                 }
 
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
@@ -248,7 +249,7 @@ public class PlayerDroplet : MonoBehaviour
             }
             else
             {
-               
+
 
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {

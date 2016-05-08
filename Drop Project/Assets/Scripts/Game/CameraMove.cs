@@ -20,6 +20,7 @@ public class CameraMove : MonoBehaviour
     public float cameraFOVSize;
     [Space(5)]
     public Transform playerTrans;
+    public Transform windowCamPos;
     // Vector3 playerPos;
 
     Vector3 startingPos;
@@ -71,9 +72,11 @@ public class CameraMove : MonoBehaviour
         {
             if (playerDrop.isFreefall == false)
             {
-                transform.eulerAngles = new Vector3(0, 280, 0);
+                transform.eulerAngles = new Vector3(0, 275, 0);
 
-                transform.position = new Vector3(playerDrop.transform.position.x + 10, playerDrop.transform.position.y + 2, playerDrop.transform.position.z);
+                //  transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 12.5f);
+
+                transform.position = new Vector3(windowCamPos.position.x + 12.5f, windowCamPos.position.y + 2, windowCamPos.position.z);
 
                 canChange = false;
             }

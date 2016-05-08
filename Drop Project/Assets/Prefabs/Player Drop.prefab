@@ -103,8 +103,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138680}
-  m_LocalRotation: {x: -0.012597173, y: 0.13042024, z: -0.0064559234, w: 0.9913578}
-  m_LocalPosition: {x: -74.097626, y: -104.67965, z: -0.96430767}
+  m_LocalRotation: {x: 0, y: 0.13052621, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: -74.1, y: -117.3, z: -1.6}
   m_LocalScale: {x: 0.65, y: 0.9, z: 1}
   m_Children:
   - {fileID: 472834}
@@ -284,6 +284,7 @@ MonoBehaviour:
   slowSpeed: 2.5
   slowLRSpeed: 8
   isFreefall: 1
+  isWindow: 0
   screenPosX: 185
   upScreenPos: 450
   midScreenPos: 135
