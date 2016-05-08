@@ -6,7 +6,7 @@ public class PlayerDroplet : MonoBehaviour
 
     public float fallSpeed;
     public float leftRightSpeed;
-
+    [Space(5)]
     public bool canSlowDown;
     public float slowSpeed;
     public float slowLRSpeed;
@@ -14,8 +14,9 @@ public class PlayerDroplet : MonoBehaviour
     float startingFallSpeed;
     float startingLRSpeed;
 
-    [Header("FreeFall")]
+    [Header("Modes")]
     public bool isFreefall;
+    public bool isWindow;
 
 
     [Header("Touch")]
@@ -220,6 +221,8 @@ public class PlayerDroplet : MonoBehaviour
         {
             if (!isFreefall)
             {
+                rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
                 // PC || Left Right                                                       
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
@@ -245,6 +248,8 @@ public class PlayerDroplet : MonoBehaviour
             }
             else
             {
+               
+
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
                     Vector3 moveQauntity = new Vector3(0, 0, leftRightSpeed);

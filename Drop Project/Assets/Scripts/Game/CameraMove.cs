@@ -61,8 +61,6 @@ public class CameraMove : MonoBehaviour
         if (viewPos.y > camUpDis)
         {
             // print("Up");
-
-
         }
         else if (viewPos.y < camDownDis)
         {
@@ -73,10 +71,9 @@ public class CameraMove : MonoBehaviour
         {
             if (playerDrop.isFreefall == false)
             {
+                transform.eulerAngles = new Vector3(0, 280, 0);
 
-                transform.eulerAngles = new Vector3(25, 276, 0);
-
-                transform.position = new Vector3(playerDrop.transform.position.x + 5, playerDrop.transform.position.y + 2, playerDrop.transform.position.z);
+                transform.position = new Vector3(playerDrop.transform.position.x + 10, playerDrop.transform.position.y + 2, playerDrop.transform.position.z);
 
                 canChange = false;
             }
@@ -88,8 +85,7 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-          //  print("Window");
-
+            //  print("Window");
             rig.AddForce(0, -windowSpeed, 0);
 
         }
