@@ -253,24 +253,24 @@ public class PlayerDroplet : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(0, 0, leftRightSpeed);
-                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, moveQauntity.z);
+                    Vector3 moveQauntity = new Vector3(leftRightSpeed, 0,  0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(0, 0, -leftRightSpeed);
-                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, moveQauntity.z);
+                    Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0,0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 }
 
                 // Up and Fall
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    rig.velocity = new Vector3(-leftRightSpeed, rig.velocity.y, rig.velocity.z);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, leftRightSpeed);
                 }
                 else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    rig.velocity = new Vector3(leftRightSpeed, rig.velocity.y, rig.velocity.z);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, -leftRightSpeed);
                 }
                 else
                 {
