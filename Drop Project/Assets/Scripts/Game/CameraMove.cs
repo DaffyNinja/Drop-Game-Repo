@@ -8,7 +8,6 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public bool transMove;
     public float transSpeed;
-    //   public float smoothness;
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
@@ -21,8 +20,6 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public Transform playerTrans;
     public Transform windowCamPos;
-    // Vector3 playerPos;
-
     Vector3 startingPos;
 
     bool canChange;
@@ -37,7 +34,6 @@ public class CameraMove : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         canChange = true;
 
         cam = GetComponent<Camera>();
@@ -45,16 +41,12 @@ public class CameraMove : MonoBehaviour
 
         cam.fieldOfView = cameraFOVSize;
 
-        //  playerPos = playerTrans.position;
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
-
-        //  transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z + disZ);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
         startingPos = transform.position;
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
@@ -73,22 +65,21 @@ public class CameraMove : MonoBehaviour
             if (playerDrop.isFreefall == false)
             {
                 transform.eulerAngles = new Vector3(0, 0, 0);
-
-                //  transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 12.5f);
-
                 transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 25f);
-
                 canChange = false;
             }
             else
             {
                 rig.AddForce(0, -freeFallSpeed, 0);
+                // transform.parent = playerTrans;
             }
 
         }
         else
         {
             //  print("Window");
+            //  transform.parent = null;
+
             rig.AddForce(0, -windowSpeed, 0);
 
         }

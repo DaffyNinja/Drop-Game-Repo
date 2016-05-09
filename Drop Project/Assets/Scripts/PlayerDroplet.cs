@@ -70,7 +70,11 @@ public class PlayerDroplet : MonoBehaviour
     private Rigidbody rig;
 
     [Space(5)]
+    public Transform windowPos;
+
+    [Space(5)]
     public GameMaster gMaster;
+
 
 
 
@@ -223,8 +227,10 @@ public class PlayerDroplet : MonoBehaviour
 
         if (pcControls)
         {
-            if (!isFreefall)
+            if (isFreefall == false)
             {
+                transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
+
                 rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
                 // PC || Left Right                                                       
@@ -253,7 +259,7 @@ public class PlayerDroplet : MonoBehaviour
             }
             else
             {
-
+                 
 
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
