@@ -5,7 +5,11 @@ public class PlayerDroplet : MonoBehaviour
 {
 
     public float fallSpeed;
-    public float leftRightSpeed;
+
+    public float freeFallLeftRightSpeed;
+    public float freeFallFowardBackSpeed;
+
+    public float windowLeftRightSpeed;
     [Space(5)]
     public bool canSlowDown;
     public float slowSpeed;
@@ -80,7 +84,7 @@ public class PlayerDroplet : MonoBehaviour
 
         startingFallSpeed = fallSpeed;
 
-        startingLRSpeed = leftRightSpeed;
+        startingLRSpeed = windowLeftRightSpeed;
 
     }
 
@@ -123,7 +127,7 @@ public class PlayerDroplet : MonoBehaviour
         else if (isLarge == false && obtainedDrop == false)
         {
             fallSpeed = startingFallSpeed;
-            leftRightSpeed = startingLRSpeed;
+            windowLeftRightSpeed = startingLRSpeed;
             transform.localScale = startingSize;
         }
 
@@ -182,14 +186,14 @@ public class PlayerDroplet : MonoBehaviour
 
             if (moveRight)
             {
-                Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
+                Vector2 moveQauntity = new Vector2(windowLeftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
                 // moveRight = false;
             }
             else if (moveLeft)
             {
 
-                Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
+                Vector2 moveQauntity = new Vector2(-windowLeftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
                 //moveLeft = false;
 
@@ -221,30 +225,30 @@ public class PlayerDroplet : MonoBehaviour
         {
             if (!isFreefall)
             {
-                rig.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
+                rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
                 // PC || Left Right                                                       
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    //Vector3 moveQauntity = new Vector3(leftRightSpeed, 0,0);
-                    //rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y,rig.velocity.z);
+                    Vector3 moveQauntity = new Vector3(windowLeftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
-                    transform.Translate(0, 0, 0.1f);
+                    // transform.Translate(0, 0, 0.1f);
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
 
-                    //Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
-                    //rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                    Vector3 moveQauntity = new Vector3(-windowLeftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
 
-                     transform.Translate(0, 0, -0.1f);
+                    // transform.Translate(0, 0, -0.1f);
                 }
 
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
-                leftRightSpeed = startingLRSpeed;
+                windowLeftRightSpeed = startingLRSpeed;
 
             }
             else
@@ -253,24 +257,24 @@ public class PlayerDroplet : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(leftRightSpeed, 0,  0);
+                    Vector3 moveQauntity = new Vector3(freeFallLeftRightSpeed, 0,  0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0,0);
+                    Vector3 moveQauntity = new Vector3(-freeFallLeftRightSpeed, 0,0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 }
 
                 // Up and Fall
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, leftRightSpeed);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, freeFallFowardBackSpeed);
                 }
                 else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, -leftRightSpeed);
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, -freeFallFowardBackSpeed);
                 }
                 else
                 {

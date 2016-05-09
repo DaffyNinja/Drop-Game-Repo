@@ -76,7 +76,7 @@ public class CameraMove : MonoBehaviour
 
                 //  transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 12.5f);
 
-                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 12.5f);
+                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 25f);
 
                 canChange = false;
             }
