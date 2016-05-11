@@ -23,6 +23,8 @@ public class CameraMove : MonoBehaviour
     Vector3 startingPos;
 
     bool canChange;
+    public bool canMoveCam = true;
+
 
 
     PlayerDroplet playerDrop;
@@ -64,7 +66,7 @@ public class CameraMove : MonoBehaviour
         {
             if (playerDrop.isFreefall == false)
             {
-              
+
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 25f);
                 canChange = false;
@@ -76,12 +78,19 @@ public class CameraMove : MonoBehaviour
             }
 
         }
-        else
+        else if (playerDrop.puddleMode == false)
         {
-            //  print("Window");
-            //  transform.parent = null;
-
             rig.AddForce(0, -windowSpeed, 0);
+        }
+
+        if (playerDrop.puddleMode == true && canMoveCam == true)
+        {
+            //print("In Puddle: Camera");
+
+            transform.position = new Vector3(playerDrop.transform.position.x, playerDrop.transform.position.y + 2, playerDrop.transform.position.z - 25f);
+            transform.eulerAngles = new Vector3(30, 0, 0);
+            canMoveCam = false;
+
 
         }
 

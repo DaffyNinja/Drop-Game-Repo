@@ -22,6 +22,9 @@ public class PlayerDroplet : MonoBehaviour
     public bool isFreefall;
     public bool isWindow;
 
+    public bool puddleMode;
+
+
 
     [Header("Touch")]
     public float screenPosX;
@@ -95,6 +98,7 @@ public class PlayerDroplet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Controls();
 
         if (canSplit)
@@ -213,42 +217,39 @@ public class PlayerDroplet : MonoBehaviour
                 // GetComponentInChildren<Renderer>().material.color = Color.red;
 
             }
-            else
-            {
 
-                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
-                //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
-            }
+
+            Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+            rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+            //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
+
 
         }
 
 
         if (pcControls)
         {
-            if (isFreefall == false)
+            if (isFreefall == false) // In window
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
 
                 rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
-                // PC || Left Right                                                       
-                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                // PC || Left Right  
+                if (puddleMode == false)
                 {
-                    Vector3 moveQauntity = new Vector3(windowLeftRightSpeed, 0, 0);
-                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-
-                    // transform.Translate(0, 0, 0.1f);
-                }
-                else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-                {
-
-                    Vector3 moveQauntity = new Vector3(-windowLeftRightSpeed, 0, 0);
-                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-
-
-                    // transform.Translate(0, 0, -0.1f);
+                    if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+                    {
+                        Vector3 moveQauntity = new Vector3(windowLeftRightSpeed, 0, 0);
+                        rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                    }
+                    else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+                    {
+                        Vector3 moveQauntity = new Vector3(-windowLeftRightSpeed, 0, 0);
+                        rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                    }
                 }
 
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
@@ -259,17 +260,17 @@ public class PlayerDroplet : MonoBehaviour
             }
             else
             {
-                 
+
 
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(freeFallLeftRightSpeed, 0,  0);
+                    Vector3 moveQauntity = new Vector3(freeFallLeftRightSpeed, 0, 0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-                    Vector3 moveQauntity = new Vector3(-freeFallLeftRightSpeed, 0,0);
+                    Vector3 moveQauntity = new Vector3(-freeFallLeftRightSpeed, 0, 0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 }
 
@@ -373,6 +374,11 @@ public class PlayerDroplet : MonoBehaviour
             gMaster.goldNum += 1;
 
             Destroy(col.gameObject);
+        }
+
+        if (col.gameObject.tag == "End Point")
+        {
+            puddleMode = true;
         }
 
     }
