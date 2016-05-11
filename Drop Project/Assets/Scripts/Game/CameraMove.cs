@@ -64,6 +64,7 @@ public class CameraMove : MonoBehaviour
         {
             if (playerDrop.isFreefall == false)
             {
+              
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 25f);
                 canChange = false;
