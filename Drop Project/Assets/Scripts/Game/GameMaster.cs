@@ -25,7 +25,7 @@ public class GameMaster : MonoBehaviour
     {
         if (!debug)
         {
-            goldText.text = goldNum.ToString();
+          //  goldText.text = goldNum.ToString();
 
 
             if (Input.GetKeyDown(KeyCode.R))

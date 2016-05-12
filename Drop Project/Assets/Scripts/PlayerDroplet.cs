@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerDroplet : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerDroplet : MonoBehaviour
     public float freeFallLeftRightSpeed;
     public float freeFallFowardBackSpeed;
 
+    public float windowFallSpeed;
     public float windowLeftRightSpeed;
     [Space(5)]
     public bool canSlowDown;
@@ -252,13 +254,13 @@ public class PlayerDroplet : MonoBehaviour
                     }
                 }
 
-                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                Vector2 fallQauntity = new Vector2(0, -windowFallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 windowLeftRightSpeed = startingLRSpeed;
 
             }
-            else
+            else // In free fall  
             {
 
 
@@ -341,6 +343,11 @@ public class PlayerDroplet : MonoBehaviour
         {
             Destroy(col.gameObject);
 
+        }
+
+        if (col.gameObject.tag == "Puddle")
+        {
+            SceneManager.LoadScene(0);
         }
 
     }
