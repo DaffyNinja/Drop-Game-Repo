@@ -281,12 +281,14 @@ MonoBehaviour:
   fallSpeed: 10
   freeFallLeftRightSpeed: 10
   freeFallFowardBackSpeed: 10
+  windowFallSpeed: 12.5
   windowLeftRightSpeed: 20
   canSlowDown: 0
   slowSpeed: 2.5
   slowLRSpeed: 8
   isFreefall: 1
   isWindow: 0
+  puddleMode: 0
   screenPosX: 185
   upScreenPos: 450
   midScreenPos: 135
