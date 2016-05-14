@@ -1008,7 +1008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22464198, guid: f06decb48b769ff40bfa554405970835, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22464198, guid: f06decb48b769ff40bfa554405970835, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1256,28 +1256,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405876, guid: 50194b370ed5923479c125d5fe604413, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
       propertyPath: windowPos
       value: 
       objectReference: {fileID: 456185568}
-    - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
-      propertyPath: speedSize.x
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
-      propertyPath: speedSize.z
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
-      propertyPath: speedSize.y
-      value: 2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11437734, guid: 50194b370ed5923479c125d5fe604413, type: 2}
-      propertyPath: fallSpeedIncrease
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 50194b370ed5923479c125d5fe604413, type: 2}
   m_IsPrefabParent: 0
@@ -1713,7 +1697,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480504, guid: aebb53a7946080b42adf1552b1fe4627, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 158018, guid: aebb53a7946080b42adf1552b1fe4627, type: 2}
       propertyPath: m_Name
@@ -1950,7 +1934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436906, guid: c46ac2e727031bb488d5bccc12f83e87, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 436906, guid: c46ac2e727031bb488d5bccc12f83e87, type: 2}
       propertyPath: m_LocalScale.x
@@ -2071,7 +2055,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441420, guid: 2b9d3b6c9f8c5e14ea363361979949b9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 441420, guid: 2b9d3b6c9f8c5e14ea363361979949b9, type: 2}
       propertyPath: m_LocalScale.y
