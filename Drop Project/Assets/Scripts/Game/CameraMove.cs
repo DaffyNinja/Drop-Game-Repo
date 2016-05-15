@@ -20,7 +20,8 @@ public class CameraMove : MonoBehaviour
     [Space(5)]
     public Transform playerTrans;
     public Transform windowCamPos;
-    Vector3 startingPos;
+
+  //  Vector3 startingPos;
 
     bool canChange;
     public bool canMoveCam = true;
@@ -49,7 +50,7 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        startingPos = transform.position;
+        //startingPos = transform.position;
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 

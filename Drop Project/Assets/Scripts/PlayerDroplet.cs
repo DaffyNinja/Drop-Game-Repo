@@ -319,17 +319,19 @@ public class PlayerDroplet : MonoBehaviour
 
     void LargeDropVoid()
     {
+        //print("Hit");
+
         transform.localScale = dropScale;
 
         fallSpeed = largeFallSpeed;
 
-        //GetComponentInChildren<Renderer>().material.color = Color.white;
+        GetComponentInChildren<Renderer>().material.color = Color.white;
 
         largeTimer += Time.deltaTime;
 
         if (largeTimer >= largeDropTime)
         {
-
+            GetComponentInChildren<Renderer>().material.color = Color.blue;
             largeTimer = 0;
             isLarge = false;
         }
