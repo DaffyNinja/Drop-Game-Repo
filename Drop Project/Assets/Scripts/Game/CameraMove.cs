@@ -54,13 +54,28 @@ public class CameraMove : MonoBehaviour
 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 
-        if (viewPos.y > camUpDis)
+        if (playerDrop.isWindow)
         {
-            // print("Up");
+            if (viewPos.y > camUpDis)
+            {
+                print("Up");
+            }
+            else if (viewPos.y < camDownDis)
+            {
+                print("Down");
+            }
         }
-        else if (viewPos.y < camDownDis)
+        else if (playerDrop.isFreefall)
         {
-            // print("Down");
+            if (viewPos.y > camUpDis)
+            {
+                print("Freefall Up");
+            }
+            else if (viewPos.y < camDownDis)
+            {
+                print("Down");
+            }
+
         }
 
         if (canChange)

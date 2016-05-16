@@ -360,6 +360,7 @@ public class PlayerDroplet : MonoBehaviour
         if (col.gameObject.tag == "Window Trig")
         {
             isFreefall = false;
+            isWindow = true;
         }
 
         if (col.gameObject.tag == "Large Drop")

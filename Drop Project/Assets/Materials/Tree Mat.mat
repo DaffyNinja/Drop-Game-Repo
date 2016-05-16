@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Tree Mat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -131,8 +131,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.3167656, g: 0.44117647, b: 0.31490874, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0.22794116, g: 0.15084343, b: 0, a: 1}
+        second: {r: 0.6985294, g: 0.3650277, b: 0.050583173, a: 1}
