@@ -533,7 +533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &461583898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4d6498ab68722439b77a118340a559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playWindow: 1
+  playWindow: 0
   windowPos: {fileID: 743529971}
   playDrop: {fileID: 389779128}
   camMove: {fileID: 2111422070}

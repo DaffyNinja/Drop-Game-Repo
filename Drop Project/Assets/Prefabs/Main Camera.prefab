@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158018}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 2852.09, y: 311.46, z: 1839.58}
+  m_LocalPosition: {x: 2852.09, y: 486, z: 1839.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d4fe94dd00eea48a6b0bb8419b2a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freeFallSpeed: 5
+  freeFallSpeed: 12.5
   windowSpeed: 10
   transMove: 0
   transSpeed: 4
@@ -119,6 +119,7 @@ MonoBehaviour:
   cameraFOVSize: 60
   playerTrans: {fileID: 0}
   windowCamPos: {fileID: 0}
+  canMoveCam: 1
 --- !u!124 &12422184
 Behaviour:
   m_ObjectHideFlags: 1
