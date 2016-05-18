@@ -5,6 +5,7 @@ public class WindowDebug : MonoBehaviour
 {
 
     public bool playWindow;
+
     public Transform windowPos;
     public PlayerDroplet playDrop;
     public CameraMove camMove;
@@ -17,7 +18,7 @@ public class WindowDebug : MonoBehaviour
     {
         if (playWindow)
         {
-            playDrop.transform.position = windowPos.position;
+            playDrop.transform.position = new Vector3(windowPos.position.x,windowPos.position.y,windowPos.position.z);
 
             playDrop.isFreefall = false;
 

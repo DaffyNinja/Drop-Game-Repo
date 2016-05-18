@@ -80,14 +80,14 @@ public class CameraMove : MonoBehaviour
 
         if (canChange)
         {
-            if (playerDrop.isFreefall == false)
+            if (playerDrop.isFreefall == false)  //Window Mode
             {
 
                 transform.eulerAngles = new Vector3(0, 0, 0);
-                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y + 2, windowCamPos.position.z - 25f);
+                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y, windowCamPos.position.z - 25f);
                 canChange = false;
             }
-            else
+            else            // Infreefall
             {
                 rig.AddForce(0, -freeFallSpeed, 0);
                 // transform.parent = playerTrans;
