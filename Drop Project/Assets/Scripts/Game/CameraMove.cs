@@ -24,6 +24,7 @@ public class CameraMove : MonoBehaviour
   //  Vector3 startingPos;
 
     bool canChange;
+
     public bool canMoveCam = true;
 
 
