@@ -5,21 +5,22 @@ public class EndlessCamera : MonoBehaviour {
 
     public float speed;
 
-    Rigidbody rig;
+   // Rigidbody rig;
 
     // Use this for initialization
     void Start ()
     {
-        rig = GetComponent<Rigidbody>();
+       // rig = GetComponent<Rigidbody>();
 
 	
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
-        rig.AddForce(0, -speed, 0);
+        // rig.AddForce(0, -speed, 0);
 
+        transform.Translate(0, -speed, 0);
 
     }
 }

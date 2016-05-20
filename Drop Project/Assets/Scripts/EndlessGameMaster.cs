@@ -25,27 +25,20 @@ public class EndlessGameMaster : MonoBehaviour
     {
         if (playerTrans.position.y <= playerPos.y - yLimit)
         {
-            make = true;
+            print("Below");
 
             PlatformCreation();
 
-
-            print("Below");
-
-        }
-        else
-        {
-            make = false;
+            yLimit += 10;
         }
 
     }
 
     void PlatformCreation()
     {
-        if (make == true)
-        {
-            Instantiate(platformsList[0], new Vector3(playerTrans.position.x, playerTrans.position.y - 45, playerTrans.position.z), Quaternion.identity);
-        }
+
+        Instantiate(platformsList[0], new Vector3(playerTrans.position.x, playerTrans.position.y - 45, playerTrans.position.z), Quaternion.identity);
+
 
         make = false;
     }
