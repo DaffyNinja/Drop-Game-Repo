@@ -61,7 +61,7 @@ public class EndlessGameMaster : MonoBehaviour
         //Vector3 xPos;
         Vector3 yPos;
 
-        if (playerTrans.position.y <= spawnLimit)
+        if (playerTrans.position.y < playerTrans.position.y - 10)
         {
             print("Less");
 
@@ -80,20 +80,20 @@ public class EndlessGameMaster : MonoBehaviour
 
        // float destroyNum = playerTrans.position.y - 1;
 
-        if (playerTrans.position.y <= destroyNum)
-        {
-            print("For Each");
+        //if (playerTrans.position.y <= destroyNum && playerTrans.position.y >= destroyNum - 10)
+        //{
+        //    print("For Each");
 
-            create = false;
-        }
+        //    create = false;
+        //}
 
 
-        if (create)
-        {
-            print("Create");
+        //if (create)
+        //{
+        //    print("Create");
 
-            Instantiate(platformsList[0], platformPos, Quaternion.identity);
-        }
+        //    Instantiate(platformsList[0], platformPos, Quaternion.identity);
+        //}
     }
 
 
