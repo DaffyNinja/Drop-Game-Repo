@@ -10,9 +10,14 @@ public class EndlessGameMaster : MonoBehaviour
     public Transform playerTrans;
     Vector3 playerPos;
 
-    public float yLimit;
+    public float spawnLimit;
 
-    bool make;
+    public float platformCheck;
+
+    float spawnNum;
+
+
+    //bool make;
 
     void Start()
     {
@@ -23,24 +28,57 @@ public class EndlessGameMaster : MonoBehaviour
 
     void Update()
     {
-        if (playerTrans.position.y <= playerPos.y - yLimit)
-        {
-            print("Below");
-
-            PlatformCreation();
-
-            yLimit += 10;
-        }
+        PlatformMaintance();
 
     }
 
-    void PlatformCreation()
+    void PlatformMaintance()
+    {
+        // float platCheck = playerTrans.position.y + platformCheck;
+
+
+        SpawnPlatforms();
+    }
+
+    void SpawnPlatforms()
     {
 
-        Instantiate(platformsList[0], new Vector3(playerTrans.position.x, playerTrans.position.y - 45, playerTrans.position.z), Quaternion.identity);
+        //Vector3 xPos;
+        Vector3 yPos;
+
+        if (playerTrans.position.y <= spawnLimit)
+        {
+            print("Less");
+
+            spawnNum = 10;
+        }
+
+        yPos = new Vector3(playerTrans.position.x, playerTrans.position.y - 10, playerTrans.position.z);
 
 
-        make = false;
+        PlatformCreation(yPos);
+    }
+
+    void PlatformCreation(Vector3 platformPos)
+    {
+        bool create = true;
+
+        foreach (GameObject plat in platformsList[0])
+        {
+            if (platformPos.y < plat.transform.position.y)
+            {
+                print("For Each");
+
+                create = false;
+            }
+        }
+
+        if (create)
+        {
+            print("Create");
+
+            Instantiate(platformsList[0], platformPos, Quaternion.identity);
+        }
     }
 
 
