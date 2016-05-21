@@ -14,6 +14,10 @@ public class EndlessGameMaster : MonoBehaviour
 
     public float platformCheck;
 
+    public float destroyLimit;
+
+    float destroyNum;
+
     float spawnNum;
 
 
@@ -22,6 +26,8 @@ public class EndlessGameMaster : MonoBehaviour
     void Start()
     {
         playerPos = playerTrans.position;
+
+        destroyNum = playerTrans.position.y - 1;
     }
 
 
@@ -36,6 +42,15 @@ public class EndlessGameMaster : MonoBehaviour
     {
         // float platCheck = playerTrans.position.y + platformCheck;
 
+        foreach (GameObject plat in platformsList[0])
+        {
+            if (plat.transform.position.y < (playerTrans.position.y - destroyLimit))
+            {
+                print("Plat");
+
+                Destroy(plat);
+            }
+        }
 
         SpawnPlatforms();
     }
@@ -59,19 +74,19 @@ public class EndlessGameMaster : MonoBehaviour
         PlatformCreation(yPos);
     }
 
-    void PlatformCreation(Vector3 platformPos)
+    void PlatformCreation(Vector3 platformPos)     // Instantiates the platforms
     {
         bool create = true;
 
-        foreach (GameObject plat in platformsList[0])
-        {
-            if (platformPos.y < plat.transform.position.y)
-            {
-                print("For Each");
+       // float destroyNum = playerTrans.position.y - 1;
 
-                create = false;
-            }
+        if (playerTrans.position.y <= destroyNum)
+        {
+            print("For Each");
+
+            create = false;
         }
+
 
         if (create)
         {
