@@ -83,6 +83,7 @@ public class CameraMove : MonoBehaviour
         {
             if (playerDrop.isFreefall == false)  //Window Mode
             {
+                transform.parent = null;
 
                 transform.eulerAngles = new Vector3(0, 0, 0);
                 transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y, windowCamPos.position.z - 25f);
@@ -90,7 +91,10 @@ public class CameraMove : MonoBehaviour
             }
             else            // Infreefall
             {
-                rig.AddForce(0, -freeFallSpeed, 0);
+                transform.parent = playerTrans;
+
+                //rig.AddForce(0, -freeFallSpeed, 0);
+                
                 // transform.parent = playerTrans;
             }
 
