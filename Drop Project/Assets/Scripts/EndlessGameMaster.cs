@@ -10,10 +10,10 @@ public class EndlessGameMaster : MonoBehaviour
     public Transform playerTrans;
     Vector3 playerPos;
 
+    float platfromsSpawnedUp;
+
     public float spawnLimit;
-
     public float platformCheck;
-
     public float destroyLimit;
 
     float destroyNum;
@@ -35,7 +35,6 @@ public class EndlessGameMaster : MonoBehaviour
     void Update()
     {
         PlatformMaintance();
-
     }
 
     void PlatformMaintance()
@@ -61,6 +60,9 @@ public class EndlessGameMaster : MonoBehaviour
         //Vector3 xPos;
         Vector3 yPos;
 
+        float spawnHeight = platfromsSpawnedUp;
+        
+
         if (playerTrans.position.y < playerTrans.position.y - 10)
         {
             print("Less");
@@ -76,9 +78,21 @@ public class EndlessGameMaster : MonoBehaviour
 
     void PlatformCreation(Vector3 platformPos)     // Instantiates the platforms
     {
-        bool create = true;
+        bool create;
 
-       // float destroyNum = playerTrans.position.y - 1;
+        if (platformPos.y <= playerPos.y - spawnLimit)
+        {
+            print("Player Down");
+
+            create = false;
+
+            spawnLimit += 10;
+        }
+        else
+        {
+            create = true;
+        }
+
 
         //if (playerTrans.position.y <= destroyNum && playerTrans.position.y >= destroyNum - 10)
         //{
@@ -88,12 +102,14 @@ public class EndlessGameMaster : MonoBehaviour
         //}
 
 
-        //if (create)
-        //{
-        //    print("Create");
+        if (create)
+        {
+            print("Create");
 
-        //    Instantiate(platformsList[0], platformPos, Quaternion.identity);
-        //}
+            Instantiate(platformsList[0], platformPos, Quaternion.identity);
+
+
+        }
     }
 
 
