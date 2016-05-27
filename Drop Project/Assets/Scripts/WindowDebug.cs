@@ -18,7 +18,11 @@ public class WindowDebug : MonoBehaviour
     {
         if (playWindow)
         {
+            camMove.transform.position = new Vector3(playDrop.transform.position.x, playDrop.transform.position.y + 2, playDrop.transform.position.z - 25f);
+
             playDrop.transform.position = new Vector3(windowPos.position.x,windowPos.position.y,windowPos.position.z);
+
+           
 
             playDrop.isFreefall = false;
 

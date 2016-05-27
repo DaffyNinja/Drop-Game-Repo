@@ -103,6 +103,32 @@ public class PlayerDroplet : MonoBehaviour
 
         Controls();
 
+        if (obtainedDrop)
+        {
+            print("Drop");
+
+            //transform.localScale = speedSize;
+
+            rig.AddForce(0, -fallSpeedIncrease, 0);
+
+            dropTimer += Time.deltaTime;
+
+            if (dropTimer >= timeTillDecrease)
+            {
+                //transform.localScale = startingSize;
+
+                //fallSpeed = startingFallSpeed;
+
+
+
+                obtainedDrop = false;
+            }
+        }
+        else
+        {
+            dropTimer = 0;
+        }
+
         if (canSplit)
         {
             splitDropObj = this.gameObject;
@@ -118,17 +144,17 @@ public class PlayerDroplet : MonoBehaviour
             canSplit = false;
         }
 
-        if (obtainedDrop == true)
-        {
-            //print("Obtained Drop");
+        //if (obtainedDrop == true)
+        //{
+        //    //print("Obtained Drop");
 
-            SpeedDroplet();
+        //    SpeedDroplet();
 
-        }
-        else if (!obtainedDrop)
-        {
-            dropTimer = 0;
-        }
+        //}
+        //else if (!obtainedDrop)
+        //{
+        //    dropTimer = 0;
+        //}
 
         if (isLarge == true)
         {
@@ -136,7 +162,7 @@ public class PlayerDroplet : MonoBehaviour
         }
         else if (isLarge == false && obtainedDrop == false)
         {
-            fallSpeed = startingFallSpeed;
+           // fallSpeed = startingFallSpeed;
             windowLeftRightSpeed = startingLRSpeed;
             transform.localScale = startingSize;
         }
@@ -297,25 +323,6 @@ public class PlayerDroplet : MonoBehaviour
         }
     }
 
-    void SpeedDroplet()
-    {
-        transform.localScale = speedSize;
-
-        fallSpeed = fallSpeedIncrease;
-
-        dropTimer += Time.deltaTime;
-
-
-        if (dropTimer >= timeTillDecrease)
-        {
-            transform.localScale = startingSize;
-
-            fallSpeed = startingFallSpeed;
-
-            obtainedDrop = false;
-
-        }
-    }
 
     void LargeDropVoid()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraMove : MonoBehaviour
 {
-    public float freeFallSpeed;
+    public float delaySpeedFreefall;
     public float windowSpeed;
     [Space(5)]
     public bool transMove;
@@ -48,6 +48,40 @@ public class CameraMove : MonoBehaviour
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
     }
 
+    void Update()
+    {
+        
+        if (canChange)
+        {
+            if (playerDrop.isFreefall == false)  //Window Mode
+            {
+                transform.parent = null;
+
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y, windowCamPos.position.z - 25f);
+                canChange = false;
+            }
+            else            // Infreefall
+            {
+                transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z);
+   
+               // Vector3.Lerp(transform.position,new Vector3(playerTrans.position.x, playerTrans.position.y + 12, playerTrans.position.z),delaySpeedFreefall);
+            }
+
+        }
+        else if (playerDrop.puddleMode == false)
+        {
+            gameObject.AddComponent<Rigidbody>();
+
+            rig = GetComponent<Rigidbody>();
+            rig.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+            rig.useGravity = false;
+            rig.drag = 1;
+
+            rig.AddForce(0, -windowSpeed, 0);
+        }
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -78,38 +112,6 @@ public class CameraMove : MonoBehaviour
                 print("Down");
             }
 
-        }
-
-        if (canChange)
-        {
-            if (playerDrop.isFreefall == false)  //Window Mode
-            {
-                transform.parent = null;
-
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                transform.position = new Vector3(windowCamPos.position.x, windowCamPos.position.y, windowCamPos.position.z - 25f);
-                canChange = false;
-            }
-            else            // Infreefall
-            {
-                transform.parent = playerTrans;
-
-                //rig.AddForce(0, -freeFallSpeed, 0);
-
-                // transform.parent = playerTrans;
-            }
-
-        }
-        else if (playerDrop.puddleMode == false)
-        {
-            gameObject.AddComponent<Rigidbody>();
-
-            rig = GetComponent<Rigidbody>();
-            rig.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-            rig.useGravity = false;
-            rig.drag = 1;
-
-            rig.AddForce(0, -windowSpeed, 0);
         }
 
 
