@@ -107,7 +107,7 @@ public class PlayerDroplet : MonoBehaviour
         {
             print("Drop");
 
-            //transform.localScale = speedSize;
+            transform.localScale = speedSize;
 
             rig.AddForce(0, -fallSpeedIncrease, 0);
 
@@ -115,7 +115,7 @@ public class PlayerDroplet : MonoBehaviour
 
             if (dropTimer >= timeTillDecrease)
             {
-                //transform.localScale = startingSize;
+                transform.localScale = startingSize;
 
                 //fallSpeed = startingFallSpeed;
 
