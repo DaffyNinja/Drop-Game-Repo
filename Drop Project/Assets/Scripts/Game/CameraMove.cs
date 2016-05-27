@@ -21,7 +21,7 @@ public class CameraMove : MonoBehaviour
     public Transform playerTrans;
     public Transform windowCamPos;
 
-  //  Vector3 startingPos;
+    //  Vector3 startingPos;
 
     bool canChange;
 
@@ -41,12 +41,13 @@ public class CameraMove : MonoBehaviour
         canChange = true;
 
         cam = GetComponent<Camera>();
-        rig = GetComponent<Rigidbody>();
+        //  rig = GetComponent<Rigidbody>();
 
         cam.fieldOfView = cameraFOVSize;
 
         playerDrop = playerTrans.gameObject.GetComponent<PlayerDroplet>();
     }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -94,15 +95,23 @@ public class CameraMove : MonoBehaviour
                 transform.parent = playerTrans;
 
                 //rig.AddForce(0, -freeFallSpeed, 0);
-                
+
                 // transform.parent = playerTrans;
             }
 
         }
         else if (playerDrop.puddleMode == false)
         {
+            gameObject.AddComponent<Rigidbody>();
+
+            rig = GetComponent<Rigidbody>();
+            rig.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+            rig.useGravity = false;
+            rig.drag = 1;
+
             rig.AddForce(0, -windowSpeed, 0);
         }
+
 
         if (playerDrop.puddleMode == true && canMoveCam == true)
         {
