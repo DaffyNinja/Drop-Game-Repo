@@ -667,9 +667,9 @@ MonoBehaviour:
   platformsList:
   - {fileID: 374798547}
   playerTrans: {fileID: 749154150}
-  spawnLimit: 10
+  spawnLimit: 5
   platformCheck: 0
-  destroyLimit: 10
+  destroyLimit: 20
 --- !u!4 &1417671942
 Transform:
   m_ObjectHideFlags: 0

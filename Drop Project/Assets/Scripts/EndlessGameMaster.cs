@@ -20,6 +20,8 @@ public class EndlessGameMaster : MonoBehaviour
 
     float spawnNum;
 
+    float spwNum = 320;
+
 
     //bool make;
 
@@ -27,7 +29,9 @@ public class EndlessGameMaster : MonoBehaviour
     {
         playerPos = playerTrans.position;
 
-        destroyNum = playerTrans.position.y - 1;
+        destroyNum = playerPos.y -= destroyLimit;
+
+
     }
 
 
@@ -35,21 +39,37 @@ public class EndlessGameMaster : MonoBehaviour
     void Update()
     {
         PlatformMaintance();
+
+
+        // print(destroyNum.ToString());
+        // print(playerPos.y - spawnLimit);
+
     }
 
     void PlatformMaintance()
     {
         // float platCheck = playerTrans.position.y + platformCheck;
 
-        foreach (GameObject plat in platformsList[0])
+        if (playerTrans.position.y <= destroyNum)
         {
-            if (plat.transform.position.y < (playerTrans.position.y - destroyLimit))
+            foreach (GameObject plat in platformsList[0])
             {
-                print("Plat");
-
+                // print("Destroy Plat");
                 Destroy(plat);
             }
+
+            bool change;
+            change = true;
+
+            if (change)
+            {
+                //print("Change");
+                destroyNum -= 15;
+                change = false;
+            }
+            // Destroy(plat);
         }
+
 
         SpawnPlatforms();
     }
@@ -61,11 +81,11 @@ public class EndlessGameMaster : MonoBehaviour
         Vector3 yPos;
 
         float spawnHeight = platfromsSpawnedUp;
-        
+
 
         if (playerTrans.position.y < playerTrans.position.y - 10)
         {
-            print("Less");
+            //print("Less");
 
             spawnNum = 10;
         }
@@ -80,36 +100,31 @@ public class EndlessGameMaster : MonoBehaviour
     {
         bool create;
 
-        if (platformPos.y <= playerPos.y - spawnLimit)
+        if (playerTrans.position.y >= spwNum)
         {
-            print("Player Down");
+            print("Player UP");
 
             create = false;
 
-            spawnLimit += 10;
+            // spawnLimit += 10;
         }
         else
         {
+            print("Create");
+
+            spwNum -= 20;
+
             create = true;
+
         }
-
-
-        //if (playerTrans.position.y <= destroyNum && playerTrans.position.y >= destroyNum - 10)
-        //{
-        //    print("For Each");
-
-        //    create = false;
-        //}
-
 
         if (create)
         {
-            print("Create");
-
             Instantiate(platformsList[0], platformPos, Quaternion.identity);
-
-
         }
+
+        print(spwNum.ToString());
+
     }
 
 
