@@ -53,7 +53,7 @@ public class CameraMove : MonoBehaviour
         
         if (canChange)
         {
-            if (playerDrop.isFreefall == false)  //Window Mode
+            if (playerDrop.isWindow == true)  //Window Mode
             {
                 transform.parent = null;
 
@@ -64,12 +64,11 @@ public class CameraMove : MonoBehaviour
             else            // Infreefall
             {
                 transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + disY, playerTrans.position.z);
-   
                // Vector3.Lerp(transform.position,new Vector3(playerTrans.position.x, playerTrans.position.y + 12, playerTrans.position.z),delaySpeedFreefall);
             }
 
         }
-        else if (playerDrop.puddleMode == false)
+        else if (playerDrop.puddleMode == false)  //  Movedown window
         {
             gameObject.AddComponent<Rigidbody>();
 

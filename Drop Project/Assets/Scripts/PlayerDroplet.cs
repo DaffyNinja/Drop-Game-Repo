@@ -90,9 +90,7 @@ public class PlayerDroplet : MonoBehaviour
         rig = GetComponent<Rigidbody>();
 
         startingSize = transform.localScale;
-
         startingFallSpeed = fallSpeed;
-
         startingLRSpeed = windowLeftRightSpeed;
 
     }
@@ -108,19 +106,13 @@ public class PlayerDroplet : MonoBehaviour
             print("Drop");
 
             transform.localScale = speedSize;
-
             rig.AddForce(0, -fallSpeedIncrease, 0);
-
             dropTimer += Time.deltaTime;
 
             if (dropTimer >= timeTillDecrease)
             {
                 transform.localScale = startingSize;
-
                 //fallSpeed = startingFallSpeed;
-
-
-
                 obtainedDrop = false;
             }
         }
@@ -132,29 +124,13 @@ public class PlayerDroplet : MonoBehaviour
         if (canSplit)
         {
             splitDropObj = this.gameObject;
-
             transform.position = new Vector3(transform.position.x - 2, transform.position.y, transform.position.z);
-
             Vector3 splitObjPos = new Vector3(transform.position.x + splitPosX, transform.position.y, transform.position.z);
-
             GameObject clone = Instantiate(splitDropObj, splitObjPos, Quaternion.identity) as GameObject;
-
             clone.GetComponent<PlayerDroplet>().canSplit = false;
-
             canSplit = false;
         }
 
-        //if (obtainedDrop == true)
-        //{
-        //    //print("Obtained Drop");
-
-        //    SpeedDroplet();
-
-        //}
-        //else if (!obtainedDrop)
-        //{
-        //    dropTimer = 0;
-        //}
 
         if (isLarge == true)
         {
@@ -191,34 +167,23 @@ public class PlayerDroplet : MonoBehaviour
 
             if (touchPos.x > screenPosX)
             {
-                // print("Right");
-
                 moveRight = true;
                 moveLeft = false;
-
             }
             else if (touchPos.x < screenPosX && touchPos.x > 0)
-            {
-                // print("Left");
-
+            { 
                 moveLeft = true;
                 moveRight = false;
             }
 
             if (touchPos.y > upScreenPos)
             {
-                //print("Up");
-
                 moveUp = true;
             }
             else if (touchPos.y < upScreenPos && touchPos.y > 0 && canSlowDown == true)
             {
-                // print("Middle");
                 moveUp = false;
             }
-
-
-
 
             if (moveRight)
             {
@@ -228,40 +193,29 @@ public class PlayerDroplet : MonoBehaviour
             }
             else if (moveLeft)
             {
-
                 Vector2 moveQauntity = new Vector2(-windowLeftRightSpeed, 0);
                 rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
                 //moveLeft = false;
-
             }
 
             if (moveUp)
             {
                 Vector2 moveQauntity = new Vector2(0, -slowSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
-
-
-
                 // GetComponentInChildren<Renderer>().material.color = Color.red;
-
             }
-
-
-
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
             //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
-
 
         }
 
 
         if (pcControls)
         {
-            if (isFreefall == false) // In window
+            if (isWindow == true) // In window
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
+               // transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
 
                 rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
@@ -318,8 +272,6 @@ public class PlayerDroplet : MonoBehaviour
                 }
 
             }
-
-
         }
     }
 
@@ -329,7 +281,6 @@ public class PlayerDroplet : MonoBehaviour
         //print("Hit");
 
         transform.localScale = dropScale;
-
         fallSpeed = largeFallSpeed;
 
         GetComponentInChildren<Renderer>().material.color = Color.white;
