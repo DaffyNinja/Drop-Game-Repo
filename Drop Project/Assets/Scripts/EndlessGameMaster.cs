@@ -52,11 +52,11 @@ public class EndlessGameMaster : MonoBehaviour
 
         if (playerTrans.position.y <= destroyNum)
         {
-            foreach (GameObject plat in platformsList[0])
-            {
-                // print("Destroy Plat");
-                Destroy(plat);
-            }
+            //foreach (GameObject plat in platformsList[0])
+            //{
+            //    // print("Destroy Plat");
+            //    Destroy(plat);
+            //}
 
             bool change;
             change = true;
@@ -83,14 +83,14 @@ public class EndlessGameMaster : MonoBehaviour
         float spawnHeight = platfromsSpawnedUp;
 
 
-        if (playerTrans.position.y < playerTrans.position.y - 10)
-        {
-            //print("Less");
+        //if (playerTrans.position.y < playerTrans.position.y - 10)
+        //{
+        //    //print("Less");
 
-            spawnNum = 10;
-        }
+        //    spawnNum = 10;
+        //}
 
-        yPos = new Vector3(playerTrans.position.x, playerTrans.position.y - 10, playerTrans.position.z);
+        yPos = new Vector3(playerPos.x - 2, playerTrans.position.y - 10, playerPos.z);
 
 
         PlatformCreation(yPos);
@@ -102,7 +102,7 @@ public class EndlessGameMaster : MonoBehaviour
 
         if (playerTrans.position.y >= spwNum)
         {
-            print("Player UP");
+           // print("Player UP");
 
             create = false;
 
@@ -110,7 +110,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
         else
         {
-            print("Create");
+           // print("Create");
 
             spwNum -= 20;
 
@@ -121,9 +121,11 @@ public class EndlessGameMaster : MonoBehaviour
         if (create)
         {
             Instantiate(platformsList[0], platformPos, Quaternion.identity);
+
+           
         }
 
-        print(spwNum.ToString());
+       // print(spwNum.ToString());
 
     }
 
