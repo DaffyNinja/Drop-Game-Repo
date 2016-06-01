@@ -416,7 +416,7 @@ GameObject:
   - 23: {fileID: 418277155}
   m_Layer: 0
   m_Name: Platform Flat
-  m_TagString: Shape
+  m_TagString: Plat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformsList:
-  - {fileID: 418277158}
+  - {fileID: 418277154}
   playerTrans: {fileID: 749154150}
   spawnLimit: 5
   platformCheck: 0

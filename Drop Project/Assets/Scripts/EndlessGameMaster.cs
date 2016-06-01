@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class EndlessGameMaster : MonoBehaviour
 {
 
-    public List<Transform> platformsList;
+    public List<GameObject> platformsList;
     [Space(10)]
     public Transform playerTrans;
     Vector3 playerPos;
@@ -34,7 +34,7 @@ public class EndlessGameMaster : MonoBehaviour
         spwNum = playerPos.y;
     }
 
-    
+
 
     void Update()
     {
@@ -50,26 +50,33 @@ public class EndlessGameMaster : MonoBehaviour
     {
         // float platCheck = playerTrans.position.y + platformCheck;
 
-        if (playerTrans.position.y <= destroyNum)
+
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+  
+        foreach (GameObject plat in platforms)
         {
-            //foreach (GameObject plat in platformsList[0])
-            //{
-            //    // print("Destroy Plat");
-            //    Destroy(plat);
-            //}
-
-            bool change;
-            change = true;
-
-            if (change)
+            if (plat.transform.position.y > playerTrans.position.y + 20)  // When to destroy platform
             {
-                //print("Change");
-                destroyNum -= 15;
-                change = false;
+               // print("Plat");
+                Destroy(plat);
             }
-            // Destroy(plat);
+
         }
 
+        //if (playerTrans.position.y <= destroyNum)
+        //{
+
+        //    bool change;
+        //    change = true;
+
+        //    if (change)
+        //    {
+        //        //print("Change");
+        //        destroyNum -= 15;
+        //        change = false;
+        //    }
+        //    // Destroy(plat);
+        //}
 
         SpawnPlatforms();
     }
@@ -82,15 +89,7 @@ public class EndlessGameMaster : MonoBehaviour
 
         float spawnHeight = platfromsSpawnedUp;
 
-
-        //if (playerTrans.position.y < playerTrans.position.y - 10)
-        //{
-        //    //print("Less");
-
-        //    spawnNum = 10;
-        //}
-
-        yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 10, playerPos.z);
+        yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 15, playerPos.z);
 
 
         PlatformCreation(yPos);
@@ -102,7 +101,7 @@ public class EndlessGameMaster : MonoBehaviour
 
         if (playerTrans.position.y >= spwNum)
         {
-           // print("Player UP");
+            // print("Player UP");
 
             create = false;
 
@@ -110,7 +109,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
         else
         {
-           // print("Create");
+            // print("Create");
 
             spwNum -= 20;
 
@@ -123,7 +122,7 @@ public class EndlessGameMaster : MonoBehaviour
             Instantiate(platformsList[0], platformPos, Quaternion.identity);
         }
 
-       // print(spwNum.ToString());
+        // print(spwNum.ToString());
 
     }
 
