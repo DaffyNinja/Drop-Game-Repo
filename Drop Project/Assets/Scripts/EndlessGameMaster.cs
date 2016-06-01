@@ -20,7 +20,7 @@ public class EndlessGameMaster : MonoBehaviour
 
     float spawnNum;
 
-    float spwNum = 320;
+    float spwNum;
 
 
     //bool make;
@@ -31,10 +31,10 @@ public class EndlessGameMaster : MonoBehaviour
 
         destroyNum = playerPos.y -= destroyLimit;
 
-
+        spwNum = playerPos.y;
     }
 
-
+    
 
     void Update()
     {
@@ -90,7 +90,7 @@ public class EndlessGameMaster : MonoBehaviour
         //    spawnNum = 10;
         //}
 
-        yPos = new Vector3(playerPos.x - 2, playerTrans.position.y - 10, playerPos.z);
+        yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 10, playerPos.z);
 
 
         PlatformCreation(yPos);
@@ -121,8 +121,6 @@ public class EndlessGameMaster : MonoBehaviour
         if (create)
         {
             Instantiate(platformsList[0], platformPos, Quaternion.identity);
-
-           
         }
 
        // print(spwNum.ToString());
