@@ -83,41 +83,41 @@ public class EndlessGameMaster : MonoBehaviour
 
             if (playerTrans.position.y < 800)
             {
-                newYNum = 2500;
+                newYNum = 50;
             }
             else if (playerTrans.position.y > 800)
             {
-                newYNum = 2250;
+                newYNum = 55;
             }
 
             if (playerTrans.position.y < 750)
             {
-                newYNum = 2000;
+                newYNum = 45;
             }
 
             if (playerTrans.position.y < 700)
             {
-                newYNum = 1750;
+                newYNum = 40;
             }
 
             if (playerTrans.position.y < 650)
             {
-                newYNum = 1500;
+                newYNum = 35;
             }
 
             if (playerTrans.position.y < 600)
             {
-                newYNum = 1250;
+                newYNum = 30;
             }
 
             if (playerTrans.position.y < 550)
             {
-                newYNum = 1000;
+                newYNum = 25;
             }
 
             if (playerTrans.position.y < 500)
             {
-                newYNum = 750;
+                newYNum = 20;
             }
 
 
