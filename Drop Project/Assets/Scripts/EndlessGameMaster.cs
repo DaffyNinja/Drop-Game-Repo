@@ -22,6 +22,8 @@ public class EndlessGameMaster : MonoBehaviour
 
     float spwNum;
 
+    float newYNum;
+
 
     //bool make;
 
@@ -48,78 +50,121 @@ public class EndlessGameMaster : MonoBehaviour
 
     void PlatformMaintance()
     {
-        // float platCheck = playerTrans.position.y + platformCheck;
+        float platCheck = playerTrans.position.y + platformCheck;
 
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
-  
-        foreach (GameObject plat in platforms)
+
+        foreach (GameObject plat in platforms)         // Destroys Platforms
         {
             if (plat.transform.position.y > playerTrans.position.y + 20)  // When to destroy platform
             {
-               // print("Plat");
+                // print("Plat");
                 Destroy(plat);
             }
 
         }
 
-        //if (playerTrans.position.y <= destroyNum)
-        //{
-
-        //    bool change;
-        //    change = true;
-
-        //    if (change)
-        //    {
-        //        //print("Change");
-        //        destroyNum -= 15;
-        //        change = false;
-        //    }
-        //    // Destroy(plat);
-        //}
-
-        SpawnPlatforms();
+        SpawnPlatforms(platCheck);
     }
 
-    void SpawnPlatforms()
+    void SpawnPlatforms(float upTo)
     {
-
-        //Vector3 xPos;
-        Vector3 yPos;
-
         float spawnHeight = platfromsSpawnedUp;
 
-        yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 15, playerPos.z);
+        while (spawnHeight <= upTo)
+        {
+            //float x = Random.Range(-10.0f,10.0f);
+
+            float YPos;
+            Vector3 pos;
+
+            int platformIndex;
+
+            if (playerTrans.position.y < 800)
+            {
+                newYNum = 2500;
+            }
+            else if (playerTrans.position.y > 800)
+            {
+                newYNum = 2250;
+            }
+
+            if (playerTrans.position.y < 750)
+            {
+                newYNum = 2000;
+            }
+
+            if (playerTrans.position.y < 700)
+            {
+                newYNum = 1750;
+            }
+
+            if (playerTrans.position.y < 650)
+            {
+                newYNum = 1500;
+            }
+
+            if (playerTrans.position.y < 600)
+            {
+                newYNum = 1250;
+            }
+
+            if (playerTrans.position.y < 550)
+            {
+                newYNum = 1000;
+            }
+
+            if (playerTrans.position.y < 500)
+            {
+                newYNum = 750;
+            }
 
 
-        PlatformCreation(yPos);
+            YPos = Random.Range(playerTrans.transform.position.y, playerTrans.transform.position.y - newYNum);
+
+            pos = new Vector3(playerTrans.position.x, YPos,playerTrans.position.z);
+            // posNeg = new Vector2(XNeg, playerTrans.transform.position.y - 50f);
+
+            platformIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
+ 
+            PlatformCreation(pos, platformIndex);
+
+            spawnHeight += Random.Range(1.6f, 3.5f);
+
+        }
+
+        platfromsSpawnedUp = upTo;
     }
 
-    void PlatformCreation(Vector3 platformPos)     // Instantiates the platforms
+
+
+    //yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 12.5f, playerPos.z);
+
+    //PlatformCreation(yPos);
+
+
+    void PlatformCreation(Vector3 platformPos, int index)     // Instantiates the platforms
     {
-        bool create;
+        bool create = true;
 
-        if (playerTrans.position.y >= spwNum)
+
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+
+        foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            // print("Player UP");
-
-            create = false;
-
-            // spawnLimit += 10;
-        }
-        else
-        {
-            // print("Create");
-
-            spwNum -= 20;
-
-            create = true;
+            if (platformPos.y < plat.transform.position.y)  // When to destroy platform
+            {
+                create = false;
+            }
 
         }
 
         if (create)
         {
-            Instantiate(platformsList[0], platformPos, Quaternion.identity);
+            print("Create");
+
+            Instantiate(platformsList[index], platformPos, Quaternion.identity);
         }
 
         // print(spwNum.ToString());
