@@ -57,7 +57,7 @@ public class EndlessGameMaster : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (plat.transform.position.y > playerTrans.position.y + 20)  // When to destroy platform
+            if (plat.transform.position.y > playerTrans.position.y + 25)  // When to destroy platform
             {
                 // print("Plat");
                 Destroy(plat);
@@ -83,54 +83,53 @@ public class EndlessGameMaster : MonoBehaviour
 
             if (playerTrans.position.y < 800)
             {
-                newYNum = 50;
+                newYNum = 30;
             }
             else if (playerTrans.position.y > 800)
-            {
-                newYNum = 55;
-            }
-
-            if (playerTrans.position.y < 750)
-            {
-                newYNum = 45;
-            }
-
-            if (playerTrans.position.y < 700)
-            {
-                newYNum = 40;
-            }
-
-            if (playerTrans.position.y < 650)
-            {
-                newYNum = 35;
-            }
-
-            if (playerTrans.position.y < 600)
             {
                 newYNum = 30;
             }
 
-            if (playerTrans.position.y < 550)
+            if (playerTrans.position.y < 750)
+            {
+                newYNum = 30;
+            }
+
+            if (playerTrans.position.y < 700)
             {
                 newYNum = 25;
             }
 
-            if (playerTrans.position.y < 500)
+            if (playerTrans.position.y < 650)
             {
                 newYNum = 20;
             }
 
+            if (playerTrans.position.y < 600)
+            {
+                newYNum = 15;
+            }
 
-            YPos = Random.Range(playerTrans.transform.position.y, playerTrans.transform.position.y - newYNum);
+            if (playerTrans.position.y < 550)
+            {
+                newYNum = 10;
+            }
+
+            if (playerTrans.position.y < 500)
+            {
+                newYNum = 5;
+            }
+
+
+            YPos = Random.Range(playerTrans.transform.position.y - 5, playerTrans.transform.position.y - newYNum);
 
             pos = new Vector3(playerTrans.position.x, YPos,playerTrans.position.z);
             // posNeg = new Vector2(XNeg, playerTrans.transform.position.y - 50f);
 
             platformIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
- 
             PlatformCreation(pos, platformIndex);
 
-            spawnHeight += Random.Range(1.6f, 3.5f);
+            spawnHeight += Random.Range(1, 50);
 
         }
 
@@ -147,8 +146,6 @@ public class EndlessGameMaster : MonoBehaviour
     void PlatformCreation(Vector3 platformPos, int index)     // Instantiates the platforms
     {
         bool create = true;
-
-
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
