@@ -215,7 +215,7 @@ public class PlayerDroplet : MonoBehaviour
         {
             if (isWindow == true) // In window
             {
-               // transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y, windowPos.transform.position.z);
 
                 rig.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
 
@@ -317,6 +317,7 @@ public class PlayerDroplet : MonoBehaviour
 
         if (col.gameObject.tag == "Window Trig")
         {
+            windowPos = col.gameObject.transform;
             isFreefall = false;
             isWindow = true;
         }
