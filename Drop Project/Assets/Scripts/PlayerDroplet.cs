@@ -26,8 +26,6 @@ public class PlayerDroplet : MonoBehaviour
 
     public bool puddleMode;
 
-
-
     [Header("Touch")]
     public float screenPosX;
     public float upScreenPos;
