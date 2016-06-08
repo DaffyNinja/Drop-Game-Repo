@@ -36,22 +36,14 @@ public class EndlessGameMaster : MonoBehaviour
         spwNum = playerPos.y;
     }
 
-
-
     void Update()
     {
         PlatformMaintance();
-
-
-        // print(destroyNum.ToString());
-        // print(playerPos.y - spawnLimit);
-
     }
 
     void PlatformMaintance()
     {
         float platCheck = playerTrans.position.y + platformCheck;
-
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
@@ -83,11 +75,11 @@ public class EndlessGameMaster : MonoBehaviour
 
             if (playerTrans.position.y < 800)
             {
-                newYNum = 30;
+                newYNum = 100;
             }
             else if (playerTrans.position.y > 800)
             {
-                newYNum = 30;
+                newYNum = 200;
             }
 
             if (playerTrans.position.y < 750)
@@ -135,13 +127,6 @@ public class EndlessGameMaster : MonoBehaviour
 
         platfromsSpawnedUp = upTo;
     }
-
-
-
-    //yPos = new Vector3(Random.Range(playerPos.x - 5, playerPos.x + 5), playerTrans.position.y - 12.5f, playerPos.z);
-
-    //PlatformCreation(yPos);
-
 
     void PlatformCreation(Vector3 platformPos, int index)     // Instantiates the platforms
     {
