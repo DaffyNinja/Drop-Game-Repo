@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EndlessGameMaster : MonoBehaviour
-{
+public class PlatformCreationEndless : MonoBehaviour {
 
     public List<GameObject> platformsList;
     [Space(10)]
@@ -62,11 +61,11 @@ public class EndlessGameMaster : MonoBehaviour
 
     void SpawnPlatforms(float upTo)  //(UpTo)
     {
-        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 10, playerPos.z);
+        Vector3 pos = new Vector3(1515, playerTrans.position.y - 10, playerPos.z);
         int platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
-        
+
         PlatformCreation(pos, platIndex);
-      
+
     }
 
 
@@ -88,7 +87,7 @@ public class EndlessGameMaster : MonoBehaviour
         {
             print("Create");
 
-            Instantiate(platformsList[index], platformPos, Quaternion.Euler(90,90,0));
+            Instantiate(platformsList[index], platformPos, Quaternion.Euler(90, 90, 0));
         }
 
         // print(spwNum.ToString());
