@@ -14,25 +14,13 @@ public class PlatformCreationEndless : MonoBehaviour {
     public float spawnLimit;
     public float platformCheck;
     public float destroyLimit;
-
-    float destroyNum;
-
-    float spawnNum;
-
-    float spwNum;
-
-    float newYNum;
-
+ 
 
     //bool make;
 
     void Start()
     {
         playerPos = playerTrans.position;
-
-        destroyNum = playerPos.y -= destroyLimit;
-
-        spwNum = playerPos.y;
     }
 
     void Update()
@@ -61,7 +49,7 @@ public class PlatformCreationEndless : MonoBehaviour {
 
     void SpawnPlatforms(float upTo)  //(UpTo)
     {
-        Vector3 pos = new Vector3(1515, playerTrans.position.y - 10, playerPos.z);
+        Vector3 pos = new Vector3(1515, playerTrans.position.y - 5, playerPos.z);
         int platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
 
         PlatformCreation(pos, platIndex);
@@ -85,7 +73,7 @@ public class PlatformCreationEndless : MonoBehaviour {
 
         if (create)
         {
-            print("Create");
+           // print("Create");
 
             Instantiate(platformsList[index], platformPos, Quaternion.Euler(90, 90, 0));
         }
