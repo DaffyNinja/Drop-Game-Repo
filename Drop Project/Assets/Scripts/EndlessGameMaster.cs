@@ -60,12 +60,16 @@ public class EndlessGameMaster : MonoBehaviour
         SpawnPlatforms(platCheck);
     }
 
-    void SpawnPlatforms(float upTo)
+    void SpawnPlatforms(float upTo)  //(UpTo)
     {
-        float spawnHeight = platfromsSpawnedUp;
-
-        platfromsSpawnedUp = upTo;
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 10, playerPos.z);
+        int platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
+        
+        PlatformCreation(pos, platIndex);
+      
     }
+
+
 
     void PlatformCreation(Vector3 platformPos, int index)     // Instantiates the platforms
     {
@@ -74,18 +78,17 @@ public class EndlessGameMaster : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos.y == plat.transform.position.y)  // When to destroy platform
+            if (platformPos.y < plat.transform.position.y)  // When to destroy platform
             {
                 create = false;
             }
-
         }
 
         if (create)
         {
             print("Create");
 
-            Instantiate(platformsList[index], platformPos, Quaternion.identity);
+            Instantiate(platformsList[index], platformPos, Quaternion.Euler(90,90,0));
         }
 
         // print(spwNum.ToString());
