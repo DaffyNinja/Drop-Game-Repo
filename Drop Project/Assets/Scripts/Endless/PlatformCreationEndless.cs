@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlatformCreationEndless : MonoBehaviour {
+public class PlatformCreationEndless : MonoBehaviour
+{
 
     public List<GameObject> platformsList;
     [Space(10)]
@@ -14,7 +15,9 @@ public class PlatformCreationEndless : MonoBehaviour {
     public float spawnLimit;
     public float platformCheck;
     public float destroyLimit;
- 
+
+    int platNum;
+
 
     //bool make;
 
@@ -34,51 +37,53 @@ public class PlatformCreationEndless : MonoBehaviour {
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
-        foreach (GameObject plat in platforms)         // Destroys Platforms
+        foreach (GameObject plat in platforms)         // destroys platforms
         {
-            if (plat.transform.position.y > playerTrans.position.y + 25)  // When to destroy platform
+            if (plat.transform.position.y > playerTrans.position.y + 40)  // when to destroy platform
             {
-                // print("Plat");
+                // print("plat");
                 Destroy(plat);
             }
 
         }
 
-        SpawnPlatforms(platCheck);
+        SpawnPlatforms();
     }
 
-    void SpawnPlatforms(float upTo)  //(UpTo)
+    void SpawnPlatforms()  //(UpTo)
     {
-        Vector3 pos = new Vector3(1515, playerTrans.position.y - 5, playerPos.z);
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 5, playerPos.z);
+        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
+        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
+
         int platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
 
-        PlatformCreation(pos, platIndex);
+        PlatformCreation(pos,pos2,pos3, platIndex);
 
     }
 
 
 
-    void PlatformCreation(Vector3 platformPos, int index)     // Instantiates the platforms
+    void PlatformCreation(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, int index)     // Instantiates the platforms
     {
         bool create = true;
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos.y < plat.transform.position.y)  // When to destroy platform
+            if (platformPos3.y < plat.transform.position.y - 5)  // When 
             {
                 create = false;
             }
         }
 
+
         if (create)
         {
-           // print("Create");
-
-            Instantiate(platformsList[index], platformPos, Quaternion.Euler(90, 90, 0));
+            Instantiate(platformsList[index], platformPos1, Quaternion.identity);
+            Instantiate(platformsList[index], platformPos2, Quaternion.identity);
+            Instantiate(platformsList[index], platformPos3, Quaternion.identity);
         }
-
-        // print(spwNum.ToString());
 
     }
 
