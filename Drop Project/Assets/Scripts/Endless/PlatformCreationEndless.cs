@@ -16,6 +16,7 @@ public class PlatformCreationEndless : MonoBehaviour
     public float platformCheck;
     public float destroyLimit;
 
+    int platIndex;
     int platNum;
 
 
@@ -29,6 +30,8 @@ public class PlatformCreationEndless : MonoBehaviour
     void Update()
     {
         PlatformMaintance();
+
+        platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
     }
 
     void PlatformMaintance()
@@ -52,26 +55,28 @@ public class PlatformCreationEndless : MonoBehaviour
 
     void SpawnPlatforms()  //(UpTo)
     {
-        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 5, playerPos.z);
+        // Positions
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 10, playerPos.z);
         Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
         Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
 
-        int platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
 
-        PlatformCreation(pos,pos2,pos3, platIndex);
+
+        PlatformCreation(pos, pos2, pos3);
 
     }
 
 
 
-    void PlatformCreation(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, int index)     // Instantiates the platforms
+    void PlatformCreation(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3)     // Instantiates the platforms
     {
         bool create = true;
+
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos3.y < plat.transform.position.y - 5)  // When 
+            if (platformPos3.y < plat.transform.position.y)  // When 
             {
                 create = false;
             }
@@ -80,9 +85,9 @@ public class PlatformCreationEndless : MonoBehaviour
 
         if (create)
         {
-            Instantiate(platformsList[index], platformPos1, Quaternion.identity);
-            Instantiate(platformsList[index], platformPos2, Quaternion.identity);
-            Instantiate(platformsList[index], platformPos3, Quaternion.identity);
+            Instantiate(platformsList[platIndex], platformPos1, Quaternion.identity);
+            Instantiate(platformsList[platIndex], platformPos2, Quaternion.identity);
+            Instantiate(platformsList[platIndex], platformPos3, Quaternion.identity);
         }
 
     }
