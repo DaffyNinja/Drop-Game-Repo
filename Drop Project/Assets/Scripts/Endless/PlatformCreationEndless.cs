@@ -31,7 +31,7 @@ public class PlatformCreationEndless : MonoBehaviour
     {
         PlatformMaintance();
 
-        platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
+      //  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
     }
 
     void PlatformMaintance()
@@ -60,10 +60,7 @@ public class PlatformCreationEndless : MonoBehaviour
         Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
         Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
 
-
-
         PlatformCreation(pos, pos2, pos3);
-
     }
 
 
@@ -82,12 +79,11 @@ public class PlatformCreationEndless : MonoBehaviour
             }
         }
 
-
         if (create)
         {
-            Instantiate(platformsList[platIndex], platformPos1, Quaternion.identity);
-            Instantiate(platformsList[platIndex], platformPos2, Quaternion.identity);
-            Instantiate(platformsList[platIndex], platformPos3, Quaternion.identity);
+            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos1, Quaternion.identity);
+            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos2, Quaternion.identity);
+            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos3, Quaternion.identity);
         }
 
     }
