@@ -42,7 +42,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // destroys platforms
         {
-            if (plat.transform.position.y > playerTrans.position.y + 40)  // when to destroy platform
+            if (plat.transform.position.y > playerTrans.position.y + 12.5f)  // when to destroy platform
             {
                 // print("plat");
                 Destroy(plat);
@@ -56,9 +56,9 @@ public class PlatformCreationEndless : MonoBehaviour
     void SpawnPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 10, playerPos.z);
-        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
-        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 5, playerPos.z);
+        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z);
+        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
 
         PlatformCreation(pos, pos2, pos3);
     }
@@ -73,7 +73,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos3.y < plat.transform.position.y)  // When 
+            if (platformPos2.y < plat.transform.position.y)  // When 
             {
                 create = false;
             }
