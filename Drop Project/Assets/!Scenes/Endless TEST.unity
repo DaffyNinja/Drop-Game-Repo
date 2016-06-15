@@ -444,6 +444,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0dc21048ac7052b449fbd92c64f151bd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1007041341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1007041342}
+  m_Layer: 0
+  m_Name: Platforms Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007041342
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1007041341}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 810.65063, y: 318.77252, z: -6.371567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1247418734
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +686,7 @@ MonoBehaviour:
   spawnLimit: 5
   platformCheck: 0
   destroyLimit: 20
+  platParent: {fileID: 1007041342}
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
