@@ -21,12 +21,15 @@ public class PlatformCreationEndless : MonoBehaviour
     int platIndex;
     int platNum;
 
+    EndlessGameMaster gMaster;
 
     //bool make;
 
-    void Start()
+    void Awake()
     {
         playerPos = playerTrans.position;
+
+        gMaster = GetComponent<EndlessGameMaster>();
     }
 
     void Update()
