@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class PlatformCreationEndless : MonoBehaviour
 {
-
-    public List<GameObject> platformsList;
+    [Header("Platforms")]
+    public List<GameObject> easyPlatformsList;
+    public List<GameObject> mediumPlatformsList;
     [Space(10)]
     public Transform playerTrans;
     Vector3 playerPos;
@@ -21,6 +22,11 @@ public class PlatformCreationEndless : MonoBehaviour
     int platIndex;
     int platNum;
 
+    [Header("Game Master")]
+    public bool isEasy;
+    public int mediumStartNum;
+    public bool isMedium;
+
     EndlessGameMaster gMaster;
 
     //bool make;
@@ -30,11 +36,19 @@ public class PlatformCreationEndless : MonoBehaviour
         playerPos = playerTrans.position;
 
         gMaster = GetComponent<EndlessGameMaster>();
+
+        isEasy = true;
     }
 
     void Update()
     {
         PlatformMaintance();
+
+        if (gMaster.score >= mediumStartNum)
+        {
+            isEasy = false;
+            isMedium = true;
+        }
 
         //  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
     }
@@ -89,14 +103,24 @@ public class PlatformCreationEndless : MonoBehaviour
             plat.transform.parent = platParent;
         }
 
-        if (create)   // Make diffrent difficulty platforms spawn 
+        if (create && isEasy)   // Easy
         {
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos1, Quaternion.identity);
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos2, Quaternion.identity);
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos3, Quaternion.identity);
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos4, Quaternion.identity);
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos5, Quaternion.identity);
-            Instantiate(platformsList[Mathf.RoundToInt(Random.Range(0, platformsList.Count))], platformPos6, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos5, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos6, Quaternion.identity);
+        }
+        else if (create && isMedium)   // Medium
+        {
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos5, Quaternion.identity);
+            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos6, Quaternion.identity);
+
         }
 
     }
