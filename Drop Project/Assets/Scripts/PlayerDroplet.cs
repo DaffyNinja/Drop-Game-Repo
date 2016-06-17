@@ -33,8 +33,8 @@ public class PlayerDroplet : MonoBehaviour
 
     public bool moveRight;
     public bool moveLeft;
-    public bool moveUp;
-
+    public bool moveForward;
+    public bool moveBack;
 
     Vector2 touchPos;
 
@@ -136,7 +136,7 @@ public class PlayerDroplet : MonoBehaviour
         }
         else if (isLarge == false && obtainedDrop == false)
         {
-           // fallSpeed = startingFallSpeed;
+            // fallSpeed = startingFallSpeed;
             windowLeftRightSpeed = startingLRSpeed;
             transform.localScale = startingSize;
         }
@@ -149,7 +149,7 @@ public class PlayerDroplet : MonoBehaviour
     void Controls()
     {
 
-        if (touchControls)
+        if (touchControls)  // TouchControls
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
@@ -169,41 +169,68 @@ public class PlayerDroplet : MonoBehaviour
                 moveLeft = false;
             }
             else if (touchPos.x < screenPosX && touchPos.x > 0)
-            { 
+            {
                 moveLeft = true;
                 moveRight = false;
             }
 
             if (touchPos.y > upScreenPos)
             {
-                moveUp = true;
+                moveForward = true;
+                moveBack = false;
             }
-            else if (touchPos.y < upScreenPos && touchPos.y > 0 && canSlowDown == true)
+            else if (touchPos.y < upScreenPos && touchPos.y > 0)
             {
-                moveUp = false;
+                moveBack = true;
+                moveForward = false;
             }
 
-            if (moveRight)
+            if (isWindow == true)
             {
-                Vector2 moveQauntity = new Vector2(windowLeftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-                // moveRight = false;
+                if (moveRight)
+                {
+                    Vector2 moveQauntity = new Vector2(windowLeftRightSpeed, 0);
+                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    // moveRight = false;
+                }
+                else if (moveLeft)
+                {
+                    Vector2 moveQauntity = new Vector2(-windowLeftRightSpeed, 0);
+                    rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                    //moveLeft = false;
+                }
+
+                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
             }
-            else if (moveLeft)
+            else if (isFreefall == true)
             {
-                Vector2 moveQauntity = new Vector2(-windowLeftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
-                //moveLeft = false;
+                if (moveRight)
+                {
+                    Vector3 moveQauntity = new Vector3(freeFallLeftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                }
+                else if (moveLeft)
+                {
+                    Vector3 moveQauntity = new Vector3(-freeFallLeftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+
+                }
+
+                if (moveForward)
+                {
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, freeFallFowardBackSpeed);
+                }
+                else if (moveBack)
+                {
+                    rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, -freeFallFowardBackSpeed);
+                }
+
+                Vector3 fallQauntity = new Vector3(0, -fallSpeed, 0);
+                rig.velocity = new Vector3(rig.velocity.x, fallQauntity.y, rig.velocity.z);
+
             }
 
-            if (moveUp)
-            {
-                Vector2 moveQauntity = new Vector2(0, -slowSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, moveQauntity.y);
-                // GetComponentInChildren<Renderer>().material.color = Color.red;
-            }
-            Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-            rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
             //  GetComponentInChildren<Renderer>().material.color = Color.yellow;
 
         }
