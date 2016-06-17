@@ -40,6 +40,7 @@ public class PlatformCreationEndless : MonoBehaviour
         gMaster = GetComponent<EndlessGameMaster>();
 
         isEasy = true;
+
     }
 
     void Update()
@@ -59,17 +60,17 @@ public class PlatformCreationEndless : MonoBehaviour
 
     void PlatformMaintance()
     {
-        float platCheck = playerTrans.position.y - platformCheck;
+        //float platCheck = playerTrans.position.y - platformCheck;
 
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
         foreach (GameObject plat in platforms)         // destroys platforms
         {
-            if (plat.transform.position.y > playerTrans.position.y + 12.5f)  // when to destroy platform
+            if (plat.transform.position.y > playerTrans.position.y + 30)  // when to destroy platform
             {
                 Destroy(plat);
             }
-
+           
         }
 
         SpawnPlatforms();
@@ -98,13 +99,14 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos3.y >= plat.transform.position.y)  // When 
+            if (platformPos1.y > plat.transform.position.y - 10f)  // When 
             {
                 create = false;
             }
 
             plat.transform.parent = platParent;
         }
+  
 
         if (create && isEasy)   // Easy
         {
