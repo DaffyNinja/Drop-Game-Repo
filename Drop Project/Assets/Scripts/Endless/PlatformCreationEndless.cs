@@ -99,7 +99,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys Platforms
         {
-            if (platformPos1.y > plat.transform.position.y - 10f)  // When 
+            if (platformPos1.y > plat.transform.position.y - 7.5f)  // When to spawn new platforms  NOTE: Make 5f and public variable
             {
                 create = false;
             }
@@ -107,7 +107,6 @@ public class PlatformCreationEndless : MonoBehaviour
             plat.transform.parent = platParent;
         }
   
-
         if (create && isEasy)   // Easy
         {
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
