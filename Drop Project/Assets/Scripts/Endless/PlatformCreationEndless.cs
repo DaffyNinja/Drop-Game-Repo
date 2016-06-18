@@ -61,8 +61,8 @@ public class PlatformCreationEndless : MonoBehaviour
             isMedium = true;
         }
 
-        print("Create1: " + create1.ToString());
-        print("Create2: " + create2.ToString());
+        //print("Create1: " + create1.ToString());
+        //print("Create2: " + create2.ToString());
 
         //  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
     }
@@ -116,7 +116,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms1)         // Destroys Platforms
         {
-            plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
+           // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
 
             if (platformPos1.y < plat.transform.position.y)  // When to spawn new platforms  NOTE: Make 5f and public variable
             {
@@ -160,7 +160,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms2)         // Destroys Platforms
         {
-            plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
+           // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
 
             if (platformPos1.y > plat.transform.position.y - 15)  // When to spawn new platforms  NOTE: Make 5f and public variable
             {
