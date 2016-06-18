@@ -7,14 +7,13 @@ public class PlatformCreationEndless : MonoBehaviour
     [Header("Platforms")]
     public List<GameObject> easyPlatformsList;
     public List<GameObject> mediumPlatformsList;
+    public List<GameObject> hardPlatformsList;
     [Space(10)]
     public Transform playerTrans;
     Vector3 playerPos;
 
-
     public float spawnLimit;
-    public float platformCheck;
-    public float destroyLimit;
+    public float destroyNum;
 
     public Transform platParent;
 
@@ -32,6 +31,8 @@ public class PlatformCreationEndless : MonoBehaviour
     public bool isEasy;
     public int mediumStartNum;
     public bool isMedium;
+    public int hardStartNum;
+    public bool isHard;
 
     EndlessGameMaster gMaster;
 
@@ -55,10 +56,17 @@ public class PlatformCreationEndless : MonoBehaviour
 
         PlatformMaintance();
 
-        if (gMaster.score >= mediumStartNum)
+        if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)
         {
             isEasy = false;
+            isHard = false;
+
             isMedium = true;
+        }
+        else if (gMaster.score >= hardStartNum)
+        {
+            isHard = true;
+            isMedium = false;
         }
 
         //print("Create1: " + create1.ToString());
@@ -75,7 +83,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms)         // Destroys platforms
         {
-            if (plat.transform.position.y > playerTrans.position.y + 50)  // When to destroy platform
+            if (plat.transform.position.y > playerTrans.position.y + destroyNum)  // When to destroy platform
             {
                 Destroy(plat);
             }
@@ -116,7 +124,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms1)         // Destroys Platforms
         {
-           // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
+            // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
 
             if (platformPos1.y < plat.transform.position.y)  // When to spawn new platforms  NOTE: Make 5f and public variable
             {
@@ -127,7 +135,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         }
 
-        if (create1 && isEasy)   // Easy
+        if (create1 && isEasy)   // Start off Easy
         {
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
@@ -135,18 +143,6 @@ public class PlatformCreationEndless : MonoBehaviour
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos5, Quaternion.identity);
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos6, Quaternion.identity);
-      
-           
-
-        }
-        else if (create1 && isMedium)   // Medium
-        {
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos5, Quaternion.identity);
-            Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos6, Quaternion.identity);
 
         }
 
@@ -160,7 +156,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         foreach (GameObject plat in platforms2)         // Destroys Platforms
         {
-           // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
+            // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
 
             if (platformPos1.y > plat.transform.position.y - 15)  // When to spawn new platforms  NOTE: Make 5f and public variable
             {
@@ -184,6 +180,14 @@ public class PlatformCreationEndless : MonoBehaviour
             Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
 
         }
+        else if (create2 && isHard)  // Hard
+        {
+            Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos1, Quaternion.identity);
+            Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos2, Quaternion.identity);
+            Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos3, Quaternion.identity);
+
+        }
+
 
     }
 
