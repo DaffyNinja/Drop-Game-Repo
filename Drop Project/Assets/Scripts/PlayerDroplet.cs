@@ -12,6 +12,8 @@ public class PlayerDroplet : MonoBehaviour
 
     public float windowFallSpeed;
     public float windowLeftRightSpeed;
+
+    public float turnAmmount;
     [Space(5)]
     public bool canSlowDown;
     public float slowSpeed;
@@ -79,6 +81,7 @@ public class PlayerDroplet : MonoBehaviour
     public GameMaster gMaster;
 
 
+    Quaternion startingRotation;
 
 
     // Use this for initialization
@@ -90,6 +93,8 @@ public class PlayerDroplet : MonoBehaviour
         startingSize = transform.localScale;
         startingFallSpeed = fallSpeed;
         startingLRSpeed = windowLeftRightSpeed;
+
+        startingRotation = transform.rotation;
 
     }
 
@@ -235,7 +240,7 @@ public class PlayerDroplet : MonoBehaviour
 
         }
 
-
+        // PC Controls
         if (pcControls)
         {
             if (isWindow == true) // In window
@@ -249,13 +254,22 @@ public class PlayerDroplet : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                     {
+                        transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
+
                         Vector3 moveQauntity = new Vector3(windowLeftRightSpeed, 0, 0);
                         rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+
                     }
                     else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                     {
+                        transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
+
                         Vector3 moveQauntity = new Vector3(-windowLeftRightSpeed, 0, 0);
                         rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                    }
+                    else
+                    {
+                        transform.rotation = startingRotation;
                     }
                 }
 
@@ -268,32 +282,39 @@ public class PlayerDroplet : MonoBehaviour
             else // In free fall  
             {
 
-
+                // Right & Left
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
+                    transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
+
                     Vector3 moveQauntity = new Vector3(freeFallLeftRightSpeed, 0, 0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-
                 }
                 else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
+                    transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
+
                     Vector3 moveQauntity = new Vector3(-freeFallLeftRightSpeed, 0, 0);
                     rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 }
-
-                // Up and Fall
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))    // Foward & Back
                 {
                     rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, freeFallFowardBackSpeed);
+
+                    transform.rotation = Quaternion.Euler(0, 90, -turnAmmount);
                 }
                 else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
                     rig.velocity = new Vector3(rig.velocity.x, rig.velocity.y, -freeFallFowardBackSpeed);
+
+                    transform.rotation = Quaternion.Euler(0, 90, turnAmmount);
                 }
                 else
                 {
                     Vector3 fallQauntity = new Vector3(0, -fallSpeed, 0);
                     rig.velocity = new Vector3(rig.velocity.x, fallQauntity.y, rig.velocity.z);
+
+                    transform.rotation = startingRotation;
                 }
 
             }

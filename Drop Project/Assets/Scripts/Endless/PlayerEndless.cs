@@ -48,14 +48,14 @@ public class PlayerEndless : MonoBehaviour
                 Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
-                transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
+                transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
             }
             else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
-                transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
+                transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
             }
             else
             {
