@@ -7,15 +7,25 @@ using System.Collections.Generic;
 public class EndlessGameMaster : MonoBehaviour
 {
     public float score;
-    [Space(10)]
+	float highScore;
+    [Space(5)]
     public Text scoreText;
+	[Header("Game Over")]
+	public bool isGameOver;
+	public Text gameOverText;
+	public Text highScoreText;
 
+	[Space(5)]
     public Transform playerTrans;
     Vector3 playerStartPos;
 
     void Awake()
     {
+		isGameOver = false;
         score = 0;
+
+		gameOverText.gameObject.SetActive(false);
+		highScoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
     }
@@ -26,9 +36,12 @@ public class EndlessGameMaster : MonoBehaviour
         if (playerTrans.position.y < playerStartPos.y)
         {
             score += 1 * Time.deltaTime;
-
-          
         }
+
+		if(isGameOver)
+		{
+			gameOverText.gameObject.SetActive(true);
+		}
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
     }

@@ -10,9 +10,11 @@ public class EndlessCamera : MonoBehaviour
     public float camUpDis;
     public float camDownDis;
     public Transform playerTrans;
-    [Header("Debug")]
-    public bool isDebug;
-    public Text gameOverText;
+//    [Header("Debug")]
+//    public bool isDebug;
+//    public Text gameOverText;
+	[Space(5)]
+	public EndlessGameMaster gMaster;
 
     Camera cam;
 
@@ -22,7 +24,7 @@ public class EndlessCamera : MonoBehaviour
     {
         cam = GetComponent<Camera>();
 
-        gameOverText.gameObject.SetActive(false);
+        //gMaster.gameOverText.gameObject.SetActive(false);
 
     }
 
@@ -35,14 +37,16 @@ public class EndlessCamera : MonoBehaviour
         // Detects when the player is over the player camera view 
         Vector3 viewPos = cam.WorldToViewportPoint(playerTrans.position);
 
-        if (viewPos.y > camUpDis)
+        if (viewPos.y > camUpDis) // If player is above camera view then GAME OVER
         {
             print("Up");
 
-            if (isDebug)
-            {
-                gameOverText.gameObject.SetActive(true);
-            }
+			gMaster.isGameOver = true;
+
+           
+				
+
+            
 
         }
         //else if (viewPos.y < camDownDis)
