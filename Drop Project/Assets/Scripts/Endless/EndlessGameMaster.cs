@@ -10,10 +10,11 @@ public class EndlessGameMaster : MonoBehaviour
 	float highScore;
     [Space(5)]
     public Text scoreText;
+	public Text highScoreText;
 	[Header("Game Over")]
 	public bool isGameOver;
 	public Text gameOverText;
-	public Text highScoreText;
+
 
 	[Space(5)]
     public Transform playerTrans;
@@ -25,7 +26,7 @@ public class EndlessGameMaster : MonoBehaviour
         score = 0;
 
 		gameOverText.gameObject.SetActive(false);
-		highScoreText.gameObject.SetActive(false);
+		//highScoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
     }
@@ -41,13 +42,24 @@ public class EndlessGameMaster : MonoBehaviour
 		if(isGameOver)
 		{
 			gameOverText.gameObject.SetActive(true);
+			//StoreHighScore(highScore);
 		}
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
+		highScoreText.text = Mathf.RoundToInt(highScore).ToString();
     }
 
-    //Buttons
+	//High Score
+	void StoreHighScore(int newHighScore)
+	{
+		int oldHighscore = PlayerPrefs.GetInt("highscore", 0);    
+		if(newHighScore > oldHighscore)
+		{
+			PlayerPrefs.SetInt("highscore", newHighScore);
+		}
+	}
 
+    //Buttons
     public void Exit()
     {
         SceneManager.LoadScene(0);
@@ -57,5 +69,7 @@ public class EndlessGameMaster : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
 
 }

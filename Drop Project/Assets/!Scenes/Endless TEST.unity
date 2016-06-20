@@ -1107,6 +1107,7 @@ MonoBehaviour:
   camDownDis: 5
   playerTrans: {fileID: 749154150}
   gMaster: {fileID: 1417671941}
+  cam: {fileID: 0}
 --- !u!81 &1247418736
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1369,11 +1370,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  highScore: 0
   scoreText: {fileID: 577180039}
+  highScoreText: {fileID: 1712249983}
   isGameOver: 0
   gameOverText: {fileID: 1653143242}
-  highScoreText: {fileID: 1712249983}
   playerTrans: {fileID: 749154150}
+  playerStartPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1417671942
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,14 +1418,20 @@ MonoBehaviour:
   - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   - {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
   playerTrans: {fileID: 749154150}
+  playerPos: {x: 0, y: 0, z: 0}
   spawnLimit: 5
   destroyNum: 50
   platParent: {fileID: 1007041342}
+  create1: 0
+  create2: 0
+  platforms1: []
+  platforms2: []
   isEasy: 0
   mediumStartNum: 25
   isMedium: 0
   hardStartNum: 55
   isHard: 0
+  gMaster: {fileID: 0}
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,10 +1602,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 943551502}
   m_RootOrder: 5
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18, y: -106}
-  m_SizeDelta: {x: 417, y: 68}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -37.700012, y: -104}
+  m_SizeDelta: {x: 81.4, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712249983
 MonoBehaviour:
@@ -1623,7 +1632,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 92
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1631,7 +1640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'High Score: '
+  m_Text: 0
 --- !u!222 &1712249984
 CanvasRenderer:
   m_ObjectHideFlags: 0
