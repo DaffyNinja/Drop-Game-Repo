@@ -110,10 +110,22 @@ public class PlatformCreationEndless : MonoBehaviour
         Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
         Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
+		Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
+		Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - 155, playerPos.z);
+		Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - 185, playerPos.z);
+
 		// TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
 
         PlatformCreation1(pos, pos2, pos3, pos4, pos5, pos6);
-        PlatformCreation2(pos7, pos8, pos9);//, pos10, pos11, pos12);
+
+		if(isHard)
+		{
+			PlatformCreation2(posHard1, posHard2, posHard3);
+		}
+		else
+		{
+			PlatformCreation2(pos7, pos8, pos9);
+		}
     }
 
 
