@@ -294,7 +294,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495420, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 783.1
+      value: 836.5
       objectReference: {fileID: 0}
     - target: {fileID: 495420, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
       propertyPath: m_LocalPosition.y
@@ -386,7 +386,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454708, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 806.2
+      value: 859.6
       objectReference: {fileID: 0}
     - target: {fileID: 454708, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1034,7 +1034,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 477026, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 759.65
+      value: 813
       objectReference: {fileID: 0}
     - target: {fileID: 477026, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1107,7 +1107,6 @@ MonoBehaviour:
   camDownDis: 5
   playerTrans: {fileID: 749154150}
   gMaster: {fileID: 1417671941}
-  cam: {fileID: 0}
 --- !u!81 &1247418736
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1370,13 +1369,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  highScore: 0
   scoreText: {fileID: 577180039}
   highScoreText: {fileID: 1712249983}
   isGameOver: 0
   gameOverText: {fileID: 1653143242}
   playerTrans: {fileID: 749154150}
-  playerStartPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1417671942
 Transform:
   m_ObjectHideFlags: 0
@@ -1418,20 +1415,14 @@ MonoBehaviour:
   - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   - {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
   playerTrans: {fileID: 749154150}
-  playerPos: {x: 0, y: 0, z: 0}
   spawnLimit: 5
   destroyNum: 50
   platParent: {fileID: 1007041342}
-  create1: 0
-  create2: 0
-  platforms1: []
-  platforms2: []
   isEasy: 0
-  mediumStartNum: 25
+  mediumStartNum: 10
   isMedium: 0
-  hardStartNum: 55
+  hardStartNum: 15
   isHard: 0
-  gMaster: {fileID: 0}
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1758,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 464362, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 825.3
+      value: 878.7
       objectReference: {fileID: 0}
     - target: {fileID: 464362, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
       propertyPath: m_LocalPosition.y

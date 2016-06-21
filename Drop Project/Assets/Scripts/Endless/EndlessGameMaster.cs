@@ -42,7 +42,7 @@ public class EndlessGameMaster : MonoBehaviour
 		if(isGameOver)
 		{
 			gameOverText.gameObject.SetActive(true);
-			//StoreHighScore(highScore);
+			StoreHighScore(highScore);
 		}
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
@@ -50,12 +50,12 @@ public class EndlessGameMaster : MonoBehaviour
     }
 
 	//High Score
-	void StoreHighScore(int newHighScore)
+	void StoreHighScore(float newHighScore)
 	{
-		int oldHighscore = PlayerPrefs.GetInt("highscore", 0);    
+		float oldHighscore = PlayerPrefs.GetInt("highscore", 0);    
 		if(newHighScore > oldHighscore)
 		{
-			PlayerPrefs.SetInt("highscore", newHighScore);
+			PlayerPrefs.SetFloat("highscore", newHighScore);
 		}
 	}
 
