@@ -38,6 +38,7 @@ public class PlatformCreationEndless : MonoBehaviour
 	public float hardPos1;
 	public float hardPos2;
 	public float hardPos3;
+	public float hardPos4;
 
     EndlessGameMaster gMaster;
 
@@ -112,12 +113,14 @@ public class PlatformCreationEndless : MonoBehaviour
         Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - 110, playerPos.z);
         Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
         Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - 160, playerPos.z);
-        Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
-        Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
+       // Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
+        //Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
 		Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
 		Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
 		Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
+		Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - hardPos4, playerPos.z);
+
 
 		// TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
 
@@ -125,11 +128,11 @@ public class PlatformCreationEndless : MonoBehaviour
 
 		if(isHard)
 		{
-			PlatformCreation2(posHard1, posHard2, posHard3);
+			PlatformCreation2(posHard1, posHard2, posHard3,posHard4);
 		}
 		else
 		{
-			PlatformCreation2(pos7, pos8, pos9);
+			PlatformCreation2(pos7, pos8, pos9,pos10);
 		}
     }
 
@@ -167,7 +170,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
     }
 
-    void PlatformCreation2(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3) // Instantiates the platforms continualsy after the start
+    void PlatformCreation2(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3,Vector3 platformPos4) // Instantiates the platforms continualsy after the start
     {
         create2 = true;
 
@@ -190,6 +193,7 @@ public class PlatformCreationEndless : MonoBehaviour
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
             Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
+			Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
 
         }
         else if (create2 && isMedium)   // Medium
@@ -197,6 +201,7 @@ public class PlatformCreationEndless : MonoBehaviour
             Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
             Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
             Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
+			Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
 
         }
         else if (create2 && isHard)  // Hard
@@ -204,6 +209,7 @@ public class PlatformCreationEndless : MonoBehaviour
             Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos1, Quaternion.identity);
             Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos2, Quaternion.identity);
             Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos3, Quaternion.identity);
+			Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos4, Quaternion.identity);
 
         }
 
