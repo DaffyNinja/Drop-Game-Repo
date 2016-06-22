@@ -112,7 +112,7 @@ public class PlatformCreationEndless : MonoBehaviour
         Vector3 pos7 = new Vector3(playerPos.x, playerTrans.position.y - 95, playerPos.z);
         Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - 110, playerPos.z);
         Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
-        Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - 160, playerPos.z);
+        Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - 140, playerPos.z);
        // Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
         //Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
