@@ -29,10 +29,15 @@ public class PlatformCreationEndless : MonoBehaviour
 
     [Header("Game Master")]
     public bool isEasy;
-    public int mediumStartNum;
+	[Space(5)]
+	public int mediumStartNum;
     public bool isMedium;
+	[Space(5)]
     public int hardStartNum;
     public bool isHard;
+	public float hardPos1;
+	public float hardPos2;
+	public float hardPos3;
 
     EndlessGameMaster gMaster;
 
@@ -110,9 +115,9 @@ public class PlatformCreationEndless : MonoBehaviour
         Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
         Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
-		Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
-		Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - 155, playerPos.z);
-		Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - 185, playerPos.z);
+		Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
+		Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
+		Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
 
 		// TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
 
