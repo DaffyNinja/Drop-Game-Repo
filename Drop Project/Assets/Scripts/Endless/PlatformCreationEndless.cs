@@ -62,6 +62,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
         PlatformMaintance();
 
+		// Changes difficulty depending on how far the player has gone based on the score 
         if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)
         {
             isEasy = false;
