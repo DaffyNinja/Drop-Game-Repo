@@ -1379,6 +1379,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 110442, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
   m_IsPrefabParent: 0
@@ -1455,6 +1459,8 @@ MonoBehaviour:
   - {fileID: 144550, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
   - {fileID: 110688, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
   - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
+  mergeTrack: {fileID: 116012, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
+  splitTrack: {fileID: 110442, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
   playerTrans: {fileID: 749154150}
   spawnLimit: 5
   destroyNum: 30
@@ -1468,6 +1474,8 @@ MonoBehaviour:
   hardPos2: 100
   hardPos3: 120
   hardPos4: 140
+  splitNum: 0
+  mergeNum: 0
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1730,10 @@ Prefab:
     - target: {fileID: 405502, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
       propertyPath: m_RootOrder
       value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 116012, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
