@@ -8,7 +8,7 @@ public class PlatformCreationEndless : MonoBehaviour
 	public List<GameObject> easyPlatformsList;
 	public List<GameObject> mediumPlatformsList;
 	public List<GameObject> hardPlatformsList;
-
+	[Space(5)]
 	public GameObject mergeTrack;
 	public GameObject splitTrack;
 	[Space (10)]
@@ -115,12 +115,22 @@ public class PlatformCreationEndless : MonoBehaviour
 		//float platCheck = playerTrans.position.y - platformCheck;
 
 		GameObject[] platforms = GameObject.FindGameObjectsWithTag ("Plat");
+		GameObject[] splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
 
 		foreach (GameObject plat in platforms) {         // Destroys platforms
 			if (plat.transform.position.y > playerTrans.position.y + destroyNum) {  // When to destroy platform
 				Destroy (plat);
 			}
+				
 
+		}
+
+		foreach(GameObject plat in splitMergeOBJs)
+		{
+			if(plat.transform.position.y > playerTrans.position.y + 20)
+			{
+				print("Over Split/Merge");
+			}
 		}
 
 		SpawnPlatforms ();
@@ -136,10 +146,10 @@ public class PlatformCreationEndless : MonoBehaviour
 		Vector3 pos5 = new Vector3 (playerPos.x, playerTrans.position.y - 65, playerPos.z);
 		Vector3 pos6 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
 
-		Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 95, playerPos.z);
-		Vector3 pos8 = new Vector3 (playerPos.x, playerTrans.position.y - 110, playerPos.z);
-		Vector3 pos9 = new Vector3 (playerPos.x, playerTrans.position.y - 125, playerPos.z);
-		Vector3 pos10 = new Vector3 (playerPos.x, playerTrans.position.y - 140, playerPos.z);
+		Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
+		Vector3 pos8 = new Vector3 (playerPos.x, playerTrans.position.y - 95, playerPos.z);
+		Vector3 pos9 = new Vector3 (playerPos.x, playerTrans.position.y - 110, playerPos.z);
+		Vector3 pos10 = new Vector3 (playerPos.x, playerTrans.position.y - 125, playerPos.z);
 		// Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
 		//Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
@@ -237,7 +247,7 @@ public class PlatformCreationEndless : MonoBehaviour
 	void SplitandMerge ()
 	{
 		Vector3 splitPos = new Vector3 (playerPos.x, playerTrans.position.y - 130, playerPos.z);
-		Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
+		//Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
 
 		if (createSplitandMerge) {
 			if (makeSplit) {
@@ -251,6 +261,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
 			}
 		}
+
 	}
 
 
