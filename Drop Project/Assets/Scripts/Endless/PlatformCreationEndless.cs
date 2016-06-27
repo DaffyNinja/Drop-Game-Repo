@@ -24,7 +24,10 @@ public class PlatformCreationEndless : MonoBehaviour
 
 	bool create1;
 	bool create2;
+
+	GameObject[] splitMergeOBJs;
 	bool createSplitandMerge;
+	bool spawnSplitTracks;
 
 	bool makeSplit;
 	bool makeMerge;
@@ -92,11 +95,13 @@ public class PlatformCreationEndless : MonoBehaviour
 		if (gMaster.score >= 10 && gMaster.score < 30) {
 			
 			canSpawnPlatforms = false;
-
 			makeSplit = true;
 
 			SplitandMerge ();
 		}
+
+		SpawnSplitTracks();
+
 
 //		 else if (gMaster.score >= 20) {
 //			canSpawnPlatforms = false;
@@ -115,7 +120,7 @@ public class PlatformCreationEndless : MonoBehaviour
 		//float platCheck = playerTrans.position.y - platformCheck;
 
 		GameObject[] platforms = GameObject.FindGameObjectsWithTag ("Plat");
-		GameObject[] splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
+	splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
 
 		foreach (GameObject plat in platforms) {         // Destroys platforms
 			if (plat.transform.position.y > playerTrans.position.y + destroyNum) {  // When to destroy platform
@@ -125,11 +130,15 @@ public class PlatformCreationEndless : MonoBehaviour
 
 		}
 
+		// Player has passed split/Merge object
 		foreach(GameObject plat in splitMergeOBJs)
 		{
-			if(plat.transform.position.y > playerTrans.position.y + 20)
+			if(plat.transform.position.y > playerTrans.position.y)
 			{
-				print("Over Split/Merge");
+				//print("Over Split/Merge");
+
+				canSpawnPlatforms = true;
+				makeSplit = false;
 			}
 		}
 
@@ -242,6 +251,50 @@ public class PlatformCreationEndless : MonoBehaviour
 		}
 
 
+	}
+
+	//Make split tracks
+	void SpawnSplitTracks()
+	{
+		Vector3 pos1 = new Vector3(playerTrans.position.x - 5,playerTrans.position.y - 10,playerPos.z);
+		Vector3 pos2 = new Vector3(playerTrans.position.x  + 5,playerTrans.position.y - 10,playerPos.z);
+		Vector3 pos3 = new Vector3(playerTrans.position.x - 5,playerTrans.position.y - 25,playerPos.z);
+		Vector3 pos4 = new Vector3(playerTrans.position.x  + 5,playerTrans.position.y - 25,playerPos.z);
+
+
+
+
+			//Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
+
+
+		SplitTracks(pos1,pos2,pos3,pos4);
+		
+	}
+
+	void SplitTracks(Vector3 trackPos1,Vector3 trackPos2,Vector3 trackPos3,Vector3 trackPos4)
+	{
+		bool make = true;
+
+		foreach (GameObject plat in splitMergeOBJs) {         // Destroys Platforms
+
+			if (trackPos1.y > plat.transform.position.y - 15) {  // When to spawn new platforms  NOTE: Make 5f and public variable
+				make = false;
+			}
+
+			plat.transform.parent = platParent;
+		}
+
+
+		if(make)
+		{
+			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos1, Quaternion.identity);
+			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos2, Quaternion.identity);
+			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos3, Quaternion.identity);
+			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos4, Quaternion.identity);
+		}
+
+		print("Spawn Split");
+		
 	}
 
 	void SplitandMerge ()
