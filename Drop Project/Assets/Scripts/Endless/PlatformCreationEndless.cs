@@ -4,318 +4,369 @@ using System.Collections.Generic;
 
 public class PlatformCreationEndless : MonoBehaviour
 {
-	[Header ("Platforms")]
-	public List<GameObject> easyPlatformsList;
-	public List<GameObject> mediumPlatformsList;
-	public List<GameObject> hardPlatformsList;
-	[Space(5)]
-	public GameObject mergeTrack;
-	public GameObject splitTrack;
-	[Space (10)]
-	public Transform playerTrans;
-	Vector3 playerPos;
+    [Header("Platforms")]
+    public List<GameObject> easyPlatformsList;
+    public List<GameObject> mediumPlatformsList;
+    public List<GameObject> hardPlatformsList;
+    [Space(5)]
+    public GameObject mergeTrack;
+    public GameObject splitTrack;
+    [Space(10)]
+    public Transform playerTrans;
+    Vector3 playerPos;
 
-	public float spawnLimit;
-	public float destroyNum;
+    public float spawnLimit;
+    public float destroyNum;
 
-	public Transform platParent;
+    public Transform platParent;
 
-	bool canSpawnPlatforms;
+    bool canSpawnPlatforms;
 
-	bool create1;
-	bool create2;
+    bool create1;
+    bool create2;
 
-	GameObject[] splitMergeOBJs;
-	bool createSplitandMerge;
-	bool spawnSplitTracks;
+    GameObject[] splitMergeOBJs;
+    bool createSplitandMerge;
+    bool spawnSplitTracks;
 
-	bool makeSplit;
-	bool makeMerge;
+    bool makeSplit;
+    bool makeSplitTracks;
+    bool makeMerge;
 
-	GameObject[] platforms1;
-	GameObject[] platforms2;
+    GameObject[] platforms1;
+    GameObject[] platforms2;
 
-	//float platfromsSpawnedUp;
-	//int platIndex;
-	//int platNum;
+    //float platfromsSpawnedUp;
+    //int platIndex;
+    //int platNum;
 
-	[Header ("Game Master")]
-	public bool isEasy;
-	[Space (5)]
-	public int mediumStartNum;
-	public bool isMedium;
-	[Space (5)]
-	public int hardStartNum;
-	public bool isHard;
-	public float hardPos1;
-	public float hardPos2;
-	public float hardPos3;
-	public float hardPos4;
-	[Space (5)]
-	public int splitNum;
-	public int mergeNum;
-
-	EndlessGameMaster gMaster;
+    [Header("Game Master")]
+    public bool isEasy;
+    [Space(5)]
+    public int mediumStartNum;
+    public bool isMedium;
+    [Space(5)]
+    public int hardStartNum;
+    public bool isHard;
+    public float hardPos1;
+    public float hardPos2;
+    public float hardPos3;
+    public float hardPos4;
+    [Space(5)]
+    public int splitNum;
+    public int mergeNum;
 
-	//bool make;
-
-	void Awake ()
-	{
-		canSpawnPlatforms = true;
-		createSplitandMerge = true;
-
-		playerPos = playerTrans.position;
-
-		gMaster = GetComponent<EndlessGameMaster> ();
-
-		isEasy = true;
-
-	}
+    EndlessGameMaster gMaster;
 
-	void Update ()
-	{
+    //bool make;
 
-		platforms1 = GameObject.FindGameObjectsWithTag ("Plat");
-		platforms2 = GameObject.FindGameObjectsWithTag ("Plat");
-
-		PlatformMaintance ();
+    void Awake()
+    {
+        canSpawnPlatforms = true;
+        createSplitandMerge = true;
 
-		// Changes difficulty depending on how far the player has gone based on the score 
-		if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum) {
-			isEasy = false;
-			isHard = false;
+        playerPos = playerTrans.position;
 
-			isMedium = true;
-		} else if (gMaster.score >= hardStartNum) {
-			isHard = true;
-			isMedium = false;
-		}
+        gMaster = GetComponent<EndlessGameMaster>();
 
-		//Makes split and merge tracks
-		if (gMaster.score >= 10 && gMaster.score < 30) {
-			
-			canSpawnPlatforms = false;
-			makeSplit = true;
+        isEasy = true;
 
-			SplitandMerge ();
-		}
+    }
 
-		SpawnSplitTracks();
+    void Update()
+    {
 
+        platforms1 = GameObject.FindGameObjectsWithTag("Plat");
+        platforms2 = GameObject.FindGameObjectsWithTag("Plat");
 
-//		 else if (gMaster.score >= 20) {
-//			canSpawnPlatforms = false;
-//		}
-//
+        PlatformMaintance();
 
+        // Changes difficulty depending on how far the player has gone based on the score 
+        if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)
+        {
+            isEasy = false;
+            isHard = false;
 
-		//print("Create1: " + create1.ToString());
-		//print("Create2: " + create2.ToString());
+            isMedium = true;
+        }
+        else if (gMaster.score >= hardStartNum)
+        {
+            isHard = true;
+            isMedium = false;
+        }
 
-		//  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
-	}
+        //Makes split and merge tracks
+        if (gMaster.score >= 10 && gMaster.score < 30)
+        {
 
-	void PlatformMaintance ()
-	{
-		//float platCheck = playerTrans.position.y - platformCheck;
+            canSpawnPlatforms = false;
+            makeSplit = true;
 
-		GameObject[] platforms = GameObject.FindGameObjectsWithTag ("Plat");
-	splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
+            //SplitandMerge ();
 
-		foreach (GameObject plat in platforms) {         // Destroys platforms
-			if (plat.transform.position.y > playerTrans.position.y + destroyNum) {  // When to destroy platform
-				Destroy (plat);
-			}
-				
+            Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
+            //Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
 
-		}
+            if (createSplitandMerge)
+            {
+                if (makeSplit)
+                {
 
-		// Player has passed split/Merge object
-		foreach(GameObject plat in splitMergeOBJs)
-		{
-			if(plat.transform.position.y > playerTrans.position.y)
-			{
-				//print("Over Split/Merge");
+                    print("Split");
 
-				canSpawnPlatforms = true;
-				makeSplit = false;
-			}
-		}
+                    Instantiate(splitTrack, splitPos, Quaternion.identity);
 
-		SpawnPlatforms ();
-	}
+                    makeSplitTracks = true;
 
-	void SpawnPlatforms ()  //(UpTo)
-	{
-		// Positions
-		Vector3 pos = new Vector3 (playerPos.x, playerTrans.position.y - 5, playerPos.z);
-		Vector3 pos2 = new Vector3 (playerPos.x, playerTrans.position.y - 20, playerPos.z);
-		Vector3 pos3 = new Vector3 (playerPos.x, playerTrans.position.y - 35, playerPos.z);
-		Vector3 pos4 = new Vector3 (playerPos.x, playerTrans.position.y - 50, playerPos.z);
-		Vector3 pos5 = new Vector3 (playerPos.x, playerTrans.position.y - 65, playerPos.z);
-		Vector3 pos6 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
+                    makeSplit = false;
+                    createSplitandMerge = false;
 
-		Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
-		Vector3 pos8 = new Vector3 (playerPos.x, playerTrans.position.y - 95, playerPos.z);
-		Vector3 pos9 = new Vector3 (playerPos.x, playerTrans.position.y - 110, playerPos.z);
-		Vector3 pos10 = new Vector3 (playerPos.x, playerTrans.position.y - 125, playerPos.z);
-		// Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
-		//Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
+                }
+            }
 
-		Vector3 posHard1 = new Vector3 (playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
-		Vector3 posHard2 = new Vector3 (playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
-		Vector3 posHard3 = new Vector3 (playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
-		Vector3 posHard4 = new Vector3 (playerPos.x, playerTrans.position.y - hardPos4, playerPos.z);
 
+        }
 
-		// TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
+        if (makeSplitTracks)
+        {
+            SpawnSplitTracks();
+        }
 
-		PlatformCreation1 (pos, pos2, pos3, pos4, pos5);//, pos6);
 
-		if (isHard) {
-			PlatformCreation2 (posHard1, posHard2, posHard3, posHard4);
-		} else {
-			PlatformCreation2 (pos7, pos8, pos9, pos10);
-		}
-	}
 
 
+        //print("Create1: " + create1.ToString());
+        //print("Create2: " + create2.ToString());
 
-	void PlatformCreation1 (Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4, Vector3 platformPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
-	{
-		if (canSpawnPlatforms) {
-			create1 = true;
+        //  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
+    }
 
-			// GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+    void PlatformMaintance()
+    {
+        //float platCheck = playerTrans.position.y - platformCheck;
 
-			foreach (GameObject plat in platforms1) {         // Destroys Platforms
-				// plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+        splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
 
-				if (platformPos1.y < plat.transform.position.y) {  // When to spawn new platforms  NOTE: Make 5f and public variable
-					create1 = false;
-				}
+        foreach (GameObject plat in platforms)
+        {         // Destroys platforms
+            if (plat.transform.position.y > playerTrans.position.y + destroyNum)
+            {  // When to destroy platform
+                Destroy(plat);
+            }
 
-				plat.transform.parent = platParent;
 
-			}
+        }
 
-			if (create1 && isEasy) {   // Start off Easy
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos5, Quaternion.identity);
-				//Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos6, Quaternion.identity);
+        // Player has passed split/Merge object
+        foreach (GameObject plat in splitMergeOBJs)
+        {
+            if (plat.transform.position.y > playerTrans.position.y)
+            {
+                //print("Over Split/Merge");
 
-			}
-		}
+                canSpawnPlatforms = true;
+                makeSplit = false;
+            }
+        }
 
-	}
+        SpawnPlatforms();
+    }
 
-	void PlatformCreation2 (Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
-	{
-		if (canSpawnPlatforms) {
-			create2 = true;
+    void SpawnPlatforms()  //(UpTo)
+    {
+        // Positions
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 5, playerPos.z);
+        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z);
+        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
+        Vector3 pos4 = new Vector3(playerPos.x, playerTrans.position.y - 50, playerPos.z);
+        Vector3 pos5 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
+        Vector3 pos6 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
 
-			// GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+        Vector3 pos7 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
+        Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - 95, playerPos.z);
+        Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - 110, playerPos.z);
+        Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
+        // Vector3 pos11 = new Vector3(playerPos.x, playerTrans.position.y - 180, playerPos.z);
+        //Vector3 pos12 = new Vector3(playerPos.x, playerTrans.position.y - 200, playerPos.z);
 
-			foreach (GameObject plat in platforms2) {         // Destroys Platforms
-				// plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
+        Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
+        Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
+        Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
+        Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - hardPos4, playerPos.z);
 
-				if (platformPos1.y > plat.transform.position.y - 15) {  // When to spawn new platforms  NOTE: Make 5f and public variable
-					create2 = false;
-				}
 
-				plat.transform.parent = platParent;
-			}
+        // TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
 
-			if (create2 && isEasy) {   // Easy
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
-				Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
+        PlatformCreation1(pos, pos2, pos3, pos4, pos5);//, pos6);
 
-			} else if (create2 && isMedium) {   // Medium
-				Instantiate (mediumPlatformsList [Mathf.RoundToInt (Random.Range (0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
-				Instantiate (mediumPlatformsList [Mathf.RoundToInt (Random.Range (0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
-				Instantiate (mediumPlatformsList [Mathf.RoundToInt (Random.Range (0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
-				Instantiate (mediumPlatformsList [Mathf.RoundToInt (Random.Range (0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
+        if (isHard)
+        {
+            PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+        }
+        else
+        {
+            PlatformCreation2(pos7, pos8, pos9, pos10);
+        }
+    }
 
-			} else if (create2 && isHard) {  // Hard
-				Instantiate (hardPlatformsList [Mathf.RoundToInt (Random.Range (0, hardPlatformsList.Count))], platformPos1, Quaternion.identity);
-				Instantiate (hardPlatformsList [Mathf.RoundToInt (Random.Range (0, hardPlatformsList.Count))], platformPos2, Quaternion.identity);
-				Instantiate (hardPlatformsList [Mathf.RoundToInt (Random.Range (0, hardPlatformsList.Count))], platformPos3, Quaternion.identity);
-				Instantiate (hardPlatformsList [Mathf.RoundToInt (Random.Range (0, hardPlatformsList.Count))], platformPos4, Quaternion.identity);
 
-			}
-		}
 
+    void PlatformCreation1(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4, Vector3 platformPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
+    {
+        if (canSpawnPlatforms)
+        {
+            create1 = true;
 
-	}
+            // GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
-	//Make split tracks
-	void SpawnSplitTracks()
-	{
-		Vector3 pos1 = new Vector3(playerTrans.position.x - 5,playerTrans.position.y - 10,playerPos.z);
-		Vector3 pos2 = new Vector3(playerTrans.position.x  + 5,playerTrans.position.y - 10,playerPos.z);
-		Vector3 pos3 = new Vector3(playerTrans.position.x - 5,playerTrans.position.y - 25,playerPos.z);
-		Vector3 pos4 = new Vector3(playerTrans.position.x  + 5,playerTrans.position.y - 25,playerPos.z);
+            foreach (GameObject plat in platforms1)
+            {         // Destroys Platforms
+                      // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.green;
 
+                if (platformPos1.y < plat.transform.position.y)
+                {  // When to spawn new platforms  NOTE: Make 5f and public variable
+                    create1 = false;
+                }
 
+                plat.transform.parent = platParent;
 
+            }
 
-			//Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
+            if (create1 && isEasy)
+            {   // Start off Easy
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos5, Quaternion.identity);
+                //Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos6, Quaternion.identity);
 
+            }
+        }
 
-		SplitTracks(pos1,pos2,pos3,pos4);
-		
-	}
+    }
 
-	void SplitTracks(Vector3 trackPos1,Vector3 trackPos2,Vector3 trackPos3,Vector3 trackPos4)
-	{
-		bool make = true;
+    void PlatformCreation2(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
+    {
+        if (canSpawnPlatforms)
+        {
+            create2 = true;
 
-		foreach (GameObject plat in splitMergeOBJs) {         // Destroys Platforms
+            // GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
 
-			if (trackPos1.y > plat.transform.position.y - 15) {  // When to spawn new platforms  NOTE: Make 5f and public variable
-				make = false;
-			}
+            foreach (GameObject plat in platforms2)
+            {         // Destroys Platforms
+                      // plat.gameObject.GetComponentInChildren<Renderer>().material.color = Color.yellow;
 
-			plat.transform.parent = platParent;
-		}
+                if (platformPos1.y > plat.transform.position.y - 15)
+                {  // When to spawn new platforms  NOTE: Make 5f and public variable
+                    create2 = false;
+                }
 
+                plat.transform.parent = platParent;
+            }
 
-		if(make)
-		{
-			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos1, Quaternion.identity);
-			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos2, Quaternion.identity);
-			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos3, Quaternion.identity);
-			Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], trackPos4, Quaternion.identity);
-		}
+            if (create2 && isEasy)
+            {   // Easy
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
 
-		print("Spawn Split");
-		
-	}
+            }
+            else if (create2 && isMedium)
+            {   // Medium
+                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
 
-	void SplitandMerge ()
-	{
-		Vector3 splitPos = new Vector3 (playerPos.x, playerTrans.position.y - 130, playerPos.z);
-		//Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
+            }
+            else if (create2 && isHard)
+            {  // Hard
+                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos4, Quaternion.identity);
 
-		if (createSplitandMerge) {
-			if (makeSplit) {
-				
-				print ("Split");
+            }
+        }
 
-				Instantiate (splitTrack, splitPos, Quaternion.identity);
 
-				makeSplit = false;
-				createSplitandMerge = false;
+    }
 
-			}
-		}
+    //Make split tracks
+    void SpawnSplitTracks()
+    {
+        Vector3 pos1 = new Vector3(playerTrans.position.x - 5, playerTrans.position.y - 10, playerPos.z);
+        Vector3 pos2 = new Vector3(playerTrans.position.x + 5, playerTrans.position.y - 10, playerPos.z);
+        Vector3 pos3 = new Vector3(playerTrans.position.x - 5, playerTrans.position.y - 25, playerPos.z);
+        Vector3 pos4 = new Vector3(playerTrans.position.x + 5, playerTrans.position.y - 25, playerPos.z);
 
-	}
+
+
+
+        //Vector3 pos7 = new Vector3 (playerPos.x, playerTrans.position.y - 80, playerPos.z);
+
+
+        SplitTracks(pos1, pos2, pos3, pos4);
+
+    }
+
+    void SplitTracks(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4)
+    {
+        bool make = true;
+
+
+
+        foreach (GameObject plat in splitMergeOBJs)
+        {         // Destroys Platforms
+
+            if (trackPos1.y > plat.transform.position.y - 15)
+            {  // When to spawn new platforms  NOTE: Make 5f and public variable
+                make = false;
+            }
+
+            plat.transform.parent = platParent;
+        }
+
+
+        if (make)
+        {
+            print("Spawn Split");
+
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos1, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos2, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos3, Quaternion.identity);
+            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos4, Quaternion.identity);
+        }
+
+
+
+    }
+
+    void SplitandMerge()
+    {
+        Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
+        //Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
+
+        if (createSplitandMerge)
+        {
+            if (makeSplit)
+            {
+
+                print("Split");
+
+                Instantiate(splitTrack, splitPos, Quaternion.identity);
+
+                makeSplit = false;
+                createSplitandMerge = false;
+
+            }
+        }
+
+    }
 
 
 
