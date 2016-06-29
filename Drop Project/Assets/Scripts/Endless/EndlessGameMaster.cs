@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 
 public class EndlessGameMaster : MonoBehaviour
 {
@@ -11,7 +9,8 @@ public class EndlessGameMaster : MonoBehaviour
     [Space(5)]
     public Text scoreText;
 	public Text highScoreText;
-	[Header("Game Over")]
+    string highScoreKey = "HighScore";
+    [Header("Game Over")]
 	public bool isGameOver;
 	public Text gameOverText;
 
@@ -29,6 +28,8 @@ public class EndlessGameMaster : MonoBehaviour
 		//highScoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
+
+        highScore = PlayerPrefs.GetFloat(highScoreKey, 0);
     }
 
 
@@ -42,21 +43,25 @@ public class EndlessGameMaster : MonoBehaviour
 		if(isGameOver)
 		{
 			gameOverText.gameObject.SetActive(true);
-			StoreHighScore(highScore);
-		}
+            StoreHighScore();
+        }
+
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
-		highScoreText.text = Mathf.RoundToInt(highScore).ToString();
+        highScoreText.text = Mathf.RoundToInt(highScore).ToString();
+
+       // print(highScore.ToString());
     }
 
 	//High Score
-	void StoreHighScore(float newHighScore)
+	void StoreHighScore()
 	{
-		float oldHighscore = PlayerPrefs.GetInt("highscore", 0);    
-		if(newHighScore > oldHighscore)
-		{
-			PlayerPrefs.SetFloat("highscore", newHighScore);
-		}
+        if (score > highScore)
+        {
+            PlayerPrefs.SetFloat(highScoreKey, score);
+
+
+        }
 	}
 
     //Buttons
