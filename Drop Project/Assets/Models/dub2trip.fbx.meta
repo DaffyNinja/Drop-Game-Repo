@@ -1,34 +1,17 @@
 fileFormatVersion: 2
-guid: ba8d8f7cf4e5ed74cb80a121d064f54c
-timeCreated: 1465264924
+guid: a5922ee870723e745bb54cea5c2e2ee6
+timeCreated: 1467173176
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.002
-    100004: Cube.003
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.002
-    400004: Cube.003
-    400006: //RootNode
-    2300000: Cube
-    2300002: Cube.002
-    2300004: Cube.003
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Cube.002
-    3300004: Cube.003
-    3300006: //RootNode
-    4300000: Section Test
-    4300002: Cube.003
-    4300004: Cube.002
-    4300006: Cube
-    6400000: Cube
-    6400002: Cube.002
-    6400004: Cube.003
-    6400006: //RootNode
+    100000: //RootNode
+    100002: Mesh1
+    400000: //RootNode
+    400002: Mesh1
+    2300000: Mesh1
+    3300000: Mesh1
+    4300000: Mesh1
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,9 +36,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
