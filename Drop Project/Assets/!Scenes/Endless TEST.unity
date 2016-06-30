@@ -294,7 +294,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495420, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 836.5
+      value: 1645
       objectReference: {fileID: 0}
     - target: {fileID: 495420, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
       propertyPath: m_LocalPosition.y
@@ -386,7 +386,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 454708, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 859.6
+      value: 1668
       objectReference: {fileID: 0}
     - target: {fileID: 454708, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1034,7 +1034,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 477026, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 813
+      value: 1622
       objectReference: {fileID: 0}
     - target: {fileID: 477026, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1457,23 +1457,22 @@ MonoBehaviour:
   - {fileID: 135706, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
   hardPlatformsList:
   - {fileID: 144550, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
-  - {fileID: 110688, guid: 2f5e39d1685e3af40ab6b0f608be1751, type: 2}
   - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
+  - {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
   mergeTrack: {fileID: 116012, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
   splitTrack: {fileID: 110442, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
   playerTrans: {fileID: 749154150}
-  spawnLimit: 5
-  destroyNum: 35
+  destroyNum: 45
   platParent: {fileID: 1007041342}
   isEasy: 0
   mediumStartNum: 15
   isMedium: 0
-  hardStartNum: 40
+  hardStartNum: 20
   isHard: 0
-  hardPos1: 80
-  hardPos2: 100
-  hardPos3: 120
-  hardPos4: 140
+  hardPos1: 85
+  hardPos2: 105
+  hardPos3: 125
+  hardPos4: 145
   splitNum: 0
   mergeNum: 0
 --- !u!1 &1539134224
@@ -1631,7 +1630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1712249982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1857,7 +1856,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 464362, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 878.7
+      value: 1687
       objectReference: {fileID: 0}
     - target: {fileID: 464362, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
       propertyPath: m_LocalPosition.y

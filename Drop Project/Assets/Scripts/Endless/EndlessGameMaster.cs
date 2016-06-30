@@ -43,8 +43,11 @@ public class EndlessGameMaster : MonoBehaviour
 		if(isGameOver)
 		{
 			gameOverText.gameObject.SetActive(true);
-            StoreHighScore();
+
+           // StoreHighScore();
+
         }
+   
 
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
