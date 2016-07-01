@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66caafe74acbc0f4781d8076c4e7c9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackOBJ: {fileID: 156922, guid: db99f032d57f2bb4184a41fa1cb26ad2, type: 2}
+  trackOBJ:
+  - {fileID: 156922, guid: db99f032d57f2bb4184a41fa1cb26ad2, type: 2}
   playerTrans: {fileID: 744108306}
 --- !u!4 &744108306 stripped
 Transform:
@@ -202,7 +203,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 498960, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.29
+      value: -1.53
       objectReference: {fileID: 0}
     - target: {fileID: 498960, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -230,7 +231,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498960, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11433932, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: playerTrans
@@ -302,7 +303,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 30.1
+      value: 29.19
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalRotation.x
@@ -322,7 +323,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428518, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
+      propertyPath: m_Constraints
+      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
