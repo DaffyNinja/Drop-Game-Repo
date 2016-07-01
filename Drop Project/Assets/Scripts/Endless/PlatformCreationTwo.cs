@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlatformCreationTwo : MonoBehaviour {
+public class PlatformCreationTwo : MonoBehaviour
+{
 
     public GameObject trackOBJ;
 
@@ -9,17 +10,20 @@ public class PlatformCreationTwo : MonoBehaviour {
     Vector3 playerStartPos;
 
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    // Use this for initialization
+    void Awake()
+    {
+
+        playerStartPos = playerTrans.position;
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         PlatformMaintance();
-	
-	}
+
+    }
 
     void PlatformMaintance()
     {
@@ -44,14 +48,14 @@ public class PlatformCreationTwo : MonoBehaviour {
     void SpawnPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - 5, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - 20, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - 35, playerStartPos.z);
-        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - 50, playerStartPos.z);
-        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - 65, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x + 2f, playerTrans.position.y - 5, playerStartPos.z - 2.5f);
+        Vector3 pos2 = new Vector3(playerStartPos.x + 2f, playerTrans.position.y - 20, playerStartPos.z - 2.5f);
+        Vector3 pos3 = new Vector3(playerStartPos.x + 2f, playerTrans.position.y - 35, playerStartPos.z - 2.5f);
+        Vector3 pos4 = new Vector3(playerStartPos.x + 2f, playerTrans.position.y - 50, playerStartPos.z - 2.5f);
+        Vector3 pos5 = new Vector3(playerStartPos.x + 2f, playerTrans.position.y - 65, playerStartPos.z - 2.5f);
 
         PlatformCreation(pos, pos2, pos3, pos4, pos5);
- 
+
     }
 
 
@@ -60,16 +64,21 @@ public class PlatformCreationTwo : MonoBehaviour {
     {
         bool create = true;
 
-        if (platformPos1.y < trackOBJ.transform.position.y)
-        {
-            print("False");
-            create = false;
-        }
+        GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
 
+
+        foreach (GameObject t in tracks)
+        {
+            if (platformPos1.y < t.transform.position.y)
+            {
+                print("False");
+                create = false;
+            }
+        }
 
         if (create)
         {
-            Instantiate(trackOBJ, platformPos1, Quaternion.identity);
+            Instantiate(trackOBJ, platformPos1, Quaternion.Euler(0, 90, 0));
         }
 
     }
