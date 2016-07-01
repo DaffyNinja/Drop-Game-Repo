@@ -273,11 +273,18 @@ public class PlatformCreationEndless : MonoBehaviour
             if (createSplitandMerge)
             {
                 Instantiate(splitTrack, splitPos, Quaternion.identity);
+                canSpawnPlatforms = false;
                 createSplitandMerge = false;
             }
 
             // If player pased split platform
-            makeSplitTracks = true;
+
+            if (playerTrans.position.y == splitTrack.transform.position.y)
+            {
+                print("Player Pass");
+                makeSplitTracks = true;
+            }
+            
         }
 
     }
