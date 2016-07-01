@@ -15,7 +15,7 @@ public class PlatformCreationEndless : MonoBehaviour
     public Transform playerTrans;
     Vector3 playerPos;
 
-   // public float spawnLimit;
+    // public float spawnLimit;
     public float destroyNum;
 
     public Transform platParent;
@@ -95,13 +95,13 @@ public class PlatformCreationEndless : MonoBehaviour
             isMedium = false;
         }
 
-        if (makeSplitTracks)
+        if (gMaster.score >= 10 && gMaster.score < 30)
         {
-            SpawnSplitTracks();
+            SplitandMerge();
         }
 
 
-       
+
 
 
 
@@ -266,6 +266,58 @@ public class PlatformCreationEndless : MonoBehaviour
 
     }
 
+    void SplitandMerge()
+    {
+        print("Spawn Split");
+
+        // Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
+        //Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
+
+        //Makes split and merge tracks
+        //if (gMaster.score >= 10 && gMaster.score < 30)
+        //{
+
+
+
+        //    canSpawnPlatforms = false;
+        //    makeSplit = true;
+
+        //    if (createSplitandMerge)
+        //    {
+        //        if (makeSplit)
+        //        {
+
+        //            print("Split");
+
+        //            Instantiate(splitTrack, splitPos, Quaternion.identity);
+
+        //            makeSplitTracks = true;
+
+        //            makeSplit = false;
+        //            createSplitandMerge = false;
+
+        //        }
+        //    }
+
+
+        //}
+
+        //if (createSplitandMerge)
+        //{
+        //    if (makeSplit)
+        //    {
+
+        //        print("Split");
+
+        //        Instantiate(splitTrack, splitPos, Quaternion.identity);
+
+        //        makeSplit = false;
+        //        createSplitandMerge = false;
+
+        //    }
+        //}
+    }
+
     //Make split tracks
     void SpawnSplitTracks()
     {
@@ -316,60 +368,7 @@ public class PlatformCreationEndless : MonoBehaviour
 
     }
 
-    void SplitandMerge()
-    {
-        Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
-        //Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
 
-        if (createSplitandMerge)
-        {
-            if (makeSplit)
-            {
-
-                print("Split");
-
-                Instantiate(splitTrack, splitPos, Quaternion.identity);
-
-                makeSplit = false;
-                createSplitandMerge = false;
-
-            }
-        }
-
-
-        //Makes split and merge tracks
-        if (gMaster.score >= 10 && gMaster.score < 30)
-        {
-
-            canSpawnPlatforms = false;
-            makeSplit = true;
-
-            //SplitandMerge ();
-
-            //Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
-            //Vector3 mergePos = new Vector3 (playerPos.x, playerTrans.position.y - 10, playerPos.z);
-
-            if (createSplitandMerge)
-            {
-                if (makeSplit)
-                {
-
-                    print("Split");
-
-                    Instantiate(splitTrack, splitPos, Quaternion.identity);
-
-                    makeSplitTracks = true;
-
-                    makeSplit = false;
-                    createSplitandMerge = false;
-
-                }
-            }
-
-
-        }
-
-    }
 
 
 
