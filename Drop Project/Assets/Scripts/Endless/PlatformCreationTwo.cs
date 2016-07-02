@@ -15,18 +15,24 @@ public class PlatformCreationTwo : MonoBehaviour
     public float xPosMin;
     public float xPosMax;
 
+    GameObject[] tracks;
+
+
 
 
     // Use this for initialization
     void Awake()
     {
+        tracks = GameObject.FindGameObjectsWithTag("Track");
 
         playerStartPos = playerTrans.position;
+
+
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         PlatformMaintance();
 
@@ -36,57 +42,58 @@ public class PlatformCreationTwo : MonoBehaviour
     {
         //float platCheck = playerTrans.position.y - platformCheck;
 
-        GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
 
 
         foreach (GameObject t in tracks)
         {         // Destroys platforms
             if (t.transform.position.y > playerTrans.position.y + 45)
             {  // When to destroy platform
+                print("Destroy");
                 Destroy(t);
             }
         }
 
-        SpawnPlatforms();
+        TrackPlatforms();
     }
 
-    void SpawnPlatforms()  //(UpTo)
+    void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y - 30, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x + 15, playerTrans.position.y - 30, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x - 5F, playerTrans.position.y - 30, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y - 5, playerStartPos.z);
+        //Vector3 pos2 = new Vector3(playerStartPos.x + 15, playerTrans.position.y - 30, playerStartPos.z);
+        // Vector3 pos3 = new Vector3(playerStartPos.x - 5F, playerTrans.position.y - 30, playerStartPos.z);
 
         // Vector3 pos4 = new Vector3(playerStartPos.x + (Random.Range(xPosMin, xPosMax)), playerTrans.position.y - 40, playerStartPos.z);
         //  Vector3 pos5 = new Vector3(playerStartPos.x + (Random.Range(xPosMin, xPosMax)), playerTrans.position.y - 50, playerStartPos.z);
 
-        PlatformCreation(pos, pos2, pos3);//, pos4, pos5);
+        TrackCreation(pos);//, pos2, pos3);//, pos4, pos5);
 
     }
 
 
 
-    void PlatformCreation(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3)//, Vector3 platformPos4, Vector3 platformPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
+    void TrackCreation(Vector3 trackPos1)//, Vector3 trackPos2, Vector3 trackPos3)//, Vector3 platformPos4, Vector3 platformPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
     {
         bool create = true;
 
-        GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
+        GameObject[] track = GameObject.FindGameObjectsWithTag("Track");
 
-
-        foreach (GameObject t in tracks)
+        foreach (GameObject t in track)
         {
-            if (platformPos1.y > t.transform.position.y)  // To Fix
+            if (trackPos1.y > t.transform.position.y - 17.5f)  // To Fix
             {
-                //print("False");
+                print("False");
                 create = false;
             }
         }
 
         if (create)
         {
-            Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0,trackOBJs.Count))], platformPos1, Quaternion.Euler(0, 90, 0));
-            Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0, trackOBJs.Count))], platformPos2, Quaternion.Euler(0, 90, 0));
-            Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0, trackOBJs.Count))], platformPos3, Quaternion.Euler(0, 90, 0));
+            Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0, trackOBJs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
+            // Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0, trackOBJs.Count))], platformPos2, Quaternion.Euler(0, 90, 0));
+            //  Instantiate(trackOBJs[Mathf.RoundToInt(Random.Range(0, trackOBJs.Count))], platformPos3, Quaternion.Euler(0, 90, 0));
+
+            create = false;
             // Instantiate(trackOBJ[0], platformPos4, Quaternion.Euler(0, 90, 0));
             //  Instantiate(trackOBJ[0], platformPos5, Quaternion.Euler(0, 90, 0));
         }
