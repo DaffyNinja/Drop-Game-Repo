@@ -43,11 +43,6 @@ public class EndlessCamera : MonoBehaviour
 
 			gMaster.isGameOver = true;
 
-           
-				
-
-            
-
         }
         //else if (viewPos.y < camDownDis)
         //{
