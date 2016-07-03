@@ -15,8 +15,12 @@ public class TrackCreationTwo : MonoBehaviour
     bool create2;
 
     [Space(5)]
-    public float xPosMin;
-    public float xPosMax;
+    public float yPos1;
+    public float yPos2;
+    public float yPos3;
+    public float yPos4;
+    public float yPos5;
+
 
     GameObject[] track;
     GameObject[] track2;
@@ -68,11 +72,11 @@ public class TrackCreationTwo : MonoBehaviour
     void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - 15, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x + 5F, playerTrans.position.y - 30, playerStartPos.z);
-        Vector3 pos4 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - 45, playerStartPos.z);
-        Vector3 pos5 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - 60, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos1, playerStartPos.z);
+        Vector3 pos2 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos2, playerStartPos.z);
+        Vector3 pos3 = new Vector3(playerStartPos.x + 5F, playerTrans.position.y - yPos3, playerStartPos.z);
+        Vector3 pos4 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos4, playerStartPos.z);
+        Vector3 pos5 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos5, playerStartPos.z);
 
         if (isStart)
         {
@@ -117,7 +121,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (trackPos3.y > t.transform.position.y - 15)  // To Fix
+            if (trackPos3.y > t.transform.position.y - 12.5f)  // To Fix
             {
                 // print("False 2");
                 create2 = false;
