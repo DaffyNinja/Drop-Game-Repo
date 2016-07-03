@@ -51,7 +51,7 @@ public class TrackCreationTwo : MonoBehaviour
         GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
         TrackPlatforms();
 
-      //  print("Istart: " + isStart.ToString());
+        //  print("Istart: " + isStart.ToString());
 
 
         foreach (GameObject t in tracks)
@@ -69,11 +69,11 @@ public class TrackCreationTwo : MonoBehaviour
     void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x + 10, playerTrans.position.y - yPos1, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x + 10, playerTrans.position.y - yPos2, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x + 10, playerTrans.position.y - yPos3, playerStartPos.z);
-        Vector3 pos4 = new Vector3(playerStartPos.x + 10, playerTrans.position.y - yPos4, playerStartPos.z);
-        Vector3 pos5 = new Vector3(playerStartPos.x + 10, playerTrans.position.y - yPos5, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos1, playerStartPos.z);
+        Vector3 pos2 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos2, playerStartPos.z);
+        Vector3 pos3 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos3, playerStartPos.z);
+        Vector3 pos4 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos4, playerStartPos.z);
+        Vector3 pos5 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos5, playerStartPos.z);
 
         if (isStart)
         {
