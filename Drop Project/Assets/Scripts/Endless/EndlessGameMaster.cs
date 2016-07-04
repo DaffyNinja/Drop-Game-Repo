@@ -10,6 +10,10 @@ public class EndlessGameMaster : MonoBehaviour
     public Text scoreText;
 	public Text highScoreText;
     string highScoreKey = "HighScore";
+    [Header("Loss Text")]
+    public string Text1;
+    public Text textBox;
+    public bool hasText;
     [Header("Game Over")]
 	public bool isGameOver;
 	public Text gameOverText;
@@ -40,12 +44,17 @@ public class EndlessGameMaster : MonoBehaviour
             score += 1 * Time.deltaTime;
         }
 
-		if(isGameOver)
-		{
-			gameOverText.gameObject.SetActive(true);
+        if (isGameOver)
+        {
+            gameOverText.gameObject.SetActive(true);
 
-           // StoreHighScore();
+            // StoreHighScore();
 
+        }
+
+        if (hasText)
+        {
+            textBox.text = Text1;
         }
    
 
