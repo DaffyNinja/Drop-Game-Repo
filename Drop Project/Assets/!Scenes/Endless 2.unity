@@ -368,8 +368,9 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 568720337}
   highScoreText: {fileID: 350028700}
-  Text1: Such is life
-  textBox: {fileID: 305218778}
+  Text1: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
+    Rumi"
+  griefTextBox: {fileID: 305218778}
   hasText: 1
   isGameOver: 0
   gameOverText: {fileID: 840985573}
@@ -462,10 +463,6 @@ Prefab:
     - target: {fileID: 22464198, guid: f06decb48b769ff40bfa554405970835, type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 193756, guid: f06decb48b769ff40bfa554405970835, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}

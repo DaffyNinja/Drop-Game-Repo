@@ -5,31 +5,36 @@ using UnityEngine.SceneManagement;
 public class EndlessGameMaster : MonoBehaviour
 {
     public float score;
-	float highScore;
+    float highScore;
     [Space(5)]
     public Text scoreText;
-	public Text highScoreText;
+    public Text highScoreText;
     string highScoreKey = "HighScore";
+
     [Header("Loss Text")]
+    [TextArea(1, 20)]
     public string Text1;
-    public Text textBox;
+    public Text griefTextBox;
     public bool hasText;
+
     [Header("Game Over")]
-	public bool isGameOver;
-	public Text gameOverText;
+    public bool isGameOver;
+    public Text gameOverText;
 
 
-	[Space(5)]
+    [Space(5)]
     public Transform playerTrans;
     Vector3 playerStartPos;
 
     void Awake()
     {
-		isGameOver = false;
+        isGameOver = false;
         score = 0;
 
-		gameOverText.gameObject.SetActive(false);
-		//highScoreText.gameObject.SetActive(false);
+        gameOverText.gameObject.SetActive(false);
+        griefTextBox.gameObject.SetActive(false);
+
+        //highScoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
 
@@ -46,35 +51,33 @@ public class EndlessGameMaster : MonoBehaviour
 
         if (isGameOver)
         {
+            gameOverText.text = ("Game Over");
             gameOverText.gameObject.SetActive(true);
+
+            griefTextBox.text = Text1;
+            griefTextBox.gameObject.SetActive(true);
+
 
             // StoreHighScore();
 
         }
 
-        if (hasText)
-        {
-            textBox.text = Text1;
-        }
-   
-
-
         scoreText.text = Mathf.RoundToInt(score).ToString();
         highScoreText.text = Mathf.RoundToInt(highScore).ToString();
 
-       // print(highScore.ToString());
+        // print(highScore.ToString());
     }
 
-	//High Score
-	void StoreHighScore()
-	{
+    //High Score
+    void StoreHighScore()
+    {
         if (score > highScore)
         {
             PlayerPrefs.SetFloat(highScoreKey, score);
 
 
         }
-	}
+    }
 
     //Buttons
     public void Exit()

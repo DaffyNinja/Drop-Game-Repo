@@ -82,7 +82,7 @@ GameObject:
   - 222: {fileID: 22231626}
   - 114: {fileID: 11428682}
   m_Layer: 5
-  m_Name: Text Box
+  m_Name: Grief Text Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 30
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -615,8 +615,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -191, y: -12}
-  m_SizeDelta: {x: 214, y: 41}
+  m_AnchoredPosition: {x: 55, y: -127}
+  m_SizeDelta: {x: 424, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22497466
 RectTransform:
