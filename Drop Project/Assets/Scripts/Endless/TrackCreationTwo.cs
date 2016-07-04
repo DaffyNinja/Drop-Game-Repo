@@ -69,11 +69,11 @@ public class TrackCreationTwo : MonoBehaviour
     void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos1, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos2, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos3, playerStartPos.z);
-        Vector3 pos4 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos4, playerStartPos.z);
-        Vector3 pos5 = new Vector3(playerStartPos.x + 5, playerTrans.position.y - yPos5, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z);
+        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2, playerStartPos.z);
+        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos3, playerStartPos.z);
+        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos4, playerStartPos.z);
+        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos5, playerStartPos.z);
 
         if (isStart)
         {
@@ -118,7 +118,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (trackPos3.y > t.transform.position.y - 7.5f)  // To Fix
+            if (trackPos1.y > t.transform.position.y - 5)  // To Fix
             {
                 // print("False 2");
                 create2 = false;
