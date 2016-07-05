@@ -114,11 +114,13 @@ public class TrackCreationTwo : MonoBehaviour
 
     void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
     {
+        print("Track 2");
+
         create2 = true;
 
         foreach (GameObject t in track)
         {
-            if (trackPos1.y > t.transform.position.y - 5)  // To Fix
+            if (trackPos1.y > t.transform.position.y + 10)  // To Fix
             {
                 // print("False 2");
                 create2 = false;
