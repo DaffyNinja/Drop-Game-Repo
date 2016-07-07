@@ -20,6 +20,7 @@ public class TrackCreationTwo : MonoBehaviour
     public float yPos3;
     public float yPos4;
     public float yPos5;
+    public float yPos6;
 
 
     GameObject[] track;
@@ -56,7 +57,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in tracks)
         {         // Destroys platforms
-            if (t.transform.position.y > playerTrans.position.y + 30)
+            if (t.transform.position.y > playerTrans.position.y + 45)
             {  // When to destroy platform
                //  print("Destroy");
                 Destroy(t);
@@ -74,18 +75,19 @@ public class TrackCreationTwo : MonoBehaviour
         Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos3, playerStartPos.z);
         Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos4, playerStartPos.z);
         Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos5, playerStartPos.z);
+        Vector3 pos6 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos6, playerStartPos.z);
 
         if (isStart)
         {
-            TrackCreation1(pos, pos2, pos3, pos4, pos5);
+            TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
         }
         else
         {
-            TrackCreation2(pos, pos2, pos3, pos4, pos5);
+            TrackCreation2(pos, pos2, pos3, pos4, pos5, pos6);
         }
     }
 
-    void TrackCreation1(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
+    void TrackCreation1(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5, Vector3 trackPos6)   // Instantiates the platforms at the start
     {
         create1 = true;
 
@@ -106,21 +108,22 @@ public class TrackCreationTwo : MonoBehaviour
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
+            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
             create1 = false;
         }
 
     }
 
-    void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5)//, Vector3 platformPos6)   // Instantiates the platforms at the start
+    void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5, Vector3 trackPos6)   // Instantiates the platforms at the start
     {
-        print("Track 2");
+        //print("Track 2");
 
         create2 = true;
 
         foreach (GameObject t in track)
         {
-            if (trackPos1.y > t.transform.position.y + 10)  // To Fix
+            if (trackPos1.y > t.transform.position.y + 20)  // To Fix
             {
                 // print("False 2");
                 create2 = false;
@@ -134,6 +137,7 @@ public class TrackCreationTwo : MonoBehaviour
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
+            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
             create2 = false;
         }
