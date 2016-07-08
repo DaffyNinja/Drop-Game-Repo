@@ -95,7 +95,7 @@ public class TrackCreationTwo : MonoBehaviour
         {
             if (trackPos3.y < t.transform.position.y)  // To Fix
             {
-                // print("False 1");
+                
                 create1 = false;
                 isStart = false;
             }
@@ -103,6 +103,8 @@ public class TrackCreationTwo : MonoBehaviour
 
         if (create1 && isStart)
         {
+            print("Create 1");
+
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
@@ -123,7 +125,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (trackPos1.y > t.transform.position.y + 20)  // To Fix
+            if (trackPos1.y > t.transform.position.y + 25)  // To Fix
             {
                 // print("False 2");
                 create2 = false;
@@ -132,6 +134,8 @@ public class TrackCreationTwo : MonoBehaviour
 
         if (create2 && !isStart)
         {
+            print("Create 2");
+
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));

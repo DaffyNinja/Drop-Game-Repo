@@ -198,6 +198,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6412754, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194166, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125768, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
   m_IsPrefabParent: 0
@@ -253,12 +265,12 @@ MonoBehaviour:
   - {fileID: 104878, guid: a09ba41c0e59b544884c772da48ee9cc, type: 2}
   - {fileID: 145684, guid: 750385dae210ab74a972e5d5306b22e9, type: 2}
   playerTrans: {fileID: 744108306}
-  yPos1: 0
-  yPos2: 20
-  yPos3: 40
-  yPos4: 60
-  yPos5: 80
-  yPos6: 100
+  yPos1: 20
+  yPos2: 40
+  yPos3: 60
+  yPos4: 80
+  yPos5: 100
+  yPos6: 120
 --- !u!114 &693791802
 MonoBehaviour:
   m_ObjectHideFlags: 0
