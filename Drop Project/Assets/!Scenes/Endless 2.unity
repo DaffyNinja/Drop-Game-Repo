@@ -196,7 +196,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494772, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6412754, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
       propertyPath: m_Convex
@@ -287,6 +287,11 @@ MonoBehaviour:
   highScoreText: {fileID: 350028700}
   Text1: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
     Rumi"
+  Text2: "From childhood's hour I have not been. As others were, I have not seen.
+    As others saw, I could not awaken. My heart to joy at the same tone. And all I
+    loved, I loved alone.\n\n\u2015 Edgar Allan Poe\r\n"
+  Text3: "To weep is to make less the depth of grief\n\n\u2015 William Shakespeare,
+    King Henry VI, Part 3"
   griefTextBox: {fileID: 305218778}
   hasText: 1
   isGameOver: 0
@@ -549,17 +554,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 5428518, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: m_Constraints
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407306, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: e2123a7666682fe4e961be6d0df629f3,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
   m_IsPrefabParent: 0

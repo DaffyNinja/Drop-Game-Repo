@@ -80,7 +80,7 @@ public class PlatformCreationEndless : MonoBehaviour
         platforms2 = GameObject.FindGameObjectsWithTag("Plat");
 
         PlatformMaintance();
-       
+
         // Changes difficulty depending on how far the player has gone based on the score 
         if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)
         {
@@ -95,13 +95,11 @@ public class PlatformCreationEndless : MonoBehaviour
             isMedium = false;
         }
 
-        if (gMaster.score >= 10 && gMaster.score < 30)
-        {
-            SplitandMerge();
-        }
-
-        //print("Create1: " + create1.ToString());
-        //print("Create2: " + create2.ToString());
+        // Split track
+        //if (gMaster.score >= 10 && gMaster.score < 30)
+        //{
+        //    SplitandMerge();
+        //}
 
         //  platIndex = Mathf.RoundToInt(Random.Range(0, platformsList.Count));
     }
@@ -284,7 +282,7 @@ public class PlatformCreationEndless : MonoBehaviour
                 print("Player Pass");
                 makeSplitTracks = true;
             }
-            
+
         }
 
     }
@@ -335,9 +333,4 @@ public class PlatformCreationEndless : MonoBehaviour
 
 
     }
-
-
-
-
-
 }

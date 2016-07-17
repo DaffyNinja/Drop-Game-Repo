@@ -14,6 +14,12 @@ public class EndlessGameMaster : MonoBehaviour
     [Header("Loss Text")]
     [TextArea(1, 20)]
     public string Text1;
+    [TextArea(1, 20)]
+    public string Text2;
+    [TextArea(1, 20)]
+    public string Text3;
+
+
     public Text griefTextBox;
     public bool hasText;
 
@@ -25,6 +31,8 @@ public class EndlessGameMaster : MonoBehaviour
     [Space(5)]
     public Transform playerTrans;
     Vector3 playerStartPos;
+
+    int ranNum;
 
     void Awake()
     {
@@ -39,6 +47,8 @@ public class EndlessGameMaster : MonoBehaviour
         playerStartPos = playerTrans.position;
 
         highScore = PlayerPrefs.GetFloat(highScoreKey, 0);
+
+        ranNum = Random.Range(0, 2);
     }
 
 
@@ -54,7 +64,25 @@ public class EndlessGameMaster : MonoBehaviour
             gameOverText.text = ("Game Over");
             gameOverText.gameObject.SetActive(true);
 
-            griefTextBox.text = Text1;
+            switch (ranNum)
+            {
+                case 0:
+                    griefTextBox.text = Text1;
+                    break;
+                case 1:
+                    griefTextBox.text = Text2;
+                    break;
+                case 2:
+                    griefTextBox.text = Text3;
+                    break;
+                default:
+                    print("ERROR!");
+                    break;
+            }
+
+           // griefTextBox.text = Text1;
+
+
             griefTextBox.gameObject.SetActive(true);
 
 
