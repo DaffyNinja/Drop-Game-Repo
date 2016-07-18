@@ -13,8 +13,6 @@ public class PlayerEndless : MonoBehaviour
 
     [Header("Touch")]
     public float screenPosX;
-    public float upScreenPos;
-    public float midScreenPos;
 
     public bool moveRight;
     public bool moveLeft;
@@ -32,6 +30,8 @@ public class PlayerEndless : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        screenPosX = Screen.width / 2;
+
         rig = GetComponent<Rigidbody>();
 
         startingRotation = transform.rotation;
@@ -63,7 +63,7 @@ public class PlayerEndless : MonoBehaviour
             }
 
         }
-        else if (isTouch)
+        else if (isTouch)    // TOuch controls
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
@@ -92,14 +92,14 @@ public class PlayerEndless : MonoBehaviour
             // Touch Controls
             if (moveRight)
             {
-                Vector2 moveQauntity = new Vector2(leftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
+                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 // moveRight = false;
             }
             else if (moveLeft)
             {
-                Vector2 moveQauntity = new Vector2(-leftRightSpeed, 0);
-                rig.velocity = new Vector2(moveQauntity.x, rig.velocity.y);
+                Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
+                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 //moveLeft = false;
             }
 

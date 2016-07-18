@@ -61,6 +61,9 @@ public class EndlessGameMaster : MonoBehaviour
 
         if (isGameOver)
         {
+            playerTrans.gameObject.GetComponent<PlayerEndless>().fallSpeed = 0;
+            Camera.main.gameObject.GetComponent<EndlessCamera>().speed = 0;
+
             gameOverText.text = ("Game Over");
             gameOverText.gameObject.SetActive(true);
 
@@ -81,7 +84,6 @@ public class EndlessGameMaster : MonoBehaviour
             }
 
            // griefTextBox.text = Text1;
-
 
             griefTextBox.gameObject.SetActive(true);
 
