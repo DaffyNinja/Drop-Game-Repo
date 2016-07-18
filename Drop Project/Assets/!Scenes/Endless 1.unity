@@ -902,7 +902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1031210963
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1077,10 +1077,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isPC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: moveBack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
+      propertyPath: isTouch
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1199,21 +1203,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee1b3fe383e11c40b0e89ed4e8db9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easyPlatformsList:
+  easyTracksList:
   - {fileID: 142012, guid: 0dc21048ac7052b449fbd92c64f151bd, type: 2}
   - {fileID: 130222, guid: cb221f2cf32be564fbdb9ab8ddef4f74, type: 2}
   - {fileID: 129690, guid: d666c1ff4715ba64ea5c714930b9d3c4, type: 2}
   - {fileID: 143952, guid: 7fd2bf386f9f38c498e0c69b88828928, type: 2}
   - {fileID: 114580, guid: ecc627599d3a1db409844c9236ae26c8, type: 2}
   - {fileID: 140782, guid: 4e91e82d57d5a0a47aacea7a0ebded1d, type: 2}
-  mediumPlatformsList:
+  mediumTracksList:
   - {fileID: 196928, guid: de59662d85530a54a87947135ceaf0a3, type: 2}
   - {fileID: 115834, guid: cb4f96bd032dd8b4793420e666328311, type: 2}
   - {fileID: 135706, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
-  hardPlatformsList:
+  hardTracksList:
   - {fileID: 144550, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
-  - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   - {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
+  - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   mergeTrack: {fileID: 116012, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
   splitTrack: {fileID: 110442, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
   playerTrans: {fileID: 749154150}
@@ -1437,6 +1441,55 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1417671941}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_Text
+      value: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
+        Rumi"
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -155
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409304, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 22409304, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453750, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453750, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.255579
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453750, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 22453750, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.255579
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}
   m_IsPrefabParent: 0

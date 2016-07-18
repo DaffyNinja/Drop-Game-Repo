@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlatformCreationEndless : MonoBehaviour
+public class TrackCreationEndless : MonoBehaviour
 {
     [Header("Platforms")]
-    public List<GameObject> easyPlatformsList;
-    public List<GameObject> mediumPlatformsList;
-    public List<GameObject> hardPlatformsList;
+    public List<GameObject> easyTracksList;
+    public List<GameObject> mediumTracksList;
+    public List<GameObject> hardTracksList;
     [Space(5)]
     public GameObject mergeTrack;
     public GameObject splitTrack;
@@ -198,11 +198,11 @@ public class PlatformCreationEndless : MonoBehaviour
 
             if (create1 && isEasy)
             {   // Start off Easy
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos5, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos4, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos5, Quaternion.identity);
                 //Instantiate (easyPlatformsList [Mathf.RoundToInt (Random.Range (0, easyPlatformsList.Count))], platformPos6, Quaternion.identity);
 
             }
@@ -232,26 +232,26 @@ public class PlatformCreationEndless : MonoBehaviour
 
             if (create2 && isEasy)
             {   // Easy
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos1, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos2, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos3, Quaternion.identity);
-                Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], platformPos4, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], platformPos4, Quaternion.identity);
 
             }
             else if (create2 && isMedium)
             {   // Medium
-                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos1, Quaternion.identity);
-                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos2, Quaternion.identity);
-                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos3, Quaternion.identity);
-                Instantiate(mediumPlatformsList[Mathf.RoundToInt(Random.Range(0, mediumPlatformsList.Count))], platformPos4, Quaternion.identity);
+                Instantiate(mediumTracksList[Mathf.RoundToInt(Random.Range(0, mediumTracksList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(mediumTracksList[Mathf.RoundToInt(Random.Range(0, mediumTracksList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(mediumTracksList[Mathf.RoundToInt(Random.Range(0, mediumTracksList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(mediumTracksList[Mathf.RoundToInt(Random.Range(0, mediumTracksList.Count))], platformPos4, Quaternion.identity);
 
             }
             else if (create2 && isHard)
             {  // Hard
-                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos1, Quaternion.identity);
-                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos2, Quaternion.identity);
-                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos3, Quaternion.identity);
-                Instantiate(hardPlatformsList[Mathf.RoundToInt(Random.Range(0, hardPlatformsList.Count))], platformPos4, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos3, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos4, Quaternion.identity);
 
             }
         }
@@ -324,10 +324,10 @@ public class PlatformCreationEndless : MonoBehaviour
         {
             print("Spawn Split");
 
-            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos1, Quaternion.identity);
-            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos2, Quaternion.identity);
-            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos3, Quaternion.identity);
-            Instantiate(easyPlatformsList[Mathf.RoundToInt(Random.Range(0, easyPlatformsList.Count))], trackPos4, Quaternion.identity);
+            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos1, Quaternion.identity);
+            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos2, Quaternion.identity);
+            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos3, Quaternion.identity);
+            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos4, Quaternion.identity);
         }
 
 

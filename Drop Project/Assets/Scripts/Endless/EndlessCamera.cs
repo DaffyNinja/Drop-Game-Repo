@@ -39,7 +39,7 @@ public class EndlessCamera : MonoBehaviour
 
         if (viewPos.y > camUpDis) // If player is above camera view then GAME OVER
         {
-            print("Up");
+           // print("Up");
 
 			gMaster.isGameOver = true;
 
