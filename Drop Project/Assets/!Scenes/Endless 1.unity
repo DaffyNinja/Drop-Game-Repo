@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1904bac7a69f3704d8015754e6aff130, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1234,6 +1234,8 @@ MonoBehaviour:
   hardPos4: 145
   splitNum: 0
   mergeNum: 0
+  speedBoostObj: {fileID: 0}
+  specialObj: {fileID: 0}
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
