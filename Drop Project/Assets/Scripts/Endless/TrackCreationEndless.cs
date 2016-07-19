@@ -56,6 +56,12 @@ public class TrackCreationEndless : MonoBehaviour
     public int splitNum;
     public int mergeNum;
 
+    [Header("Pickups")]
+    public GameObject speedBoostObj;
+    public GameObject specialObj;
+
+    bool makeSpecial;
+
     EndlessGameMaster gMaster;
 
     //bool make;
@@ -95,6 +101,18 @@ public class TrackCreationEndless : MonoBehaviour
             isMedium = false;
         }
 
+        if (playerTrans.position.y <= playerPos.y - 60 && playerTrans.position.y >= playerPos.y - 61)
+        {
+
+            makeSpecial = true;
+
+            if (makeSpecial)
+            {
+                print("Special");
+                makeSpecial = false;
+            }
+        }
+
         // Split track
         //if (gMaster.score >= 10 && gMaster.score < 30)
         //{
@@ -132,6 +150,8 @@ public class TrackCreationEndless : MonoBehaviour
                 makeSplit = false;
             }
         }
+
+        
 
         SpawnPlatforms();
     }
