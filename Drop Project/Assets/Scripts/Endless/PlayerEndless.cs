@@ -94,6 +94,8 @@ public class PlayerEndless : MonoBehaviour
             {
                 Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+
+                transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
                 // moveRight = false;
             }
             else if (moveLeft)
@@ -101,6 +103,12 @@ public class PlayerEndless : MonoBehaviour
                 Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
                 //moveLeft = false;
+
+                transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
+            }
+            else
+            {
+                transform.rotation = startingRotation;
             }
 
 

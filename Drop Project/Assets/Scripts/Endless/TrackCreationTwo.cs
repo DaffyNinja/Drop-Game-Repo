@@ -70,12 +70,12 @@ public class TrackCreationTwo : MonoBehaviour
     void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z);
-        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2, playerStartPos.z);
-        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos3, playerStartPos.z);
-        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos4, playerStartPos.z);
-        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos5, playerStartPos.z);
-        Vector3 pos6 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos6, playerStartPos.z);
+        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z + 2.5F);
+        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2, playerStartPos.z + 2.5F);
+        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos3, playerStartPos.z + 2.5F);
+        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos4, playerStartPos.z + 2.5F);
+        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos5, playerStartPos.z + 2.5F);
+        Vector3 pos6 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos6, playerStartPos.z + 2.5F);
 
         if (isStart)
         {
