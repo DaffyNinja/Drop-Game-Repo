@@ -54,10 +54,7 @@ public class EndlessGameMaster : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerTrans.position.y < playerStartPos.y)
-        {
-            score += 1 * Time.deltaTime;
-        }
+
 
         if (isGameOver)
         {
@@ -83,13 +80,20 @@ public class EndlessGameMaster : MonoBehaviour
                     break;
             }
 
-           // griefTextBox.text = Text1;
+            // griefTextBox.text = Text1;
 
             griefTextBox.gameObject.SetActive(true);
 
 
             // StoreHighScore();
 
+        }
+        else
+        {
+            if (playerTrans.position.y < playerStartPos.y)
+            {
+                score += 1 * Time.deltaTime;
+            }
         }
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
