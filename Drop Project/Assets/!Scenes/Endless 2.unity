@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: e1d4fbbb75c38614caf06096e9b9bdca, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -261,9 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackObjs:
-  - {fileID: 106930, guid: e39b8144224a7154ebe441d463a328d0, type: 2}
-  - {fileID: 104878, guid: a09ba41c0e59b544884c772da48ee9cc, type: 2}
-  - {fileID: 145684, guid: 750385dae210ab74a972e5d5306b22e9, type: 2}
+  - {fileID: 100024, guid: da38d9254ead7374cab0216ae68f88a5, type: 3}
+  - {fileID: 100030, guid: 31399f9a5dbdbcf4c87193861752d80c, type: 3}
+  - {fileID: 100028, guid: f52ad6674adf434448f28541b41dc4be, type: 3}
   playerTrans: {fileID: 744108306}
   yPos1: 20
   yPos2: 40
