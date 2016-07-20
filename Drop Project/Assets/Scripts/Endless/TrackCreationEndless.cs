@@ -48,6 +48,7 @@ public class TrackCreationEndless : MonoBehaviour
     [Space(5)]
     public int hardStartNum;
     public bool isHard;
+    [Space(5)]
     public float hardPos1;
     public float hardPos2;
     public float hardPos3;
@@ -77,6 +78,8 @@ public class TrackCreationEndless : MonoBehaviour
 
         isEasy = true;
 
+        print("Easy");
+
     }
 
     void Update()
@@ -94,13 +97,18 @@ public class TrackCreationEndless : MonoBehaviour
             isHard = false;
 
             isMedium = true;
+
+            print("Medium");
         }
         else if (gMaster.score >= hardStartNum)
         {
             isHard = true;
             isMedium = false;
+
+            print("Hard ");
         }
 
+        // Spawn Pickups
         if (playerTrans.position.y <= playerPos.y - 60 && playerTrans.position.y >= playerPos.y - 61)
         {
 

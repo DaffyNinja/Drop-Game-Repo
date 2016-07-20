@@ -450,10 +450,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
-      propertyPath: m_TagString
-      value: Track
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   m_IsPrefabParent: 0
@@ -545,10 +541,6 @@ Prefab:
     - target: {fileID: 135706, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 135706, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
@@ -933,10 +925,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 144550, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
-      propertyPath: m_TagString
-      value: Track
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
   m_IsPrefabParent: 0
@@ -993,7 +981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: fallSpeed
-      value: 16.75
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
@@ -1134,7 +1122,7 @@ MonoBehaviour:
   isEasy: 0
   mediumStartNum: 15
   isMedium: 0
-  hardStartNum: 20
+  hardStartNum: 35
   isHard: 0
   hardPos1: 85
   hardPos2: 105
@@ -1396,10 +1384,6 @@ Prefab:
     - target: {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
