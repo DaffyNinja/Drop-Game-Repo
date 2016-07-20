@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 1904bac7a69f3704d8015754e6aff130, type: 2}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -644,10 +644,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 115834, guid: cb4f96bd032dd8b4793420e666328311, type: 2}
-      propertyPath: m_TagString
-      value: Track
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb4f96bd032dd8b4793420e666328311, type: 2}
   m_IsPrefabParent: 0
@@ -697,10 +693,6 @@ Prefab:
     - target: {fileID: 196928, guid: de59662d85530a54a87947135ceaf0a3, type: 2}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 196928, guid: de59662d85530a54a87947135ceaf0a3, type: 2}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de59662d85530a54a87947135ceaf0a3, type: 2}
@@ -1120,14 +1112,14 @@ MonoBehaviour:
   destroyNum: 45
   platParent: {fileID: 1007041342}
   isEasy: 0
-  mediumStartNum: 15
+  mediumStartNum: 10
   isMedium: 0
-  hardStartNum: 35
+  hardStartNum: 20
   isHard: 0
-  hardPos1: 85
-  hardPos2: 105
-  hardPos3: 125
-  hardPos4: 145
+  hardPos1: 95
+  hardPos2: 115
+  hardPos3: 135
+  hardPos4: 155
   splitNum: 0
   mergeNum: 0
   speedBoostObj: {fileID: 0}
