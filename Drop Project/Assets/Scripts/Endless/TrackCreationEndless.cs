@@ -82,8 +82,8 @@ public class TrackCreationEndless : MonoBehaviour
     void Update()
     {
 
-        platforms1 = GameObject.FindGameObjectsWithTag("Plat");
-        platforms2 = GameObject.FindGameObjectsWithTag("Plat");
+        platforms1 = GameObject.FindGameObjectsWithTag("Track");
+        platforms2 = GameObject.FindGameObjectsWithTag("Track");
 
         PlatformMaintance();
 
@@ -126,7 +126,7 @@ public class TrackCreationEndless : MonoBehaviour
     {
         //float platCheck = playerTrans.position.y - platformCheck;
 
-        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Plat");
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Track");
         splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
 
         foreach (GameObject plat in platforms)
