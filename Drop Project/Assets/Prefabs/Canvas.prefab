@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -248,14 +248,15 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 30
+    m_MaxSize: 23
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
+    Rumi"
 --- !u!114 &11443308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,7 +520,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70, y: -18}
+  m_AnchoredPosition: {x: 19, y: -13}
   m_SizeDelta: {x: 301, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22453750
@@ -535,9 +536,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22464198}
   m_RootOrder: 2
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -229.6, y: -27}
+  m_AnchorMin: {x: 0.255579, y: 1}
+  m_AnchorMax: {x: 0.255579, y: 1}
+  m_AnchoredPosition: {x: 1, y: -27}
   m_SizeDelta: {x: 69, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22464198
@@ -615,8 +616,8 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55, y: -144}
-  m_SizeDelta: {x: 424, y: 152}
+  m_AnchoredPosition: {x: 8, y: -155}
+  m_SizeDelta: {x: 323, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22497466
 RectTransform:

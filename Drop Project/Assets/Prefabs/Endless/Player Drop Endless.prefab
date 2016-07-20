@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170406}
   m_LocalRotation: {x: -1.2523316e-13, y: 0.70710677, z: 3.6152414e-11, w: 0.7071068}
-  m_LocalPosition: {x: 1500, y: 500, z: 50}
+  m_LocalPosition: {x: 974, y: 9.17, z: 33.63}
   m_LocalScale: {x: 2, y: 2.25, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -288,13 +288,11 @@ MonoBehaviour:
   leftRightSpeed: 22.5
   turnAmmount: 30
   screenPosX: 185
-  upScreenPos: 450
-  midScreenPos: 135
   moveRight: 0
   moveLeft: 0
   moveForward: 0
   moveBack: 0
-  isPC: 1
+  isPC: 0
   isTouch: 1
 --- !u!1001 &100100000
 Prefab:
