@@ -152,7 +152,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 453560, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 974.48
+      value: 966.8
       objectReference: {fileID: 0}
     - target: {fileID: 453560, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
       propertyPath: m_LocalPosition.y
@@ -354,8 +354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackObjs:
   - {fileID: 198904, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
-  - {fileID: 118804, guid: 222593c6006fd554ea43d1cda448c715, type: 2}
-  - {fileID: 105094, guid: 28410a6b6564f9a4daeef53c3545e8b2, type: 2}
   playerTrans: {fileID: 744108306}
   yPos1: 0
   yPos2: 15
@@ -660,7 +658,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 974
+      value: 966.44
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalPosition.y
