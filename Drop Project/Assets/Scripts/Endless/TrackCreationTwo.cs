@@ -25,12 +25,14 @@ public class TrackCreationTwo : MonoBehaviour
 
     GameObject[] track;
     GameObject[] track2;
-    bool isStart;
+
+    public bool isStart;
 
     // Use this for initialization
     void Awake()
     {
         isStart = true;
+        create2 = false;
 
         playerStartPos = playerTrans.position;
 
@@ -87,8 +89,10 @@ public class TrackCreationTwo : MonoBehaviour
         if (isStart)
         {
             TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
+
+            create2 = false;
         }
-        else
+        else if (isStart == false)
         {
             TrackCreation2(pos7, pos8, pos9, pos10);//, pos5, pos6);
         }
@@ -102,10 +106,13 @@ public class TrackCreationTwo : MonoBehaviour
         {
             if (trackPos1.y < t.transform.position.y)  // To Fix
             {
-
                 create1 = false;
                 isStart = false;
             }
+            //else
+            //{
+            //    isStart = true;
+            //}
         }
 
         if (create1 && isStart)
@@ -130,16 +137,18 @@ public class TrackCreationTwo : MonoBehaviour
 
         create2 = true;
 
+
+
         foreach (GameObject t in track)
         {
-            if (trackPos1.y > t.transform.position.y - yPos2) //22.5f
+            if (trackPos1.y > t.transform.position.y - 22.5f && isStart == false) //22.5f
             {
                 // print("False 2");
                 create2 = false;
             }
         }
 
-        if (create2 && !isStart)
+        if (create2 && isStart == false)
         {
             print("Create 2");
 
