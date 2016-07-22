@@ -17,6 +17,7 @@ public class TrackCreationTwo : MonoBehaviour
     [Space(5)]
     public float yPos1;
     public float yPos2;
+    public float zPos;
     //public float yPos3;
     //public float yPos4;
     //public float yPos5;
@@ -72,17 +73,17 @@ public class TrackCreationTwo : MonoBehaviour
     void TrackPlatforms()  //(UpTo)
     {
         // Positions
-        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z + 2.5F);
-        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2, playerStartPos.z + 2.5F);
-        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 2, playerStartPos.z + 2.5F);
-        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 3, playerStartPos.z + 2.5F);
-        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 4, playerStartPos.z + 2.5F);
-        Vector3 pos6 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 5, playerStartPos.z + 2.5F);
+        Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z + zPos);
+        Vector3 pos2 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2, playerStartPos.z + zPos);
+        Vector3 pos3 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 2, playerStartPos.z + zPos);
+        Vector3 pos4 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 3, playerStartPos.z + zPos);
+        Vector3 pos5 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 4, playerStartPos.z + zPos);
+        Vector3 pos6 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 5, playerStartPos.z + zPos);
 
-        Vector3 pos7 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 6, playerStartPos.z + 2.5F);
-        Vector3 pos8 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 7, playerStartPos.z + 2.5F);
-        Vector3 pos9 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 8, playerStartPos.z + 2.5F);
-        Vector3 pos10 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 9, playerStartPos.z + 2.5F);
+        Vector3 pos7 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 6, playerStartPos.z + zPos);
+        Vector3 pos8 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 7, playerStartPos.z + zPos);
+        Vector3 pos9 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 8, playerStartPos.z + zPos);
+        Vector3 pos10 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 9, playerStartPos.z + zPos);
 
 
 
@@ -141,7 +142,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (trackPos1.y > t.transform.position.y - 22.5f && isStart == false) //22.5f
+            if (trackPos1.y > t.transform.position.y - yPos2 && isStart == false) //22.5f
             {
                 // print("False 2");
                 create2 = false;
