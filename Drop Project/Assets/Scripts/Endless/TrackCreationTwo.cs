@@ -118,7 +118,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         if (create1 && isStart)
         {
-            print("Create 1");
+           // print("Create 1");
 
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
@@ -151,7 +151,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         if (create2 && isStart == false)
         {
-            print("Create 2");
+           // print("Create 2");
 
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
