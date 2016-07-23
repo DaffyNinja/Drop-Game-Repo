@@ -495,6 +495,8 @@ MonoBehaviour:
   hasText: 0
   isGameOver: 0
   gameOverText: {fileID: 840985573}
+  musicSource: {fileID: 1900737079}
+  playMusic: 1
   playerTrans: {fileID: 744108306}
 --- !u!4 &744108306 stripped
 Transform:
@@ -901,11 +903,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isPC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isTouch
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
@@ -920,7 +922,7 @@ GameObject:
   - 4: {fileID: 1900737080}
   - 82: {fileID: 1900737079}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

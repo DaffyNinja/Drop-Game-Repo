@@ -78,7 +78,7 @@ public class TrackCreationEndless : MonoBehaviour
 
         isEasy = true;
 
-        print("Easy");
+       // print("Easy");
 
     }
 
@@ -91,21 +91,21 @@ public class TrackCreationEndless : MonoBehaviour
         PlatformMaintance();
 
         // Changes difficulty depending on how far the player has gone based on the score 
-        if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)
+        if (gMaster.score >= mediumStartNum && gMaster.score < hardStartNum)   // Medium
         {
             isEasy = false;
             isHard = false;
 
             isMedium = true;
 
-            print("Medium");
+            //print("Medium");
         }
-        else if (gMaster.score >= hardStartNum)
+        else if (gMaster.score >= hardStartNum)      // Hard
         {
             isHard = true;
             isMedium = false;
 
-            print("Hard ");
+            //print("Hard ");
         }
 
         // Spawn Pickups
@@ -116,7 +116,7 @@ public class TrackCreationEndless : MonoBehaviour
 
             if (makeSpecial)
             {
-                print("Special");
+                //print("Special");
                 makeSpecial = false;
             }
         }

@@ -28,6 +28,11 @@ public class EndlessGameMaster : MonoBehaviour
     [Header("Game Over")]
     public bool isGameOver;
     public Text gameOverText;
+    [Header("Audio")]
+    public AudioSource musicSource;
+   // public bool playMusic;
+
+    
 
 
     [Space(5)]
@@ -38,12 +43,16 @@ public class EndlessGameMaster : MonoBehaviour
 
     void Awake()
     {
+        
+
         isGameOver = false;
         score = 0;
 
         gameOverText.gameObject.SetActive(false);
         griefTextBox.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
+
+        
 
         //highScoreText.gameObject.SetActive(false);
 
@@ -57,6 +66,11 @@ public class EndlessGameMaster : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Press back button on android phone or Esc key on PC
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
 
         if (isGameOver)  // Game Over
@@ -96,6 +110,21 @@ public class EndlessGameMaster : MonoBehaviour
             {
                 score += 1 * Time.deltaTime;
             }
+        }
+
+        //Audio
+        if (MainMenu.isMute)
+        {
+            print("Mute");
+
+            musicSource.mute = true;
+        }
+        else
+        {
+            print("Unmute");
+
+
+            musicSource.mute = false;
         }
 
         scoreText.text = Mathf.RoundToInt(score).ToString();

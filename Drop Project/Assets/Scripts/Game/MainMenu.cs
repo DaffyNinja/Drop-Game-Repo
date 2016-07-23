@@ -1,10 +1,31 @@
 ﻿using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+    static public bool isMute;
+
+    public Image muteIm;
+
+    public Sprite muteSpr;
+    public Sprite unMuteSpr;
+
+
+    void Update()
+    {
+        if (isMute == true)
+        {
+            muteIm.sprite = muteSpr;
+        }
+        else
+        {
+            muteIm.sprite = unMuteSpr;
+        }
+
+       
+    }
 
     public void Level1Button()
     {
@@ -54,6 +75,13 @@ public class MainMenu : MonoBehaviour
     public void Level10Buttton()
     {
         SceneManager.LoadScene(10);
+    }
+
+    public void MuteButton()
+    {
+        print("Pressed");
+
+        isMute = !isMute;
     }
 
     public void Quit()
