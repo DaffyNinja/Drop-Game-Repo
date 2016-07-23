@@ -487,6 +487,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 568720337}
   highScoreText: {fileID: 350028700}
+  restartButton: {fileID: 1631206108}
   Text1: 1
   Text2: 2
   Text3: 3
@@ -853,6 +854,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 096de414e5359e84ebc7d9816dea5f35, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1631206108 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11499158, guid: f06decb48b769ff40bfa554405970835,
+    type: 2}
+  m_PrefabInternal: {fileID: 996857178}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1791118390
 Prefab:
   m_ObjectHideFlags: 0

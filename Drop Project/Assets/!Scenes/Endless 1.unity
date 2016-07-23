@@ -602,6 +602,58 @@ Prefab:
       propertyPath: orthographic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: playerTrans
+      value: 
+      objectReference: {fileID: 749154150}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: gMaster
+      value: 
+      objectReference: {fileID: 1417671941}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 502.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468808, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
   m_IsPrefabParent: 0
@@ -965,11 +1017,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isPC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isTouch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
@@ -1051,6 +1103,7 @@ MonoBehaviour:
   score: 0
   scoreText: {fileID: 577180039}
   highScoreText: {fileID: 1712249983}
+  restartButton: {fileID: 1869641234}
   Text1: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
     Rumi"
   Text2: "From childhood's hour I have not been. As others were, I have not seen.
@@ -1330,6 +1383,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1869641234 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11499158, guid: f06decb48b769ff40bfa554405970835,
+    type: 2}
+  m_PrefabInternal: {fileID: 1869641233}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1955256438
 Prefab:
   m_ObjectHideFlags: 0

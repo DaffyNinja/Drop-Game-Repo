@@ -11,6 +11,8 @@ public class EndlessGameMaster : MonoBehaviour
     public Text highScoreText;
     string highScoreKey = "HighScore";
 
+    public Button restartButton;
+
     [Header("Loss Text")]
     [TextArea(1, 20)]
     public string Text1;
@@ -41,6 +43,7 @@ public class EndlessGameMaster : MonoBehaviour
 
         gameOverText.gameObject.SetActive(false);
         griefTextBox.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(false);
 
         //highScoreText.gameObject.SetActive(false);
 
@@ -56,7 +59,7 @@ public class EndlessGameMaster : MonoBehaviour
     {
 
 
-        if (isGameOver)
+        if (isGameOver)  // Game Over
         {
             playerTrans.gameObject.GetComponent<PlayerEndless>().fallSpeed = 0;
             Camera.main.gameObject.GetComponent<EndlessCamera>().speed = 0;
@@ -80,9 +83,8 @@ public class EndlessGameMaster : MonoBehaviour
                     break;
             }
 
-            // griefTextBox.text = Text1;
-
             griefTextBox.gameObject.SetActive(true);
+            restartButton.gameObject.SetActive(true);
 
 
             // StoreHighScore();
