@@ -78,7 +78,7 @@ public class TrackCreationEndless : MonoBehaviour
 
         isEasy = true;
 
-       // print("Easy");
+        // print("Easy");
 
     }
 
@@ -111,7 +111,6 @@ public class TrackCreationEndless : MonoBehaviour
         // Spawn Pickups
         if (playerTrans.position.y <= playerPos.y - 60 && playerTrans.position.y >= playerPos.y - 61)
         {
-
             makeSpecial = true;
 
             if (makeSpecial)
@@ -159,7 +158,7 @@ public class TrackCreationEndless : MonoBehaviour
             }
         }
 
-        
+
 
         SpawnPlatforms();
     }
@@ -172,7 +171,7 @@ public class TrackCreationEndless : MonoBehaviour
         Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
         Vector3 pos4 = new Vector3(playerPos.x, playerTrans.position.y - 50, playerPos.z);
         Vector3 pos5 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
-        Vector3 pos6 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
+        // Vector3 pos6 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
 
         Vector3 pos7 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
         Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - 95, playerPos.z);

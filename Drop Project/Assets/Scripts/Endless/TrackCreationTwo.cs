@@ -16,6 +16,10 @@ public class TrackCreationTwo : MonoBehaviour
     bool create2;
 
     [Space(5)]
+    public bool isEasy;
+    public bool isHard;
+
+    [Space(5)]
     public float yPos1;
     public float yPos2;
     public float zPos;
@@ -30,11 +34,17 @@ public class TrackCreationTwo : MonoBehaviour
 
     public bool isStart;
 
+    EndlessGameMaster gMaster;
+
     // Use this for initialization
     void Awake()
     {
+        gMaster = GetComponent<EndlessGameMaster>();
+
         isStart = true;
+        isEasy = true;
         create2 = false;
+
 
         playerStartPos = playerTrans.position;
 
@@ -46,15 +56,30 @@ public class TrackCreationTwo : MonoBehaviour
         track = GameObject.FindGameObjectsWithTag("Track");
         //track2 = GameObject.FindGameObjectsWithTag("Track");
 
-        PlatformMaintance();
+        if (gMaster.score < 10)
+        {
+            print("Easy");
+
+            isEasy = true;
+            isHard = false;
+        }
+        else
+        {
+            print("Hard");
+
+            isHard = true;
+            isEasy = false;
+        }
+
+        TrackMaintance();
     }
 
-    void PlatformMaintance()
+    void TrackMaintance()
     {
         //float platCheck = playerTrans.position.y - platformCheck;
 
         GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
-        TrackPlatforms();
+        TrackPositions();
 
         //  print("Istart: " + isStart.ToString());
 
@@ -71,7 +96,7 @@ public class TrackCreationTwo : MonoBehaviour
 
     }
 
-    void TrackPlatforms()  //(UpTo)
+    void TrackPositions()
     {
         // Positions
         Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z + zPos);
@@ -139,8 +164,6 @@ public class TrackCreationTwo : MonoBehaviour
 
         create2 = true;
 
-
-
         foreach (GameObject t in track)
         {
             if (trackPos1.y > t.transform.position.y - yPos2 && isStart == false) //22.5f
@@ -150,7 +173,7 @@ public class TrackCreationTwo : MonoBehaviour
             }
         }
 
-        if (create2 && isStart == false)
+        if (create2 == true && isEasy == true && isStart == false)
         {
             // print("Create 2");
 
@@ -162,6 +185,15 @@ public class TrackCreationTwo : MonoBehaviour
             // Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
             create2 = false;
+        }
+
+        if (isHard == true && create2 == true && isStart == false)
+        {
+            Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
+            Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
+            Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
+            Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
+
         }
 
     }
