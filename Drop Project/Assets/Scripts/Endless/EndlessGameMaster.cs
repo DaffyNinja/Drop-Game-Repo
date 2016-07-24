@@ -113,17 +113,12 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         //Audio
-        if (MainMenu.isMute)
+        if (MainMenu.isMute)  // Mute
         {
-            print("Mute");
-
             musicSource.mute = true;
         }
         else
         {
-            print("Unmute");
-
-
             musicSource.mute = false;
         }
 
