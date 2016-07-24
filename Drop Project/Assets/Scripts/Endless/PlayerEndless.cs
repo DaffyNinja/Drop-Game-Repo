@@ -118,4 +118,12 @@ public class PlayerEndless : MonoBehaviour
         rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
     }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Border")
+        {
+            print("Hit");
+        }
+    }
 }
