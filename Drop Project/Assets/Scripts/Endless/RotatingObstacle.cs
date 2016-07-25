@@ -19,11 +19,11 @@ public class RotatingObstacle : MonoBehaviour
     {
         if (isLeft)
         {
-            transform.Rotate(0, 0, speed);
+            transform.Rotate(-speed, 0, 0);
         }
         else
         {
-            transform.Rotate(0, 0, -speed);
+            transform.Rotate(speed, 0, 0);
         }
     }
 }
