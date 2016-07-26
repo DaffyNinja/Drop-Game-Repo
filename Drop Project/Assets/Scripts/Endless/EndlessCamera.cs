@@ -9,10 +9,12 @@ public class EndlessCamera : MonoBehaviour
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
+    [Space(5)]
     public Transform playerTrans;
-//    [Header("Debug")]
-//    public bool isDebug;
-//    public Text gameOverText;
+    public float yDis;
+    public float zDis;
+
+
 	[Space(5)]
 	public EndlessGameMaster gMaster;
 
@@ -23,6 +25,8 @@ public class EndlessCamera : MonoBehaviour
     void Awake()
     {
         cam = GetComponent<Camera>();
+
+        transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDis);
 
         //gMaster.gameOverText.gameObject.SetActive(false);
 
