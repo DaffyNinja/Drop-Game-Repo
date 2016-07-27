@@ -1,16 +1,24 @@
 fileFormatVersion: 2
-guid: 3d00ee0e86e609245b6c60a93adebcf7
-timeCreated: 1469419798
+guid: 4fbed7774c740fa4b8fff25827937895
+timeCreated: 1469595035
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Point
+    100002: //RootNode
+    100004: Point.001
+    400000: Point
+    400002: //RootNode
+    400004: Point.001
+    2300000: Point
+    2300002: Point.001
+    3300000: Point
+    3300002: Point.001
     4300000: Point
-    6400000: //RootNode
+    4300002: Point.001
+    6400000: Point
+    6400002: Point.001
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,7 +62,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
