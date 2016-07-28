@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 967, y: 3.6, z: -8.37}
+  m_LocalPosition: {x: 967, y: 3.6, z: 27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -96,6 +96,8 @@ MonoBehaviour:
   camUpDis: 1.05
   camDownDis: 5
   playerTrans: {fileID: 0}
+  yDis: 3.5
+  zDis: 42.5
   gMaster: {fileID: 0}
 --- !u!124 &12451796
 Behaviour:
