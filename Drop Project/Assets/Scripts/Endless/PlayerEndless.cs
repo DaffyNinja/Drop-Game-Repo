@@ -123,7 +123,7 @@ public class PlayerEndless : MonoBehaviour
     {
         if (col.gameObject.tag == "Border")
         {
-            print("Hit");
+            print("Border Hit");
         }
     }
 }
