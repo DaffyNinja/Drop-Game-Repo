@@ -8,17 +8,19 @@ public class PistonsMove : MonoBehaviour
 
     public float xPos;
 
-    public bool isStart;
-    public bool moveBack;
+    // public bool isStart;
+    public bool isMoving;
 
 
     Vector3 startingPos;
     Vector3 Movepos;
 
+    float moveTimer;
+
     // Use this for initialization
     void Awake()
     {
-        isStart = true;
+        //isStart = true;
 
         startingPos = transform.position;
 
@@ -30,31 +32,37 @@ public class PistonsMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveTimer = Mathf.Clamp(moveTimer, 0, 1);
 
-        if (isStart)
+
+        if (isMoving)
         {
-            transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
+            moveTimer += speed * Time.deltaTime;
+            transform.position = Vector3.Lerp(startingPos, Movepos, moveTimer);
 
-            //if (transform.position.x == startingPos.x)
-            //{
-            //    moveBack = false;
-            //}
-            //else if (transform.position.x >= Movepos.x)
-            //{
-            //    moveBack = true;
-            //}
+            if (moveTimer >= 1)
+            {
+                isMoving = false;
+            }
 
-            //if (moveBack)
-            //{
-            //    print("Back");
-            //    transform.position = Vector3.Lerp(Movepos, startingPos, speed * Time.time);
-            //}
-            //else
-            //{
-            //    print("Forward");
-            //    transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
-            //}
         }
+        else
+        {
+            moveTimer -= speed * Time.deltaTime;
+            transform.position = Vector3.Lerp(startingPos, Movepos, moveTimer);
+
+            if (moveTimer <= 0)
+            {
+                isMoving = true;
+            }
+
+
+        }
+
+        // transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
+
+
+
 
 
     }
