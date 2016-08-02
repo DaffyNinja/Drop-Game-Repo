@@ -98,6 +98,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 146833828}
+  - 114: {fileID: 146833829}
   - 114: {fileID: 146833827}
   m_Layer: 0
   m_Name: GameObject
@@ -143,6 +144,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &146833829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 146833826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01efd12f850bd2143b83ab61704a15ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &860870305
 Prefab:
   m_ObjectHideFlags: 0
@@ -192,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 170406, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
@@ -219,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &883746954
 AudioListener:
   m_ObjectHideFlags: 0
@@ -337,7 +349,7 @@ Prefab:
       objectReference: {fileID: 146833827}
     - target: {fileID: 134382, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
@@ -443,6 +455,10 @@ Prefab:
     - target: {fileID: 4000010582280516, guid: ead97573c227acb41b5b9cb51918ee82, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010867374644, guid: ead97573c227acb41b5b9cb51918ee82, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ead97573c227acb41b5b9cb51918ee82, type: 2}

@@ -108,18 +108,6 @@ public class TrackCreationEndless : MonoBehaviour
             //print("Hard ");
         }
 
-        // Spawn Pickups
-        if (playerTrans.position.y <= playerPos.y - 60 && playerTrans.position.y >= playerPos.y - 61)
-        {
-            makeSpecial = true;
-
-            if (makeSpecial)
-            {
-                //print("Special");
-                makeSpecial = false;
-            }
-        }
-
         // Split track
         //if (gMaster.score >= 10 && gMaster.score < 30)
         //{
