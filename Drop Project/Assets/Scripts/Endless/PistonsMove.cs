@@ -8,12 +8,17 @@ public class PistonsMove : MonoBehaviour
 
     public float xPos;
 
+    public bool isStart;
+    public bool moveBack;
+
+
     Vector3 startingPos;
     Vector3 Movepos;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        isStart = true;
 
         startingPos = transform.position;
 
@@ -26,9 +31,30 @@ public class PistonsMove : MonoBehaviour
     void Update()
     {
 
+        if (isStart)
+        {
+            transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
 
-        transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
+            //if (transform.position.x == startingPos.x)
+            //{
+            //    moveBack = false;
+            //}
+            //else if (transform.position.x >= Movepos.x)
+            //{
+            //    moveBack = true;
+            //}
 
+            //if (moveBack)
+            //{
+            //    print("Back");
+            //    transform.position = Vector3.Lerp(Movepos, startingPos, speed * Time.time);
+            //}
+            //else
+            //{
+            //    print("Forward");
+            //    transform.position = Vector3.Lerp(startingPos, Movepos, speed * Time.time);
+            //}
+        }
 
 
     }
