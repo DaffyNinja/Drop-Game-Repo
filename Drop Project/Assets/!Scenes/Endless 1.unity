@@ -966,11 +966,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isPC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isTouch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
@@ -1121,8 +1121,10 @@ MonoBehaviour:
   hardPos4: 155
   splitNum: 0
   mergeNum: 0
-  speedBoostObj: {fileID: 0}
-  specialObj: {fileID: 0}
+  specialObjs:
+  - {fileID: 182766, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
+  - {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
+  speacialAppearNum: 25
 --- !u!1 &1539134224
 GameObject:
   m_ObjectHideFlags: 0
