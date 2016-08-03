@@ -8,8 +8,17 @@ public class PlayerEndless : MonoBehaviour
     public float leftRightSpeed;
 
     public float turnAmmount;
-
     Quaternion startingRotation;
+
+    [Header("Special Pickup")]
+    public float fallSpeedIncrease;
+    public Vector3 specialSize;
+    Vector3 startingSize;
+
+    public float powerTime;
+    public bool obtainedSpecialDrop;
+
+    float specialTimer;
 
     [Header("Touch")]
     public float screenPosX;
@@ -27,6 +36,7 @@ public class PlayerEndless : MonoBehaviour
 
     Rigidbody rig;
 
+
     // Use this for initialization
     void Awake()
     {
@@ -36,11 +46,14 @@ public class PlayerEndless : MonoBehaviour
 
         startingRotation = transform.rotation;
 
+        startingSize = transform.localScale;
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Controlls
         if (isPC)
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
@@ -117,6 +130,42 @@ public class PlayerEndless : MonoBehaviour
         Vector2 fallQauntity = new Vector2(0, -fallSpeed);
         rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
+        PowerPickup();
+    }
+
+    void PowerPickup()
+    {
+        if (obtainedSpecialDrop)
+        {
+            transform.localScale = specialSize;
+            rig.AddForce(0, -fallSpeed + fallSpeedIncrease, 0);
+
+            specialTimer += Time.deltaTime;
+
+            if (specialTimer >= powerTime)
+            {
+                transform.localScale = startingSize;
+                obtainedSpecialDrop = false;
+            }
+        }
+        else
+        {
+            specialTimer = 0;
+        }
+
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Plat")
+        {
+            if (obtainedSpecialDrop)
+            {
+                Destroy(col.gameObject);
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider col)
@@ -126,12 +175,16 @@ public class PlayerEndless : MonoBehaviour
             print("Border Hit");
         }
 
-        if (col.gameObject.tag == "Drop Pick")
+        if (col.gameObject.tag == "Special")
         {
-            print("Boost");
+            print("Special Hit");
+
+            obtainedSpecialDrop = true;
 
             Destroy(col.gameObject);
 
         }
+
+
     }
 }

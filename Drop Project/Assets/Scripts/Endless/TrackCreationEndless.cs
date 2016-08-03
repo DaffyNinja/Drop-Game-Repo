@@ -58,7 +58,7 @@ public class TrackCreationEndless : MonoBehaviour
     public int mergeNum;
 
     [Header("Pickups")]
-    public List<GameObject> specialObjs;
+    public GameObject specialObj;
     [Space(5)]
     public float speacialAppearNum;
 
@@ -168,7 +168,7 @@ public class TrackCreationEndless : MonoBehaviour
         {
             print("Special");
 
-            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z), Quaternion.Euler(0, 90, 0));
+            Instantiate(specialObj, new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z), Quaternion.Euler(0, 90, 0));
 
             speacialAppearNum += speacialAppearNum;
         }
