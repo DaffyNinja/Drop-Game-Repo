@@ -155,6 +155,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01efd12f850bd2143b83ab61704a15ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trackOBJs:
+  - {fileID: 105094, guid: 28410a6b6564f9a4daeef53c3545e8b2, type: 2}
+  - {fileID: 151042, guid: 096de414e5359e84ebc7d9816dea5f35, type: 2}
+  playerTrans: {fileID: 860870306}
+  yPos1: 0
+  yPos2: 22
+  zPos: -2.5
 --- !u!1001 &860870305
 Prefab:
   m_ObjectHideFlags: 0
@@ -350,6 +357,10 @@ Prefab:
     - target: {fileID: 134382, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: yDis
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
