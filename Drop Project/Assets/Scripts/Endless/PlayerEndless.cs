@@ -125,5 +125,13 @@ public class PlayerEndless : MonoBehaviour
         {
             print("Border Hit");
         }
+
+        if (col.gameObject.tag == "Drop Pick")
+        {
+            print("Boost");
+
+            Destroy(col.gameObject);
+
+        }
     }
 }

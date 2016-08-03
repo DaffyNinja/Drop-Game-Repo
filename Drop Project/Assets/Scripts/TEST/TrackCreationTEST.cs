@@ -12,6 +12,10 @@ public class TrackCreationTEST : MonoBehaviour
     public float yPos1;
     public float yPos2;
     public float zPos;
+    [Header("PowerUps")]
+    public GameObject speedBoostObj;
+    public float speedBoostNum;
+    bool makeSpeedBoost;
 
     GameObject[] tracks;
 
@@ -83,8 +87,20 @@ public class TrackCreationTEST : MonoBehaviour
         {
             TrackCreation2(pos7, pos8, pos9, pos10);
 
-
         }
+
+
+        // Pickups
+        if (playerTrans.position.y <= playerPos.y - speedBoostNum)
+        {
+           // print("Speed Boost");
+
+            Instantiate(speedBoostObj, new Vector3(playerPos.x, playerTrans.position.y - yPos2, playerPos.z), Quaternion.Euler(0,90,0));
+
+            speedBoostNum += 40;
+        }
+
+
     }
 
     void TrackCreation1(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5, Vector3 trackPos6)

@@ -24,11 +24,6 @@ public class TrackCreationTwo : MonoBehaviour
     public float yPos1;
     public float yPos2;
     public float zPos;
-    //public float yPos3;
-    //public float yPos4;
-    //public float yPos5;
-    //public float yPos6;
-
 
     GameObject[] track;
     GameObject[] track2;
@@ -46,7 +41,6 @@ public class TrackCreationTwo : MonoBehaviour
         isEasy = true;
         create2 = false;
 
-
         playerStartPos = playerTrans.position;
 
     }
@@ -55,18 +49,15 @@ public class TrackCreationTwo : MonoBehaviour
     void FixedUpdate()
     {
         track = GameObject.FindGameObjectsWithTag("Track");
-        //track2 = GameObject.FindGameObjectsWithTag("Track");
 
         if (gMaster.score < 10)
         {
-            //print("Easy");
-
             isEasy = true;
             isHard = false;
         }
         else
         {
-          //  print("Hard");
+            //  print("Hard");
 
             isHard = true;
             isEasy = false;
@@ -77,23 +68,16 @@ public class TrackCreationTwo : MonoBehaviour
 
     void TrackMaintance()
     {
-        //float platCheck = playerTrans.position.y - platformCheck;
-
         GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
         TrackPositions();
 
-        //  print("Istart: " + isStart.ToString());
-
-
         foreach (GameObject t in tracks)
-        {         // Destroys platforms
-            if (t.transform.position.y > playerTrans.position.y + 45)
-            {  // When to destroy platform
-               //  print("Destroy");
+        {
+            if (t.transform.position.y > playerTrans.position.y + 45) // When to destroy platform
+            {
                 Destroy(t);
             }
         }
-
 
     }
 
@@ -111,8 +95,6 @@ public class TrackCreationTwo : MonoBehaviour
         Vector3 pos8 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 7, playerStartPos.z + zPos);
         Vector3 pos9 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 8, playerStartPos.z + zPos);
         Vector3 pos10 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 9, playerStartPos.z + zPos);
-
-
 
         if (isStart)
         {
@@ -185,11 +167,6 @@ public class TrackCreationTwo : MonoBehaviour
             int ranNum3 = Random.Range(0, 3);
             int ranNum4 = Random.Range(0, 3);
 
-            //print("Ran1: " + ranNum1.ToString());
-            //print("Ran2: " + ranNum2.ToString());
-            //print("Ran3: " + ranNum3.ToString());
-            //print("Ran4: " + ranNum4.ToString());
-
             // POS 1
             if (ranNum1 == 0)
             {
@@ -199,7 +176,7 @@ public class TrackCreationTwo : MonoBehaviour
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             }
-            else 
+            else
             {
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             }
@@ -208,7 +185,7 @@ public class TrackCreationTwo : MonoBehaviour
             {
                 Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             }
-            else if(ranNum2 == 1 && isEasy)
+            else if (ranNum2 == 1 && isEasy)
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             }
@@ -225,7 +202,7 @@ public class TrackCreationTwo : MonoBehaviour
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             }
-            else 
+            else
             {
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             }
@@ -238,7 +215,7 @@ public class TrackCreationTwo : MonoBehaviour
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             }
-            else 
+            else
             {
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             }
