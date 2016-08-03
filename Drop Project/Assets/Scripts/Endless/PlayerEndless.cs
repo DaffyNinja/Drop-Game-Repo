@@ -160,11 +160,17 @@ public class PlayerEndless : MonoBehaviour
     {
         if (col.gameObject.tag == "Plat")
         {
-            if (obtainedSpecialDrop)
+            print("plat");
+
+            if (obtainedSpecialDrop == true)
             {
                 Destroy(col.gameObject);
             }
+
+           
         }
+
+        //Destroy(col.gameObject);
 
     }
 

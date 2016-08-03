@@ -1011,32 +1011,8 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: isPC
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: isTouch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: speedSize.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: speedSize.y
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: speedSize.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: fallSpeedIncrease
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: speedTime
-      value: 2.5
+      propertyPath: fallSpeed
+      value: 20.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
