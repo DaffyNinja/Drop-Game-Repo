@@ -29,6 +29,10 @@ public class TrackCreationTwo : MonoBehaviour
     GameObject[] track2;
 
     public bool isStart;
+    [Header("Special Pickups")]
+    public List<GameObject> specialObjs;
+    [Space(5)]
+    public float specialAppearNum;
 
     EndlessGameMaster gMaster;
 
@@ -105,6 +109,14 @@ public class TrackCreationTwo : MonoBehaviour
         else if (isStart == false)
         {
             TrackCreation2(pos7, pos8, pos9, pos10);
+        }
+
+        //Special Pickups
+        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum)
+        {
+            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x, playerTrans.position.y - 20, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+
+            specialAppearNum += specialAppearNum;
         }
     }
 

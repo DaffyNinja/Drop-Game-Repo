@@ -15,10 +15,14 @@ public class PlayerEndless : MonoBehaviour
     public Vector3 specialSize;
     Vector3 startingSize;
 
-    public float powerTime;
-    public bool obtainedSpecialDrop;
+    public float specialTime;
+    public float speedTime;
+
+    public bool obtainedSpecial;
+    public bool obtainedSpeed;
 
     float specialTimer;
+    float speedTimer;
 
     [Header("Touch")]
     public float screenPosX;
@@ -127,25 +131,18 @@ public class PlayerEndless : MonoBehaviour
 
         }
 
-        Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-        rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
-        PowerPickup();
-    }
-
-    void PowerPickup()
-    {
-        if (obtainedSpecialDrop)
+        // Special PowerUp
+        if (obtainedSpecial)
         {
             transform.localScale = specialSize;
-            rig.AddForce(0, -fallSpeed + fallSpeedIncrease, 0);
+            rig.AddForce(0, -fallSpeedIncrease, 0);
 
             specialTimer += Time.deltaTime;
 
-            if (specialTimer >= powerTime)
+            if (specialTimer >= specialTime)
             {
                 transform.localScale = startingSize;
-                obtainedSpecialDrop = false;
+                obtainedSpecial = false;
             }
         }
         else
@@ -153,8 +150,121 @@ public class PlayerEndless : MonoBehaviour
             specialTimer = 0;
         }
 
+        // Speed Power
+        if (obtainedSpeed)
+        {
+            transform.localScale = specialSize;
+            rig.AddForce(0, -fallSpeedIncrease, 0);
 
+            speedTimer += Time.deltaTime;
+
+            if (speedTimer >= speedTime)
+            {
+                transform.localScale = startingSize;
+                obtainedSpeed = false;
+            }
+
+        }
+        else
+        {
+            speedTimer = 0;
+        }
+
+        if (obtainedSpeed || obtainedSpecial)
+        {
+
+            // Special PowerUp
+            if (obtainedSpecial)
+            {
+                Vector2 fallQauntity = new Vector2(0, -fallSpeedIncrease);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                specialTimer += Time.deltaTime;
+
+                if (specialTimer >= specialTime)
+                {
+                    transform.localScale = startingSize;
+                    obtainedSpecial = false;
+                }
+            }
+            else
+            {
+                specialTimer = 0;
+            }
+
+            // Speed Power
+            if (obtainedSpeed)
+            {
+                transform.localScale = specialSize;
+
+                Vector2 fallQauntity = new Vector2(0, -fallSpeedIncrease);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                speedTimer += Time.deltaTime;
+
+                if (speedTimer >= speedTime)
+                {
+                    transform.localScale = startingSize;
+                    obtainedSpeed = false;
+                }
+
+            }
+            else
+            {
+                speedTimer = 0;
+            }
+        }
+        else
+        {
+            Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+            rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+        }
+
+       // PowerPickup();
     }
+
+    //void PowerPickup()
+    //{
+    //    // Special PowerUp
+    //    if (obtainedSpecial)
+    //    {
+    //        transform.localScale = specialSize;
+    //        rig.AddForce(0, -fallSpeedIncrease, 0);
+
+    //        specialTimer += Time.deltaTime;
+
+    //        if (specialTimer >= specialTime)
+    //        {
+    //            transform.localScale = startingSize;
+    //            obtainedSpecial = false;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        specialTimer = 0;
+    //    }
+
+    //    // Speed Power
+    //    if (obtainedSpeed)
+    //    {
+    //        transform.localScale = specialSize;
+    //        rig.AddForce(0, -fallSpeedIncrease, 0);
+
+    //        speedTimer += Time.deltaTime;
+
+    //        if (speedTimer >= speedTime)
+    //        {
+    //            transform.localScale = startingSize;
+    //            obtainedSpeed = false;
+    //        }
+
+    //    }
+    //    else
+    //    {
+    //        speedTimer = 0;
+    //    }
+
+    //}
 
     void OnCollisionEnter(Collision col)
     {
@@ -162,12 +272,11 @@ public class PlayerEndless : MonoBehaviour
         {
             print("plat");
 
-            if (obtainedSpecialDrop == true)
+            if (obtainedSpecial == true)
             {
                 Destroy(col.gameObject);
             }
 
-           
         }
 
         //Destroy(col.gameObject);
@@ -183,9 +292,17 @@ public class PlayerEndless : MonoBehaviour
 
         if (col.gameObject.tag == "Special")
         {
-            print("Special Hit");
+            // print("Special Hit");
 
-            obtainedSpecialDrop = true;
+            obtainedSpecial = true;
+
+            Destroy(col.gameObject);
+
+        }
+
+        if (col.gameObject.tag == "Speed")
+        {
+            obtainedSpeed = true;
 
             Destroy(col.gameObject);
 
