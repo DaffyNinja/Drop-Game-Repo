@@ -49,13 +49,20 @@ public class TrackCreationEndless : MonoBehaviour
     public int hardStartNum;
     public bool isHard;
     [Space(5)]
+    public float posNum1;
+    public float posNum2;
+    public float posNum3;
+    public float posNum4;
+    public float posNum5;
+    public float posNum6;
+    public float posNum7;
+    public float posNum8;
+    public float posNum9;
+    [Space(5)]
     public float hardPos1;
     public float hardPos2;
     public float hardPos3;
     public float hardPos4;
-    [Space(5)]
-    public int splitNum;
-    public int mergeNum;
 
     [Header("Pickups")]
     public GameObject specialObj;
@@ -115,35 +122,24 @@ public class TrackCreationEndless : MonoBehaviour
 
         }
 
-        //// Player has passed split/Merge object
-        //foreach (GameObject plat in splitMergeOBJs)
-        //{
-        //    if (plat.transform.position.y > playerTrans.position.y)
-        //    {
-        //        //print("Over Split/Merge");
-
-        //        canSpawnPlatforms = true;
-        //        makeSplit = false;
-        //    }
-        //}
-
         SpawnPlatforms();
     }
 
     void SpawnPlatforms()  //(UpTo)
     {
-        // Positions
-        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - 5, playerPos.z);
-        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z);
-        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - 35, playerPos.z);
-        Vector3 pos4 = new Vector3(playerPos.x, playerTrans.position.y - 50, playerPos.z);
-        Vector3 pos5 = new Vector3(playerPos.x, playerTrans.position.y - 65, playerPos.z);
+        // Easy and Medium Positions
+        Vector3 pos = new Vector3(playerPos.x, playerTrans.position.y - posNum1, playerPos.z);
+        Vector3 pos2 = new Vector3(playerPos.x, playerTrans.position.y - posNum2, playerPos.z);
+        Vector3 pos3 = new Vector3(playerPos.x, playerTrans.position.y - posNum3, playerPos.z);
+        Vector3 pos4 = new Vector3(playerPos.x, playerTrans.position.y - posNum4, playerPos.z);
+        Vector3 pos5 = new Vector3(playerPos.x, playerTrans.position.y - posNum5, playerPos.z);
 
-        Vector3 pos7 = new Vector3(playerPos.x, playerTrans.position.y - 80, playerPos.z);
-        Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - 95, playerPos.z);
-        Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - 110, playerPos.z);
-        Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - 125, playerPos.z);
+        Vector3 pos7 = new Vector3(playerPos.x, playerTrans.position.y - posNum6, playerPos.z);
+        Vector3 pos8 = new Vector3(playerPos.x, playerTrans.position.y - posNum7, playerPos.z);
+        Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - posNum8, playerPos.z);
+        Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - posNum9, playerPos.z);
 
+        // Hard Positions
         Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
         Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
         Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
@@ -153,20 +149,21 @@ public class TrackCreationEndless : MonoBehaviour
         // TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
 
         PlatformCreation1(pos, pos2, pos3, pos4, pos5);//, pos6);
+        PlatformCreation2(pos7, pos8, pos9, pos10);
 
-        if (isHard)
-        {
-            PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
-        }
-        else
-        {
-            PlatformCreation2(pos7, pos8, pos9, pos10);
-        }
+        //if (isHard)
+        //{
+        //    PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+        //}
+        //else
+        //{
+        //    PlatformCreation2(pos7, pos8, pos9, pos10);
+        //}
 
-        // Special Pickup Creation
-        if (playerTrans.position.y <= playerPos.y - speacialAppearNum)
+        // Special Pickup Creation when it is hard difficulty
+        if (playerTrans.position.y <= playerPos.y - speacialAppearNum && isHard)
         {
-            print("Special");
+           // print("Special");
 
             Instantiate(specialObj, new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z), Quaternion.Euler(0, 90, 0));
 
@@ -216,7 +213,7 @@ public class TrackCreationEndless : MonoBehaviour
 
             foreach (GameObject t in tracks2)
             {
-                if (platformPos1.y > t.transform.position.y - 15)
+                if (platformPos1.y > t.transform.position.y - 10)
                 {  // When to spawn new platforms  NOTE: Make 5f and public variable
                     create2 = false;
                 }
@@ -249,77 +246,6 @@ public class TrackCreationEndless : MonoBehaviour
 
             }
         }
-
-
-    }
-
-    // Split Tracks
-    void SplitandMerge()
-    {
-        Vector3 splitPos = new Vector3(playerPos.x, playerTrans.position.y - 130, playerPos.z);
-        makeSplit = true;
-
-        if (makeSplit)
-        {
-            print("Split");
-
-            if (createSplitandMerge)
-            {
-                Instantiate(splitTrack, splitPos, Quaternion.identity);
-                canSpawnPlatforms = false;
-                createSplitandMerge = false;
-            }
-
-            // If player pased split platform
-
-            if (playerTrans.position.y == splitTrack.transform.position.y)
-            {
-                print("Player Pass");
-                makeSplitTracks = true;
-            }
-
-        }
-    }
-
-    //Make split tracks
-    void SpawnSplitTracks()
-    {
-        print("Spawn");
-
-        Vector3 pos1 = new Vector3(playerTrans.position.x - 5, playerTrans.position.y - 10, playerPos.z);
-        Vector3 pos2 = new Vector3(playerTrans.position.x + 5, playerTrans.position.y - 10, playerPos.z);
-        Vector3 pos3 = new Vector3(playerTrans.position.x - 5, playerTrans.position.y - 25, playerPos.z);
-        Vector3 pos4 = new Vector3(playerTrans.position.x + 5, playerTrans.position.y - 25, playerPos.z);
-
-        SplitTracks(pos1, pos2, pos3, pos4);
-
-    }
-
-    void SplitTracks(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4)
-    {
-        bool make = true;
-
-        foreach (GameObject plat in splitMergeOBJs)
-        {         // Destroys Platforms
-            if (trackPos1.y < plat.transform.position.y - 15)
-            {  // When to spawn new platforms  NOTE: Make 5f and public variable
-                make = false;
-            }
-
-            plat.transform.parent = platParent;
-        }
-
-
-        if (make)
-        {
-            print("Spawn Split");
-
-            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos1, Quaternion.identity);
-            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos2, Quaternion.identity);
-            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos3, Quaternion.identity);
-            Instantiate(easyTracksList[Mathf.RoundToInt(Random.Range(0, easyTracksList.Count))], trackPos4, Quaternion.identity);
-        }
-
 
 
     }
