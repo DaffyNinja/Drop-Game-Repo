@@ -60,7 +60,7 @@ GameObject:
   - 114: {fileID: 11447796}
   m_Layer: 0
   m_Name: Player Drop Endless
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,10 +293,10 @@ MonoBehaviour:
   fallSpeed: 20
   leftRightSpeed: 23
   turnAmmount: 40
-  fallSpeedIncrease: 30.25
+  specialSpeed: 30
   specialSize: {x: 2.5, y: 2.75, z: 2.5}
   specialTime: 2
-  speedTime: 2.5
+  speedTime: 1.5
   obtainedSpecial: 0
   obtainedSpeed: 0
   screenPosX: 185

@@ -114,7 +114,7 @@ public class TrackCreationTwo : MonoBehaviour
         //Special Pickups
         if (playerTrans.position.y <= playerStartPos.y - specialAppearNum)
         {
-            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x, playerTrans.position.y - 20, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
 
             specialAppearNum += specialAppearNum;
         }

@@ -11,7 +11,7 @@ public class PlayerEndless : MonoBehaviour
     Quaternion startingRotation;
 
     [Header("Special Pickup")]
-    public float fallSpeedIncrease;
+    public float specialSpeed;
     public Vector3 specialSize;
     Vector3 startingSize;
 
@@ -135,7 +135,7 @@ public class PlayerEndless : MonoBehaviour
         if (obtainedSpecial)
         {
             transform.localScale = specialSize;
-            rig.AddForce(0, -fallSpeedIncrease, 0);
+            rig.AddForce(0, -specialSpeed, 0);
 
             specialTimer += Time.deltaTime;
 
@@ -154,7 +154,7 @@ public class PlayerEndless : MonoBehaviour
         if (obtainedSpeed)
         {
             transform.localScale = specialSize;
-            rig.AddForce(0, -fallSpeedIncrease, 0);
+            rig.AddForce(0, -specialSpeed, 0);
 
             speedTimer += Time.deltaTime;
 
@@ -176,7 +176,7 @@ public class PlayerEndless : MonoBehaviour
             // Special PowerUp
             if (obtainedSpecial)
             {
-                Vector2 fallQauntity = new Vector2(0, -fallSpeedIncrease);
+                Vector2 fallQauntity = new Vector2(0, -specialSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 specialTimer += Time.deltaTime;
@@ -197,7 +197,7 @@ public class PlayerEndless : MonoBehaviour
             {
                 transform.localScale = specialSize;
 
-                Vector2 fallQauntity = new Vector2(0, -fallSpeedIncrease);
+                Vector2 fallQauntity = new Vector2(0, -specialSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 speedTimer += Time.deltaTime;
