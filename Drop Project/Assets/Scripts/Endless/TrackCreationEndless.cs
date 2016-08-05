@@ -65,6 +65,7 @@ public class TrackCreationEndless : MonoBehaviour
     public float hardPos4;
 
     [Header("Pickups")]
+    public bool pickupsAppear;
     public GameObject specialObj;
     [Space(5)]
     public float speacialAppearNum;

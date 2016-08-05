@@ -219,58 +219,13 @@ public class PlayerEndless : MonoBehaviour
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
         }
-
-       // PowerPickup();
     }
-
-    //void PowerPickup()
-    //{
-    //    // Special PowerUp
-    //    if (obtainedSpecial)
-    //    {
-    //        transform.localScale = specialSize;
-    //        rig.AddForce(0, -fallSpeedIncrease, 0);
-
-    //        specialTimer += Time.deltaTime;
-
-    //        if (specialTimer >= specialTime)
-    //        {
-    //            transform.localScale = startingSize;
-    //            obtainedSpecial = false;
-    //        }
-    //    }
-    //    else
-    //    {
-    //        specialTimer = 0;
-    //    }
-
-    //    // Speed Power
-    //    if (obtainedSpeed)
-    //    {
-    //        transform.localScale = specialSize;
-    //        rig.AddForce(0, -fallSpeedIncrease, 0);
-
-    //        speedTimer += Time.deltaTime;
-
-    //        if (speedTimer >= speedTime)
-    //        {
-    //            transform.localScale = startingSize;
-    //            obtainedSpeed = false;
-    //        }
-
-    //    }
-    //    else
-    //    {
-    //        speedTimer = 0;
-    //    }
-
-    //}
 
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag == "Plat")
         {
-            print("plat");
+           // print("plat");
 
             if (obtainedSpecial == true)
             {
