@@ -1095,13 +1095,11 @@ MonoBehaviour:
   scoreText: {fileID: 577180039}
   highScoreText: {fileID: 1712249983}
   restartButton: {fileID: 1869641234}
-  Text1: "Don\u2019t grieve. Anything you lose comes round in another form\n\n\u2015
-    Rumi"
-  Text2: "From childhood's hour I have not been. As others were, I have not seen.
-    As others saw, I could not awaken. My heart to joy at the same tone. And all I
-    loved, I loved alone.\n\n\u2015 Edgar Allan Poe\r\n"
-  Text3: "To weep is to make less the depth of grief\n\n\u2015 William Shakespeare,
-    King Henry VI, Part 3"
+  lossText:
+  - "\u201CDon\u2019t grieve. Anything you lose comes round in another form\u201D\r\n\n\u2015
+    Rumi\r"
+  - "\r\u201CTo weep is to make less the depth of grief\u201D\r\n\n\u2015 William
+    Shakespeare, King Henry VI, Part 3"
   griefTextBox: {fileID: 1811089196}
   hasText: 0
   isGameOver: 0

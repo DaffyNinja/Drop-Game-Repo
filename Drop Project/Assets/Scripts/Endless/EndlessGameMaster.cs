@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -15,13 +17,10 @@ public class EndlessGameMaster : MonoBehaviour
 
     [Header("Loss Text")]
     [TextArea(1, 20)]
-    public string Text1;
-    [TextArea(1, 20)]
-    public string Text2;
-    [TextArea(1, 20)]
-    public string Text3;
+    public List<string> lossText;
+    int ranNum;
 
-
+    [Space(5)]
     public Text griefTextBox;
     public bool hasText;
 
@@ -30,21 +29,14 @@ public class EndlessGameMaster : MonoBehaviour
     public Text gameOverText;
     [Header("Audio")]
     public AudioSource musicSource;
-   // public bool playMusic;
-
-    
-
+    // public bool playMusic;
 
     [Space(5)]
     public Transform playerTrans;
     Vector3 playerStartPos;
 
-    int ranNum;
-
     void Awake()
     {
-        
-
         isGameOver = false;
         score = 0;
 
@@ -52,15 +44,13 @@ public class EndlessGameMaster : MonoBehaviour
         griefTextBox.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
 
-        
-
         //highScoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
 
         highScore = PlayerPrefs.GetFloat(highScoreKey, 0);
 
-        ranNum = Random.Range(0, 2);
+        ranNum = Random.Range(0, lossText.Count);
     }
 
 
@@ -81,21 +71,7 @@ public class EndlessGameMaster : MonoBehaviour
             gameOverText.text = ("Game Over");
             gameOverText.gameObject.SetActive(true);
 
-            switch (ranNum)
-            {
-                case 0:
-                    griefTextBox.text = Text1;
-                    break;
-                case 1:
-                    griefTextBox.text = Text2;
-                    break;
-                case 2:
-                    griefTextBox.text = Text3;
-                    break;
-                default:
-                    print("ERROR!");
-                    break;
-            }
+            griefTextBox.text = lossText[ranNum];
 
             griefTextBox.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(true);
