@@ -40,6 +40,9 @@ public class PlayerEndless : MonoBehaviour
 
     Rigidbody rig;
 
+    //Material
+    public Material startingMat;
+
 
     // Use this for initialization
     void Awake()
@@ -51,6 +54,8 @@ public class PlayerEndless : MonoBehaviour
         startingRotation = transform.rotation;
 
         startingSize = transform.localScale;
+
+        // startingMat = gameObject.GetComponent<Material>();
 
     }
 
@@ -132,10 +137,11 @@ public class PlayerEndless : MonoBehaviour
         }
 
         // Special PowerUp
-        if (obtainedSpecial)
+        if (obtainedSpecial) // Has special
         {
             transform.localScale = specialSize;
             rig.AddForce(0, -specialSpeed, 0);
+           
 
             specialTimer += Time.deltaTime;
 
@@ -148,6 +154,7 @@ public class PlayerEndless : MonoBehaviour
         else
         {
             specialTimer = 0;
+           
         }
 
         // Speed Power
@@ -225,7 +232,7 @@ public class PlayerEndless : MonoBehaviour
     {
         if (col.gameObject.tag == "Plat")
         {
-           // print("plat");
+            // print("plat");
 
             if (obtainedSpecial == true)
             {
