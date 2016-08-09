@@ -583,7 +583,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013026068618}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -921.44, y: -16.643894, z: 5.579994}
+  m_LocalPosition: {x: -38.854076, y: -203.05101, z: -6.2384033}
   m_LocalScale: {x: 0.75, y: 1.35, z: 1.25}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -598,7 +598,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012780341118}
   m_LocalRotation: {x: -0.50000006, y: -0.50000006, z: 0.49999997, w: 0.49999997}
-  m_LocalPosition: {x: 0.5, y: 3.557241, z: 10.61}
+  m_LocalPosition: {x: 0.5, y: 3.557241, z: 5.97}
   m_LocalScale: {x: 2.5, y: 3, z: 5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children: []
@@ -1049,8 +1049,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b452d4c45e68d064f9efec6a4a66f5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
-  xPos: -5
+  fowardSpeed: 2.75
+  backSpeed: 1
+  xPos: 5.5
   isMoving: 0
 --- !u!136 &136000010302969962
 CapsuleCollider:

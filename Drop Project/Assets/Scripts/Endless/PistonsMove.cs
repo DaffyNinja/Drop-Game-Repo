@@ -4,7 +4,8 @@ using System.Collections;
 public class PistonsMove : MonoBehaviour
 {
 
-    public float speed;
+    public float fowardSpeed;
+    public float backSpeed;
 
     public float xPos;
 
@@ -20,7 +21,7 @@ public class PistonsMove : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        //isStart = true;
+        
 
         startingPos = transform.position;
 
@@ -35,9 +36,9 @@ public class PistonsMove : MonoBehaviour
         moveTimer = Mathf.Clamp(moveTimer, 0, 1);
 
 
-        if (isMoving)
+        if (isMoving)  // Back
         {
-            moveTimer += speed * Time.deltaTime;
+            moveTimer += backSpeed * Time.deltaTime;
             transform.position = Vector3.Lerp(startingPos, Movepos, moveTimer);
 
             if (moveTimer >= 1)
@@ -46,9 +47,9 @@ public class PistonsMove : MonoBehaviour
             }
 
         }
-        else
+        else    // Foward
         {
-            moveTimer -= speed * Time.deltaTime;
+            moveTimer -= fowardSpeed * Time.deltaTime;
             transform.position = Vector3.Lerp(startingPos, Movepos, moveTimer);
 
             if (moveTimer <= 0)
