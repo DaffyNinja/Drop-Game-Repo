@@ -24,6 +24,7 @@ public class TrackCreationEndless : MonoBehaviour
 
     bool create1;
     bool create2;
+    bool create3;
 
     GameObject[] splitMergeOBJs;
     bool createSplitandMerge;
@@ -46,6 +47,7 @@ public class TrackCreationEndless : MonoBehaviour
     public int mediumStartNum;
     public bool isMedium;
     [Space(5)]
+    public bool canHard;
     public int hardStartNum;
     public bool isHard;
     [Space(5)]
@@ -101,7 +103,7 @@ public class TrackCreationEndless : MonoBehaviour
 
             isMedium = true;
         }
-        else if (gMaster.score >= hardStartNum)      // Hard
+        else if (gMaster.score >= hardStartNum && canHard)      // Hard
         {
             isHard = true;
             isMedium = false;
@@ -147,24 +149,20 @@ public class TrackCreationEndless : MonoBehaviour
         Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - hardPos4, playerPos.z);
 
 
-        // TODO: Add hard platform psoition, to compoinsate for the new scale sizes 
+        // TODO: Add hard platform psoition, to compoinsate for the new scale sizes
 
-        PlatformCreation1(pos, pos2, pos3, pos4, pos5);//, pos6);
+
+        PlatformCreation1(pos, pos2, pos3, pos4, pos5);
         PlatformCreation2(pos7, pos8, pos9, pos10);
+       // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
 
-        //if (isHard)
-        //{
-        //    PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
-        //}
-        //else
-        //{
-        //    PlatformCreation2(pos7, pos8, pos9, pos10);
-        //}
+        //   PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+
 
         // Special Pickup Creation when it is hard difficulty
         if (playerTrans.position.y <= playerPos.y - speacialAppearNum && isHard)
         {
-           // print("Special");
+            // print("Special");
 
             Instantiate(specialObj, new Vector3(playerPos.x, playerTrans.position.y - 20, playerPos.z), Quaternion.Euler(0, 90, 0));
 
@@ -238,7 +236,7 @@ public class TrackCreationEndless : MonoBehaviour
                 Instantiate(mediumTracksList[Mathf.RoundToInt(Random.Range(0, mediumTracksList.Count))], platformPos4, Quaternion.identity);
 
             }
-            else if (create2 && isHard)
+            else if (create2 && isHard && canHard)
             {  // Hard
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
@@ -246,8 +244,43 @@ public class TrackCreationEndless : MonoBehaviour
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos4, Quaternion.identity);
 
             }
+
+
         }
 
-
     }
+
+    //void PlatformCreation3(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
+    //{
+    //    if (canSpawnPlatforms && isHard)
+    //    {
+
+
+    //        create3 = true;
+
+    //        foreach (GameObject t in tracks2)
+    //        {
+    //            if (platformPos1.y > t.transform.position.y - 1.5f)
+    //            {  // When to spawn new platforms  NOTE: Make 5f and public variable
+    //                print("Spawn 3");
+    //                create3 = false;
+    //            }
+
+    //            t.transform.parent = platParent;
+    //        }
+
+
+    //        if (create2 && isHard && canHard)
+    //        {  // Hard
+    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
+    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
+    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos3, Quaternion.identity);
+    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos4, Quaternion.identity);
+
+    //        }
+    //    }
+
+    //}
+
+
 }
