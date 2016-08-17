@@ -1155,10 +1155,10 @@ MonoBehaviour:
   destroyNum: 45
   platParent: {fileID: 1007041342}
   isEasy: 0
-  mediumStartNum: 10
+  mediumStartNum: 5
   isMedium: 0
-  canHard: 0
-  hardStartNum: 30
+  canHard: 1
+  hardStartNum: 10
   isHard: 0
   posNum1: 8
   posNum2: 18
@@ -1169,10 +1169,10 @@ MonoBehaviour:
   posNum7: 68
   posNum8: 78
   posNum9: 88
-  hardPos1: 108
-  hardPos2: 118
-  hardPos3: 128
-  hardPos4: 138
+  hardPos1: 4
+  hardMultiply1: 4
+  hardMultiply2: 9.5
+  hardMultiply3: 20
   pickupsAppear: 0
   specialObj: {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
   speacialAppearNum: 25

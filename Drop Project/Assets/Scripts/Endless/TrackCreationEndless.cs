@@ -62,9 +62,14 @@ public class TrackCreationEndless : MonoBehaviour
     public float posNum9;
     [Space(5)]
     public float hardPos1;
-    public float hardPos2;
-    public float hardPos3;
-    public float hardPos4;
+    [Space(5)]
+    public float hardMultiply1;
+    public float hardMultiply2;
+    public float hardMultiply3;
+
+    //public float hardPos2;
+    //public float hardPos3;
+    //public float hardPos4;
 
     [Header("Pickups")]
     public bool pickupsAppear;
@@ -143,18 +148,26 @@ public class TrackCreationEndless : MonoBehaviour
         Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - posNum9, playerPos.z);
 
         // Hard Positions
-        Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - hardPos1, playerPos.z);
-        Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - hardPos2, playerPos.z);
-        Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - hardPos3, playerPos.z);
-        Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - hardPos4, playerPos.z);
+        Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - hardPos1, playerPos.z);
+        Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply1), playerPos.z);
+        Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply2), playerPos.z);
+        Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply3), playerPos.z);
 
 
         // TODO: Add hard platform psoition, to compoinsate for the new scale sizes
 
 
         PlatformCreation1(pos, pos2, pos3, pos4, pos5);
-        PlatformCreation2(pos7, pos8, pos9, pos10);
-       // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
+        if (!isHard)
+        {
+            PlatformCreation2(pos7, pos8, pos9, pos10);
+        }
+        else
+        {
+            PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+        }
+
+        // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
 
         //   PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
 
@@ -238,6 +251,8 @@ public class TrackCreationEndless : MonoBehaviour
             }
             else if (create2 && isHard && canHard)
             {  // Hard
+                print("Hard Pos");
+
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
                 Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos3, Quaternion.identity);
