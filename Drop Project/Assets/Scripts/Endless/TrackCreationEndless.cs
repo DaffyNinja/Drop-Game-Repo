@@ -50,6 +50,8 @@ public class TrackCreationEndless : MonoBehaviour
     public bool canHard;
     public int hardStartNum;
     public bool isHard;
+	[Space(5)] 	
+	public float trackCreation2Num;
     [Space(5)]
     public float posNum1;
     public float posNum2;
@@ -164,7 +166,8 @@ public class TrackCreationEndless : MonoBehaviour
         }
         else
         {
-            PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+			PlatformCreation2(posHard1,posHard2,posHard3,posHard4);
+			//PlatformCreation3(posHard1, posHard2, posHard3);
         }
 
         // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
@@ -225,7 +228,7 @@ public class TrackCreationEndless : MonoBehaviour
 
             foreach (GameObject t in tracks2)
             {
-                if (platformPos1.y > t.transform.position.y - 10)
+				if (platformPos1.y > t.transform.position.y - trackCreation2Num)  //12.5f
                 {  // When to spawn new platforms  NOTE: Make 5f and public variable
                     create2 = false;
                 }
@@ -265,37 +268,37 @@ public class TrackCreationEndless : MonoBehaviour
 
     }
 
-    //void PlatformCreation3(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
-    //{
-    //    if (canSpawnPlatforms && isHard)
-    //    {
+	void PlatformCreation3(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3)//, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
+    {
+        if (canSpawnPlatforms && isHard)
+        {
 
 
-    //        create3 = true;
+            create3 = true;
 
-    //        foreach (GameObject t in tracks2)
-    //        {
-    //            if (platformPos1.y > t.transform.position.y - 1.5f)
-    //            {  // When to spawn new platforms  NOTE: Make 5f and public variable
-    //                print("Spawn 3");
-    //                create3 = false;
-    //            }
+            foreach (GameObject t in tracks2)
+            {
+                if (platformPos1.y > t.transform.position.y - 1.5f)
+                {  // When to spawn new platforms  NOTE: Make 5f and public variable
+                    print("Spawn 3");
+                    create3 = false;
+                }
 
-    //            t.transform.parent = platParent;
-    //        }
+                t.transform.parent = platParent;
+            }
 
 
-    //        if (create2 && isHard && canHard)
-    //        {  // Hard
-    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
-    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
-    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos3, Quaternion.identity);
-    //            Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos4, Quaternion.identity);
+            if (create2 && isHard && canHard)
+            {  // Hard
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos1, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos2, Quaternion.identity);
+                Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos3, Quaternion.identity);
+                //Instantiate(hardTracksList[Mathf.RoundToInt(Random.Range(0, hardTracksList.Count))], platformPos4, Quaternion.identity);
 
-    //        }
-    //    }
+            }
+        }
 
-    //}
+    }
 
 
 }

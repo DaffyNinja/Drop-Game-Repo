@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.27399686, g: 0.6266414, b: 0.4703607, a: 1}
+  m_IndirectSpecularColor: {r: 0.27399904, g: 0.6266421, b: 0.470362, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1147,7 +1147,6 @@ MonoBehaviour:
   - {fileID: 135706, guid: 307fac02f72373640ace2d9e4637819f, type: 2}
   hardTracksList:
   - {fileID: 144550, guid: 80be309ef7c5ba740b67116036d0c548, type: 2}
-  - {fileID: 116152, guid: 42a1d0b263f3f1444aca1ba994bec8dc, type: 2}
   - {fileID: 199542, guid: c69131ee9e543fa42bac47e6c4d3c064, type: 2}
   mergeTrack: {fileID: 116012, guid: b19a4cc36b1af467c8d1cc9afb200732, type: 2}
   splitTrack: {fileID: 110442, guid: 62aaa3a5640404d4b8119e4768a1edbe, type: 2}
@@ -1160,6 +1159,7 @@ MonoBehaviour:
   canHard: 1
   hardStartNum: 10
   isHard: 0
+  trackCreation2Num: 12.5
   posNum1: 8
   posNum2: 18
   posNum3: 28
@@ -1171,8 +1171,8 @@ MonoBehaviour:
   posNum9: 88
   hardPos1: 4
   hardMultiply1: 4
-  hardMultiply2: 9.5
-  hardMultiply3: 20
+  hardMultiply2: 8
+  hardMultiply3: 12
   pickupsAppear: 0
   specialObj: {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
   speacialAppearNum: 25
