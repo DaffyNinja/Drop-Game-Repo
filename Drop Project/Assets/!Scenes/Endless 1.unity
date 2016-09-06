@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.27399904, g: 0.6266421, b: 0.470362, a: 1}
+  m_IndirectSpecularColor: {r: 0.27399686, g: 0.6266414, b: 0.4703607, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1008,11 +1008,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isTouch
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isPC
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: startingMat
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   canHard: 1
   hardStartNum: 10
   isHard: 0
-  trackCreation2Num: 12.5
+  trackCreation2Num: 10
   posNum1: 8
   posNum2: 18
   posNum3: 28
