@@ -50,8 +50,8 @@ public class TrackCreationEndless : MonoBehaviour
     public bool canHard;
     public int hardStartNum;
     public bool isHard;
-	[Space(5)] 	
-	public float trackCreation2Num;
+    [Space(5)]
+    public float trackCreation2Num;
     [Space(5)]
     public float posNum1;
     public float posNum2;
@@ -152,8 +152,8 @@ public class TrackCreationEndless : MonoBehaviour
         // Hard Positions
         Vector3 posHard1 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - hardPos1, playerPos.z);
         Vector3 posHard2 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply1), playerPos.z);
-        Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply2), playerPos.z);
-        Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * hardMultiply3), playerPos.z);
+        Vector3 posHard3 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * (hardMultiply1 * 2)), playerPos.z);
+        Vector3 posHard4 = new Vector3(playerPos.x, playerTrans.position.y - posNum9 - (hardPos1 * (hardMultiply1 * 3)), playerPos.z);
 
 
         // TODO: Add hard platform psoition, to compoinsate for the new scale sizes
@@ -166,8 +166,8 @@ public class TrackCreationEndless : MonoBehaviour
         }
         else
         {
-			PlatformCreation2(posHard1,posHard2,posHard3,posHard4);
-			//PlatformCreation3(posHard1, posHard2, posHard3);
+            PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
+            //PlatformCreation3(posHard1, posHard2, posHard3);
         }
 
         // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
@@ -228,7 +228,7 @@ public class TrackCreationEndless : MonoBehaviour
 
             foreach (GameObject t in tracks2)
             {
-				if (platformPos1.y > t.transform.position.y - trackCreation2Num)  //12.5f
+                if (platformPos1.y > t.transform.position.y - trackCreation2Num)  //12.5f
                 {  // When to spawn new platforms  NOTE: Make 5f and public variable
                     create2 = false;
                 }
@@ -268,7 +268,7 @@ public class TrackCreationEndless : MonoBehaviour
 
     }
 
-	void PlatformCreation3(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3)//, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
+    void PlatformCreation3(Vector3 platformPos1, Vector3 platformPos2, Vector3 platformPos3)//, Vector3 platformPos4) // Instantiates the platforms continualsy after the start
     {
         if (canSpawnPlatforms && isHard)
         {

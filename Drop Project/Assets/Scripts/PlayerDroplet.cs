@@ -19,7 +19,7 @@ public class PlayerDroplet : MonoBehaviour
     public float slowSpeed;
     public float slowLRSpeed;
 
-    float startingFallSpeed;
+    //float startingFallSpeed;
     float startingLRSpeed;
 
     [Header("Modes")]
@@ -91,7 +91,7 @@ public class PlayerDroplet : MonoBehaviour
         rig = GetComponent<Rigidbody>();
 
         startingSize = transform.localScale;
-        startingFallSpeed = fallSpeed;
+        //startingFallSpeed = fallSpeed;
         startingLRSpeed = windowLeftRightSpeed;
 
         startingRotation = transform.rotation;

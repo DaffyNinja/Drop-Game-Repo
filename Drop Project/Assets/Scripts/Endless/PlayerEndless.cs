@@ -34,14 +34,14 @@ public class PlayerEndless : MonoBehaviour
 
     Vector2 touchPos;
 
-    [Space(10)]
+    [Header("Debug")]
     public bool isPC;
     public bool isTouch;
 
     Rigidbody rig;
 
     //Material
-    public Material startingMat;
+   // public Material startingMat;
 
 
     // Use this for initialization
