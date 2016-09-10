@@ -7,6 +7,10 @@ public class PlayerEndless : MonoBehaviour
     public float fallSpeed;
     public float leftRightSpeed;
 
+    public bool slowWhenTurn;
+    public float turnFallSpeed;
+
+    [Space(5)]
     public float turnAmmount;
     Quaternion startingRotation;
 
@@ -62,25 +66,34 @@ public class PlayerEndless : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Controlls
+        // Controls
         if (isPC)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))  // Right
             {
                 Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
+                moveRight = true;
+                moveLeft = false;
+
                 transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
             }
-            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))      // Left
             {
                 Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
                 rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+
+                moveRight = false;
+                moveLeft = true;
 
                 transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
             }
             else
             {
+                moveRight = false;
+                moveLeft = false;
+
                 transform.rotation = startingRotation;
             }
 
@@ -221,10 +234,16 @@ public class PlayerEndless : MonoBehaviour
                 speedTimer = 0;
             }
         }
-        else
+        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling
         {
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+        }
+        else if (slowWhenTurn == true && moveLeft == true || moveRight == true)  // Fall speed decerases when turn left or right
+        {
+            Vector2 fallQauntity = new Vector2(0, -turnFallSpeed);
+            rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
         }
     }
 
