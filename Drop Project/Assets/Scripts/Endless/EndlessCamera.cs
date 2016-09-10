@@ -12,27 +12,31 @@ public class EndlessCamera : MonoBehaviour
     [Space(5)]
     public Transform playerTrans;
     public float yDis;
-    public float zDis;
-
-
-	[Space(5)]
+    [Space(5)]
+    public bool isPhone;
+    public float zDisPhone;
+    public float zDisPc;
+    [Space(5)]
 	public EndlessGameMaster gMaster;
 
     Camera cam;
-
-
-    // Use this for initialization
     void Awake()
     {
         cam = GetComponent<Camera>();
 
-        transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDis);
+        if (isPhone)
+        {
+            transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDisPhone);
+        }
+        else
+        {
+            transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDisPc);
+        }
 
         //gMaster.gameOverText.gameObject.SetActive(false);
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 
@@ -48,11 +52,5 @@ public class EndlessCamera : MonoBehaviour
 			gMaster.isGameOver = true;
 
         }
-        //else if (viewPos.y < camDownDis)
-        //{
-        //    print("Down");
-        //}
-
-
     }
 }

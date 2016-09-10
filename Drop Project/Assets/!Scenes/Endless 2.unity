@@ -1567,6 +1567,14 @@ Prefab:
       propertyPath: zDis
       value: 28.25
       objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: zDisPhone
+      value: 28.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: zDisPc
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
   m_IsPrefabParent: 0
@@ -1807,34 +1815,6 @@ Prefab:
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_RootOrder
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: isTouch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: isPC
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: slowWhenTurn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-      propertyPath: turnFallSpeed
-      value: 18.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
