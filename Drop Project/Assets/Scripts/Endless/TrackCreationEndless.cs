@@ -171,9 +171,7 @@ public class TrackCreationEndless : MonoBehaviour
         }
 
         // PlatformCreation3(posHard1, posHard2, posHard3, posHard4);
-
         //   PlatformCreation2(posHard1, posHard2, posHard3, posHard4);
-
 
         // Special Pickup Creation when it is hard difficulty
         if (playerTrans.position.y <= playerPos.y - speacialAppearNum && isHard)

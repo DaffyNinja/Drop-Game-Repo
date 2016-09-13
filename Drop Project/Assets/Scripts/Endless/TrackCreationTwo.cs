@@ -10,6 +10,9 @@ public class TrackCreationTwo : MonoBehaviour
     public List<GameObject> borderlessTrackObjs;
 
     [Space(5)]
+    public Transform trackParent;
+
+    [Space(5)]
     public Transform playerTrans;
     Vector3 playerStartPos;
 
@@ -132,6 +135,8 @@ public class TrackCreationTwo : MonoBehaviour
                 create1 = false;
                 isStart = false;
             }
+
+            t.transform.parent = trackParent;
         }
 
         if (create1 && isStart)
@@ -159,6 +164,8 @@ public class TrackCreationTwo : MonoBehaviour
                 // print("False 2");
                 create2 = false;
             }
+
+            t.transform.parent = trackParent;
         }
 
         if (create2 == true && isEasy == true && isStart == false)
