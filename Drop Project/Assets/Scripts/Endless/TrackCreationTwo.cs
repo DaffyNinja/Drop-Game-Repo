@@ -7,7 +7,7 @@ public class TrackCreationTwo : MonoBehaviour
     [Header("Tracks")]
     public List<GameObject> trackObjs;
     public List<GameObject> complexTrackObjs;
-    public List<GameObject> borderlessTrackObjs;
+    // public List<GameObject> borderlessTrackObjs;
 
     [Space(5)]
     public Transform trackParent;
@@ -23,7 +23,7 @@ public class TrackCreationTwo : MonoBehaviour
     public bool isEasy;
     public bool isHard;
 
-    [Space(5)]
+    [Header("Positions")]
     public float yPos1;
     public float yPos2;
     public float zPos;
@@ -182,17 +182,13 @@ public class TrackCreationTwo : MonoBehaviour
 
         if (isHard == true && create2 == true && isStart == false)
         {
-            int ranNum1 = Random.Range(0, 3);
-            int ranNum2 = Random.Range(0, 3);
-            int ranNum3 = Random.Range(0, 3);
-            int ranNum4 = Random.Range(0, 3);
+            int ranNum1 = Random.Range(0, 2);
+            int ranNum2 = Random.Range(0, 2);
+            int ranNum3 = Random.Range(0, 2);
+            int ranNum4 = Random.Range(0, 2);
 
             // POS 1
-            if (ranNum1 == 0)
-            {
-                Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
-            }
-            else if (ranNum1 == 1 && isEasy)
+            if (ranNum1 == 0 && isEasy)
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             }
@@ -201,11 +197,7 @@ public class TrackCreationTwo : MonoBehaviour
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             }
             // POS 2
-            if (ranNum2 == 0)
-            {
-                Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-            }
-            else if (ranNum2 == 1 && isEasy)
+            if (ranNum2 == 0 && isEasy)
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             }
@@ -214,11 +206,7 @@ public class TrackCreationTwo : MonoBehaviour
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             }
             // POS 3
-            if (ranNum3 == 0)
-            {
-                Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-            }
-            else if (ranNum3 == 1 && isEasy)
+            if (ranNum3 == 0 && isEasy)
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             }
@@ -227,11 +215,7 @@ public class TrackCreationTwo : MonoBehaviour
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             }
             // POS 4
-            if (ranNum4 == 0)
-            {
-                Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-            }
-            else if (ranNum4 == 1 && isEasy)
+            if (ranNum4 == 0 && isEasy)
             {
                 Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             }
@@ -239,8 +223,6 @@ public class TrackCreationTwo : MonoBehaviour
             {
                 Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
             }
-
-
 
             //Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             // Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
