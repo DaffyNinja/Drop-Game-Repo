@@ -19,7 +19,8 @@ public class TrackCreationTwo : MonoBehaviour
     bool create1;
     bool create2;
 
-    [Space(5)]
+    [Header("Difficulty")]
+    public int hardNum;
     public bool isEasy;
     public bool isHard;
 
@@ -58,12 +59,12 @@ public class TrackCreationTwo : MonoBehaviour
     {
         track = GameObject.FindGameObjectsWithTag("Track");
 
-        if (gMaster.score < 10)
+        if (gMaster.score < hardNum)
         {
             isEasy = true;
             isHard = false;
         }
-        else
+        else if(gMaster.score >= hardNum)
         {
             //  print("Hard");
 

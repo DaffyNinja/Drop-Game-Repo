@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class EndlessGameMaster : MonoBehaviour
 {
     public float score;
-    float highScore;
+    public float highScore;
+    float currentHighScore;
     [Space(5)]
     public Text scoreText;
     public Text highScoreText;
@@ -48,9 +49,11 @@ public class EndlessGameMaster : MonoBehaviour
 
         playerStartPos = playerTrans.position;
 
-        highScore = PlayerPrefs.GetFloat(highScoreKey, 0);
+        //  highScore = PlayerPrefs.GetFloat(highScoreKey, 0);
 
         ranNum = Random.Range(0, lossText.Count);
+
+        currentHighScore = PlayerPrefs.GetFloat("highScore");
     }
 
 
@@ -76,15 +79,14 @@ public class EndlessGameMaster : MonoBehaviour
             griefTextBox.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(true);
 
-
-            // StoreHighScore();
-
+            CheckHighScore();
         }
         else
         {
-            if (playerTrans.position.y < playerStartPos.y)
+            if (playerTrans.position.y < playerStartPos.y)  // Increase Score
             {
                 score += 1 * Time.deltaTime;
+
             }
         }
 
@@ -99,19 +101,21 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
-        highScoreText.text = Mathf.RoundToInt(highScore).ToString();
+        highScoreText.text = currentHighScore.ToString();
 
-        // print(highScore.ToString());
+      //  print("Highscore: " + PlayerPrefs.GetFloat("highScore").ToString());
+
+
     }
 
-    //High Score
-    void StoreHighScore()
+    // High Score
+    void CheckHighScore()
     {
         if (score > highScore)
         {
-            PlayerPrefs.SetFloat(highScoreKey, score);
-
-
+            //print("New HighScore");
+            highScore = Mathf.RoundToInt(score);
+            PlayerPrefs.SetFloat("highScore", highScore);
         }
     }
 

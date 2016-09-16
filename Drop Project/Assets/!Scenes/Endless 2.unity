@@ -753,10 +753,11 @@ MonoBehaviour:
   - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
   trackParent: {fileID: 2019384028}
   playerTrans: {fileID: 744108306}
+  hardNum: 5
   isEasy: 0
   isHard: 0
   yPos1: 0
-  yPos2: 17
+  yPos2: 16.5
   zPos: 1
   isStart: 1
   spawnPickups: 0
@@ -776,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  highScore: 0
   scoreText: {fileID: 568720337}
   highScoreText: {fileID: 350028700}
   restartButton: {fileID: 1631206108}
@@ -1083,6 +1085,18 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 693791802}
+    - target: {fileID: 144156, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465000, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22474564, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -42
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}
   m_IsPrefabParent: 0
