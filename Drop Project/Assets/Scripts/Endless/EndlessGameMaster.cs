@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndlessGameMaster : MonoBehaviour
 {
     public float score;
+    public bool storeHighScore;
     public float highScore;
     float currentHighScore;
     [Space(5)]
@@ -79,7 +80,14 @@ public class EndlessGameMaster : MonoBehaviour
             griefTextBox.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(true);
 
-            CheckHighScore();
+            if (storeHighScore == true)
+            {
+                CheckHighScore();
+            }
+            else
+            {
+                highScore = 0;
+            }
         }
         else
         {

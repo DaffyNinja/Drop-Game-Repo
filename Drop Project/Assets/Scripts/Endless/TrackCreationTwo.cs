@@ -35,10 +35,9 @@ public class TrackCreationTwo : MonoBehaviour
     public bool isStart;
     [Header("Special Pickups")]
     public bool spawnPickups;
-    public List<GameObject> specialObjs;
-    [Space(5)]
     public float specialAppearNum;
-
+    public List<GameObject> specialObjs;
+ 
     EndlessGameMaster gMaster;
 
     // Use this for initialization
@@ -119,7 +118,7 @@ public class TrackCreationTwo : MonoBehaviour
         //Special Pickups
         if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups)
         {
-            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
 
             specialAppearNum += specialAppearNum;
         }

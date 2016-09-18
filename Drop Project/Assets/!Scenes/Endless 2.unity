@@ -760,11 +760,11 @@ MonoBehaviour:
   yPos2: 16.5
   zPos: 1
   isStart: 1
-  spawnPickups: 0
+  spawnPickups: 1
+  specialAppearNum: 250
   specialObjs:
   - {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
   - {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
-  specialAppearNum: 25
 --- !u!114 &693791802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  storeHighScore: 0
   highScore: 0
   scoreText: {fileID: 568720337}
   highScoreText: {fileID: 350028700}
