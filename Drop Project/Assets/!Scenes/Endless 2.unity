@@ -676,11 +676,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012993283348, guid: 1b8e9cc073802384bae4f016817dfeb3,
     type: 2}
   m_PrefabInternal: {fileID: 538483821}
---- !u!1 &538483823 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011944853484, guid: 1b8e9cc073802384bae4f016817dfeb3,
-    type: 2}
-  m_PrefabInternal: {fileID: 538483821}
 --- !u!1 &565032082
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +856,7 @@ MonoBehaviour:
   - {fileID: 1000012440330936, guid: b429eaff6753f1d44892b99f16c70e2d, type: 2}
   - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
   - {fileID: 1000012168765096, guid: 5c99dc2878f6ab141b7a2a4f159dba78, type: 2}
-  - {fileID: 538483823}
+  - {fileID: 1000011944853484, guid: 1b8e9cc073802384bae4f016817dfeb3, type: 2}
   trackParent: {fileID: 2019384028}
   playerTrans: {fileID: 1544680376}
   hardNum: 5
@@ -946,7 +941,7 @@ Prefab:
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
       propertyPath: fallSpeed
-      value: 20.75
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
@@ -964,6 +959,16 @@ Prefab:
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalScale.y
       value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: isPC
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: isTouch
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
