@@ -752,7 +752,7 @@ MonoBehaviour:
   - {fileID: 1000012440330936, guid: b429eaff6753f1d44892b99f16c70e2d, type: 2}
   - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
   trackParent: {fileID: 2019384028}
-  playerTrans: {fileID: 744108306}
+  playerTrans: {fileID: 1544680376}
   hardNum: 5
   isEasy: 0
   isHard: 0
@@ -792,11 +792,7 @@ MonoBehaviour:
   isGameOver: 0
   gameOverText: {fileID: 840985573}
   musicSource: {fileID: 1900737079}
-  playerTrans: {fileID: 744108306}
---- !u!4 &744108306 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
-  m_PrefabInternal: {fileID: 1791118390}
+  playerTrans: {fileID: 1544680376}
 --- !u!1001 &755719440
 Prefab:
   m_ObjectHideFlags: 0
@@ -804,48 +800,50 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 964.6419
+      value: 966.92
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.9082417
+      value: 3.5559
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -1.2523316e-13
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.70710677
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 3.6152414e-11
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+    - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: fallSpeed
+      value: 20.75
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 015195e68c2a4ce46bb4600eb18cd255, type: 2}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: leftRightSpeed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7a481bab2820df547a2baea380fe3ff1, type: 3}
+  m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &770167557
 Prefab:
@@ -1611,7 +1609,7 @@ Prefab:
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: playerTrans
       value: 
-      objectReference: {fileID: 744108306}
+      objectReference: {fileID: 1544680376}
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: gMaster
       value: 
@@ -1630,15 +1628,20 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: zDisPc
-      value: 20
+      value: 28.25
       objectReference: {fileID: 0}
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: isPhone
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1544680376 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+    type: 2}
+  m_PrefabInternal: {fileID: 755719440}
 --- !u!1001 &1567686211
 Prefab:
   m_ObjectHideFlags: 0
@@ -1855,7 +1858,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 69
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 459398, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1883,6 +1886,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447796, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
       propertyPath: isTouch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 170406, guid: 68d95baaba6b9e94a80ea22b22e05029, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
