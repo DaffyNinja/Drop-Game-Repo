@@ -781,14 +781,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66caafe74acbc0f4781d8076c4e7c9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackObjs:
+  startingTracks:
+  - {fileID: 133030, guid: 9a728a5b07d8b354288a76444731417c, type: 2}
   - {fileID: 198904, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
   - {fileID: 155206, guid: 222593c6006fd554ea43d1cda448c715, type: 2}
   - {fileID: 105094, guid: 28410a6b6564f9a4daeef53c3545e8b2, type: 2}
   - {fileID: 151042, guid: 096de414e5359e84ebc7d9816dea5f35, type: 2}
-  - {fileID: 133030, guid: 9a728a5b07d8b354288a76444731417c, type: 2}
   - {fileID: 145022, guid: 0405d554a181a4049b8a78a3de20674d, type: 2}
-  - {fileID: 179332, guid: 50ad677eeb17b234dab98fa7f626754b, type: 2}
+  easyTracks:
+  - {fileID: 1000012168765096, guid: 5c99dc2878f6ab141b7a2a4f159dba78, type: 2}
+  - {fileID: 1000011944853484, guid: 1b8e9cc073802384bae4f016817dfeb3, type: 2}
+  mediumTracks: []
+  hardTracks: []
   complexTrackObjs:
   - {fileID: 136030, guid: f547009b603c7fd439b58519061a453a, type: 2}
   - {fileID: 132616, guid: d17621d294309e94889794bf57144bce, type: 2}
@@ -888,12 +892,12 @@ Prefab:
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
       propertyPath: isPC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
       propertyPath: isTouch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
