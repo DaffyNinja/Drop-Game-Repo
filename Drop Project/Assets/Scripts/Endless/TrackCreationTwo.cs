@@ -24,8 +24,11 @@ public class TrackCreationTwo : MonoBehaviour
     bool create2;
 
     [Header("Difficulty")]
-    public int hardNum;
+    public float easyNum;
+    public float mediumNum;
+    public float hardNum;
     public bool isEasy;
+    public bool isMedium;
     public bool isHard;
 
     [Header("Positions")]
@@ -62,18 +65,27 @@ public class TrackCreationTwo : MonoBehaviour
     {
         track = GameObject.FindGameObjectsWithTag("Track");
 
-        //if (gMaster.score < hardNum)
-        //{
-        //    isEasy = true;
-        //    isHard = false;
-        //}
-        //else if(gMaster.score >= hardNum)
-        //{
-        //    //  print("Hard");
+        // Difficulty Change
+        if (gMaster.score < mediumNum && gMaster.score < hardNum)
+        {
+            isEasy = true;
+            isMedium = false;
+            isHard = false;
+        }
+        else if (gMaster.score >= mediumNum && gMaster.score <= hardNum)
+        {
+            isMedium = true;
+            isEasy = false;
+            isHard = false;
+        }
+        else if (gMaster.score >= hardNum)
+        {
+            //  print("Hard");
 
-        //    isHard = true;
-        //    isEasy = false;
-        //}
+            isHard = true;
+            isMedium = false;
+            isEasy = false;
+        }
 
         TrackMaintance();
     }
@@ -172,6 +184,7 @@ public class TrackCreationTwo : MonoBehaviour
             t.transform.parent = trackParent;
         }
 
+        // Dificulty Change
         if (create2 == true && isEasy == true && isStart == false)
         {
             // print("Create 2");
@@ -182,6 +195,14 @@ public class TrackCreationTwo : MonoBehaviour
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
 
             create2 = false;
+        }
+        else if (create2 == true && isEasy == true && isStart == false)
+        {
+
+        }
+        else if (create2 == true && isEasy == true && isStart == false)
+        {
+
         }
     }
 
