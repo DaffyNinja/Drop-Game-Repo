@@ -196,7 +196,7 @@ public class TrackCreationTwo : MonoBehaviour
 
             create2 = false;
         }
-        else if (create2 == true && isEasy == true && isStart == false)  // Is Medium
+        else if (create2 == true && isMedium == true && isStart == false)  // Is Medium
         {
             Instantiate(mediumTracks[Mathf.RoundToInt(Random.Range(0, mediumTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(mediumTracks[Mathf.RoundToInt(Random.Range(0, mediumTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
@@ -206,7 +206,7 @@ public class TrackCreationTwo : MonoBehaviour
             create2 = false;
 
         }
-        else if (create2 == true && isEasy == true && isStart == false)  // Is Hard
+        else if (create2 == true && isHard == true && isStart == false)  // Is Hard
         {
             Instantiate(hardTracks[Mathf.RoundToInt(Random.Range(0, hardTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(hardTracks[Mathf.RoundToInt(Random.Range(0, hardTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
