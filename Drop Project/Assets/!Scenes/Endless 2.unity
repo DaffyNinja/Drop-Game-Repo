@@ -792,8 +792,16 @@ MonoBehaviour:
   easyTracks:
   - {fileID: 1000012168765096, guid: 5c99dc2878f6ab141b7a2a4f159dba78, type: 2}
   - {fileID: 1000011944853484, guid: 1b8e9cc073802384bae4f016817dfeb3, type: 2}
-  mediumTracks: []
-  hardTracks: []
+  mediumTracks:
+  - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
+  - {fileID: 122204, guid: 3e6311d4c0742674485fdf543f3984d4, type: 2}
+  - {fileID: 136030, guid: f547009b603c7fd439b58519061a453a, type: 2}
+  - {fileID: 1000010854589590, guid: 4973f1ec4e961354bb6ec5b3abd81249, type: 2}
+  - {fileID: 196070, guid: 5124dadf85d438b4aa7796efca71b36f, type: 2}
+  hardTracks:
+  - {fileID: 1000012440330936, guid: b429eaff6753f1d44892b99f16c70e2d, type: 2}
+  - {fileID: 1000013926545094, guid: 7c69bfb16ec9e0d459b89e3d0868468a, type: 2}
+  - {fileID: 132616, guid: d17621d294309e94889794bf57144bce, type: 2}
   complexTrackObjs:
   - {fileID: 136030, guid: f547009b603c7fd439b58519061a453a, type: 2}
   - {fileID: 132616, guid: d17621d294309e94889794bf57144bce, type: 2}
@@ -806,8 +814,11 @@ MonoBehaviour:
   - {fileID: 1000011944853484, guid: 1b8e9cc073802384bae4f016817dfeb3, type: 2}
   trackParent: {fileID: 2019384028}
   playerTrans: {fileID: 1544680376}
-  hardNum: 1
+  easyNum: 0
+  mediumNum: 15
+  hardNum: 50
   isEasy: 0
+  isMedium: 0
   isHard: 0
   yPos1: 0
   yPos2: 16.5
