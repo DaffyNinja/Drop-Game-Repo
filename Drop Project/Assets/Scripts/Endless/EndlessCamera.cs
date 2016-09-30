@@ -18,6 +18,7 @@ public class EndlessCamera : MonoBehaviour
     public float zDisPc;
     [Space(5)]
 	public EndlessGameMaster gMaster;
+    PlayerEndless playSc;
 
     Camera cam;
     void Awake()
@@ -32,6 +33,8 @@ public class EndlessCamera : MonoBehaviour
         {
             transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDisPc);
         }
+
+        playSc = playerTrans.GetComponent<PlayerEndless>();
 
         //gMaster.gameOverText.gameObject.SetActive(false);
 
@@ -52,5 +55,18 @@ public class EndlessCamera : MonoBehaviour
 			gMaster.isGameOver = true;
 
         }
+
+        //If player gets powerup
+        //if (playSc.obtainedSpecial == true || playSc.obtainedSpeed == true)
+        //{
+        //    transform.parent = playerTrans;
+
+        //}
+        //else
+        //{
+        //    transform.parent = null;
+        //}
+
+       
     }
 }
