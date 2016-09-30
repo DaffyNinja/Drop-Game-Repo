@@ -5,16 +5,22 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public float cameraFallSpeed; 
+  
     static public bool isMute;
 
+    [Space(5)]
     public Image muteIm;
 
     public Sprite muteSpr;
     public Sprite unMuteSpr;
 
 
-    void Update()
+    void FixedUpdate()
     {
+        transform.Translate(0, -cameraFallSpeed, 0);
+
         if (isMute == true)
         {
             muteIm.sprite = muteSpr;
@@ -23,8 +29,6 @@ public class MainMenu : MonoBehaviour
         {
             muteIm.sprite = unMuteSpr;
         }
-
-       
     }
 
     public void Level1Button()

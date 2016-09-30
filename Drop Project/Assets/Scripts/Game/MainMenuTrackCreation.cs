@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class MainMenuTrackCreation : MonoBehaviour {
+public class MainMenuTrackCreation : MonoBehaviour
+{
 
     public List<GameObject> tracksObjs;
     [Space(5)]
@@ -24,26 +25,26 @@ public class MainMenuTrackCreation : MonoBehaviour {
     Vector3 cameraStartPos;
 
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake()
     {
         cameraStartPos = cameraTrans.position;
 
         xPos = cameraTrans.position.x;
         yPos = cameraTrans.position.y;
-        zPos = cameraTrans.position.z - zDis;
+       
 
-	
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+        isStart = true;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
     {
         tracksArray = GameObject.FindGameObjectsWithTag("Track");
 
         TrackMain();
-	
-	}
+
+    }
 
     void TrackMain()
     {
@@ -64,17 +65,17 @@ public class MainMenuTrackCreation : MonoBehaviour {
     void TrackPositions()
     {
         // Positions
-        Vector3 pos = new Vector3(cameraStartPos.x, cameraTrans.position.y, cameraStartPos.z - zPos);
-        Vector3 pos2 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f, cameraStartPos.z - zPos);
-        Vector3 pos3 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 2, cameraStartPos.z - zPos);
-        Vector3 pos4 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 3, cameraStartPos.z - zPos);
-        Vector3 pos5 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 3, cameraStartPos.z - zPos);
-        Vector3 pos6 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 4, cameraStartPos.z - zPos);
-        Vector3 pos7 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 5, cameraStartPos.z - zPos);
+        Vector3 pos = new Vector3(cameraStartPos.x, cameraTrans.position.y, cameraStartPos.z + zDis);
+        Vector3 pos2 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f, cameraStartPos.z + zDis);
+        Vector3 pos3 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 2, cameraStartPos.z + zDis);
+        Vector3 pos4 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 3, cameraStartPos.z + zDis);
+        Vector3 pos5 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 4, cameraStartPos.z + zDis);
+        Vector3 pos6 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 5, cameraStartPos.z + zDis);
+        Vector3 pos7 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 6, cameraStartPos.z + zDis);
 
-        Vector3 pos8 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 6, cameraStartPos.z - zPos);
-        Vector3 pos9 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 7, cameraStartPos.z - zPos);
-        Vector3 pos10 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 8, cameraStartPos.z - zPos);
+        Vector3 pos8 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 7, cameraStartPos.z + zDis);
+        Vector3 pos9 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 8, cameraStartPos.z + zDis);
+        Vector3 pos10 = new Vector3(cameraStartPos.x, cameraTrans.position.y - 16.5f * 9, cameraStartPos.z + zDis);
 
 
         if (isStart)
@@ -106,7 +107,7 @@ public class MainMenuTrackCreation : MonoBehaviour {
 
         if (create1 && isStart)
         {
-            Instantiate(tracksObjs[Mathf.RoundToInt(Random.Range(0, tracksObjs.Count))], trackPos1, Quaternion.Euler(0,90,0));
+            Instantiate(tracksObjs[Mathf.RoundToInt(Random.Range(0, tracksObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(tracksObjs[Mathf.RoundToInt(Random.Range(0, tracksObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             Instantiate(tracksObjs[Mathf.RoundToInt(Random.Range(0, tracksObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
             Instantiate(tracksObjs[Mathf.RoundToInt(Random.Range(0, tracksObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
