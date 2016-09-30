@@ -671,6 +671,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 436348, guid: f547009b603c7fd439b58519061a453a, type: 2}
   m_PrefabInternal: {fileID: 1274410866}
+--- !u!114 &383611329 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010685679884, guid: d48e654e363472142bb859c62ee81559,
+    type: 2}
+  m_PrefabInternal: {fileID: 591130290}
+  m_Script: {fileID: 11500000, guid: 40de2046103380b4aa698ecc2aab9ef2, type: 3}
 --- !u!1 &390849711
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +888,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013213018356, guid: a1fe7e261ca265343861ada271e265d0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 383611329}
+    - target: {fileID: 114000013213018356, guid: a1fe7e261ca265343861ada271e265d0,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Level1Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1fe7e261ca265343861ada271e265d0, type: 2}
@@ -1281,6 +1297,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d48e654e363472142bb859c62ee81559, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &591130291 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000012381071992, guid: d48e654e363472142bb859c62ee81559,
+    type: 2}
+  m_PrefabInternal: {fileID: 591130290}
 --- !u!1001 &595881526
 Prefab:
   m_ObjectHideFlags: 0
@@ -1493,6 +1514,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 693791800}
+  - 114: {fileID: 693791801}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -1513,6 +1535,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &693791801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693791799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa79d4b26f3589e4d9a25325cf619b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracksObjs:
+  - {fileID: 1000012168765096, guid: 5c99dc2878f6ab141b7a2a4f159dba78, type: 2}
+  - {fileID: 122204, guid: 3e6311d4c0742674485fdf543f3984d4, type: 2}
+  - {fileID: 132616, guid: d17621d294309e94889794bf57144bce, type: 2}
+  - {fileID: 1000013926545094, guid: 7c69bfb16ec9e0d459b89e3d0868468a, type: 2}
+  - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
+  zDis: 15
+  destroyNum: 45
+  trackParent: {fileID: 2019384028}
+  cameraTrans: {fileID: 591130291}
 --- !u!1 &700177689
 GameObject:
   m_ObjectHideFlags: 0
