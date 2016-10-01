@@ -5,15 +5,13 @@ using System.Collections.Generic;
 public class TrackCreationTwo : MonoBehaviour
 {
     [Header("Tracks")]
-   // public List<GameObject> trackObjs;
     public List<GameObject> startingTracks;
     public List<GameObject> easyTracks;
     public List<GameObject> mediumTracks;
     public List<GameObject> hardTracks;
-    //public List<GameObject> complexTrackObjs;
-    // public List<GameObject> borderlessTrackObjs;
 
     [Space(5)]
+    public float destroyNum;
     public Transform trackParent;
 
     [Space(5)]
@@ -44,7 +42,7 @@ public class TrackCreationTwo : MonoBehaviour
     public bool spawnPickups;
     public float specialAppearNum;
     public List<GameObject> specialObjs;
- 
+
     EndlessGameMaster gMaster;
 
     // Use this for initialization
@@ -66,23 +64,24 @@ public class TrackCreationTwo : MonoBehaviour
         track = GameObject.FindGameObjectsWithTag("Track");
 
         // Difficulty Change
-        if (gMaster.score < mediumNum && gMaster.score < hardNum)
+        if (gMaster.score < mediumNum && gMaster.score < hardNum)   //Easy
         {
             isEasy = true;
+
             isMedium = false;
             isHard = false;
         }
-        else if (gMaster.score >= mediumNum && gMaster.score <= hardNum)
+        else if (gMaster.score >= mediumNum && gMaster.score <= hardNum)  //Medium
         {
             isMedium = true;
+
             isEasy = false;
             isHard = false;
         }
-        else if (gMaster.score >= hardNum)
+        else if (gMaster.score >= hardNum) //Hard
         {
-            //  print("Hard");
-
             isHard = true;
+
             isMedium = false;
             isEasy = false;
         }
@@ -90,14 +89,14 @@ public class TrackCreationTwo : MonoBehaviour
         TrackMaintance();
     }
 
-    void TrackMaintance()
+    void TrackMaintance()  //When to destroy Tracks
     {
         GameObject[] tracks = GameObject.FindGameObjectsWithTag("Track");
         TrackPositions();
 
         foreach (GameObject t in tracks)
         {
-            if (t.transform.position.y > playerTrans.position.y + 45) // When to destroy platform
+            if (t.transform.position.y > playerTrans.position.y + destroyNum) // When to destroy platform   45
             {
                 Destroy(t);
             }
@@ -105,7 +104,7 @@ public class TrackCreationTwo : MonoBehaviour
 
     }
 
-    void TrackPositions()
+    void TrackPositions()  // Gets the positions of the tracks and assigns them below
     {
         // Positions
         Vector3 pos = new Vector3(playerStartPos.x, playerTrans.position.y - yPos1, playerStartPos.z + zPos);
@@ -146,7 +145,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (trackPos1.y < t.transform.position.y)  // To Fix
+            if (trackPos1.y < t.transform.position.y)  
             {
                 create1 = false;
                 isStart = false;
@@ -217,57 +216,5 @@ public class TrackCreationTwo : MonoBehaviour
 
         }
     }
-
-    //    if (isHard == true && create2 == true && isStart == false)
-    //    {
-    //        int ranNum1 = Random.Range(0, 2);
-    //        int ranNum2 = Random.Range(0, 2);
-    //        int ranNum3 = Random.Range(0, 2);
-    //        int ranNum4 = Random.Range(0, 2);
-
-    //        // POS 1
-    //        if (ranNum1 == 0 && isEasy)
-    //        {
-    //            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        else
-    //        {
-    //            Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        // POS 2
-    //        if (ranNum2 == 0 && isEasy)
-    //        {
-    //            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        else
-    //        {
-    //            Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        // POS 3
-    //        if (ranNum3 == 0 && isEasy)
-    //        {
-    //            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        else
-    //        {
-    //            Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        // POS 4
-    //        if (ranNum4 == 0 && isEasy)
-    //        {
-    //            Instantiate(trackObjs[Mathf.RoundToInt(Random.Range(0, trackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-    //        }
-    //        else
-    //        {
-    //            Instantiate(complexTrackObjs[Mathf.RoundToInt(Random.Range(0, complexTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-    //        }
-
-    //        //Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-    //        // Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-    //        // Instantiate(borderlessTrackObjs[Mathf.RoundToInt(Random.Range(0, borderlessTrackObjs.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-
-    //    }
-
-    //}
 
 }
