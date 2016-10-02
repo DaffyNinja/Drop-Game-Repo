@@ -1472,6 +1472,7 @@ MonoBehaviour:
   - {fileID: 1000012168765096, guid: 5c99dc2878f6ab141b7a2a4f159dba78, type: 2}
   - {fileID: 1000011412925626, guid: 0833e45ef74f4f249bc26a26208eb710, type: 2}
   - {fileID: 1000010854589590, guid: 4973f1ec4e961354bb6ec5b3abd81249, type: 2}
+  destroyNum: 40
   trackParent: {fileID: 2019384028}
   playerTrans: {fileID: 1544680376}
   easyNum: 0
@@ -1485,7 +1486,9 @@ MonoBehaviour:
   zPos: 1
   isStart: 1
   spawnPickups: 1
-  specialAppearNum: 250
+  specialAppearNum: 20
+  specLane1X: 4.85
+  specLane3X: 4.85
   specialObjs:
   - {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
   - {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
@@ -1679,12 +1682,12 @@ Prefab:
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
       propertyPath: isPC
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
       propertyPath: isTouch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}

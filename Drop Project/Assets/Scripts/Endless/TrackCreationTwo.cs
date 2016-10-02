@@ -41,6 +41,10 @@ public class TrackCreationTwo : MonoBehaviour
     [Header("Special Pickups")]
     public bool spawnPickups;
     public float specialAppearNum;
+
+    public float specLane1X;
+    public float specLane3X;
+    [Space(5)]
     public List<GameObject> specialObjs;
 
     EndlessGameMaster gMaster;
@@ -131,9 +135,31 @@ public class TrackCreationTwo : MonoBehaviour
         }
 
         //Special Pickups
-        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups)
+        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups)  // If player has passed the ammount of special appear num
         {
-            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+            int ranNum = Random.Range(0, 3);
+
+            switch (ranNum)
+            {
+                case 0:
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+                    break;
+                case 1:
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+                    break;
+                case 2:
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0));
+                    break;
+                default:
+                    print("Error");
+                    break;
+            }
+
+            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 1 (Left)
+            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 2 (Middle Lane)
+            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 3(Right) 
+
+            print(ranNum.ToString());
 
             specialAppearNum += specialAppearNum;
         }
@@ -168,7 +194,7 @@ public class TrackCreationTwo : MonoBehaviour
 
     }
 
-    void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4)//, Vector3 trackPos5, Vector3 trackPos6)   // Instantiates the platforms after the start
+    void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4) // Instantiates the platforms after the start
     {
         create2 = true;
 
@@ -184,10 +210,8 @@ public class TrackCreationTwo : MonoBehaviour
         }
 
         // Dificulty Change
-        if (create2 == true && isEasy == true && isStart == false) // Is Easy
+        if (create2 == true && isEasy == true && isStart == false) // Is Easy Spawn Easy tracks
         {
-            // print("Create 2");
-
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
@@ -195,7 +219,7 @@ public class TrackCreationTwo : MonoBehaviour
 
             create2 = false;
         }
-        else if (create2 == true && isMedium == true && isStart == false)  // Is Medium
+        else if (create2 == true && isMedium == true && isStart == false)  // Is Medium  Spawn Medium tracks
         {
             Instantiate(mediumTracks[Mathf.RoundToInt(Random.Range(0, mediumTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(mediumTracks[Mathf.RoundToInt(Random.Range(0, mediumTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
@@ -205,7 +229,7 @@ public class TrackCreationTwo : MonoBehaviour
             create2 = false;
 
         }
-        else if (create2 == true && isHard == true && isStart == false)  // Is Hard
+        else if (create2 == true && isHard == true && isStart == false)  // Is Hard  Spawn Hard Tracks
         {
             Instantiate(hardTracks[Mathf.RoundToInt(Random.Range(0, hardTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(hardTracks[Mathf.RoundToInt(Random.Range(0, hardTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
