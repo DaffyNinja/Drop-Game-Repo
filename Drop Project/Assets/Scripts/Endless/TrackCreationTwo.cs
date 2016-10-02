@@ -41,6 +41,7 @@ public class TrackCreationTwo : MonoBehaviour
     [Header("Special Pickups")]
     public bool spawnPickups;
     public float specialAppearNum;
+    float specialNumDble;
 
     public float specLane1X;
     public float specLane3X;
@@ -59,6 +60,8 @@ public class TrackCreationTwo : MonoBehaviour
         create2 = false;
 
         playerStartPos = playerTrans.position;
+
+        specialNumDble = specialAppearNum;
 
     }
 
@@ -135,7 +138,7 @@ public class TrackCreationTwo : MonoBehaviour
         }
 
         //Special Pickups
-        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups)  // If player has passed the ammount of special appear num
+        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true)  // If player has passed the ammount of special appear num
         {
             int ranNum = Random.Range(0, 3);
 
@@ -155,13 +158,7 @@ public class TrackCreationTwo : MonoBehaviour
                     break;
             }
 
-            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 1 (Left)
-            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 2 (Middle Lane)
-            //Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 90, 0)); // Lane 3(Right) 
-
-            print(ranNum.ToString());
-
-            specialAppearNum += specialAppearNum;
+            specialAppearNum += specialNumDble;
         }
     }
 
