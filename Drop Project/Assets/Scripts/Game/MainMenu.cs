@@ -29,6 +29,11 @@ public class MainMenu : MonoBehaviour
         {
             muteIm.sprite = unMuteSpr;
         }
+
+        if (Input.GetKey(KeyCode.Escape)) // If the player presses the back button on an Android deveice they quit game
+        {
+            Application.Quit();
+        }
     }
 
     public void Level1Button()
@@ -36,10 +41,8 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void MuteButton()
+    public void MuteButton()  // Turn mute bool on or off
     {
-        print("Pressed");
-
         isMute = !isMute;
     }
 

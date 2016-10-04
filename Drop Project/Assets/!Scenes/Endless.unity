@@ -409,7 +409,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013698018496, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7, type: 2}
       propertyPath: m_IsActive
@@ -913,7 +913,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!4 &521743411 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012824341460, guid: aacf369cff6929b469548cf9a3bc4a29,
@@ -1106,7 +1106,7 @@ Transform:
   - {fileID: 538483822}
   - {fileID: 1377521248}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &567218299 stripped
 Transform:
   m_PrefabParentObject: {fileID: 472030, guid: 2e5de0324f9ba244bb396763ef03996d, type: 2}
@@ -1439,7 +1439,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!114 &693791801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,10 +1510,15 @@ MonoBehaviour:
   highScoreText: {fileID: 350028700}
   restartButton: {fileID: 1631206108}
   lossText:
-  - "\r\u201CTo weep is to make less the depth of grief\u201D\r\n\n\u2015 William
-    Shakespeare, King Henry VI, Part 3\r"
-  - "\r\u201CDon\u2019t grieve. Anything you lose comes round in another form\u201D\r\n\n\u2015
-    Rumi\r"
+  - "\r\u201CTo weep is to make less the depth of grief\u201D\r\n\nWilliam Shakespeare,
+    King Henry VI, Part 3\r"
+  - "\r\u201CDon\u2019t grieve. Anything you lose comes round in another form\u201D\r\n\nRumi\r"
+  - "\"Crying is cleansing. There's a reason for tears, happiness or sadness\" \r\n\nDionne
+    Warwick\r"
+  - "\r\"We never taste a perfect joy; our happiest successes are mixed with sadness\"\r\n\nPierre
+    Corneille\r"
+  - "\u201CWhat we have done for ourselves alone dies with us; what we have done for
+    others and the world remains and is immortal\u201D\r\n\nAlbert Pike\r"
   griefTextBox: {fileID: 305218778}
   hasText: 0
   isGameOver: 0
@@ -1672,7 +1677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
@@ -1729,7 +1734,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418994, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
       propertyPath: m_IsActive
@@ -2160,6 +2165,42 @@ Prefab:
     - target: {fileID: 22474564, guid: f06decb48b769ff40bfa554405970835, type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -42
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497912, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 22490242, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 388
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428682, guid: f06decb48b769ff40bfa554405970835, type: 2}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f06decb48b769ff40bfa554405970835, type: 2}
@@ -2726,7 +2767,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 6.0499, y: 331.02838, z: -110.6084}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1001 &1274410866
 Prefab:
   m_ObjectHideFlags: 0
@@ -2959,6 +3000,52 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aacf369cff6929b469548cf9a3bc4a29, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1438993328
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -16.234562
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.3558044
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -379.36423
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 444386, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 143944, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d845346bc93588a4da6c68a7a8f1054c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1452252904
 GameObject:
@@ -3674,7 +3761,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &1948074374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3939,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &2054547715
 GameObject:
   m_ObjectHideFlags: 0
