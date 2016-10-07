@@ -86,7 +86,6 @@ public class TrackCreationEndless : MonoBehaviour
     void Awake()
     {
         canSpawnPlatforms = true;
-        createSplitandMerge = true;
 
         playerPos = playerTrans.position;
 
@@ -121,7 +120,7 @@ public class TrackCreationEndless : MonoBehaviour
     void PlatformMaintance()
     {
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Track");
-        splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
+     //   splitMergeOBJs = GameObject.FindGameObjectsWithTag("SplitMerge");
 
         foreach (GameObject plat in platforms)
         {         // Destroys platforms

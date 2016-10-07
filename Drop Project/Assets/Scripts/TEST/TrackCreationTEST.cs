@@ -77,7 +77,7 @@ public class TrackCreationTEST : MonoBehaviour
         Vector3 pos9 = new Vector3(playerPos.x, playerTrans.position.y - yPos2 * 8, playerPos.z - zPos);
         Vector3 pos10 = new Vector3(playerPos.x, playerTrans.position.y - yPos2 * 9, playerPos.z - zPos);
 
-        if (isStart)
+        if (isStart && canSpawnTracks)
         {
             TrackCreation1(pos1, pos2, pos3, pos4, pos5, pos6);
 

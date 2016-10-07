@@ -45,7 +45,7 @@ public class PlayerEndless : MonoBehaviour
     Rigidbody rig;
 
     //Material
-   // public Material startingMat;
+    // public Material startingMat;
 
 
     // Use this for initialization
@@ -149,47 +149,6 @@ public class PlayerEndless : MonoBehaviour
 
         }
 
-        // Special PowerUp
-        if (obtainedSpecial) // Has special
-        {
-            transform.localScale = specialSize;
-            rig.AddForce(0, -specialSpeed, 0);
-           
-
-            specialTimer += Time.deltaTime;
-
-            if (specialTimer >= specialTime)
-            {
-                transform.localScale = startingSize;
-                obtainedSpecial = false;
-            }
-        }
-        else
-        {
-            specialTimer = 0;
-           
-        }
-
-        // Speed Power
-        if (obtainedSpeed)
-        {
-            transform.localScale = specialSize;
-            rig.AddForce(0, -specialSpeed, 0);
-
-            speedTimer += Time.deltaTime;
-
-            if (speedTimer >= speedTime)
-            {
-                transform.localScale = startingSize;
-                obtainedSpeed = false;
-            }
-
-        }
-        else
-        {
-            speedTimer = 0;
-        }
-
         if (obtainedSpeed || obtainedSpecial)
         {
 
@@ -249,36 +208,19 @@ public class PlayerEndless : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Plat")
+        if (col.gameObject.tag != "Border" && col.gameObject.tag != "Track" && obtainedSpecial == true)
         {
-            // print("plat");
-
-            if (obtainedSpecial == true)
-            {
-                Destroy(col.gameObject);
-            }
-
+            Destroy(col.gameObject);
         }
-
-        //Destroy(col.gameObject);
-
     }
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Border")
-        {
-            print("Border Hit");
-        }
-
         if (col.gameObject.tag == "Special")
         {
-            // print("Special Hit");
-
             obtainedSpecial = true;
 
             Destroy(col.gameObject);
-
         }
 
         if (col.gameObject.tag == "Speed")
@@ -288,7 +230,5 @@ public class PlayerEndless : MonoBehaviour
             Destroy(col.gameObject);
 
         }
-
-
     }
 }
