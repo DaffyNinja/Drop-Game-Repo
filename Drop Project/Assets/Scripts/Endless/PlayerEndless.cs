@@ -33,8 +33,6 @@ public class PlayerEndless : MonoBehaviour
 
     public bool moveRight;
     public bool moveLeft;
-    public bool moveForward;
-    public bool moveBack;
 
     Vector2 touchPos;
 
@@ -208,6 +206,7 @@ public class PlayerEndless : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        // Player destroys objects BUT the borders
         if (col.gameObject.tag != "Border" && col.gameObject.tag != "Track" && obtainedSpecial == true)
         {
             Destroy(col.gameObject);
