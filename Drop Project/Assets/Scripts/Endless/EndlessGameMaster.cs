@@ -13,13 +13,13 @@ public class EndlessGameMaster : MonoBehaviour
     [Space(5)]
     public Text scoreText;
     public Text highScoreText;
+    public Button restartButton;
     [Space(5)]
     public GameObject inGamePanel;
     public GameObject gameOverPanel;
+    public GameObject tutorialPanel;
 
     string highScoreKey = "HighScore";
-
-    public Button restartButton;
 
     [Header("Loss Text")]
     [TextArea(1, 20)]
@@ -36,6 +36,11 @@ public class EndlessGameMaster : MonoBehaviour
     [Header("Audio")]
     public AudioSource musicSource;
     // public bool playMusic;
+
+    [Header("Tutorial")]
+    public bool runTut;
+    public Text tutText;
+
 
     [Space(5)]
     public Transform playerTrans;
@@ -57,6 +62,7 @@ public class EndlessGameMaster : MonoBehaviour
         currentHighScore = PlayerPrefs.GetFloat("highScore");
 
         gameOverPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
         inGamePanel.SetActive(true);
     }
 
@@ -67,6 +73,19 @@ public class EndlessGameMaster : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (runTut)
+        {
+            tutorialPanel.SetActive(true);
+
+            tutText.text = "Press the LEFT or Right side of the screen to move";
+        }
+        else if (!runTut)
+        {
+            tutorialPanel.SetActive(false);
+
+            tutText.text = null;
         }
 
 
