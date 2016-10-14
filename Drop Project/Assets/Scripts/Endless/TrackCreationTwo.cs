@@ -130,7 +130,7 @@ public class TrackCreationTwo : MonoBehaviour
         {
             if (isStart)
             {
-                TrackCreation1(pos, pos2, pos3, pos4);//, pos5, pos6);
+                TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
 
                 create2 = false;
             }
@@ -143,7 +143,7 @@ public class TrackCreationTwo : MonoBehaviour
         {
             if (gMaster.runTut)
             {
-                TrackCreation1(pos, pos2, pos3, pos4);//, pos5, pos6);
+                TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
 
                 create2 = false;
             }
@@ -155,7 +155,7 @@ public class TrackCreationTwo : MonoBehaviour
         }
 
         //Special Pickups
-        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true)  // If player has passed the ammount of special appear num
+        if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true && gMaster.runTut == false)  // If player has passed the ammount of special appear num
         {
             int ranNum = Random.Range(0, 3);
 
@@ -179,7 +179,7 @@ public class TrackCreationTwo : MonoBehaviour
         }
     }
 
-    void TrackCreation1(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4)//, Vector3 trackPos5, Vector3 trackPos6)   // Instantiates the platforms at the start
+    void TrackCreation1(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4, Vector3 trackPos5, Vector3 trackPos6)   // Instantiates the platforms at the start
     {
         create1 = true;
 
@@ -187,7 +187,7 @@ public class TrackCreationTwo : MonoBehaviour
         {
             if (gMaster.runTut == false)
             {
-                if (trackPos1.y < t.transform.position.y)
+                if (trackPos1.y > t.transform.position.y + 12.5f)
                 {
                     create1 = false;
                     isStart = false;
@@ -195,7 +195,7 @@ public class TrackCreationTwo : MonoBehaviour
             }
             else
             {
-                if (trackPos1.y < t.transform.position.y)
+                if (trackPos1.y > t.transform.position.y + 12.5f)
                 {
                     create1 = false;
                 }
@@ -213,8 +213,8 @@ public class TrackCreationTwo : MonoBehaviour
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-                //Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
-                //Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
+                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
+                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
                 create1 = false;
             }
@@ -227,8 +227,8 @@ public class TrackCreationTwo : MonoBehaviour
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
                 Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-                //Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
-                //Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
+                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
+               Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
                 create1 = false;
             }
