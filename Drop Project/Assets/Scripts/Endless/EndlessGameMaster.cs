@@ -41,6 +41,14 @@ public class EndlessGameMaster : MonoBehaviour
     public bool runTut;
     public Text tutText;
 
+    public Button leftButton;
+    bool leftPressed;
+    int leftPressNum;
+    public Button rightButton;
+    bool rightPressed;
+    int rightPressNum;
+
+    bool pressedScreen;
 
     [Space(5)]
     public Transform playerTrans;
@@ -54,7 +62,7 @@ public class EndlessGameMaster : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         griefTextBox.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-    
+
         playerStartPos = playerTrans.position;
 
         ranNum = Random.Range(0, lossText.Count);
@@ -75,11 +83,18 @@ public class EndlessGameMaster : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        // Tutorial
         if (runTut)
         {
             tutorialPanel.SetActive(true);
 
             tutText.text = "Press the LEFT or Right side of the screen to move";
+
+            if (leftPressNum >= 5 && rightPressNum >= 5)
+            {
+                runTut = false;
+            }
+
         }
         else if (!runTut)
         {
@@ -137,7 +152,7 @@ public class EndlessGameMaster : MonoBehaviour
         scoreText.text = Mathf.RoundToInt(score).ToString();
         highScoreText.text = currentHighScore.ToString();
 
-      //  print("Highscore: " + PlayerPrefs.GetFloat("highScore").ToString());
+        //  print("Highscore: " + PlayerPrefs.GetFloat("highScore").ToString());
 
 
     }
@@ -163,6 +178,19 @@ public class EndlessGameMaster : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void LeftTutButton()
+    {
+        leftPressNum += 1;
+    }
+
+    public void RightTutButton()
+    {
+        rightPressNum += 1;
+    }
+
+
+
 
 
 
