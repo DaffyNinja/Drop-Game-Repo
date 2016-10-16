@@ -54,8 +54,12 @@ public class EndlessGameMaster : MonoBehaviour
     public Transform playerTrans;
     Vector3 playerStartPos;
 
+    TrackCreationTwo track2;
+
     void Awake()
     {
+        track2 = GetComponent<TrackCreationTwo>();
+
         isGameOver = false;
         score = 0;
 
@@ -98,6 +102,8 @@ public class EndlessGameMaster : MonoBehaviour
         }
         else if (!runTut)
         {
+           
+
             tutorialPanel.SetActive(false);
 
             tutText.text = null;

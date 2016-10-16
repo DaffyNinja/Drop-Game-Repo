@@ -56,7 +56,16 @@ public class TrackCreationTwo : MonoBehaviour
         gMaster = GetComponent<EndlessGameMaster>();
 
         isStart = true;
-        isEasy = true;
+
+        if (gMaster.runTut == true)
+        {
+            isEasy = false;
+        }
+        else
+        {
+            isEasy = true;
+        }
+
         create2 = false;
 
         playerStartPos = playerTrans.position;
@@ -71,7 +80,7 @@ public class TrackCreationTwo : MonoBehaviour
         track = GameObject.FindGameObjectsWithTag("Track");
 
         // Difficulty Change
-        if (gMaster.score < mediumNum && gMaster.score < hardNum)   //Easy
+        if (gMaster.score < mediumNum && gMaster.score < hardNum && gMaster.runTut == false)   //Easy
         {
             isEasy = true;
 
@@ -92,6 +101,8 @@ public class TrackCreationTwo : MonoBehaviour
             isMedium = false;
             isEasy = false;
         }
+
+
 
         TrackMaintance();
     }
@@ -126,33 +137,19 @@ public class TrackCreationTwo : MonoBehaviour
         Vector3 pos9 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 8, playerStartPos.z + zPos);
         Vector3 pos10 = new Vector3(playerStartPos.x, playerTrans.position.y - yPos2 * 9, playerStartPos.z + zPos);
 
-        if (gMaster.runTut == false)
+
+        if (isStart)
         {
-            if (isStart)
-            {
-                TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
+            TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
 
-                create2 = false;
-            }
-            else if (isStart == false && gMaster.runTut == false)
-            {
-                TrackCreation2(pos7, pos8, pos9, pos10);
-            }
+            create2 = false;
         }
-        else
+        else if (isStart == false)
         {
-            if (gMaster.runTut)
-            {
-                TrackCreation1(pos, pos2, pos3, pos4, pos5, pos6);
-
-                create2 = false;
-            }
-            else if (isStart == false && gMaster.runTut == false)
-            {
-                TrackCreation2(pos7, pos8, pos9, pos10);
-            }
-
+            TrackCreation2(pos7, pos8, pos9, pos10);
         }
+
+
 
         //Special Pickups
         if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true && gMaster.runTut == false)  // If player has passed the ammount of special appear num
@@ -185,56 +182,32 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            if (gMaster.runTut == false)
+            
+            if (trackPos1.y > t.transform.position.y)
             {
-                if (trackPos1.y > t.transform.position.y + 12.5f)
-                {
-                    create1 = false;
-                    isStart = false;
-                }
+                create1 = false;
+                isStart = false;
             }
-            else
-            {
-                if (trackPos1.y > t.transform.position.y + 12.5f)
-                {
-                    create1 = false;
-                }
 
+            if (trackPos1.y > t.transform.position.y)
+            {
+                create1 = false;
             }
 
             t.transform.parent = trackParent;
         }
 
-        if (gMaster.runTut == false)
+        if (create1 && isStart)
         {
-            if (create1 && isStart)
-            {
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
 
-                create1 = false;
-            }
+            create1 = false;
         }
-        else
-        {
-            if (create1 && gMaster.runTut)
-            {
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
-                Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos5, Quaternion.Euler(0, 90, 0));
-               Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos6, Quaternion.Euler(0, 90, 0));
-
-                create1 = false;
-            }
-
-        }
-
     }
 
     void TrackCreation2(Vector3 trackPos1, Vector3 trackPos2, Vector3 trackPos3, Vector3 trackPos4) // Instantiates the platforms after the start
@@ -253,7 +226,17 @@ public class TrackCreationTwo : MonoBehaviour
         }
 
         // Dificulty Change
-        if (create2 == true && isEasy == true && isStart == false) // Is Easy Spawn Easy tracks
+        if (create2 == true && isStart == false && gMaster.runTut == true)  // Tutorial on
+        {
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos3, Quaternion.Euler(0, 90, 0));
+            Instantiate(startingTracks[Mathf.RoundToInt(Random.Range(0, startingTracks.Count))], trackPos4, Quaternion.Euler(0, 90, 0));
+
+            create2 = false;
+
+        }
+        else if (create2 == true && isEasy == true && isStart == false && gMaster.runTut == false) // Is Easy Spawn Easy tracks
         {
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos1, Quaternion.Euler(0, 90, 0));
             Instantiate(easyTracks[Mathf.RoundToInt(Random.Range(0, easyTracks.Count))], trackPos2, Quaternion.Euler(0, 90, 0));
