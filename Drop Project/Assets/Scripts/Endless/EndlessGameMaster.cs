@@ -94,7 +94,7 @@ public class EndlessGameMaster : MonoBehaviour
 
             tutText.text = "Press the LEFT or Right side of the screen to move";
 
-            if (leftPressNum >= 5 && rightPressNum >= 5)
+            if (leftPressNum >= 3 && rightPressNum >= 3)  // Wehn to stop tut
             {
                 runTut = false;
             }
@@ -102,7 +102,10 @@ public class EndlessGameMaster : MonoBehaviour
         }
         else if (!runTut)
         {
-           
+            if (track2.isMedium == false)
+            {
+                track2.isEasy = true;
+            }
 
             tutorialPanel.SetActive(false);
 
