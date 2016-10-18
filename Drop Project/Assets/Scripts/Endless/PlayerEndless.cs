@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // To Delete
 
 public class PlayerEndless : MonoBehaviour
 {
@@ -36,9 +37,16 @@ public class PlayerEndless : MonoBehaviour
 
     Vector2 touchPos;
 
+    [Header("Gryoscope")]
+    public Quaternion gyropAtt;
+
     [Header("Debug")]
     public bool isPC;
     public bool isTouch;
+
+    // To Delete
+    public Text gyroText;
+    public Text sideText;
 
     Rigidbody rig;
 
@@ -143,6 +151,22 @@ public class PlayerEndless : MonoBehaviour
             {
                 transform.rotation = startingRotation;
             }
+
+            // Gyroscope
+            if (Input.gyro.rotationRate.x > 1)
+            {
+                print("Right");
+
+                sideText.text = "Right";
+            }
+            else if(Input.gyro.rotationRate.x < 1 && Input.gyro.rotationRate.x > 0)
+            {
+                print("Left");
+                sideText.text = "Left";
+            }
+
+            gyropAtt = Input.gyro.attitude;
+            gyroText.text = gyropAtt.ToString();
 
 
         }
