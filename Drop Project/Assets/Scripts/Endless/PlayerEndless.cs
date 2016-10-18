@@ -37,16 +37,15 @@ public class PlayerEndless : MonoBehaviour
 
     Vector2 touchPos;
 
-    [Header("Gryoscope")]
-    public Quaternion gyropAtt;
+    [Header("Acceleromater")]
+    public Vector3 startAccPos;
 
     [Header("Debug")]
     public bool isPC;
     public bool isTouch;
 
     // To Delete
-    public Text gyroText;
-    public Text sideText;
+
 
     Rigidbody rig;
 
@@ -64,6 +63,10 @@ public class PlayerEndless : MonoBehaviour
         startingRotation = transform.rotation;
 
         startingSize = transform.localScale;
+
+        startAccPos = Input.acceleration.normalized;
+
+        // print(startAccPos.ToString());
 
         // startingMat = gameObject.GetComponent<Material>();
 
@@ -153,21 +156,20 @@ public class PlayerEndless : MonoBehaviour
             }
 
             // Gyroscope
-            if (Input.gyro.rotationRate.x > 1)
+            if (Input.acceleration.x > startAccPos.x + 0.5f)
             {
                 print("Right");
 
-                sideText.text = "Right";
             }
-            else if(Input.gyro.rotationRate.x < 1 && Input.gyro.rotationRate.x > 0)
+            else if (Input.acceleration.x < startAccPos.x + 0.5f)
             {
                 print("Left");
-                sideText.text = "Left";
+
             }
-
-            gyropAtt = Input.gyro.attitude;
-            gyroText.text = gyropAtt.ToString();
-
+            else if (Input.acceleration.x == startAccPos.x)
+            {
+                print("Stopped");
+            }
 
         }
 
