@@ -45,11 +45,8 @@ public class PlayerEndless : MonoBehaviour
     public bool isPC;
     public bool isMobile;
 
-    public bool isTouch;
-    public bool isAccelerate;
-
-    // To Delete
-
+    static public bool isTouch;
+    static public bool isAccelerate;
 
     Rigidbody rig;
 
@@ -152,7 +149,7 @@ public class PlayerEndless : MonoBehaviour
                 }
                 else if (Input.acceleration.normalized.x < startAccPos.x - disNum) // Left   0.25
                 {
-                   // print("Left");
+                    // print("Left");
 
                     moveLeft = true;
                     moveRight = false;
@@ -160,7 +157,7 @@ public class PlayerEndless : MonoBehaviour
                 }
                 else
                 {
-                   // print("Stopped");
+                    // print("Stopped");
 
                     moveLeft = false;
                     moveRight = false;

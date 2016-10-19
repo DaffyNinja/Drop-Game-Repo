@@ -6,15 +6,27 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 
-    public float cameraFallSpeed; 
-  
+    public float cameraFallSpeed;
+
     static public bool isMute;
+
+
+    [Space(5)]
+    public Image touchButtonImg;
+    public Image acelButtonImg;
+
+    public Sprite CheckSpr;
+    public Sprite offSprite;
+
+
 
     [Space(5)]
     public Image muteIm;
 
     public Sprite muteSpr;
     public Sprite unMuteSpr;
+
+    
 
 
     void FixedUpdate()
@@ -34,6 +46,26 @@ public class MainMenu : MonoBehaviour
         {
             Application.Quit();
         }
+
+        if (PlayerEndless.isTouch == true)
+        {
+            touchButtonImg.sprite = CheckSpr;
+        }
+        else
+        {
+            touchButtonImg.sprite = offSprite;
+        }
+
+        if (PlayerEndless.isAccelerate == true)
+        {
+            acelButtonImg.sprite = CheckSpr;
+        }
+        else
+        {
+            acelButtonImg.sprite = offSprite;
+        }
+        
+        
     }
 
     public void Level1Button()
@@ -44,6 +76,21 @@ public class MainMenu : MonoBehaviour
     public void MuteButton()  // Turn mute bool on or off
     {
         isMute = !isMute;
+    }
+
+    public void TouchButton()
+    {
+
+       
+
+        PlayerEndless.isTouch = !PlayerEndless.isTouch;
+    }
+
+    public void AccelButton()
+    {
+        PlayerEndless.isAccelerate = !PlayerEndless.isAccelerate;
+
+
     }
 
     public void Quit()
