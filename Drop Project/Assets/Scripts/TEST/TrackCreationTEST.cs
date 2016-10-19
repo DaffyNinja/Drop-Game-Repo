@@ -13,6 +13,7 @@ public class TrackCreationTEST : MonoBehaviour
     public float yPos2;
     public float zPos;
     [Header("PowerUps")]
+    public bool makePowerUps;
     public GameObject speedBoostObj;
     public float speedBoostNum;
     bool makeSpeedBoost;
@@ -91,7 +92,7 @@ public class TrackCreationTEST : MonoBehaviour
 
 
         // Pickups
-        if (playerTrans.position.y <= playerPos.y - speedBoostNum)
+        if (playerTrans.position.y <= playerPos.y - speedBoostNum && makePowerUps == true)
         {
            // print("Speed Boost");
 

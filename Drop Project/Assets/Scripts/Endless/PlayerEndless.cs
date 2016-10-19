@@ -38,11 +38,15 @@ public class PlayerEndless : MonoBehaviour
     Vector2 touchPos;
 
     [Header("Acceleromater")]
-    public Vector3 startAccPos;
+    public float disNum;
+    Vector3 startAccPos;
 
-    [Header("Debug")]
+    [Header("Controls")]
     public bool isPC;
+    public bool isMobile;
+
     public bool isTouch;
+    public bool isAccelerate;
 
     // To Delete
 
@@ -56,6 +60,8 @@ public class PlayerEndless : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        startAccPos = Input.acceleration.normalized;
+
         screenPosX = Screen.width / 2;
 
         rig = GetComponent<Rigidbody>();
@@ -63,8 +69,6 @@ public class PlayerEndless : MonoBehaviour
         startingRotation = transform.rotation;
 
         startingSize = transform.localScale;
-
-        startAccPos = Input.acceleration.normalized;
 
         // print(startAccPos.ToString());
 
@@ -107,33 +111,63 @@ public class PlayerEndless : MonoBehaviour
             }
 
         }
-        else if (isTouch)    // TOuch controls
+        else if (isMobile)    // Mobile controls
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+            if (isTouch == true && isAccelerate == false)
             {
-                touchPos = Input.GetTouch(0).position;
+                if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+                {
+                    touchPos = Input.GetTouch(0).position;
+                }
+                else
+                {
+                    touchPos = new Vector2(0, 0);
+
+                    moveRight = false;
+                    moveLeft = false;
+                }
+
+                if (touchPos.x > screenPosX)
+                {
+                    moveRight = true;
+                    moveLeft = false;
+                }
+                else if (touchPos.x < screenPosX && touchPos.x > 0)
+                {
+                    moveLeft = true;
+                    moveRight = false;
+                }
             }
-            else
+            else if (isAccelerate == true && isTouch == false)
             {
-                touchPos = new Vector2(0, 0);
 
-                moveRight = false;
-                moveLeft = false;
+                // Acceleromoter
+                if (Input.acceleration.normalized.x > startAccPos.x + disNum)  // Right
+                {
+                    //print("Right");
+
+                    moveRight = true;
+                    moveLeft = false;
+
+                }
+                else if (Input.acceleration.normalized.x < startAccPos.x - disNum) // Left   0.25
+                {
+                   // print("Left");
+
+                    moveLeft = true;
+                    moveRight = false;
+
+                }
+                else
+                {
+                   // print("Stopped");
+
+                    moveLeft = false;
+                    moveRight = false;
+                }
             }
 
-            if (touchPos.x > screenPosX)
-            {
-                moveRight = true;
-                moveLeft = false;
-            }
-            else if (touchPos.x < screenPosX && touchPos.x > 0)
-            {
-                moveLeft = true;
-                moveRight = false;
-            }
-
-
-            // Touch Controls
+            // Movement
             if (moveRight)
             {
                 Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
@@ -153,22 +187,6 @@ public class PlayerEndless : MonoBehaviour
             else
             {
                 transform.rotation = startingRotation;
-            }
-
-            // Gyroscope
-            if (Input.acceleration.x > startAccPos.x + 0.5f)
-            {
-                print("Right");
-
-            }
-            else if (Input.acceleration.x < startAccPos.x + 0.5f)
-            {
-                print("Left");
-
-            }
-            else if (Input.acceleration.x == startAccPos.x)
-            {
-                print("Stopped");
             }
 
         }

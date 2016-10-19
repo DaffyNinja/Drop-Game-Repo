@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackOBJs:
-  - {fileID: 1000010854589590, guid: 4973f1ec4e961354bb6ec5b3abd81249, type: 2}
+  - {fileID: 198904, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
   playerTrans: {fileID: 1656333789}
   yPos1: 0
   yPos2: 16.5
   zPos: -0.5
+  makePowerUps: 0
   speedBoostObj: {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
   speedBoostNum: 25
 --- !u!1 &730393858
@@ -567,21 +568,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isPC
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: gyroText
-      value: 
-      objectReference: {fileID: 1067163308}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: sideText
-      value: 
-      objectReference: {fileID: 2111740836}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
   m_IsPrefabParent: 0
