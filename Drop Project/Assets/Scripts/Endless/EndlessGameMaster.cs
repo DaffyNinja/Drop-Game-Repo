@@ -121,13 +121,15 @@ public class EndlessGameMaster : MonoBehaviour
         if (isGameOver)  // If its Game Over
         {
             playerTrans.gameObject.GetComponent<PlayerEndless>().fallSpeed = 0;
+            playerTrans.gameObject.GetComponent<PlayerEndless>().leftRightSpeed = 0;
+          
             Camera.main.gameObject.GetComponent<EndlessCamera>().speed = 0;
 
             //
             gameOverPanel.SetActive(true);
             inGamePanel.SetActive(false);
 
-            gameOverText.text = ("Game Over");
+            gameOverText.text = "Game Over";
             gameOverText.gameObject.SetActive(true);
 
             griefTextBox.text = lossText[ranNum];
@@ -158,7 +160,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         //Audio
-        if (MainMenu.isMute)  // Mute
+        if (MainMenu. isMute)  // Mute
         {
             musicSource.mute = true;
         }
