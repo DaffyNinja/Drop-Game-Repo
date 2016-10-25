@@ -45,16 +45,19 @@ public class PlayerEndless : MonoBehaviour
     public bool isPC;
     public bool isMobile;
 
+    [Space(5)]
+    public bool debugTouch;
+    public bool debugAccel;
+
     static public bool isTouch;
     static public bool isAccelerate;
 
     Rigidbody rig;
 
-    //Material
-    // public Material startingMat;
+    [Space(5)]
+    public Color startingCol;
+    public Color specialCol;
 
-
-    // Use this for initialization
     void Awake()
     {
         startAccPos = Input.acceleration.normalized;
@@ -69,11 +72,10 @@ public class PlayerEndless : MonoBehaviour
 
         // print(startAccPos.ToString());
 
-        // startingMat = gameObject.GetComponent<Material>();
+        startingCol = gameObject.GetComponentInChildren<Renderer>().material.color;
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         // Controls
@@ -110,7 +112,7 @@ public class PlayerEndless : MonoBehaviour
         }
         else if (isMobile)    // Mobile controls
         {
-            if (isTouch == true && isAccelerate == false)
+            if (isTouch == true && isAccelerate == false || debugTouch)  // Touch
             {
                 if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
                 {
@@ -135,10 +137,9 @@ public class PlayerEndless : MonoBehaviour
                     moveRight = false;
                 }
             }
-            else if (isAccelerate == true && isTouch == false)
+            else if (isAccelerate == true && isTouch == false || debugAccel)  // Acellerometor
             {
 
-                // Acceleromoter
                 if (Input.acceleration.normalized.x > startAccPos.x + disNum)  // Right
                 {
                     //print("Right");
@@ -188,12 +189,14 @@ public class PlayerEndless : MonoBehaviour
 
         }
 
-        if (obtainedSpeed || obtainedSpecial)
+        if (obtainedSpeed || obtainedSpecial) // Powerups
         {
 
             // Special PowerUp
             if (obtainedSpecial)
             {
+                gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
+
                 Vector2 fallQauntity = new Vector2(0, -specialSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
@@ -208,11 +211,15 @@ public class PlayerEndless : MonoBehaviour
             else
             {
                 specialTimer = 0;
+
+                gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
             }
 
             // Speed Power
             if (obtainedSpeed)
             {
+                gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
+
                 transform.localScale = specialSize;
 
                 Vector2 fallQauntity = new Vector2(0, -specialSpeed);
@@ -230,6 +237,8 @@ public class PlayerEndless : MonoBehaviour
             else
             {
                 speedTimer = 0;
+
+                gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
             }
         }
         else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling

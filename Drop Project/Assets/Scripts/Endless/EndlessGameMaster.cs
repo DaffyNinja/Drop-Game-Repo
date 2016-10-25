@@ -122,7 +122,9 @@ public class EndlessGameMaster : MonoBehaviour
         {
             playerTrans.gameObject.GetComponent<PlayerEndless>().fallSpeed = 0;
             playerTrans.gameObject.GetComponent<PlayerEndless>().leftRightSpeed = 0;
-          
+            playerTrans.gameObject.GetComponent<PlayerEndless>().turnFallSpeed = 0;
+
+
             Camera.main.gameObject.GetComponent<EndlessCamera>().speed = 0;
 
             //
