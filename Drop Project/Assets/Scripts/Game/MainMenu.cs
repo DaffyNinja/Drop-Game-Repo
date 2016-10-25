@@ -26,6 +26,9 @@ public class MainMenu : MonoBehaviour
     public Sprite muteSpr;
     public Sprite unMuteSpr;
 
+    [Space(5)]
+    public AudioSource mainMenuASrc;
+
     
 
 
@@ -36,10 +39,12 @@ public class MainMenu : MonoBehaviour
         if (isMute == true)
         {
             muteIm.sprite = muteSpr;
+            mainMenuASrc.mute = true;
         }
         else
         {
             muteIm.sprite = unMuteSpr;
+            mainMenuASrc.mute = false;
         }
 
         if (Input.GetKey(KeyCode.Escape)) // If the player presses the back button on an Android deveice they quit game

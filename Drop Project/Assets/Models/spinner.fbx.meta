@@ -1,102 +1,28 @@
 fileFormatVersion: 2
-guid: 0498b4dcda301ec48a342cbb29d6b3fd
-timeCreated: 1476945221
+guid: 8484d23aabf837748badbbea36171697
+timeCreated: 1477363375
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: group_0
-    100002: group_0.001
-    100004: group_0.002
-    100006: group_0.003
-    100008: group_0.004
-    100010: group_1
-    100012: Lamp
-    100014: SketchUp
-    100016: //RootNode
-    400000: group_0
-    400002: group_0.001
-    400004: group_0.002
-    400006: group_0.003
-    400008: group_0.004
-    400010: group_1
-    400012: Lamp
-    400014: SketchUp
-    400016: //RootNode
-    2300000: group_0
-    2300002: group_0.001
-    2300004: group_0.002
-    2300006: group_0.003
-    2300008: group_0.004
-    2300010: group_1
-    3300000: group_0
-    3300002: group_0.001
-    3300004: group_0.002
-    3300006: group_0.003
-    3300008: group_0.004
-    3300010: group_1
-    4300000: group_0.004
-    4300002: group_0.003
-    4300004: group_0.002
-    4300006: group_0.001
-    4300008: group_0
-    4300010: group_1
-    6400000: group_0
-    6400002: group_0.001
-    6400004: group_0.002
-    6400006: group_0.003
-    6400008: group_0.004
-    6400010: group_1
-    7400000: SketchUp|group_0.001Action
-    7400002: SketchUp|group_0.002Action
-    7400004: SketchUp|group_0.003Action
-    7400006: SketchUp|group_0.004Action
-    7400008: SketchUp|group_0Action
-    7400010: SketchUp|group_1Action
-    7400012: SketchUp|SketchUpAction
-    7400014: group_0.004|group_0.001Action
-    7400016: group_0.004|group_0.002Action
-    7400018: group_0.004|group_0.003Action
-    7400020: group_0.004|group_0.004Action
-    7400022: group_0.004|group_0Action
-    7400024: group_0.004|group_1Action
-    7400026: group_0.004|SketchUpAction
-    7400028: group_0.003|group_0.001Action
-    7400030: group_0.003|group_0.002Action
-    7400032: group_0.003|group_0.003Action
-    7400034: group_0.003|group_0.004Action
-    7400036: group_0.003|group_0Action
-    7400038: group_0.003|group_1Action
-    7400040: group_0.003|SketchUpAction
-    7400042: group_0.002|group_0.001Action
-    7400044: group_0.002|group_0.002Action
-    7400046: group_0.002|group_0.003Action
-    7400048: group_0.002|group_0.004Action
-    7400050: group_0.002|group_0Action
-    7400052: group_0.002|group_1Action
-    7400054: group_0.002|SketchUpAction
-    7400056: group_0.001|group_0.001Action
-    7400058: group_0.001|group_0.002Action
-    7400060: group_0.001|group_0.003Action
-    7400062: group_0.001|group_0.004Action
-    7400064: group_0.001|group_0Action
-    7400066: group_0.001|group_1Action
-    7400068: group_0.001|SketchUpAction
-    7400070: group_0|group_0.001Action
-    7400072: group_0|group_0.002Action
-    7400074: group_0|group_0.003Action
-    7400076: group_0|group_0.004Action
-    7400078: group_0|group_0Action
-    7400080: group_0|group_1Action
-    7400082: group_0|SketchUpAction
-    7400084: group_1|group_0.001Action
-    7400086: group_1|group_0.002Action
-    7400088: group_1|group_0.003Action
-    7400090: group_1|group_0.004Action
-    7400092: group_1|group_0Action
-    7400094: group_1|group_1Action
-    7400096: group_1|SketchUpAction
-    9500000: //RootNode
+    100000: Group1
+    100002: Group2
+    100004: Mesh1
+    100006: Mesh2
+    100008: //RootNode
+    400000: Group1
+    400002: Group2
+    400004: Mesh1
+    400006: Mesh2
+    400008: //RootNode
+    2300000: Mesh1
+    2300002: Mesh2
+    3300000: Mesh1
+    3300002: Mesh2
+    4300000: Mesh1
+    4300002: Mesh2
+    6400000: Mesh1
+    6400002: Mesh2
   materials:
     importMaterials: 1
     materialName: 0
@@ -140,7 +66,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -155,7 +81,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
