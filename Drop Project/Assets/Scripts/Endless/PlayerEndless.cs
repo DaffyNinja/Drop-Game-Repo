@@ -55,7 +55,14 @@ public class PlayerEndless : MonoBehaviour
     Rigidbody rig;
 
     [Space(5)]
-    public Color startingCol;
+    Renderer dropRend;
+    Renderer eyeRend;
+
+    public Color dropStartCol1;
+    public Color dropStartCol2;
+
+    public Color eyeStartCol;
+
     public Color specialCol;
 
     void Awake()
@@ -70,9 +77,18 @@ public class PlayerEndless : MonoBehaviour
 
         startingSize = transform.localScale;
 
-        // print(startAccPos.ToString());
+        // Materials/Colours
+        Transform[] t = gameObject.GetComponentsInChildren<Transform>();
+        Transform firstChild = t[1];
+        Transform secondChild = t[2];
 
-        startingCol = gameObject.GetComponentInChildren<Renderer>().material.color;
+        dropRend = firstChild.gameObject.GetComponent<Renderer>();
+        eyeRend = secondChild.gameObject.GetComponent<Renderer>();
+
+        dropStartCol1 = dropRend.materials[0].color;
+        dropStartCol2 = dropRend.materials[1].color;
+
+        eyeStartCol = eyeRend.material.color;
 
     }
 
@@ -191,11 +207,12 @@ public class PlayerEndless : MonoBehaviour
 
         if (obtainedSpeed || obtainedSpecial) // Powerups
         {
+            dropRend.materials[1].color = specialCol;
 
             // Special PowerUp
             if (obtainedSpecial)
             {
-                gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
+               
 
                 Vector2 fallQauntity = new Vector2(0, -specialSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
@@ -212,13 +229,14 @@ public class PlayerEndless : MonoBehaviour
             {
                 specialTimer = 0;
 
-                gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
+                
+               
             }
 
             // Speed Power
             if (obtainedSpeed)
             {
-                gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
+              //  gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
 
                 transform.localScale = specialSize;
 
@@ -238,7 +256,7 @@ public class PlayerEndless : MonoBehaviour
             {
                 speedTimer = 0;
 
-                gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
+                // gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
             }
         }
         else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling
