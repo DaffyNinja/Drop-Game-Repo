@@ -41,6 +41,20 @@ public class PlayerEndless : MonoBehaviour
     public float disNum;
     Vector3 startAccPos;
 
+    [Space(5)]
+    Renderer dropRend;
+    Renderer eyeRend;
+
+    Color dropStartCol1;
+    Color dropStartCol2;
+
+    Color eyeStartCol;
+
+    [Header("Colour")]
+    public Color specialCol;
+    public Color speedCol;
+
+
     [Header("Controls")]
     public bool isPC;
     public bool isMobile;
@@ -53,17 +67,6 @@ public class PlayerEndless : MonoBehaviour
     static public bool isAccelerate;
 
     Rigidbody rig;
-
-    [Space(5)]
-    Renderer dropRend;
-    Renderer eyeRend;
-
-    public Color dropStartCol1;
-    public Color dropStartCol2;
-
-    public Color eyeStartCol;
-
-    public Color specialCol;
 
     void Awake()
     {
@@ -207,12 +210,13 @@ public class PlayerEndless : MonoBehaviour
 
         if (obtainedSpeed || obtainedSpecial) // Powerups
         {
-            dropRend.materials[1].color = specialCol;
+
 
             // Special PowerUp
             if (obtainedSpecial)
             {
-               
+
+                dropRend.materials[1].color = specialCol;
 
                 Vector2 fallQauntity = new Vector2(0, -specialSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
@@ -229,14 +233,14 @@ public class PlayerEndless : MonoBehaviour
             {
                 specialTimer = 0;
 
-                
-               
+
+
             }
 
             // Speed Power
             if (obtainedSpeed)
             {
-              //  gameObject.GetComponentInChildren<Renderer>().material.color = specialCol;
+                dropRend.materials[1].color = speedCol;
 
                 transform.localScale = specialSize;
 
@@ -255,14 +259,14 @@ public class PlayerEndless : MonoBehaviour
             else
             {
                 speedTimer = 0;
-
-                // gameObject.GetComponentInChildren<Renderer>().material.color = startingCol;
             }
         }
-        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling
+        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling normal & Speed off
         {
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+            dropRend.materials[1].color = dropStartCol2;
         }
         else if (slowWhenTurn == true && moveLeft == true || moveRight == true)  // Fall speed decerases when turn left or right
         {
