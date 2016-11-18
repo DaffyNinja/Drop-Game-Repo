@@ -6,6 +6,9 @@ public class EndlessCamera : MonoBehaviour
 {
 
     public float speed;
+    float startSpeed;
+    public float boostSpeed;
+    public float specialSpeed;
     [Space(5)]
     public float camUpDis;
     public float camDownDis;
@@ -19,6 +22,8 @@ public class EndlessCamera : MonoBehaviour
     [Space(5)]
 	public EndlessGameMaster gMaster;
     PlayerEndless playSc;
+
+
 
     Camera cam;
     void Awake()
@@ -34,9 +39,9 @@ public class EndlessCamera : MonoBehaviour
             transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDisPc);
         }
 
-        playSc = playerTrans.GetComponent<PlayerEndless>();
+        startSpeed = speed;
 
-        //gMaster.gameOverText.gameObject.SetActive(false);
+        playSc = playerTrans.GetComponent<PlayerEndless>();
 
     }
 
@@ -50,23 +55,23 @@ public class EndlessCamera : MonoBehaviour
 
         if (viewPos.y > camUpDis) // If player is above camera view then GAME OVER
         {
-           // print("Up");
-
 			gMaster.isGameOver = true;
-
         }
 
         //If player gets powerup
-        //if (playSc.obtainedSpecial == true || playSc.obtainedSpeed == true)
-        //{
-        //    transform.parent = playerTrans;
+        if (playSc.obtainedSpecial == true && playSc.obtainedSpeed == false)    // Special
+        {
+            speed = specialSpeed;
+        }
+        else if (playSc.obtainedSpeed == true && playSc.obtainedSpecial == false) // Speed
+        {
+            speed = boostSpeed;
+        }
+        else
+        {
+            speed = startSpeed;
+        }
 
-        //}
-        //else
-        //{
-        //    transform.parent = null;
-        //}
 
-       
     }
 }

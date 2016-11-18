@@ -17,6 +17,8 @@ public class PlayerEndless : MonoBehaviour
 
     [Header("Special Pickup")]
     public float specialSpeed;
+    public float boostSpeed;
+
     public Vector3 specialSize;
     Vector3 startingSize;
 
@@ -211,10 +213,10 @@ public class PlayerEndless : MonoBehaviour
         if (obtainedSpeed || obtainedSpecial) // Powerups
         {
 
-
             // Special PowerUp
             if (obtainedSpecial)
             {
+                print("Special");
 
                 dropRend.materials[1].color = specialCol;
 
@@ -226,25 +228,20 @@ public class PlayerEndless : MonoBehaviour
                 if (specialTimer >= specialTime)
                 {
                     transform.localScale = startingSize;
+                    specialTimer = 0;
                     obtainedSpecial = false;
                 }
-            }
-            else
-            {
-                specialTimer = 0;
-
-
 
             }
 
-            // Speed Power
+            // Speed/Boost Power
             if (obtainedSpeed)
             {
                 dropRend.materials[1].color = speedCol;
 
                 transform.localScale = specialSize;
 
-                Vector2 fallQauntity = new Vector2(0, -specialSpeed);
+                Vector2 fallQauntity = new Vector2(0, -boostSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 speedTimer += Time.deltaTime;
@@ -252,13 +249,10 @@ public class PlayerEndless : MonoBehaviour
                 if (speedTimer >= speedTime)
                 {
                     transform.localScale = startingSize;
+                    specialTimer = 0;
                     obtainedSpeed = false;
                 }
 
-            }
-            else
-            {
-                speedTimer = 0;
             }
         }
         else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling normal & Speed off

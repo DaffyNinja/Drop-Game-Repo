@@ -211,13 +211,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackOBJs:
-  - {fileID: 1000011258075976, guid: 29079283968ee904e8fef5cad22b02a6, type: 2}
+  - {fileID: 1000010043332270, guid: 4fc06052c654f7c47ab1945b2edf2980, type: 2}
   playerTrans: {fileID: 1656333789}
   yPos1: 0
   yPos2: 16.5
-  zPos: -0.5
-  makePowerUps: 0
-  speedBoostObj: {fileID: 182766, guid: 7e7c6828d1c095344bfdf172fee9a9d9, type: 2}
+  zPos: -2
+  makePowerUps: 1
+  speedBoostObj: {fileID: 1000014267665262, guid: 01ba48caa52163345b3ffbbb22aa57e7,
+    type: 2}
   speedBoostNum: 25
 --- !u!1 &730393858
 GameObject:
@@ -434,6 +435,10 @@ Prefab:
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: zDisPc
       value: 27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: speed
+      value: 0.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
@@ -690,7 +695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.87686
+      value: 13.88
       objectReference: {fileID: 0}
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_LocalPosition.z
