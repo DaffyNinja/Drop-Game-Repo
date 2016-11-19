@@ -1094,91 +1094,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isMobile
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isPC
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: debugTouch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: debugAccel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: disNum
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: specialCol.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: specialCol.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: specialCol.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: specialCol.a
-      value: 0.503
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: speedCol.r
-      value: 0.9448278
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: speedCol.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: speedCol.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: speedCol.a
-      value: 0.472
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: obtainedSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: obtainedSpecial
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: speedTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: boostSpeed
-      value: 45
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
   m_IsPrefabParent: 0
@@ -1477,25 +1392,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a6b7b2678b7ab44a860428ebca19996, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1015575189 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 134382, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-  m_PrefabInternal: {fileID: 1469207293}
---- !u!54 &1015575190
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1015575189}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!4 &1015895744 stripped
 Transform:
   m_PrefabParentObject: {fileID: 458398, guid: f34e389af7c021f4cb268ca277fc450e, type: 2}
@@ -2103,34 +1999,6 @@ Prefab:
       propertyPath: gMaster
       value: 
       objectReference: {fileID: 693791802}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: yDis
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: zDis
-      value: 28.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: zDisPhone
-      value: 28.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: zDisPc
-      value: 22.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: isPhone
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: specialSpeed
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
-      propertyPath: boostSpeed
-      value: 0.52
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
   m_IsPrefabParent: 0
