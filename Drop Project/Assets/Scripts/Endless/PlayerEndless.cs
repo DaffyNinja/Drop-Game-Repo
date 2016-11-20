@@ -288,7 +288,7 @@ public class PlayerEndless : MonoBehaviour
         {
             obtainedSpecial = true;
 
-            Destroy(col.gameObject);
+            Destroy(col.gameObject.transform.parent);
         }
 
         if (col.gameObject.tag == "Speed")
