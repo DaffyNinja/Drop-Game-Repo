@@ -6,10 +6,12 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 
+    public GameObject mainMenuPanel;
+    public GameObject settingsPanel;
+    [Space(5)]
     public float cameraFallSpeed;
 
     static public bool isMute;
-
 
     [Space(5)]
     public Image touchButtonImg;
@@ -73,6 +75,14 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    public void mainMenuButton()
+    {
+    }
+
+    public void settingsButton()
+    {
+    }
+
     public void Level1Button()
     {
         SceneManager.LoadScene(1);
@@ -85,17 +95,12 @@ public class MainMenu : MonoBehaviour
 
     public void TouchButton()
     {
-
-       
-
         PlayerEndless.isTouch = !PlayerEndless.isTouch;
     }
 
     public void AccelButton()
     {
         PlayerEndless.isAccelerate = !PlayerEndless.isAccelerate;
-
-
     }
 
     public void Quit()
