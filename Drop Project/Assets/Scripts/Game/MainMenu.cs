@@ -31,8 +31,13 @@ public class MainMenu : MonoBehaviour
     [Space(5)]
     public AudioSource mainMenuASrc;
 
-    
+    void Awake()
+    {
+        settingsPanel.SetActive(false);
 
+        PlayerEndless.isTouch = true;
+
+    }
 
     void FixedUpdate()
     {
@@ -71,16 +76,20 @@ public class MainMenu : MonoBehaviour
         {
             acelButtonImg.sprite = offSprite;
         }
-        
-        
+
     }
 
-    public void mainMenuButton()
+    public void MainMenuButton()
     {
+        mainMenuPanel.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 
-    public void settingsButton()
+    public void SettingsButton()
     {
+        settingsPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+
     }
 
     public void Level1Button()
