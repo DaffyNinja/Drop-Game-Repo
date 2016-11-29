@@ -159,13 +159,13 @@ public class TrackCreationTwo : MonoBehaviour
             switch (ranNum)
             {
                 case 0:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 0, 0));
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), transform.rotation);
                     break;
                 case 1:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 0, 0));
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + 0.85f, playerTrans.position.y - 30, playerStartPos.z), transform.rotation);
                     break;
                 case 2:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.Euler(0, 0, 0));
+                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), transform.rotation);
                     break;
                 default:
                     print("Error");
