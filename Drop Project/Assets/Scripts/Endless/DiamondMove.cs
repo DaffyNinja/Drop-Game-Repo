@@ -11,7 +11,9 @@ public class DiamondMove : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-       // transform.rotation = new Quaternion(90, 0, 0,0);
+        transform.rotation = Quaternion.Euler(-90, 0, 0);
+
+       // Quaternion.Euler(-90, 0, 0);
 
         ranNum = Random.Range(0, 2);
     }

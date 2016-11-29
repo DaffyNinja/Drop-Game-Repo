@@ -11,22 +11,29 @@ public class PlayerEndless : MonoBehaviour
     public bool slowWhenTurn;
     public float turnFallSpeed;
 
+    float startingTurnSpeed;
+
     [Space(5)]
     public float turnAmmount;
     Quaternion startingRotation;
 
     [Header("Special Pickup")]
-    public float specialSpeed;
-    public float boostSpeed;
-
+    public float specialFallSpeed;
+    public float specialTurnSpeed;
+    public float boostFallSpeed;
+    public float boostTurnSpeed;
+    [Space(5)]
     public Vector3 specialSize;
     public Vector3 speedSize;
 
     Vector3 startingSize;
-
+    [Space(5)]
     public float specialTime;
     public float speedTime;
-
+    [Space(5)]
+    public Color specialCol;
+    public Color speedCol;
+    [Space(5)]
     public bool obtainedSpecial;
     public bool obtainedSpeed;
 
@@ -54,11 +61,6 @@ public class PlayerEndless : MonoBehaviour
 
     Color eyeStartCol;
 
-    [Header("Colour")]
-    public Color specialCol;
-    public Color speedCol;
-
-
     [Header("Controls")]
     public bool isPC;
     public bool isMobile;
@@ -83,6 +85,8 @@ public class PlayerEndless : MonoBehaviour
         startingRotation = transform.rotation;
 
         startingSize = transform.localScale;
+
+        startingTurnSpeed = leftRightSpeed;
 
         // Materials/Colours
         Transform[] t = gameObject.GetComponentsInChildren<Transform>();
@@ -223,8 +227,11 @@ public class PlayerEndless : MonoBehaviour
 
                 transform.localScale = specialSize;
 
-                Vector2 fallQauntity = new Vector2(0, -specialSpeed);
+                Vector2 fallQauntity = new Vector2(0, -specialFallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                slowWhenTurn = false;
+                leftRightSpeed = boostTurnSpeed;
 
                 specialTimer += Time.deltaTime;
 
@@ -236,6 +243,16 @@ public class PlayerEndless : MonoBehaviour
                 }
 
             }
+            else if (obtainedSpecial == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
+            {
+                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                slowWhenTurn = true;
+                leftRightSpeed = startingTurnSpeed;
+
+                dropRend.materials[1].color = dropStartCol2;
+            }
 
             // Speed/Boost Power
             if (obtainedSpeed)
@@ -244,8 +261,11 @@ public class PlayerEndless : MonoBehaviour
 
                 transform.localScale = speedSize;
 
-                Vector2 fallQauntity = new Vector2(0, -boostSpeed);
+                Vector2 fallQauntity = new Vector2(0, -boostFallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                slowWhenTurn = false;
+                leftRightSpeed = boostTurnSpeed;
 
                 speedTimer += Time.deltaTime;
 
@@ -258,14 +278,18 @@ public class PlayerEndless : MonoBehaviour
 
             }
         }
-        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       // Falling normal & Speed off
+        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
         {
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
+            slowWhenTurn = true;
+            leftRightSpeed = startingTurnSpeed;
+
             dropRend.materials[1].color = dropStartCol2;
         }
-        else if (slowWhenTurn == true && moveLeft == true || moveRight == true)  // Fall speed decerases when turn left or right
+
+        if (slowWhenTurn == true && moveLeft == true || moveRight == true)  // Fall speed decerases when turn left or right
         {
             Vector2 fallQauntity = new Vector2(0, -turnFallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);

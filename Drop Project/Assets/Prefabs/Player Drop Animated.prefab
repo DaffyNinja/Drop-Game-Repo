@@ -238,20 +238,22 @@ MonoBehaviour:
   slowWhenTurn: 1
   turnFallSpeed: 18.75
   turnAmmount: 40
-  specialSpeed: 30
-  boostSpeed: 45
+  specialFallSpeed: 35
+  specialTurnSpeed: 25
+  boostFallSpeed: 45
+  boostTurnSpeed: 30
   specialSize: {x: 16.5, y: 18.75, z: 16.5}
   speedSize: {x: 16.5, y: 18.75, z: 16.5}
   specialTime: 2
   speedTime: 3
+  specialCol: {r: 1, g: 0, b: 0, a: 0.503}
+  speedCol: {r: 0.9448278, g: 1, b: 0, a: 0.472}
   obtainedSpecial: 0
   obtainedSpeed: 0
   screenPosX: 185
   moveRight: 0
   moveLeft: 0
   disNum: 0.15
-  specialCol: {r: 1, g: 0, b: 0, a: 0.503}
-  speedCol: {r: 0.9448278, g: 1, b: 0, a: 0.472}
   isPC: 1
   isMobile: 0
   debugTouch: 0

@@ -996,8 +996,8 @@ MonoBehaviour:
   isStart: 1
   spawnPickups: 1
   specialAppearNum: 100
-  specLane1X: 5
-  specLane3X: 7
+  specLane1X: 5.5
+  specLane3X: 5.5
   specialObjs:
   - {fileID: 1000012511406258, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
   - {fileID: 1000012959486874, guid: c4f3c4911df4f3648ac70961d85827da, type: 2}
@@ -1096,16 +1096,6 @@ Prefab:
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isPC
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isMobile
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
@@ -1972,7 +1962,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011054946114, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011054946114, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
       propertyPath: m_LocalRotation.y
@@ -1984,7 +1974,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011054946114, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000011054946114, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
       propertyPath: m_RootOrder
@@ -1992,6 +1982,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012511406258, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011054946114, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
