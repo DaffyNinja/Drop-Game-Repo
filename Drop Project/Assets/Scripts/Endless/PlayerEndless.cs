@@ -20,6 +20,7 @@ public class PlayerEndless : MonoBehaviour
     [Header("Special Pickup")]
     public float specialFallSpeed;
     public float specialTurnSpeed;
+    [Space(5)]
     public float boostFallSpeed;
     public float boostTurnSpeed;
     [Space(5)]
