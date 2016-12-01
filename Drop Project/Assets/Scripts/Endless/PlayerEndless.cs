@@ -17,12 +17,12 @@ public class PlayerEndless : MonoBehaviour
     public float turnAmmount;
     Quaternion startingRotation;
 
-    [Header("Special Pickup")]
+    [Header("Special Abilities")]
     public float specialFallSpeed;
     public float specialTurnSpeed;
     [Space(5)]
-    public float boostFallSpeed;
-    public float boostTurnSpeed;
+    public float teleportPosY;
+    Vector3 startingPos;
     [Space(5)]
     public Vector3 specialSize;
     public Vector3 speedSize;
@@ -36,10 +36,9 @@ public class PlayerEndless : MonoBehaviour
     public Color speedCol;
     [Space(5)]
     public bool obtainedSpecial;
-    public bool obtainedSpeed;
+    public bool obtainedTeleport;
 
     float specialTimer;
-    float speedTimer;
 
     [Header("Touch")]
     public float screenPosX;
@@ -84,10 +83,9 @@ public class PlayerEndless : MonoBehaviour
         rig = GetComponent<Rigidbody>();
 
         startingRotation = transform.rotation;
-
         startingSize = transform.localScale;
-
         startingTurnSpeed = leftRightSpeed;
+        startingPos = transform.position;
 
         // Materials/Colours
         Transform[] t = gameObject.GetComponentsInChildren<Transform>();
@@ -217,7 +215,7 @@ public class PlayerEndless : MonoBehaviour
 
         }
 
-        if (obtainedSpeed || obtainedSpecial) // Powerups
+        if (obtainedSpecial /*|| obtainedTeleport*/) // Powerups
         {
 
             // Special PowerUp
@@ -232,7 +230,7 @@ public class PlayerEndless : MonoBehaviour
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
 
                 slowWhenTurn = false;
-                leftRightSpeed = boostTurnSpeed;
+                leftRightSpeed = specialTurnSpeed;
 
                 specialTimer += Time.deltaTime;
 
@@ -255,31 +253,17 @@ public class PlayerEndless : MonoBehaviour
                 dropRend.materials[1].color = dropStartCol2;
             }
 
-            // Speed/Boost Power
-            if (obtainedSpeed)
+            // Teleport
+            if (obtainedTeleport)
             {
-                dropRend.materials[1].color = speedCol;
+                print("Teleport");
 
-                transform.localScale = speedSize;
+                transform.position = new Vector3(transform.position.x, transform.position.y - teleportPosY, transform.position.z);
 
-                Vector2 fallQauntity = new Vector2(0, -boostFallSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
-                slowWhenTurn = false;
-                leftRightSpeed = boostTurnSpeed;
-
-                speedTimer += Time.deltaTime;
-
-                if (speedTimer >= speedTime)
-                {
-                    transform.localScale = startingSize;
-                    specialTimer = 0;
-                    obtainedSpeed = false;
-                }
-
+                obtainedTeleport = false;
             }
         }
-        else if (obtainedSpeed == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
+        else if (obtainedSpecial == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
         {
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
@@ -316,9 +300,9 @@ public class PlayerEndless : MonoBehaviour
             Destroy(col.gameObject);
         }
 
-        if (col.gameObject.tag == "Speed")
+        if (col.gameObject.tag == "Teleport")
         {
-            obtainedSpeed = true;
+            obtainedTeleport = true;
 
             Destroy(col.gameObject);
 

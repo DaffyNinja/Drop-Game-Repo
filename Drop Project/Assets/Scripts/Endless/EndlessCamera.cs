@@ -59,13 +59,13 @@ public class EndlessCamera : MonoBehaviour
         }
 
         //If player gets powerup
-        if (playSc.obtainedSpecial == true && playSc.obtainedSpeed == false)    // Special
+        if (playSc.obtainedSpecial == true && playSc.obtainedTeleport == false)    // Special
         {
             speed = specialSpeed;
         }
-        else if (playSc.obtainedSpeed == true && playSc.obtainedSpecial == false) // Speed
+        else if (playSc.obtainedTeleport == true && playSc.obtainedSpecial == false) // Teleport
         {
-            speed = boostSpeed;
+            transform.position = new Vector3(playerTrans.position.x, playerTrans.position.y + yDis, playerTrans.position.z - zDisPhone);
         }
         else
         {

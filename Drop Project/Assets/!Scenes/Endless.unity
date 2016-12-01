@@ -1000,8 +1000,7 @@ MonoBehaviour:
   specLane1X: 5.5
   specLane3X: 5.5
   specialObjs:
-  - {fileID: 1000012511406258, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
-  - {fileID: 1000012959486874, guid: c4f3c4911df4f3648ac70961d85827da, type: 2}
+  - {fileID: 1000012511406258, guid: a9325e28d77688f40a0ef990cfe6241c, type: 2}
 --- !u!114 &693791802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1126,11 @@ Prefab:
         type: 2}
       propertyPath: turnAmmount
       value: 42.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: teleportPosY
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
