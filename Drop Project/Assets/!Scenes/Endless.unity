@@ -1001,6 +1001,7 @@ MonoBehaviour:
   specLane3X: 5.5
   specialObjs:
   - {fileID: 1052070026508354, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
+  - {fileID: 1000012511406258, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
 --- !u!114 &693791802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,15 +1098,40 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+    - target: {fileID: 54000010385703288, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
-      propertyPath: boostTime
-      value: 5
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
         type: 2}
-      propertyPath: boostFallSpeed
-      value: 75
+      propertyPath: boostSize.x
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: boostSize.y
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: boostSize.z
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: boostCol.a
+      value: 0.497
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: isPC
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
+        type: 2}
+      propertyPath: isMobile
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
@@ -2584,15 +2610,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4110274865858190, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1215.2788
+      value: 963.9
       objectReference: {fileID: 0}
     - target: {fileID: 4110274865858190, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -84.99548
+      value: 5.95
       objectReference: {fileID: 0}
     - target: {fileID: 4110274865858190, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 198.68321
+      value: 65.82
       objectReference: {fileID: 0}
     - target: {fileID: 4110274865858190, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
       propertyPath: m_LocalRotation.x

@@ -246,11 +246,11 @@ MonoBehaviour:
   turnAmmount: 42.5
   specialFallSpeed: 35
   specialTurnSpeed: 25
-  boostFallSpeed: 35
+  boostFallSpeed: 75
   specialSize: {x: 16.5, y: 18.75, z: 16.5}
   boostSize: {x: 16.5, y: 16.5, z: 16.5}
   specialTime: 3.5
-  boostTime: 0
+  boostTime: 5
   specialCol: {r: 1, g: 0, b: 0, a: 0.503}
   boostCol: {r: 1, g: 0, b: 0.8068962, a: 0.578}
   obtainedSpecial: 0

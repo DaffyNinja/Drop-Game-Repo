@@ -64,6 +64,8 @@ public class PlayerEndless : MonoBehaviour
     public bool isPC;
     public bool isMobile;
 
+    bool canMove;
+
     [Space(5)]
     public bool debugTouch;
     public bool debugAccel;
@@ -73,8 +75,15 @@ public class PlayerEndless : MonoBehaviour
 
     Rigidbody rig;
 
+    Transform[] t;
+    Transform firstChild;
+    Transform secondChild;
+
+
     void Awake()
     {
+        canMove = true;
+
         startAccPos = Input.acceleration.normalized;
 
         screenPosX = Screen.width / 2;
@@ -86,9 +95,9 @@ public class PlayerEndless : MonoBehaviour
         startingTurnSpeed = leftRightSpeed;
 
         // Materials/Colours
-        Transform[] t = gameObject.GetComponentsInChildren<Transform>();
-        Transform firstChild = t[1];
-        Transform secondChild = t[2];
+        t = gameObject.GetComponentsInChildren<Transform>();
+        firstChild = t[1];
+        secondChild = t[2];
 
         dropRend = firstChild.gameObject.GetComponent<Renderer>();
         eyeRend = secondChild.gameObject.GetComponent<Renderer>();
@@ -103,114 +112,118 @@ public class PlayerEndless : MonoBehaviour
     void FixedUpdate()
     {
         // Controls
-        if (isPC)
+        if (canMove)
         {
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))  // Right
+            if (isPC)
             {
-                Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
-                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-
-                moveRight = true;
-                moveLeft = false;
-
-                transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
-            }
-            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))      // Left
-            {
-                Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
-                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-
-                moveRight = false;
-                moveLeft = true;
-
-                transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
-            }
-            else
-            {
-                moveRight = false;
-                moveLeft = false;
-
-                transform.rotation = startingRotation;
-            }
-
-        }
-        else if (isMobile)    // Mobile controls
-        {
-            if (isTouch == true && isAccelerate == false || debugTouch)  // Touch
-            {
-                if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+                if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))  // Right
                 {
-                    touchPos = Input.GetTouch(0).position;
-                }
-                else
-                {
-                    touchPos = new Vector2(0, 0);
-
-                    moveRight = false;
-                    moveLeft = false;
-                }
-
-                if (touchPos.x > screenPosX)
-                {
-                    moveRight = true;
-                    moveLeft = false;
-                }
-                else if (touchPos.x < screenPosX && touchPos.x > 0)
-                {
-                    moveLeft = true;
-                    moveRight = false;
-                }
-            }
-            else if (isAccelerate == true && isTouch == false || debugAccel)  // Acellerometor
-            {
-
-                if (Input.acceleration.normalized.x > startAccPos.x + disNum)  // Right
-                {
-                    //print("Right");
+                    Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
                     moveRight = true;
                     moveLeft = false;
 
+                    transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
                 }
-                else if (Input.acceleration.normalized.x < startAccPos.x - disNum) // Left   0.25
+                else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))      // Left
                 {
-                    // print("Left");
+                    Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
 
-                    moveLeft = true;
                     moveRight = false;
+                    moveLeft = true;
 
+                    transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
                 }
                 else
                 {
-                    // print("Stopped");
-
-                    moveLeft = false;
                     moveRight = false;
+                    moveLeft = false;
+
+                    transform.rotation = startingRotation;
                 }
-            }
 
-            // Movement
-            if (moveRight)
+            }
+            else if (isMobile)    // Mobile controls
             {
-                Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
-                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                if (isTouch == true && isAccelerate == false || debugTouch)  // Touch
+                {
+                    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+                    {
+                        touchPos = Input.GetTouch(0).position;
+                    }
+                    else
+                    {
+                        touchPos = new Vector2(0, 0);
 
-                transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
-                // moveRight = false;
-            }
-            else if (moveLeft)
-            {
-                Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
-                rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
-                //moveLeft = false;
+                        moveRight = false;
+                        moveLeft = false;
+                    }
 
-                transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
-            }
-            else
-            {
-                transform.rotation = startingRotation;
-            }
+                    if (touchPos.x > screenPosX)
+                    {
+                        moveRight = true;
+                        moveLeft = false;
+                    }
+                    else if (touchPos.x < screenPosX && touchPos.x > 0)
+                    {
+                        moveLeft = true;
+                        moveRight = false;
+                    }
+                }
+                else if (isAccelerate == true && isTouch == false || debugAccel)  // Acellerometor
+                {
 
+                    if (Input.acceleration.normalized.x > startAccPos.x + disNum)  // Right
+                    {
+                        //print("Right");
+
+                        moveRight = true;
+                        moveLeft = false;
+
+                    }
+                    else if (Input.acceleration.normalized.x < startAccPos.x - disNum) // Left   0.25
+                    {
+                        // print("Left");
+
+                        moveLeft = true;
+                        moveRight = false;
+
+                    }
+                    else
+                    {
+                        // print("Stopped");
+
+                        moveLeft = false;
+                        moveRight = false;
+                    }
+                }
+
+
+                // Movement
+                if (moveRight)
+                {
+                    Vector3 moveQauntity = new Vector3(leftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+
+                    transform.rotation = Quaternion.Euler(-turnAmmount, 90, 0);
+                    // moveRight = false;
+                }
+                else if (moveLeft)
+                {
+                    Vector3 moveQauntity = new Vector3(-leftRightSpeed, 0, 0);
+                    rig.velocity = new Vector3(moveQauntity.x, rig.velocity.y, rig.velocity.z);
+                    //moveLeft = false;
+
+                    transform.rotation = Quaternion.Euler(turnAmmount, 90, 0);
+                }
+                else
+                {
+                    transform.rotation = startingRotation;
+                }
+
+            }
         }
 
         if (obtainedSpecial || obtainedBoost) // Powerups
@@ -255,9 +268,13 @@ public class PlayerEndless : MonoBehaviour
             // Boost
             if (obtainedBoost)
             {
-                print("Boost");
 
                 dropRend.materials[1].color = boostCol;
+
+                canMove = false;
+
+                firstChild.gameObject.GetComponent<Collider>().enabled = false;
+
 
                 transform.localScale = boostSize;
 
@@ -268,11 +285,16 @@ public class PlayerEndless : MonoBehaviour
 
                 specialTimer += Time.deltaTime;
 
+                moveLeft = false;
+                moveRight = false;
+
                 if (specialTimer >= boostTime)
                 {
                     transform.localScale = startingSize;
                     specialTimer = 0;
+                    canMove = true;
                     slowWhenTurn = true;
+                    firstChild.gameObject.GetComponent<Collider>().enabled = true;
                     obtainedBoost = false;
                 }
             }
