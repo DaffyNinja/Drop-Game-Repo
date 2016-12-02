@@ -21,22 +21,21 @@ public class PlayerEndless : MonoBehaviour
     public float specialFallSpeed;
     public float specialTurnSpeed;
     [Space(5)]
-    public float teleportPosY;
-    Vector3 startingPos;
+    public float boostFallSpeed;
     [Space(5)]
     public Vector3 specialSize;
-    public Vector3 speedSize;
+    public Vector3 boostSize;
 
     Vector3 startingSize;
     [Space(5)]
     public float specialTime;
-    public float speedTime;
+    public float boostTime;
     [Space(5)]
     public Color specialCol;
-    public Color speedCol;
+    public Color boostCol;
     [Space(5)]
     public bool obtainedSpecial;
-    public bool obtainedTeleport;
+    public bool obtainedBoost;
 
     float specialTimer;
 
@@ -85,7 +84,6 @@ public class PlayerEndless : MonoBehaviour
         startingRotation = transform.rotation;
         startingSize = transform.localScale;
         startingTurnSpeed = leftRightSpeed;
-        startingPos = transform.position;
 
         // Materials/Colours
         Transform[] t = gameObject.GetComponentsInChildren<Transform>();
@@ -215,7 +213,7 @@ public class PlayerEndless : MonoBehaviour
 
         }
 
-        if (obtainedSpecial /*|| obtainedTeleport*/) // Powerups
+        if (obtainedSpecial || obtainedBoost) // Powerups
         {
 
             // Special PowerUp
@@ -238,11 +236,12 @@ public class PlayerEndless : MonoBehaviour
                 {
                     transform.localScale = startingSize;
                     specialTimer = 0;
+                    slowWhenTurn = true;
                     obtainedSpecial = false;
                 }
 
             }
-            else if (obtainedSpecial == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
+            else if (obtainedSpecial == false)       //Normal Falling and turn Speed
             {
                 Vector2 fallQauntity = new Vector2(0, -fallSpeed);
                 rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
@@ -253,15 +252,41 @@ public class PlayerEndless : MonoBehaviour
                 dropRend.materials[1].color = dropStartCol2;
             }
 
-            // Teleport
-            if (obtainedTeleport)
+            // Boost
+            if (obtainedBoost)
             {
-                print("Teleport");
+                print("Boost");
 
-                transform.position = new Vector3(transform.position.x, transform.position.y - teleportPosY, transform.position.z);
+                dropRend.materials[1].color = boostCol;
 
-                obtainedTeleport = false;
+                transform.localScale = boostSize;
+
+                Vector2 fallQauntity = new Vector2(0, -boostFallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                slowWhenTurn = false;
+
+                specialTimer += Time.deltaTime;
+
+                if (specialTimer >= boostTime)
+                {
+                    transform.localScale = startingSize;
+                    specialTimer = 0;
+                    slowWhenTurn = true;
+                    obtainedBoost = false;
+                }
             }
+            else if (obtainedBoost == false)       //Normal Falling and turn Speed
+            {
+                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
+                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
+
+                slowWhenTurn = true;
+                leftRightSpeed = startingTurnSpeed;
+
+                dropRend.materials[1].color = dropStartCol2;
+            }
+
         }
         else if (obtainedSpecial == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
         {
@@ -285,7 +310,7 @@ public class PlayerEndless : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         // Player destroys objects BUT the borders
-        if (col.gameObject.tag != "Border" && col.gameObject.tag != "Track" && obtainedSpecial == true)
+        if (col.gameObject.tag != "Border" && col.gameObject.tag != "Track" && obtainedSpecial == true || col.gameObject.tag != "Border" && col.gameObject.tag != "Track" && obtainedBoost == true)
         {
             Destroy(col.gameObject);
         }
@@ -300,9 +325,9 @@ public class PlayerEndless : MonoBehaviour
             Destroy(col.gameObject);
         }
 
-        if (col.gameObject.tag == "Teleport")
+        if (col.gameObject.tag == "Boost")
         {
-            obtainedTeleport = true;
+            obtainedBoost = true;
 
             Destroy(col.gameObject);
 
