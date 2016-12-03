@@ -1000,7 +1000,6 @@ MonoBehaviour:
   specLane1X: 5.5
   specLane3X: 5.5
   specialObjs:
-  - {fileID: 1052070026508354, guid: d7d4347f02fb555479df0f5651ba664d, type: 2}
   - {fileID: 1000012511406258, guid: bacbfa8bfc06c8a45b3141966aeca12a, type: 2}
 --- !u!114 &693791802
 MonoBehaviour:
@@ -1097,41 +1096,6 @@ Prefab:
     - target: {fileID: 4000011112100336, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 54000010385703288, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: m_CollisionDetection
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: boostSize.x
-      value: 18.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: boostSize.y
-      value: 18.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: boostSize.z
-      value: 18.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: boostCol.a
-      value: 0.497
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isPC
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013990884178, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71,
-        type: 2}
-      propertyPath: isMobile
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e6e894dca7c0fc4f82bd2ff68bf6c71, type: 2}
@@ -2140,7 +2104,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
       propertyPath: boostSpeed
-      value: 1.2
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489308, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}
+      propertyPath: yDis
+      value: -8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a92d9b049fe68734eba6849012dc3f8e, type: 2}

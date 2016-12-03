@@ -196,7 +196,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!64 &64000011608040260
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -248,11 +248,11 @@ MonoBehaviour:
   specialTurnSpeed: 25
   boostFallSpeed: 75
   specialSize: {x: 16.5, y: 18.75, z: 16.5}
-  boostSize: {x: 16.5, y: 16.5, z: 16.5}
+  boostSize: {x: 18.5, y: 20.5, z: 18.5}
   specialTime: 3.5
   boostTime: 5
   specialCol: {r: 1, g: 0, b: 0, a: 0.503}
-  boostCol: {r: 1, g: 0, b: 0.8068962, a: 0.578}
+  boostCol: {r: 1, g: 0, b: 0.8068962, a: 0.497}
   obtainedSpecial: 0
   obtainedBoost: 0
   screenPosX: 185

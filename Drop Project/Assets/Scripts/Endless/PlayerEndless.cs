@@ -232,7 +232,6 @@ public class PlayerEndless : MonoBehaviour
             // Special PowerUp
             if (obtainedSpecial)
             {
-
                 dropRend.materials[1].color = specialCol;
 
                 transform.localScale = specialSize;
@@ -253,16 +252,6 @@ public class PlayerEndless : MonoBehaviour
                     obtainedSpecial = false;
                 }
 
-            }
-            else if (obtainedSpecial == false)       //Normal Falling and turn Speed
-            {
-                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
-                slowWhenTurn = true;
-                leftRightSpeed = startingTurnSpeed;
-
-                dropRend.materials[1].color = dropStartCol2;
             }
 
             // Boost
@@ -298,19 +287,9 @@ public class PlayerEndless : MonoBehaviour
                     obtainedBoost = false;
                 }
             }
-            else if (obtainedBoost == false)       //Normal Falling and turn Speed
-            {
-                Vector2 fallQauntity = new Vector2(0, -fallSpeed);
-                rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
-
-                slowWhenTurn = true;
-                leftRightSpeed = startingTurnSpeed;
-
-                dropRend.materials[1].color = dropStartCol2;
-            }
 
         }
-        else if (obtainedSpecial == false && moveLeft == false && moveRight == false)       //Normal Falling and turn Speed
+        else if (obtainedSpecial == false && moveLeft == false && moveRight == false || obtainedBoost == false)       //Normal Falling and turn Speed
         {
             Vector2 fallQauntity = new Vector2(0, -fallSpeed);
             rig.velocity = new Vector2(rig.velocity.x, fallQauntity.y);
