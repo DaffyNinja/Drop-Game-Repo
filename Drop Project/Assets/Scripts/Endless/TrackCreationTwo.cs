@@ -101,7 +101,7 @@ public class TrackCreationTwo : MonoBehaviour
             isMedium = false;
             isEasy = false;
         }
-      
+
 
 
         TrackMaintance();
@@ -151,26 +151,14 @@ public class TrackCreationTwo : MonoBehaviour
 
 
 
-        //Special Pickups
+        //Special Pickups Spawn
         if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true && gMaster.runTut == false)  // If player has passed the ammount of special appear num
         {
-            int ranNum = Random.Range(0, 3);
+            print("Spawn SPecial");
 
-            switch (ranNum)
-            {
-                case 0:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x - specLane1X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.identity);
-                    break;
-                case 1:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x, playerTrans.position.y - 30, playerStartPos.z), Quaternion.identity);
-                    break;
-                case 2:
-                    Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], new Vector3(playerStartPos.x + specLane3X, playerTrans.position.y - 30, playerStartPos.z), Quaternion.identity);
-                    break;
-                default:
-                    print("Error");
-                    break;
-            }
+            GameObject[] speciaSpawn = GameObject.FindGameObjectsWithTag("Special Spawn");
+
+            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], speciaSpawn[4].transform.position, Quaternion.identity);
 
             specialAppearNum += specialNumDble;
         }
@@ -182,7 +170,7 @@ public class TrackCreationTwo : MonoBehaviour
 
         foreach (GameObject t in track)
         {
-            
+
             if (trackPos1.y > t.transform.position.y)
             {
                 create1 = false;
