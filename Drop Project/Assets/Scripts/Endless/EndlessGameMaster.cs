@@ -127,7 +127,6 @@ public class EndlessGameMaster : MonoBehaviour
 
             Camera.main.gameObject.GetComponent<EndlessCamera>().speed = 0;
 
-            //
             gameOverPanel.SetActive(true);
             inGamePanel.SetActive(false);
 
@@ -152,13 +151,22 @@ public class EndlessGameMaster : MonoBehaviour
                 highScore = 0;
             }
         }
-        else
+        else     // Score
         {
-            if (playerTrans.position.y < playerStartPos.y)  // Increase Score
+            if (playerTrans.position.y < playerStartPos.y && playerTrans.GetComponent<PlayerEndless>().obtainedBoost == false && playerTrans.GetComponent<PlayerEndless>().obtainedSpecial == false)  // Increase Score
             {
                 score += 1 * Time.deltaTime;
 
             }
+            else if (playerTrans.GetComponent<PlayerEndless>().obtainedSpecial == true && playerTrans.GetComponent<PlayerEndless>().obtainedBoost == false)  // Special Score increase
+            {
+                score += 1 * Time.deltaTime * 3;
+            }
+            else if (playerTrans.GetComponent<PlayerEndless>().obtainedBoost == true && playerTrans.GetComponent<PlayerEndless>().obtainedSpecial == false)  // Boost Score increase
+            {
+                score += 1 * Time.deltaTime * 6;
+            }
+
         }
 
         //Audio

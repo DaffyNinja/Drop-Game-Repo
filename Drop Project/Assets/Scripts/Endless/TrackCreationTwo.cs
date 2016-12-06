@@ -154,7 +154,7 @@ public class TrackCreationTwo : MonoBehaviour
         //Special Pickups Spawn
         if (playerTrans.position.y <= playerStartPos.y - specialAppearNum && spawnPickups == true && gMaster.runTut == false)  // If player has passed the ammount of special appear num
         {
-            print("Spawn SPecial");
+           // print("Spawn SPecial");
 
             GameObject[] speciaSpawn = GameObject.FindGameObjectsWithTag("Special Spawn");
 

@@ -55,7 +55,13 @@ public class EndlessCamera : MonoBehaviour
 
         if (viewPos.y > camUpDis) // If player is above camera view then GAME OVER
         {
-			gMaster.isGameOver = true;
+            gMaster.isGameOver = true;
+        }
+        else if (viewPos.y < camDownDis)
+        {
+            print("Down");
+
+            speed += 15;
         }
 
         //If player gets powerup

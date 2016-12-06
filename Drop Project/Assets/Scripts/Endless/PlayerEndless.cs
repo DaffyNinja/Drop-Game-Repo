@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI; // To Delete
 
 public class PlayerEndless : MonoBehaviour
 {
@@ -177,24 +176,18 @@ public class PlayerEndless : MonoBehaviour
 
                     if (Input.acceleration.normalized.x > startAccPos.x + disNum)  // Right
                     {
-                        //print("Right");
-
                         moveRight = true;
                         moveLeft = false;
 
                     }
                     else if (Input.acceleration.normalized.x < startAccPos.x - disNum) // Left   0.25
                     {
-                        // print("Left");
-
                         moveLeft = true;
                         moveRight = false;
 
                     }
                     else
                     {
-                        // print("Stopped");
-
                         moveLeft = false;
                         moveRight = false;
                     }
