@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
     public GameObject mainMenuPanel;
     public GameObject settingsPanel;
+    public GameObject CreditsPanel;
     [Space(5)]
     public float cameraFallSpeed;
 
@@ -34,6 +35,7 @@ public class MainMenu : MonoBehaviour
     void Awake()
     {
         settingsPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
 
         PlayerEndless.isTouch = true;
 
@@ -82,12 +84,25 @@ public class MainMenu : MonoBehaviour
     public void MainMenuButton()
     {
         mainMenuPanel.SetActive(true);
+
         settingsPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
     }
 
     public void SettingsButton()
     {
         settingsPanel.SetActive(true);
+
+        mainMenuPanel.SetActive(false);
+        CreditsPanel.SetActive(false);
+
+    }
+
+    public void CreditsButton()
+    {
+        CreditsPanel.SetActive(true);
+
+        settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(false);
 
     }

@@ -254,6 +254,7 @@ public class PlayerEndless : MonoBehaviour
                 dropRend.materials[1].color = boostCol;
 
                 canMove = false;
+                transform.rotation = Quaternion.Euler(0, 90, 0);
 
                 firstChild.gameObject.GetComponent<Collider>().enabled = false;
 

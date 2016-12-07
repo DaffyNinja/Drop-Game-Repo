@@ -61,8 +61,13 @@ public class EndlessCamera : MonoBehaviour
         {
             print("Down");
 
-            speed += 15;
+            speed += 25;
         }
+        else if (viewPos.y > camDownDis && viewPos.y < camUpDis)
+        {
+            print("Middle");
+        }
+
 
         //If player gets powerup
         if (playSc.obtainedSpecial == true && playSc.obtainedBoost == false)    // Special
