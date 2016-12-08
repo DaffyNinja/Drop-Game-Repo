@@ -41,7 +41,7 @@ public class TrackCreationTwo : MonoBehaviour
     [Header("Special Pickups")]
     public bool spawnPickups;
     public float specialAppearNum;
-    float specialNumDble;
+    float specialstartNum;
 
     public float specLane1X;
     public float specLane3X;
@@ -70,7 +70,8 @@ public class TrackCreationTwo : MonoBehaviour
 
         playerStartPos = playerTrans.position;
 
-        specialNumDble = specialAppearNum;
+        specialstartNum = specialAppearNum;
+
 
     }
 
@@ -160,7 +161,8 @@ public class TrackCreationTwo : MonoBehaviour
 
             Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], speciaSpawn[4].transform.position, Quaternion.identity);
 
-            specialAppearNum += specialNumDble;
+            specialAppearNum = specialAppearNum += specialstartNum;
+
         }
     }
 

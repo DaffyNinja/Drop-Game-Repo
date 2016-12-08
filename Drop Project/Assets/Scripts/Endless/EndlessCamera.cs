@@ -57,16 +57,15 @@ public class EndlessCamera : MonoBehaviour
         {
             gMaster.isGameOver = true;
         }
-        else if (viewPos.y < camDownDis)
-        {
-            print("Down");
+        //else if (viewPos.y < camDownDis)
+        //{
+        //    print("Down");
+        //}
+        //else if (viewPos.y > camDownDis && viewPos.y < camUpDis)
+        //{
+        //    //Middle
 
-            speed += 25;
-        }
-        else if (viewPos.y > camDownDis && viewPos.y < camUpDis)
-        {
-            print("Middle");
-        }
+        //}
 
 
         //If player gets powerup
@@ -74,9 +73,15 @@ public class EndlessCamera : MonoBehaviour
         {
             speed = specialSpeed;
         }
-       else if (playSc.obtainedBoost == true && playSc.obtainedSpecial == false)    // Boost
+        else if (playSc.obtainedBoost == true && playSc.obtainedSpecial == false)    // Boost
         {
             speed = boostSpeed;
+        }
+        else if (viewPos.y < camDownDis)
+        {
+            print("Down");
+
+            speed += 10;   // Make LERP
         }
         else
         {
