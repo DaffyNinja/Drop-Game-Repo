@@ -159,7 +159,7 @@ public class TrackCreationTwo : MonoBehaviour
 
             GameObject[] speciaSpawn = GameObject.FindGameObjectsWithTag("Special Spawn");
 
-            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], speciaSpawn[4].transform.position, Quaternion.identity);
+            Instantiate(specialObjs[Mathf.RoundToInt(Random.Range(0, specialObjs.Count))], speciaSpawn[4].transform.position, Quaternion.identity);  // To Fix
 
             specialAppearNum = specialAppearNum += specialstartNum;
 

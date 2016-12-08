@@ -20,7 +20,7 @@ public class EndlessCamera : MonoBehaviour
     public float zDisPhone;
     public float zDisPc;
     [Space(5)]
-	public EndlessGameMaster gMaster;
+    public EndlessGameMaster gMaster;
     PlayerEndless playSc;
 
 
@@ -79,9 +79,7 @@ public class EndlessCamera : MonoBehaviour
         }
         else if (viewPos.y < camDownDis)
         {
-            print("Down");
-
-            speed += 10;   // Make LERP
+            speed = Mathf.Lerp(speed, speed + 0.35f, 0.50f);
         }
         else
         {
