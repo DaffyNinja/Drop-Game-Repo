@@ -313,14 +313,14 @@ public class PlayerEndless : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Special")
+        if (col.gameObject.tag == "Special" && obtainedSpecial == false && obtainedBoost == false)
         {
             obtainedSpecial = true;
 
             Destroy(col.gameObject);
         }
 
-        if (col.gameObject.tag == "Boost")
+        if (col.gameObject.tag == "Boost" && obtainedSpecial == false && obtainedBoost == false)
         {
             obtainedBoost = true;
 

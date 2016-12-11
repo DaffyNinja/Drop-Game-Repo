@@ -103,9 +103,33 @@ public class TrackCreationTwo : MonoBehaviour
             isEasy = false;
         }
 
-
-
         TrackMaintance();
+        DestroySpecial();
+    }
+
+    void DestroySpecial()    // Destroys Special Pickups
+    {
+        GameObject[] special = GameObject.FindGameObjectsWithTag("Special");
+        GameObject[] boost = GameObject.FindGameObjectsWithTag("Boost");
+
+        foreach (GameObject s in special)
+        {
+            if (s.transform.position.y > playerTrans.position.y + destroyNum)
+            {
+                Destroy(s);
+            }
+        }
+
+        foreach (GameObject b in boost)
+        {
+            if (b.transform.position.y > playerTrans.position.y + destroyNum)
+            {
+                Destroy(b);
+            }
+        }
+
+
+
     }
 
     void TrackMaintance()  //When to destroy Tracks
