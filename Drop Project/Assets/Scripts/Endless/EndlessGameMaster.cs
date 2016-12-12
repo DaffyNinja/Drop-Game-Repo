@@ -13,10 +13,12 @@ public class EndlessGameMaster : MonoBehaviour
     float currentHighScore;
     [Space(5)]
     public Text scoreText;
-    public Text highScoreText;
+    public Text highScoreUI;
+
 
     public Text goScoreText;
-    public Text goHighScoreText;
+    public Text gohighScoreUI;
+    public Text newHighscoreText;
 
     public Button restartButton;
     [Space(5)]
@@ -65,12 +67,15 @@ public class EndlessGameMaster : MonoBehaviour
     {
         track2 = GetComponent<TrackCreationTwo>();
 
+
         isGameOver = false;
         score = 0;
 
         gameOverText.gameObject.SetActive(false);
         griefTextBox.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
+
+        newHighscoreText.gameObject.SetActive(false);
 
         playerStartPos = playerTrans.position;
 
@@ -86,6 +91,8 @@ public class EndlessGameMaster : MonoBehaviour
 
     void FixedUpdate()
     {
+        //highScoreUI = highScore;
+
         // Press back button on android phone or Esc key on PC
         if (Input.GetKey(KeyCode.Escape))
         {
@@ -139,9 +146,10 @@ public class EndlessGameMaster : MonoBehaviour
             restartButton.gameObject.SetActive(true);
 
             goScoreText.text = Mathf.RoundToInt(score).ToString();
-            goHighScoreText.text = highScore.ToString();
+            gohighScoreUI.text = highScore.ToString();
 
 
+            // HighScore
             if (storeHighScore == true)
             {
                 CheckHighScore();
@@ -180,21 +188,22 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
-        highScoreText.text = currentHighScore.ToString();
-
-        //  print("Highscore: " + PlayerPrefs.GetFloat("highScore").ToString());
-
+        highScoreUI.text = currentHighScore.ToString();
 
     }
 
     // High Score
     void CheckHighScore()
     {
-        if (score > highScore)
+        if (score > highScore)   // New Highscore
         {
-            //print("New HighScore");
+            newHighscoreText.gameObject.SetActive(true);
             highScore = Mathf.RoundToInt(score);
             PlayerPrefs.SetFloat("highScore", highScore);
+        }
+        else
+        {
+            newHighscoreText.gameObject.SetActive(false);
         }
     }
 
