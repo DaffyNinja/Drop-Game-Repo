@@ -13,6 +13,8 @@ public class EndlessCamera : MonoBehaviour
     public float camUpDis;
     public float camDownDis;
     [Space(5)]
+    public float downSpeedBoost;
+    [Space(5)]
     public Transform playerTrans;
     public float yDis;
     [Space(5)]
@@ -57,15 +59,6 @@ public class EndlessCamera : MonoBehaviour
         {
             gMaster.isGameOver = true;
         }
-        //else if (viewPos.y < camDownDis)
-        //{
-        //    print("Down");
-        //}
-        //else if (viewPos.y > camDownDis && viewPos.y < camUpDis)
-        //{
-        //    //Middle
-
-        //}
 
 
         //If player gets powerup
@@ -77,9 +70,9 @@ public class EndlessCamera : MonoBehaviour
         {
             speed = boostSpeed;
         }
-        else if (viewPos.y < camDownDis)
+        else if (viewPos.y < camDownDis)    // Make camera boost when player reaches bottom of screen
         {
-            speed = Mathf.Lerp(speed, speed + 0.35f, 0.50f);
+            speed = Mathf.Lerp(speed, speed + downSpeedBoost, 0.50f);
         }
         else
         {

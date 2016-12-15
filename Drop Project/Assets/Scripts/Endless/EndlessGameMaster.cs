@@ -146,7 +146,7 @@ public class EndlessGameMaster : MonoBehaviour
             restartButton.gameObject.SetActive(true);
 
             goScoreText.text = Mathf.RoundToInt(score).ToString();
-            gohighScoreUI.text = highScore.ToString();
+            gohighScoreUI.text = currentHighScore.ToString();
 
 
             // HighScore
@@ -190,12 +190,14 @@ public class EndlessGameMaster : MonoBehaviour
         scoreText.text = Mathf.RoundToInt(score).ToString();
         highScoreUI.text = currentHighScore.ToString();
 
+       // print("Highscore: " + currentHighScore);
+
     }
 
     // High Score
     void CheckHighScore()
     {
-        if (score > highScore)   // New Highscore
+        if (score > currentHighScore)   // New Highscore
         {
             newHighscoreText.gameObject.SetActive(true);
             highScore = Mathf.RoundToInt(score);
@@ -227,10 +229,5 @@ public class EndlessGameMaster : MonoBehaviour
     {
         rightPressNum += 1;
     }
-
-
-
-
-
 
 }
