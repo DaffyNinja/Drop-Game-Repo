@@ -18,10 +18,8 @@ public class MainMenu : MonoBehaviour
     public Image touchButtonImg;
     public Image acelButtonImg;
 
-    public Sprite CheckSpr;
-    public Sprite offSprite;
-
-
+    //public Sprite CheckSpr;
+    //public Sprite offSprite;
 
     [Space(5)]
     public Image muteIm;
@@ -61,23 +59,25 @@ public class MainMenu : MonoBehaviour
             Application.Quit();
         }
 
-        if (PlayerEndless.isTouch == true)
+        if (PlayerEndless.isTouch == true && PlayerEndless.isAccelerate == false)
         {
-            touchButtonImg.sprite = CheckSpr;
+            touchButtonImg.color = Color.green;
+
+            acelButtonImg.color = Color.white;
+        }
+        else if (PlayerEndless.isAccelerate == true && PlayerEndless.isTouch == false)
+        {
+            acelButtonImg.color = Color.green;
+
+            touchButtonImg.color = Color.white;
         }
         else
         {
-            touchButtonImg.sprite = offSprite;
+            acelButtonImg.color = Color.white;
+
+            touchButtonImg.color = Color.white;
         }
 
-        if (PlayerEndless.isAccelerate == true)
-        {
-            acelButtonImg.sprite = CheckSpr;
-        }
-        else
-        {
-            acelButtonImg.sprite = offSprite;
-        }
 
     }
 
@@ -119,12 +119,17 @@ public class MainMenu : MonoBehaviour
 
     public void TouchButton()
     {
-        PlayerEndless.isTouch = !PlayerEndless.isTouch;
+        PlayerEndless.isAccelerate = false;
+        PlayerEndless.isTouch = true;
+        
     }
 
     public void AccelButton()
     {
-        PlayerEndless.isAccelerate = !PlayerEndless.isAccelerate;
+        PlayerEndless.isTouch = false;
+        PlayerEndless.isAccelerate = true;
+        
+
     }
 
     public void Quit()
