@@ -39,7 +39,6 @@ public class EndlessGameMaster : MonoBehaviour
 
     [Header("Game Over")]
     public bool isGameOver;
-    public Text gameOverText;
     [Header("Audio")]
     public AudioSource musicSource;
     // public bool playMusic;
@@ -71,7 +70,7 @@ public class EndlessGameMaster : MonoBehaviour
         isGameOver = false;
         score = 0;
 
-        gameOverText.gameObject.SetActive(false);
+
         griefTextBox.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
 
@@ -136,9 +135,6 @@ public class EndlessGameMaster : MonoBehaviour
 
             gameOverPanel.SetActive(true);
             inGamePanel.SetActive(false);
-
-            gameOverText.text = "Game Over";
-            gameOverText.gameObject.SetActive(true);
 
             griefTextBox.text = lossText[ranNum];
 
