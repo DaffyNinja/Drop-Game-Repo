@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndlessGameMaster : MonoBehaviour
 {
     public float score;
-    [Space(5)]                
+    [Space(5)]
     public bool storeHighScore;
     public float highScore;
     float currentHighScore;
@@ -41,20 +41,16 @@ public class EndlessGameMaster : MonoBehaviour
     public bool isGameOver;
     [Header("Audio")]
     public AudioSource musicSource;
-    // public bool playMusic;
 
     [Header("Tutorial")]
     public bool runTut;
     public Text tutText;
 
     public Button leftButton;
-    bool leftPressed;
     int leftPressNum;
     public Button rightButton;
-    bool rightPressed;
     int rightPressNum;
 
-    bool pressedScreen;
 
     [Space(5)]
     public Transform playerTrans;
@@ -64,8 +60,8 @@ public class EndlessGameMaster : MonoBehaviour
 
     void Awake()
     {
-        track2 = GetComponent<TrackCreationTwo>();
 
+        track2 = GetComponent<TrackCreationTwo>();
 
         isGameOver = false;
         score = 0;
@@ -85,12 +81,14 @@ public class EndlessGameMaster : MonoBehaviour
         gameOverPanel.SetActive(false);
         tutorialPanel.SetActive(false);
         inGamePanel.SetActive(true);
+
+        runTut = TutorialPref.GetBool("runTut");
+
     }
 
 
     void FixedUpdate()
     {
-        //highScoreUI = highScore;
 
         // Press back button on android phone or Esc key on PC
         if (Input.GetKey(KeyCode.Escape))
@@ -99,26 +97,25 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         // Tutorial
-        if (runTut)
+        if (runTut == true)
         {
             tutorialPanel.SetActive(true);
 
-            tutText.text = "Press the LEFT or Right side of the screen to move";
-
             if (leftPressNum >= 3 && rightPressNum >= 3)  // Wehn to stop tut
             {
-                runTut = false;
+                runTut = TutorialPref.GetBool("runTut");
+                TutorialPref.SetBool("runTut", false);
             }
 
         }
-        else if (!runTut)
+        else
         {
+            tutorialPanel.SetActive(false);
+
             if (track2.isMedium == false)
             {
                 track2.isEasy = true;
             }
-
-            tutorialPanel.SetActive(false);
 
             tutText.text = null;
         }
@@ -174,7 +171,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         //Audio
-        if (MainMenu. isMute)  // Mute
+        if (MainMenu.isMute)  // Mute
         {
             musicSource.mute = true;
         }
@@ -185,8 +182,6 @@ public class EndlessGameMaster : MonoBehaviour
 
         scoreText.text = Mathf.RoundToInt(score).ToString();
         highScoreUI.text = currentHighScore.ToString();
-
-       // print("Highscore: " + currentHighScore);
 
     }
 
@@ -205,6 +200,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
     }
 
+
     //Buttons
     public void Exit()
     {
@@ -218,11 +214,15 @@ public class EndlessGameMaster : MonoBehaviour
 
     public void LeftTutButton()
     {
+        print("L" + leftPressNum);
+
         leftPressNum += 1;
     }
 
     public void RightTutButton()
     {
+        print("R" + rightPressNum);
+
         rightPressNum += 1;
     }
 

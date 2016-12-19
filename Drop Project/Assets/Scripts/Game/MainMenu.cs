@@ -18,9 +18,6 @@ public class MainMenu : MonoBehaviour
     public Image touchButtonImg;
     public Image acelButtonImg;
 
-    //public Sprite CheckSpr;
-    //public Sprite offSprite;
-
     [Space(5)]
     public Image muteIm;
 
