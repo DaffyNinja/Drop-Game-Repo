@@ -97,7 +97,7 @@ public class EndlessGameMaster : MonoBehaviour
         }
 
         // Tutorial
-        if (runTut == true)
+        if (runTut == true && PlayerEndless.isTouch == true)
         {
             tutorialPanel.SetActive(true);
 
@@ -193,6 +193,7 @@ public class EndlessGameMaster : MonoBehaviour
             newHighscoreText.gameObject.SetActive(true);
             highScore = Mathf.RoundToInt(score);
             PlayerPrefs.SetFloat("highScore", highScore);
+            gohighScoreUI.text = currentHighScore.ToString();
         }
         else
         {
