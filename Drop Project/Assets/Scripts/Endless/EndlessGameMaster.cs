@@ -214,14 +214,14 @@ public class EndlessGameMaster : MonoBehaviour
 
     public void LeftTutButton()
     {
-        print("L" + leftPressNum);
+      //  print("L" + leftPressNum);
 
         leftPressNum += 1;
     }
 
     public void RightTutButton()
     {
-        print("R" + rightPressNum);
+        //print("R" + rightPressNum);
 
         rightPressNum += 1;
     }
